@@ -1,2 +1,0 @@
-/workspaces/efootball-overlay-assistant/app/src/main/java/com/assistant/overlay/OverlayService.kt
-/workspaces/efootball-overlay-assistant/app/src/main/java/com/assistant/overlay/MainActivity.kt
