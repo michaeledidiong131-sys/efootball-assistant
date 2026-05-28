@@ -137,7 +137,7 @@ class OverlayService : Service() {
             color = Color.GREEN
             style = Paint.Style.STROKE
             strokeWidth = 5f
-            antiAlias = true
+            isAntiAlias = true
         }
 
         override fun onDraw(canvas: Canvas) {
