@@ -1,161 +1,61 @@
-Script started on 2026-05-28 03:27:47+00:00 [TERM="xterm-256color" TTY="/dev/pts/0" COLUMNS="50" LINES="57"]
-[?2004h[0;32m@michaeledidiong131-sys [0m➜ [1;34m/workspaces/efootball-overlay-assistant [0;36m([1;31mmain[0;36m) [0m$ sed -n '1,320p' app/src/main/java/com/assistant/overlay/OverlayService.kt
-[?2004l
-package com.assistant.overlay
+Script started on 2026-05-28 14:28:30+00:00 [TERM="xterm-256color" TTY="/dev/pts/0" COLUMNS="34" LINES="54"]
+bash: __vsc_prompt_cmd_original: command not found
+[?2004h]0;user@firebase-efootball-assistant-1779975046441: ~/efootball-assistant[00;35mefootball-assistant-00995228[00m:[01;34m~/efootball-assistant[00m[01;32m{main}[00m$ java -version
+[?2004ljava is not installed, but available in the following packages, pick one to run it, Ctrl+C to cancel.
+[0m[1G> [K
+[K[7m[?7ladoptopenjdk-bin[?7h[0m
+[K[?7ladoptopenjdk-hotspot-bin-15[?7h[0m
+[K[?7ladoptopenjdk-hotspot-bin-16[?7h[0m
+[K[?7ladoptopenjdk-hotspot-bin-8[?7h[0m
+[K[?7ladoptopenjdk-jre-bin[?7h[0m
+[K[?7ladoptopenjdk-jre-hotspot-bin-15[?7h[0m
+[K[?7ladoptopenjdk-jre-hotspot-bin-16[?7h[0m
+[K[?7ladoptopenjdk-jre-hotspot-bin-8[?7h[0m
+[K[?7ladoptopenjdk-jre-openj9-bin-11[?7h[0m
+[K[?7ladoptopenjdk-jre-openj9-bin-15[?7h[0m[10A[1G> [1G> c[K
+[K[7m[?7ladoptopenjdk-bin[?7h[0m
+[K[?7ladoptopenjdk-hotspot-bin-15[?7h[0m
+[K[?7ladoptopenjdk-hotspot-bin-16[?7h[0m
+[K[?7ladoptopenjdk-hotspot-bin-8[?7h[0m
+[K[?7ladoptopenjdk-jre-bin[?7h[0m
+[K[?7ladoptopenjdk-jre-hotspot-bin-15[?7h[0m
+[K[?7ladoptopenjdk-jre-hotspot-bin-16[?7h[0m
+[K[?7ladoptopenjdk-jre-hotspot-bin-8[?7h[0m
+[K[?7ladoptopenjdk-jre-openj9-bin-11[?7h[0m
+[K[?7ladoptopenjdk-jre-openj9-bin-15[?7h[0m[10A[1G> c[1G> c[K
+[K[7m[?7lgraalvm-[33mc[39me[?7h[0m
+[K[?7lgraalvmCEPackages.graalvm-[33mc[39me-musl[?7h[0m
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K[10A[1G> c[1G[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K[10Aopenjdk version "22" 2024-03-19
+OpenJDK Runtime Environment GraalVM CE 22+36.1 (build 22+36-jvmci-b02)
+OpenJDK 64-Bit Server VM GraalVM CE 22+36.1 (build 22+36-jvmci-b02, mixed mode, sharing)
+To permanently add this package to your environment, please add [1;92mpkgs.graalvm-ce[m to the list of packages in your dev.nix file, then rebuild your environment
+bash: __vsc_prompt_cmd_original: command not found
+[?2004h]0;user@firebase-efootball-assistant-1779975046441: ~/efootball-assistant[00;35mefootball-assistant-00995228[00m:[01;34m~/efootball-assistant[00m[01;32m{main}[00m$ [K[A[K]0;user@firebase-efootball-assistant-1779975046441: ~/efootball-assistant[00;35mefootball-assistant-00995228[00m:[01;34m~/efootball-assistant[00m[01;32m{main}[00m$ [K[A[K]0;user@firebase-efootball-assistant-1779975046441: ~/efootball-assistant[00;35mefootball-assistant-00995228[00m:[01;34m~/efootball-assistant[00m[01;32m{main}[00m$ [K[A[K]0;user@firebase-efootball-assistant-1779975046441: ~/efootball-assistant[00;35mefootball-assistant-00995228[00m:[01;34m~/efootball-assistant[00m[01;32m{main}[00m$ [K[A[K]0;user@firebase-efootball-assistant-1779975046441: ~/efootball-assistant[00;35mefootball-assistant-00995228[00m:[01;34m~/efootball-assistant[00m[01;32m{main}[00m$ echo $JAVA_HOME
+[?2004l
+bash: __vsc_prompt_cmd_original: command not found
+[?2004h]0;user@firebase-efootball-assistant-1779975046441: ~/efootball-assistant[00;35mefootball-assistant-00995228[00m:[01;34m~/efootball-assistant[00m[01;32m{main}[00m$ [K[A[K]0;user@firebase-efootball-assistant-1779975046441: ~/efootball-assistant[00;35mefootball-assistant-00995228[00m:[01;34m~/efootball-assistant[00m[01;32m{main}[00m$ [K[A[K]0;user@firebase-efootball-assistant-1779975046441: ~/efootball-assistant[00;35mefootball-assistant-00995228[00m:[01;34m~/efootball-assistant[00m[01;32m{main}[00m$ -v[K[K./gradlew -v
+[?2004l
+ERROR: JAVA_HOME is not set and no 'java' command could be found in your PATH.
 
-import android.app.NotificationChannel
-import android.app.NotificationManager
-import android.app.Service
-import android.content.Context
-import android.content.Intent
-import android.graphics.Canvas
-import android.graphics.Color
-import android.graphics.Paint
-import android.graphics.PixelFormat
-import android.hardware.display.DisplayManager
-import android.hardware.display.VirtualDisplay
-import android.media.ImageReader
-import android.media.projection.MediaProjection
-import android.media.projection.MediaProjectionManager
-import android.os.Handler
-import android.os.HandlerThread
-import android.os.IBinder
-import android.util.DisplayMetrics
-import android.view.Gravity
-import android.view.View
-import android.view.WindowManager
-import android.widget.FrameLayout
-import androidx.core.app.NotificationCompat
+Please set the JAVA_HOME variable in your environment to match the
+location of your Java installation.
 
-class OverlayService : Service() {
-
-    private var windowManager: WindowManager? = null
-    private var overlayView: FrameLayout? = null
-    private var canvasView: AssistCanvasView? = null
-    private var mediaProjection: MediaProjection? = null
-    private var virtualDisplay: VirtualDisplay? = null
-    private var imageReader: ImageReader? = null
-    private var backgroundThread: HandlerThread? = null
-    private var backgroundHandler: Handler? = null
-
-    override fun onBind(intent: Intent?): IBinder? = null
-
-    override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
-        if (intent != null) {
-            val resultData: Intent? = intent.getParcelableExtra("EXTRA_RESULT_DATA")
-            if (resultData != null) {
-                startForegroundNotification()
-                initOverlayWindow()
-                initCapturePipeline(resultData)
-            }
-        }
-        return START_STICKY
-    }
-
-    private fun startForegroundNotification() {
-        val channelId = "overlay_assist_channel"
-        val channelName = "Smart Assist Engine"
-        val manager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
-        
-        val channel = NotificationChannel(channelId, channelName, NotificationManager.IMPORTANCE_LOW)
-        manager.createNotificationChannel(channel)
-
-        val notification = NotificationCompat.Builder(this, channelId)
-            .setContentTitle("Smart Assist Active")
-            .setContentText("Processing real-time screen telemetry...")
-            .setSmallIcon(android.R.drawable.ic_dialog_info)
-            .setPriority(NotificationCompat.PRIORITY_LOW)
-            .build()
-
-        startForeground(1, notification)
-    }
-
-    private fun initOverlayWindow() {
-        windowManager = getSystemService(Context.WINDOW_SERVICE) as WindowManager
-        overlayView = FrameLayout(this)
-        canvasView = AssistCanvasView(this)
-
-        overlayView?.addView(canvasView)
-
-        val params = WindowManager.LayoutParams(
-            WindowManager.LayoutParams.MATCH_PARENT,
-            WindowManager.LayoutParams.MATCH_PARENT,
-            WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY,
-            WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE or 
-                    WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE or
-                    WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN,
-            PixelFormat.TRANSLUCENT
-        )
-        params.gravity = Gravity.TOP or Gravity.START
-        
-        windowManager?.addView(overlayView, params)
-    }
-
-    private fun initCapturePipeline(resultData: Intent) {
-        val projectionManager = getSystemService(Context.MEDIA_PROJECTION_SERVICE) as MediaProjectionManager
-        mediaProjection = projectionManager.getMediaProjection(-1, resultData)
-
-        val metrics = DisplayMetrics()
-        windowManager?.defaultDisplay?.getRealMetrics(metrics)
-        
-        val width = 1280
-        val height = 720
-        val dpi = metrics.densityDpi
-
-        imageReader = ImageReader.newInstance(width, height, PixelFormat.RGBA_8888, 2)
-        
-        backgroundThread = HandlerThread("CaptureThread").apply { start() }
-        backgroundHandler = Handler(backgroundThread!!.looper)
-
-        virtualDisplay = mediaProjection?.createVirtualDisplay(
-            "ScreenCapture",
-            width, height, dpi,
-            DisplayManager.VIRTUAL_DISPLAY_FLAG_AUTO_MIRROR,
-            imageReader?.surface, null, backgroundHandler
-        )
-
-        imageReader?.setOnImageAvailableListener({ reader ->
-            val image = reader?.acquireLatestImage()
-            if (image != null) {
-                // Pixel matrix verification step
-                image.close()
-            }
-        }, backgroundHandler)
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        virtualDisplay?.release()
-        imageReader?.close()
-        mediaProjection?.stop()
-        backgroundThread?.quitSafely()
-        if (overlayView != null && windowManager != null) {
-            windowManager?.removeView(overlayView)
-        }
-    }
-
-    // Custom view engine that draws directly over the display layer
-    private class AssistCanvasView(context: Context) : View(context) {
-        private val paint = Paint().apply {
-            color = Color.GREEN
-            style = Paint.Style.STROKE
-            strokeWidth = 5f
-            isAntiAlias = true
-        }
-
-        override fun onDraw(canvas: Canvas) {
-            super.onDraw(canvas)
-            // Draws a target crosshair in the center of the viewport for alignment confirmation
-            val centerX = width / 2f
-            val centerY = height / 2f
-            canvas.drawCircle(centerX, centerY, 40f, paint)
-            canvas.drawLine(centerX - 60f, centerY, centerX + 60f, centerY, paint)
-            canvas.drawLine(centerX, centerY - 60f, centerX, centerY + 60f, paint)
-        }
-    }
-}
-[?2004h[0;32m@michaeledidiong131-sys [0m➜ [1;34m/workspaces/efootball-overlay-assistant [0;36m([1;31mmain[0;36m) [0m$ exit
-[?2004l
-exit
-
-Script done on 2026-05-28 03:27:56+00:00 [COMMAND_EXIT_CODE="0"]
+bash: __vsc_prompt_cmd_original: command not found
+[?2004h]0;user@firebase-efootball-assistant-1779975046441: ~/efootball-assistant[00;35mefootball-assistant-00995228[00m:[01;34m~/efootball-assistant[00m[01;32m{main}[00m$ 
