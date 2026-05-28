@@ -1,37 +1,47 @@
 plugins {
-    id("com.android.application")
-    id("org.jetbrains.kotlin.android")
+        id("com.android.application")
+            id("org.jetbrains.kotlin.android")
 }
 
 android {
-    namespace = "com.assistant.overlay"
-    compileSdk = 34
+        namespace = "com.assistant.overlay"
 
-    defaultConfig {
-        applicationId = "com.assistant.overlay"
-        minSdk = 26
-        targetSdk = 34
-        versionCode = 1
-        versionName = "1.0"
-    }
+            compileSdk = 34
 
-    buildTypes {
-        release {
-            isMinifyEnabled = false
-            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
-        }
-    }
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
-    }
-    kotlinOptions {
-        jvmTarget = "1.8"
-    }
+                defaultConfig {
+                            applicationId = "com.assistant.overlay"
+                                    minSdk = 26
+                                            targetSdk = 34
+
+                                                    versionCode = 1
+                                                            versionName = "1.0"
+                }
+
+                    buildTypes {
+                                release {
+                                                isMinifyEnabled = false
+                                }
+                    }
+
+                        compileOptions {
+                                    sourceCompatibility = JavaVersion.VERSION_21
+                                            targetCompatibility = JavaVersion.VERSION_21
+                        }
+
+                            kotlinOptions {
+                                        jvmTarget = "21"
+                            }
 }
 
 dependencies {
-    implementation("androidx.appcompat:appcompat:1.6.1")
-    implementation("androidx.core:core-ktx:1.12.0")
-    implementation("androidx.appcompat:appcompat:1.6.1")
+        implementation("androidx.core:core-ktx:1.12.0")
+            implementation("androidx.appcompat:appcompat:1.6.1")
+}plugins
+}
+                            }
+                        }
+                                }
+                    }
+                }
+}
 }
