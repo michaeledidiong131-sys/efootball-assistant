@@ -1,61 +1,0 @@
-Script started on 2026-05-28 14:28:30+00:00 [TERM="xterm-256color" TTY="/dev/pts/0" COLUMNS="34" LINES="54"]
-bash: __vsc_prompt_cmd_original: command not found
-[?2004h]0;user@firebase-efootball-assistant-1779975046441: ~/efootball-assistant[00;35mefootball-assistant-00995228[00m:[01;34m~/efootball-assistant[00m[01;32m{main}[00m$ java -version
-[?2004ljava is not installed, but available in the following packages, pick one to run it, Ctrl+C to cancel.
-[0m[1G> [K
-[K[7m[?7ladoptopenjdk-bin[?7h[0m
-[K[?7ladoptopenjdk-hotspot-bin-15[?7h[0m
-[K[?7ladoptopenjdk-hotspot-bin-16[?7h[0m
-[K[?7ladoptopenjdk-hotspot-bin-8[?7h[0m
-[K[?7ladoptopenjdk-jre-bin[?7h[0m
-[K[?7ladoptopenjdk-jre-hotspot-bin-15[?7h[0m
-[K[?7ladoptopenjdk-jre-hotspot-bin-16[?7h[0m
-[K[?7ladoptopenjdk-jre-hotspot-bin-8[?7h[0m
-[K[?7ladoptopenjdk-jre-openj9-bin-11[?7h[0m
-[K[?7ladoptopenjdk-jre-openj9-bin-15[?7h[0m[10A[1G> [1G> c[K
-[K[7m[?7ladoptopenjdk-bin[?7h[0m
-[K[?7ladoptopenjdk-hotspot-bin-15[?7h[0m
-[K[?7ladoptopenjdk-hotspot-bin-16[?7h[0m
-[K[?7ladoptopenjdk-hotspot-bin-8[?7h[0m
-[K[?7ladoptopenjdk-jre-bin[?7h[0m
-[K[?7ladoptopenjdk-jre-hotspot-bin-15[?7h[0m
-[K[?7ladoptopenjdk-jre-hotspot-bin-16[?7h[0m
-[K[?7ladoptopenjdk-jre-hotspot-bin-8[?7h[0m
-[K[?7ladoptopenjdk-jre-openj9-bin-11[?7h[0m
-[K[?7ladoptopenjdk-jre-openj9-bin-15[?7h[0m[10A[1G> c[1G> c[K
-[K[7m[?7lgraalvm-[33mc[39me[?7h[0m
-[K[?7lgraalvmCEPackages.graalvm-[33mc[39me-musl[?7h[0m
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K[10A[1G> c[1G[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K[10Aopenjdk version "22" 2024-03-19
-OpenJDK Runtime Environment GraalVM CE 22+36.1 (build 22+36-jvmci-b02)
-OpenJDK 64-Bit Server VM GraalVM CE 22+36.1 (build 22+36-jvmci-b02, mixed mode, sharing)
-To permanently add this package to your environment, please add [1;92mpkgs.graalvm-ce[m to the list of packages in your dev.nix file, then rebuild your environment
-bash: __vsc_prompt_cmd_original: command not found
-[?2004h]0;user@firebase-efootball-assistant-1779975046441: ~/efootball-assistant[00;35mefootball-assistant-00995228[00m:[01;34m~/efootball-assistant[00m[01;32m{main}[00m$ [K[A[K]0;user@firebase-efootball-assistant-1779975046441: ~/efootball-assistant[00;35mefootball-assistant-00995228[00m:[01;34m~/efootball-assistant[00m[01;32m{main}[00m$ [K[A[K]0;user@firebase-efootball-assistant-1779975046441: ~/efootball-assistant[00;35mefootball-assistant-00995228[00m:[01;34m~/efootball-assistant[00m[01;32m{main}[00m$ [K[A[K]0;user@firebase-efootball-assistant-1779975046441: ~/efootball-assistant[00;35mefootball-assistant-00995228[00m:[01;34m~/efootball-assistant[00m[01;32m{main}[00m$ [K[A[K]0;user@firebase-efootball-assistant-1779975046441: ~/efootball-assistant[00;35mefootball-assistant-00995228[00m:[01;34m~/efootball-assistant[00m[01;32m{main}[00m$ echo $JAVA_HOME
-[?2004l
-bash: __vsc_prompt_cmd_original: command not found
-[?2004h]0;user@firebase-efootball-assistant-1779975046441: ~/efootball-assistant[00;35mefootball-assistant-00995228[00m:[01;34m~/efootball-assistant[00m[01;32m{main}[00m$ [K[A[K]0;user@firebase-efootball-assistant-1779975046441: ~/efootball-assistant[00;35mefootball-assistant-00995228[00m:[01;34m~/efootball-assistant[00m[01;32m{main}[00m$ [K[A[K]0;user@firebase-efootball-assistant-1779975046441: ~/efootball-assistant[00;35mefootball-assistant-00995228[00m:[01;34m~/efootball-assistant[00m[01;32m{main}[00m$ -v[K[K./gradlew -v
-[?2004l
-ERROR: JAVA_HOME is not set and no 'java' command could be found in your PATH.
-
-Please set the JAVA_HOME variable in your environment to match the
-location of your Java installation.
-
-bash: __vsc_prompt_cmd_original: command not found
-[?2004h]0;user@firebase-efootball-assistant-1779975046441: ~/efootball-assistant[00;35mefootball-assistant-00995228[00m:[01;34m~/efootball-assistant[00m[01;32m{main}[00m$ 
