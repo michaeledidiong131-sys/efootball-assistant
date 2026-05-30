@@ -1,0 +1,14 @@
+[
+    {
+        "merged": "com.assistant.overlay.app-merged_res-20:/layout_overlay_layout.xml.flat",
+        "source": "com.assistant.overlay.app-main-22:/layout/overlay_layout.xml"
+    },
+    {
+        "merged": "com.assistant.overlay.app-merged_res-20:/layout_activity_main.xml.flat",
+        "source": "com.assistant.overlay.app-main-22:/layout/activity_main.xml"
+    },
+    {
+        "merged": "com.assistant.overlay.app-merged_res-20:/layout_activity_update.xml.flat",
+        "source": "com.assistant.overlay.app-main-22:/layout/activity_update.xml"
+    }
+]
