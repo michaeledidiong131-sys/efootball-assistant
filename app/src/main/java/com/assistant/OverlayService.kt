@@ -15,13 +15,16 @@ import android.media.ImageReader
 import android.media.projection.MediaProjection
 import android.media.projection.MediaProjectionManager
 import android.os.Build
+import android.os.Handler
 import android.os.IBinder
+import android.os.Looper
 import android.os.Process
 import android.util.DisplayMetrics
 import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.WindowManager
+import android.widget.Toast
 import androidx.core.app.NotificationCompat
 import com.assistant.overlay.R
 
@@ -34,10 +37,8 @@ class OverlayService : Service() {
 
     private var isRunning = false
     private var processingThread: Thread? = null
-    
     private lateinit var windowManager: WindowManager
     private lateinit var overlayView: View
-
     private var mediaProjection: MediaProjection? = null
     private var virtualDisplay: VirtualDisplay? = null
     private var imageReader: ImageReader? = null
@@ -46,39 +47,34 @@ class OverlayService : Service() {
 
     override fun onCreate() {
         super.onCreate()
-        // FIX: Only initialize non-sensitive UI elements here.
         initializeOverlayUI()
     }
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
-        if (intent != null && intent.hasExtra("RESULT_CODE") && intent.hasExtra("DATA")) {
-            val resultCode = intent.getIntExtra("RESULT_CODE", Activity.RESULT_CANCELED)
-            
-            // FIX: HyperOS Android 16 Strict Mode Type-safe Parcelable extraction
-            val data: Intent? = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-                intent.getParcelableExtra("DATA", Intent::class.java)
-            } else {
-                @Suppress("DEPRECATION")
-                intent.getParcelableExtra("DATA")
-            }
-            
-            if (resultCode == Activity.RESULT_OK && data != null) {
-                // 1. Promote to Foreground ONLY after holding the validated Intent context
-                startForegroundServiceNotification()
-                
-                // 2. Consume the projection intent securely
+        val resultCode = EngineData.code
+        val data = EngineData.intent
+        
+        if (resultCode == Activity.RESULT_OK && data != null) {
+            startForegroundSafely()
+            try {
                 setupMediaProjection(resultCode, data)
-                
-                // 3. Ignite the zero-allocation processing engine
                 if (!isRunning) {
                     initializeProcessingEngine()
                 }
+            } catch (e: Exception) {
+                // TELEMETRY INJECTOR: Broadcast the exact hardware denial to the screen
+                Handler(Looper.getMainLooper()).post {
+                    Toast.makeText(applicationContext, "ENGINE HALTED: ${e.message}", Toast.LENGTH_LONG).show()
+                }
+                stopSelf() 
             }
+        } else {
+            stopSelf()
         }
         return START_NOT_STICKY
     }
 
-    private fun startForegroundServiceNotification() {
+    private fun startForegroundSafely() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             val channel = NotificationChannel(
                 CHANNEL_ID,
@@ -96,7 +92,6 @@ class OverlayService : Service() {
             .setPriority(NotificationCompat.PRIORITY_LOW)
             .build()
 
-        // Strict Android 14+ enforcement
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
             startForeground(NOTIFICATION_ID, notification, ServiceInfo.FOREGROUND_SERVICE_TYPE_MEDIA_PROJECTION)
         } else {
@@ -107,7 +102,6 @@ class OverlayService : Service() {
     private fun initializeOverlayUI() {
         windowManager = getSystemService(Context.WINDOW_SERVICE) as WindowManager
         val inflater = getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
-        
         overlayView = inflater.inflate(R.layout.overlay_layout, null)
 
         @Suppress("DEPRECATION")
@@ -125,7 +119,6 @@ class OverlayService : Service() {
                     WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
             PixelFormat.TRANSLUCENT
         )
-        
         layoutParams.gravity = Gravity.TOP or Gravity.START
         windowManager.addView(overlayView, layoutParams)
     }
@@ -138,27 +131,33 @@ class OverlayService : Service() {
         @Suppress("DEPRECATION")
         windowManager.defaultDisplay.getRealMetrics(metrics)
         
-        val maxDimension = Math.max(metrics.widthPixels, metrics.heightPixels)
+        var width = metrics.widthPixels
+        var height = metrics.heightPixels
+        if (width <= 0 || height <= 0) {
+            width = 720
+            height = 1280
+        }
+
+        val maxDimension = Math.max(width, height)
         val scale = if (maxDimension > 720) 720f / maxDimension else 1f
-        val width = (metrics.widthPixels * scale).toInt()
-        val height = (metrics.heightPixels * scale).toInt()
+        var finalWidth = (width * scale).toInt()
+        var finalHeight = (height * scale).toInt()
         
-        // Zero-allocation buffer pool (Max 2 frames)
-        imageReader = ImageReader.newInstance(width, height, PixelFormat.RGBA_8888, 2)
+        if (finalWidth % 2 != 0) finalWidth -= 1
+        if (finalHeight % 2 != 0) finalHeight -= 1
+        
+        imageReader = ImageReader.newInstance(finalWidth, finalHeight, PixelFormat.RGBA_8888, 2)
         imageReader?.setOnImageAvailableListener({ reader ->
             val image = reader.acquireLatestImage()
-            if (image != null) {
-                // Frame ready for OCR/Pixel parsing. Instantly closed to prevent OOM.
-                image.close() 
-            }
+            image?.close() 
         }, null)
 
         virtualDisplay = mediaProjection?.createVirtualDisplay(
             "HybridCoachScreen",
-            width, height, metrics.densityDpi,
+            finalWidth, finalHeight, metrics.densityDpi,
             DisplayManager.VIRTUAL_DISPLAY_FLAG_AUTO_MIRROR,
             imageReader?.surface, null, null
-        )
+        ) ?: throw Exception("Kernel denied VirtualDisplay creation.")
     }
 
     private fun initializeProcessingEngine() {
@@ -179,15 +178,12 @@ class OverlayService : Service() {
         isRunning = false
         processingThread?.interrupt()
         processingThread = null
-        
         if (::overlayView.isInitialized) {
             windowManager.removeView(overlayView)
         }
-        
         virtualDisplay?.release()
         imageReader?.close()
         mediaProjection?.stop()
-        
         super.onDestroy()
     }
 }
