@@ -46,19 +46,33 @@ class OverlayService : Service() {
 
     override fun onCreate() {
         super.onCreate()
-        startForegroundServiceNotification()
+        // FIX: Only initialize non-sensitive UI elements here.
         initializeOverlayUI()
-        initializeProcessingEngine()
     }
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
         if (intent != null && intent.hasExtra("RESULT_CODE") && intent.hasExtra("DATA")) {
             val resultCode = intent.getIntExtra("RESULT_CODE", Activity.RESULT_CANCELED)
-            @Suppress("DEPRECATION")
-            val data: Intent? = intent.getParcelableExtra("DATA")
+            
+            // FIX: HyperOS Android 16 Strict Mode Type-safe Parcelable extraction
+            val data: Intent? = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+                intent.getParcelableExtra("DATA", Intent::class.java)
+            } else {
+                @Suppress("DEPRECATION")
+                intent.getParcelableExtra("DATA")
+            }
             
             if (resultCode == Activity.RESULT_OK && data != null) {
+                // 1. Promote to Foreground ONLY after holding the validated Intent context
+                startForegroundServiceNotification()
+                
+                // 2. Consume the projection intent securely
                 setupMediaProjection(resultCode, data)
+                
+                // 3. Ignite the zero-allocation processing engine
+                if (!isRunning) {
+                    initializeProcessingEngine()
+                }
             }
         }
         return START_NOT_STICKY
@@ -77,12 +91,12 @@ class OverlayService : Service() {
 
         val notification: Notification = NotificationCompat.Builder(this, CHANNEL_ID)
             .setContentTitle("Splendor Assist Active")
-            .setContentText("Engine thread optimization layer initialized.")
+            .setContentText("Hybrid Coach Engine initialized.")
             .setSmallIcon(android.R.drawable.ic_menu_compass)
             .setPriority(NotificationCompat.PRIORITY_LOW)
             .build()
 
-        // CRITICAL FIX: Android 14+ requires explicit type declaration here
+        // Strict Android 14+ enforcement
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
             startForeground(NOTIFICATION_ID, notification, ServiceInfo.FOREGROUND_SERVICE_TYPE_MEDIA_PROJECTION)
         } else {
@@ -129,10 +143,12 @@ class OverlayService : Service() {
         val width = (metrics.widthPixels * scale).toInt()
         val height = (metrics.heightPixels * scale).toInt()
         
+        // Zero-allocation buffer pool (Max 2 frames)
         imageReader = ImageReader.newInstance(width, height, PixelFormat.RGBA_8888, 2)
         imageReader?.setOnImageAvailableListener({ reader ->
             val image = reader.acquireLatestImage()
             if (image != null) {
+                // Frame ready for OCR/Pixel parsing. Instantly closed to prevent OOM.
                 image.close() 
             }
         }, null)
