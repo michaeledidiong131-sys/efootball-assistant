@@ -1,6 +1,5 @@
 package com.assistant
 
-import com.assistant.overlay.R
 import android.app.Activity
 import android.app.Notification
 import android.app.NotificationChannel
@@ -8,6 +7,7 @@ import android.app.NotificationManager
 import android.app.Service
 import android.content.Context
 import android.content.Intent
+import android.content.pm.ServiceInfo
 import android.graphics.PixelFormat
 import android.hardware.display.DisplayManager
 import android.hardware.display.VirtualDisplay
@@ -23,6 +23,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.WindowManager
 import androidx.core.app.NotificationCompat
+import com.assistant.overlay.R
 
 class OverlayService : Service() {
 
@@ -69,21 +70,24 @@ class OverlayService : Service() {
                 CHANNEL_ID,
                 "Assistant Engine Background Core",
                 NotificationManager.IMPORTANCE_LOW
-            ).apply {
-                description = "Handles performance monitoring and tactical analytical overlay."
-            }
+            )
             val manager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
             manager.createNotificationChannel(channel)
         }
 
         val notification: Notification = NotificationCompat.Builder(this, CHANNEL_ID)
-            .setContentTitle("Overlay Assistant Active")
+            .setContentTitle("Splendor Assist Active")
             .setContentText("Engine thread optimization layer initialized.")
             .setSmallIcon(android.R.drawable.ic_menu_compass)
             .setPriority(NotificationCompat.PRIORITY_LOW)
             .build()
 
-        startForeground(NOTIFICATION_ID, notification)
+        // CRITICAL FIX: Android 14+ requires explicit type declaration here
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+            startForeground(NOTIFICATION_ID, notification, ServiceInfo.FOREGROUND_SERVICE_TYPE_MEDIA_PROJECTION)
+        } else {
+            startForeground(NOTIFICATION_ID, notification)
+        }
     }
 
     private fun initializeOverlayUI() {
@@ -120,20 +124,15 @@ class OverlayService : Service() {
         @Suppress("DEPRECATION")
         windowManager.defaultDisplay.getRealMetrics(metrics)
         
-        // MEMORY CONSTRAINT: Downscale max resolution to 720p equivalence
         val maxDimension = Math.max(metrics.widthPixels, metrics.heightPixels)
         val scale = if (maxDimension > 720) 720f / maxDimension else 1f
         val width = (metrics.widthPixels * scale).toInt()
         val height = (metrics.heightPixels * scale).toInt()
         
-        // Allocate zero-copy memory buffer (Max 2 frames to prevent RAM saturation)
         imageReader = ImageReader.newInstance(width, height, PixelFormat.RGBA_8888, 2)
         imageReader?.setOnImageAvailableListener({ reader ->
             val image = reader.acquireLatestImage()
             if (image != null) {
-                // Future Implementation: Region-of-Interest (ROI) scanning logic
-                
-                // CRITICAL: Memory must be explicitly released immediately to prevent LMK termination
                 image.close() 
             }
         }, null)
@@ -152,7 +151,7 @@ class OverlayService : Service() {
             Process.setThreadPriority(Process.THREAD_PRIORITY_FOREGROUND)
             while (isRunning) {
                 try {
-                    Thread.sleep(16) // Target 60Hz loop cycle
+                    Thread.sleep(16) 
                 } catch (e: InterruptedException) {
                     break
                 }
@@ -169,7 +168,6 @@ class OverlayService : Service() {
             windowManager.removeView(overlayView)
         }
         
-        // Teardown sequence to prevent memory leaks
         virtualDisplay?.release()
         imageReader?.close()
         mediaProjection?.stop()
