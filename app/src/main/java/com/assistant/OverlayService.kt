@@ -1,7 +1,7 @@
 package com.assistant
 
 import com.assistant.overlay.R
-
+import android.app.Activity
 import android.app.Notification
 import android.app.NotificationChannel
 import android.app.NotificationManager
@@ -9,9 +9,15 @@ import android.app.Service
 import android.content.Context
 import android.content.Intent
 import android.graphics.PixelFormat
+import android.hardware.display.DisplayManager
+import android.hardware.display.VirtualDisplay
+import android.media.ImageReader
+import android.media.projection.MediaProjection
+import android.media.projection.MediaProjectionManager
 import android.os.Build
 import android.os.IBinder
 import android.os.Process
+import android.util.DisplayMetrics
 import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
@@ -31,6 +37,10 @@ class OverlayService : Service() {
     private lateinit var windowManager: WindowManager
     private lateinit var overlayView: View
 
+    private var mediaProjection: MediaProjection? = null
+    private var virtualDisplay: VirtualDisplay? = null
+    private var imageReader: ImageReader? = null
+
     override fun onBind(intent: Intent?): IBinder? = null
 
     override fun onCreate() {
@@ -38,6 +48,19 @@ class OverlayService : Service() {
         startForegroundServiceNotification()
         initializeOverlayUI()
         initializeProcessingEngine()
+    }
+
+    override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
+        if (intent != null && intent.hasExtra("RESULT_CODE") && intent.hasExtra("DATA")) {
+            val resultCode = intent.getIntExtra("RESULT_CODE", Activity.RESULT_CANCELED)
+            @Suppress("DEPRECATION")
+            val data: Intent? = intent.getParcelableExtra("DATA")
+            
+            if (resultCode == Activity.RESULT_OK && data != null) {
+                setupMediaProjection(resultCode, data)
+            }
+        }
+        return START_NOT_STICKY
     }
 
     private fun startForegroundServiceNotification() {
@@ -67,17 +90,18 @@ class OverlayService : Service() {
         windowManager = getSystemService(Context.WINDOW_SERVICE) as WindowManager
         val inflater = getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
         
-        // Inflate the zero-interception layout
         overlayView = inflater.inflate(R.layout.overlay_layout, null)
 
-        // Strict parameters: Overlay mode, no touch interception, translucent background
+        @Suppress("DEPRECATION")
+        val layoutType = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) 
+            WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY 
+        else 
+            WindowManager.LayoutParams.TYPE_PHONE
+
         val layoutParams = WindowManager.LayoutParams(
             WindowManager.LayoutParams.MATCH_PARENT,
             WindowManager.LayoutParams.MATCH_PARENT,
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) 
-                WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY 
-            else 
-                WindowManager.LayoutParams.TYPE_PHONE,
+            layoutType,
             WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE or
                     WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE or
                     WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
@@ -88,16 +112,47 @@ class OverlayService : Service() {
         windowManager.addView(overlayView, layoutParams)
     }
 
+    private fun setupMediaProjection(code: Int, intent: Intent) {
+        val projectionManager = getSystemService(Context.MEDIA_PROJECTION_SERVICE) as MediaProjectionManager
+        mediaProjection = projectionManager.getMediaProjection(code, intent)
+        
+        val metrics = DisplayMetrics()
+        @Suppress("DEPRECATION")
+        windowManager.defaultDisplay.getRealMetrics(metrics)
+        
+        // MEMORY CONSTRAINT: Downscale max resolution to 720p equivalence
+        val maxDimension = Math.max(metrics.widthPixels, metrics.heightPixels)
+        val scale = if (maxDimension > 720) 720f / maxDimension else 1f
+        val width = (metrics.widthPixels * scale).toInt()
+        val height = (metrics.heightPixels * scale).toInt()
+        
+        // Allocate zero-copy memory buffer (Max 2 frames to prevent RAM saturation)
+        imageReader = ImageReader.newInstance(width, height, PixelFormat.RGBA_8888, 2)
+        imageReader?.setOnImageAvailableListener({ reader ->
+            val image = reader.acquireLatestImage()
+            if (image != null) {
+                // Future Implementation: Region-of-Interest (ROI) scanning logic
+                
+                // CRITICAL: Memory must be explicitly released immediately to prevent LMK termination
+                image.close() 
+            }
+        }, null)
+
+        virtualDisplay = mediaProjection?.createVirtualDisplay(
+            "HybridCoachScreen",
+            width, height, metrics.densityDpi,
+            DisplayManager.VIRTUAL_DISPLAY_FLAG_AUTO_MIRROR,
+            imageReader?.surface, null, null
+        )
+    }
+
     private fun initializeProcessingEngine() {
         isRunning = true
         processingThread = Thread {
-            // Priority elevation for low-lag computation
             Process.setThreadPriority(Process.THREAD_PRIORITY_FOREGROUND)
-
             while (isRunning) {
                 try {
-                    // Zero-Allocation calculation loop placeholder
-                    Thread.sleep(16) // Target ~60hz check cycle
+                    Thread.sleep(16) // Target 60Hz loop cycle
                 } catch (e: InterruptedException) {
                     break
                 }
@@ -110,10 +165,15 @@ class OverlayService : Service() {
         processingThread?.interrupt()
         processingThread = null
         
-        // Safely detach the view to prevent memory leaks when service is killed
         if (::overlayView.isInitialized) {
             windowManager.removeView(overlayView)
         }
+        
+        // Teardown sequence to prevent memory leaks
+        virtualDisplay?.release()
+        imageReader?.close()
+        mediaProjection?.stop()
+        
         super.onDestroy()
     }
 }
