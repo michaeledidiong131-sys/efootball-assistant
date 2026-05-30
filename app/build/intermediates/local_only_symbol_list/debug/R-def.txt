@@ -1,2 +1,4 @@
 R_DEF: Internal format may change without notice
 local
+id overlay_status_text
+layout overlay_layout
