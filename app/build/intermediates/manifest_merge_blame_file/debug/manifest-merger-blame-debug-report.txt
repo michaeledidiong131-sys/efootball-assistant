@@ -1,0 +1,110 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.assistant.overlay"
+4    android:versionCode="1"
+5    android:versionName="1.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="26"
+9        android:targetSdkVersion="34" />
+10
+11    <uses-permission android:name="android.permission.INTERNET" />
+11-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:3:5-67
+11-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:3:22-64
+12    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
+12-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:4:5-83
+12-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:4:22-80
+13    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+13-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:5:5-78
+13-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:5:22-75
+14    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+14-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:6:5-77
+14-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:6:22-74
+15    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_MEDIA_PROJECTION" />
+15-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:7:5-94
+15-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:7:22-91
+16
+17    <permission
+17-->[androidx.core:core:1.12.0] /home/user/.gradle/caches/transforms-3/440a64c1659b3784956be1ef27019da1/transformed/core-1.12.0/AndroidManifest.xml:22:5-24:47
+18        android:name="com.assistant.overlay.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+18-->[androidx.core:core:1.12.0] /home/user/.gradle/caches/transforms-3/440a64c1659b3784956be1ef27019da1/transformed/core-1.12.0/AndroidManifest.xml:23:9-81
+19        android:protectionLevel="signature" />
+19-->[androidx.core:core:1.12.0] /home/user/.gradle/caches/transforms-3/440a64c1659b3784956be1ef27019da1/transformed/core-1.12.0/AndroidManifest.xml:24:9-44
+20
+21    <uses-permission android:name="com.assistant.overlay.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+21-->[androidx.core:core:1.12.0] /home/user/.gradle/caches/transforms-3/440a64c1659b3784956be1ef27019da1/transformed/core-1.12.0/AndroidManifest.xml:26:5-97
+21-->[androidx.core:core:1.12.0] /home/user/.gradle/caches/transforms-3/440a64c1659b3784956be1ef27019da1/transformed/core-1.12.0/AndroidManifest.xml:26:22-94
+22
+23    <application
+23-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:9:5-33:19
+24        android:allowBackup="true"
+24-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:10:9-35
+25        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+25-->[androidx.core:core:1.12.0] /home/user/.gradle/caches/transforms-3/440a64c1659b3784956be1ef27019da1/transformed/core-1.12.0/AndroidManifest.xml:28:18-86
+26        android:debuggable="true"
+27        android:extractNativeLibs="false"
+28        android:label="Splendor Assist"
+28-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:11:9-40
+29        android:supportsRtl="true"
+29-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:12:9-35
+30        android:theme="@style/Theme.AppCompat.NoActionBar" >
+30-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:13:9-59
+31        <service
+31-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:15:9-19:63
+32            android:name="com.assistant.OverlayService"
+32-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:16:13-56
+33            android:enabled="true"
+33-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:17:13-35
+34            android:exported="false"
+34-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:18:13-37
+35            android:foregroundServiceType="mediaProjection" />
+35-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:19:13-60
+36
+37        <activity
+37-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:21:9-23:40
+38            android:name="com.assistant.MainActivity"
+38-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:22:13-54
+39            android:exported="false" />
+39-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:23:13-37
+40        <activity
+40-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:25:9-32:20
+41            android:name="com.assistant.UpdateActivity"
+41-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:26:13-56
+42            android:exported="true" >
+42-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:27:13-36
+43            <intent-filter>
+43-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:28:13-31:29
+44                <action android:name="android.intent.action.MAIN" />
+44-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:29:17-69
+44-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:29:25-66
+45
+46                <category android:name="android.intent.category.LAUNCHER" />
+46-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:30:17-77
+46-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:30:27-74
+47            </intent-filter>
+48        </activity>
+49
+50        <provider
+50-->[androidx.emoji2:emoji2:1.2.0] /home/user/.gradle/caches/transforms-3/40af677edc9e981bf1ec9bb11c8b1d32/transformed/emoji2-1.2.0/AndroidManifest.xml:24:9-32:20
+51            android:name="androidx.startup.InitializationProvider"
+51-->[androidx.emoji2:emoji2:1.2.0] /home/user/.gradle/caches/transforms-3/40af677edc9e981bf1ec9bb11c8b1d32/transformed/emoji2-1.2.0/AndroidManifest.xml:25:13-67
+52            android:authorities="com.assistant.overlay.androidx-startup"
+52-->[androidx.emoji2:emoji2:1.2.0] /home/user/.gradle/caches/transforms-3/40af677edc9e981bf1ec9bb11c8b1d32/transformed/emoji2-1.2.0/AndroidManifest.xml:26:13-68
+53            android:exported="false" >
+53-->[androidx.emoji2:emoji2:1.2.0] /home/user/.gradle/caches/transforms-3/40af677edc9e981bf1ec9bb11c8b1d32/transformed/emoji2-1.2.0/AndroidManifest.xml:27:13-37
+54            <meta-data
+54-->[androidx.emoji2:emoji2:1.2.0] /home/user/.gradle/caches/transforms-3/40af677edc9e981bf1ec9bb11c8b1d32/transformed/emoji2-1.2.0/AndroidManifest.xml:29:13-31:52
+55                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+55-->[androidx.emoji2:emoji2:1.2.0] /home/user/.gradle/caches/transforms-3/40af677edc9e981bf1ec9bb11c8b1d32/transformed/emoji2-1.2.0/AndroidManifest.xml:30:17-75
+56                android:value="androidx.startup" />
+56-->[androidx.emoji2:emoji2:1.2.0] /home/user/.gradle/caches/transforms-3/40af677edc9e981bf1ec9bb11c8b1d32/transformed/emoji2-1.2.0/AndroidManifest.xml:31:17-49
+57            <meta-data
+57-->[androidx.lifecycle:lifecycle-process:2.4.1] /home/user/.gradle/caches/transforms-3/4b8f05b04d1415b92185bf8ed00c3550/transformed/lifecycle-process-2.4.1/AndroidManifest.xml:31:13-33:52
+58                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+58-->[androidx.lifecycle:lifecycle-process:2.4.1] /home/user/.gradle/caches/transforms-3/4b8f05b04d1415b92185bf8ed00c3550/transformed/lifecycle-process-2.4.1/AndroidManifest.xml:32:17-78
+59                android:value="androidx.startup" />
+59-->[androidx.lifecycle:lifecycle-process:2.4.1] /home/user/.gradle/caches/transforms-3/4b8f05b04d1415b92185bf8ed00c3550/transformed/lifecycle-process-2.4.1/AndroidManifest.xml:33:17-49
+60        </provider>
+61    </application>
+62
+63</manifest>
