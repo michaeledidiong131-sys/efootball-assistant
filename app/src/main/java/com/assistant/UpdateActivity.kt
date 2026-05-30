@@ -1,6 +1,5 @@
 package com.assistant
 
-import com.assistant.overlay.R
 import android.app.DownloadManager
 import android.content.BroadcastReceiver
 import android.content.Context
@@ -17,6 +16,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import kotlin.concurrent.thread
+import com.assistant.overlay.R
 
 class UpdateActivity : AppCompatActivity() {
 
@@ -39,15 +39,14 @@ class UpdateActivity : AppCompatActivity() {
         }
 
         btnSkip.setOnClickListener {
+            // Correctly route to MainActivity
             startActivity(Intent(this@UpdateActivity, MainActivity::class.java))
             finish()
         }
     }
 
     private fun startDownload() {
-        // Placeholder URL: You will update this to your GitHub Release URL later
         val updateUrl = "https://example.com/splendor_assist_latest.apk" 
-        
         val request = DownloadManager.Request(Uri.parse(updateUrl))
             .setTitle("Splendor Assist")
             .setDescription("Downloading premium update...")
@@ -61,7 +60,6 @@ class UpdateActivity : AppCompatActivity() {
         findViewById<ProgressBar>(R.id.updateProgressBar).visibility = View.VISIBLE
         findViewById<TextView>(R.id.progressText).visibility = View.VISIBLE
 
-        // Register system broadcast safely based on Android version
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
             registerReceiver(onDownloadComplete, IntentFilter(DownloadManager.ACTION_DOWNLOAD_COMPLETE), Context.RECEIVER_EXPORTED)
         } else {
@@ -112,7 +110,7 @@ class UpdateActivity : AppCompatActivity() {
                     }
                 }
                 cursor?.close()
-                Thread.sleep(500) // 500ms cycle to prevent thread CPU starvation
+                Thread.sleep(500)
             }
         }
     }
@@ -134,8 +132,6 @@ class UpdateActivity : AppCompatActivity() {
         super.onDestroy()
         try {
             unregisterReceiver(onDownloadComplete)
-        } catch (e: Exception) {
-            // Failsafe: Receiver might not be registered if user skips before hitting download
-        }
+        } catch (e: Exception) {}
     }
 }
