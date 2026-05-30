@@ -13,17 +13,17 @@
         android:theme="@style/Theme.AppCompat.NoActionBar">
         
         <service
-            android:name=".OverlayService"
+            android:name="com.assistant.OverlayService"
             android:enabled="true"
             android:exported="false"
             android:foregroundServiceType="mediaProjection" />
             
         <activity
-            android:name=".MainActivity"
+            android:name="com.assistant.MainActivity"
             android:exported="false" />
             
         <activity
-            android:name=".UpdateActivity"
+            android:name="com.assistant.UpdateActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
