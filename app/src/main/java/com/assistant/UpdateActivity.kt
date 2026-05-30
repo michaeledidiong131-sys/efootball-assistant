@@ -39,7 +39,8 @@ class UpdateActivity : AppCompatActivity() {
         }
 
         btnSkip.setOnClickListener {
-            finish() // Skip update and proceed to MainActivity
+            startActivity(Intent(this@UpdateActivity, MainActivity::class.java))
+            finish()
         }
     }
 

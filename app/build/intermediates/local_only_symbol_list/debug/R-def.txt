@@ -1,9 +1,0 @@
-R_DEF: Internal format may change without notice
-local
-id btnDownloadUpdate
-id btnSkipUpdate
-id overlay_status_text
-id progressText
-id updateProgressBar
-layout activity_update
-layout overlay_layout
