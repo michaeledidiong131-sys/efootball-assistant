@@ -1,87 +1,382 @@
-Script started on 2026-05-31 09:32:46+00:00 [TERM="xterm-256color" TTY="/dev/pts/0" COLUMNS="66" LINES="67"]
+Script started on 2026-05-31 09:48:45+00:00 [TERM="xterm-256color" TTY="/dev/pts/0" COLUMNS="66" LINES="67"]
 bash: __vsc_prompt_cmd_original: command not found
-[?2004h]0;user@firebase-efootball-assistant-1779975046441: ~/efootball-assistant[00;35mefootball-assistant-00995228[00m:[01;34m~/efootball-assistant[00m[01;32m{main}[00m$ [K]0;user@firebase-efootball-assistant-1779975046441: ~/efootball-assistant[00;35mefootball-assistant-00995228[00m:[01;34m~/efootball-assistant[00m[01;32m{main}[00m$ [K]0;user@firebase-efootball-assistant-1779975046441: ~/efootball-assistant[00;35mefootball-assistant-00995228[00m:[01;34m~/efootball-assistant[00m[01;32m{main}[00m$ ./gradlew assembleDebug
-[?2004l> Task :app:preBuild UP-TO-DATE
+[?2004h]0;user@firebase-efootball-assistant-1779975046441: ~/efootball-assistant[00;35mefootball-assistant-00995228[00m:[01;34m~/efootball-assistant[00m[01;32m{main}[00m$ cat > app/src/main/java/com/assistant/MainActivity.kt << 'EOF'
+[?2004l[?2004h> package com.assistant
+[?2004l[?2004h> 
+[?2004l[?2004h> import android.Manifest
+[?2004l[?2004h> import android.app.Activity
+[?2004l[?2004h> import android.content.Context
+[?2004l[?2004h> import android.content.Intent
+[?2004l[?2004h> import android.content.pm.PackageManager
+[?2004l[?2004h> import android.media.projection.MediaProjectionManager
+[?2004l[?2004h> import android.net.Uri
+[?2004l[?2004h> import android.net.VpnService
+[?2004l[?2004h> import android.os.Build
+[?2004l[?2004h> import android.os.Bundle
+[?2004l[?2004h> import android.provider.Settings
+[?2004l[?2004h> import android.widget.Button
+[?2004l[?2004h> import android.widget.Toast
+[?2004l[?2004h> import androidx.activity.result.contract.ActivityResultContracts [A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Ks
+[?2004l[?2004h> import androidx.appcompat.app.AppCompatActivity
+[?2004l[?2004h> import androidx.core.content.ContextCompat
+[?2004l[?2004h> import com.assistant.overlay.R
+[?2004l[?2004h> 
+[?2004l[?2004h> class MainActivity : AppCompatActivity() {
+[?2004l[?2004h> 
+[?2004l[?2004h>     private lateinit var projectionManager: MediaProjectionManager
+[?2004l[?2004h> 
+[?2004l[?2004h>     private val screenCaptureLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+[?2004l[?2004h>         if (result.resultCode == Activity.RESULT_OK && result.data != null) {
+[?2004l[?2004h>             EngineData.code = result.resultCode
+[?2004l[?2004h>             EngineData.intent = result.data
+[?2004l[?2004h>             
+[?2004l[?2004h>             val serviceIntent = Intent(this, OverlayService::class.java)
+[?2004l[?2004h>             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+[?2004l[?2004h>                 startForegroundService(serviceIntent)
+[?2004l[?2004h>             } else {
+[?2004l[?2004h>                 startService(serviceIntent)
+[?2004l[?2004h>             }
+[?2004l[?2004h>             Toast.makeText(this, "Hybrid Coach Engine Online", Toast.LENGTH_LONG).show()
+[?2004l[?2004h>         } else {
+[?2004l[?2004h>             Toast.makeText(this, "Engine Authorization Denied.", Toast.LENGTH_SHORT).show()
+[?2004l[?2004h>         }
+[?2004l[?2004h>     }
+[?2004l[?2004h> 
+[?2004l[?2004h>     private val notificationPermissionLauncher = registerForActivityResult(ActivityResultContracts.RequestPermission()) { isGranted ->
+[?2004l[?2004h>         if (isGranted) {
+[?2004l[?2004h>             checkOverlayAndProceed()
+[?2004l[?2004h>         } else {
+[?2004l[?2004h>             Toast.makeText(this, "Notifications required for background engine.", Toast.LENGTH_LONG).show()
+[?2004l[?2004h>         }
+[?2004l[?2004h>     }
+[?2004l[?2004h> 
+[?2004l[?2004h>     private val overlayPermissionLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+[?2004l[?2004h>         if (Settings.canDrawOverlays(this)) {
+[?2004l[?2004h>             requestScreenCapture()
+[?2004l[?2004h>         } else {
+[?2004l[?2004h>             Toast.makeText(this, "Overlay Permission Required.", Toast.LENGTH_LONG).show()
+[?2004l[?2004h>         }
+[?2004l[?2004h>     }
+[?2004l[?2004h> 
+[?2004l[?2004h>     override fun onCreate(savedInstanceState: Bundle?) {
+[?2004l[?2004h>         super.onCreate(savedInstanceState)
+[?2004l[?2004h>         val vpnIntent = VpnService.prepare(this)
+[?2004l[?2004h>         if (vpnIntent != null) { startActivityForResult(vpnIntent, 100) }
+[?2004l[?2004h>         Thread.setDefaultUncaughtExceptionHandler(GlobalCrashHandler(this))
+[?2004l[?2004h>         setContentView(R.layout.activity_main)
+[?2004l[?2004h> 
+[?2004l[?2004h>         projectionManager = getSystemService(Context.MEDIA_PROJECTION_SERVICE) as MediaProjectionManager
+[?2004l[?2004h> 
+[?2004l[?2004h>         val btnStart = findViewById<Button>(R.id.btnStartEngine) [A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[K)
+[?2004l[?2004h>         btnStart.setOnClickListener {
+[?2004l[?2004h>             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+[?2004l[?2004h>                 if (ContextCompat.checkSelfPermission(this, Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED) {
+[?2004l[?2004h>                     notificationPermissionLauncher.launch(Manifest.permission.POST_NOTIFICATIONS)
+[?2004l[?2004h>                     return@setOnClickListener
+[?2004l[?2004h>                 }
+[?2004l[?2004h>             }
+[?2004l[?2004h>             checkOverlayAndProceed()
+[?2004l[?2004h>         }
+[?2004l[?2004h>     }
+[?2004l[?2004h> 
+[?2004l[?2004h>     private fun checkOverlayAndProceed() {
+[?2004l[?2004h>         if (!Settings.canDrawOverlays(this)) {
+[?2004l[?2004h>             val intent = Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION, Uri.parse("package:$packageName"))
+[?2004l[?2004h>             overlayPermissionLauncher.launch(intent)
+[?2004l[?2004h>         } else {
+[?2004l[?2004h>             requestScreenCapture()
+[?2004l[?2004h>         }
+[?2004l[?2004h>     }
+[?2004l[?2004h> 
+[?2004l[?2004h>     private fun requestScreenCapture() {
+[?2004l[?2004h>         screenCaptureLauncher.launch(projectionManager.createScreenCaptureIntent())
+[?2004l[?2004h>     }
+[?2004l[?2004h> }
+[?2004l[?2004h> EOF[K> EOF[K> EOF
+[?2004lbash: __vsc_prompt_cmd_original: command not found
+[?2004h]0;user@firebase-efootball-assistant-1779975046441: ~/efootball-assistant[00;35mefootball-assistant-00995228[00m:[01;34m~/efootball-assistant[00m[01;32m{main}[00m$ [K]0;user@firebase-efootball-assistant-1779975046441: ~/efootball-assistant[00;35mefootball-assistant-00995228[00m:[01;34m~/efootball-assistant[00m[01;32m{main}[00m$ [K]0;user@firebase-efootball-assistant-1779975046441: ~/efootball-assistant[00;35mefootball-assistant-00995228[00m:[01;34m~/efootball-assistant[00m[01;32m{main}[00m$ cat > app/src/main/java/com/assistant/OverlayService.kt << 'EOF'
+[?2004l[?2004h> package com.assistant
+[?2004l[?2004h> 
+[?2004l[?2004h> import android.app.Activity
+[?2004l[?2004h> import android.app.Notification
+[?2004l[?2004h> import android.app.NotificationChannel
+[?2004l[?2004h> import android.app.NotificationManager
+[?2004l[?2004h> import android.app.Service
+[?2004l[?2004h> import android.content.Context
+[?2004l[?2004h> import android.content.Intent
+[?2004l[?2004h> import android.content.pm.ServiceInfo
+[?2004l[?2004h> import android.graphics.Bitmap
+[?2004l[?2004h> import android.graphics.PixelFormat
+[?2004l[?2004h> import android.hardware.display.DisplayManager
+[?2004l[?2004h> import android.hardware.display.VirtualDisplay
+[?2004l[?2004h> import android.media.Image
+[?2004l[?2004h> import android.media.ImageReader
+[?2004l[?2004h> import android.media.projection.MediaProjection
+[?2004l[?2004h> import android.media.projection.MediaProjectionManager
+[?2004l[?2004h> import android.os.Build
+[?2004l[?2004h> import android.os.Handler
+[?2004l[?2004h> import android.os.IBinder
+[?2004l[?2004h> import android.os.Looper
+[?2004l[?2004h> import android.os.Process
+[?2004l[?2004h> import android.util.DisplayMetrics
+[?2004l[?2004h> import android.util.Log
+[?2004l[?2004h> import android.view.Gravity
+[?2004l[?2004h> import android.view.LayoutInflater
+[?2004l[?2004h> import android.view.View
+[?2004l[?2004h> import android.view.WindowManager
+[?2004l[?2004h> import android.widget.Toast
+[?2004l[?2004h> import androidx.core.app.NotificationCompat
+[?2004l[?2004h> import com.google.mlkit.vision.common.InputImage
+[?2004l[?2004h> import com.google.mlkit.vision.text.TextRecognition
+[?2004l[?2004h> import com.google.mlkit.vision.text.latin.TextRecognizerOptions
+[?2004l[?2004h> 
+[?2004l[?2004h> class OverlayService : Service() {
+[?2004l[?2004h> 
+[?2004l[?2004h>     companion object {
+[?2004l[?2004h>         private const val CHANNEL_ID = "efootball_assistant_channel"
+[?2004l[?2004h>         private const val NOTIFICATION_ID = 101
+[?2004l[?2004h>     }
+[?2004l[?2004h> 
+[?2004l[?2004h>     private var isRunning = false
+[?2004l[?2004h>     private var processingThread: Thread? = null
+[?2004l[?2004h>     private lateinit var windowManager: WindowManager
+[?2004l[?2004h>     private lateinit var overlayView: View
+[?2004l[?2004h>     private var mediaProjection: MediaProjection? = null
+[?2004l[?2004h>     private var virtualDisplay: VirtualDisplay? = null
+[?2004l[?2004h>     private var imageReader: ImageReader? = null
+[?2004l[?2004h>     private var mediaRecorder: android.media.MediaRecorder? = null
+[?2004l[?2004h>     private var projectionCallback: MediaProjection.Callback? = null
+[?2004l[?2004h> 
+[?2004l[?2004h>     // OCR Throttle State
+[?2004l[?2004h>     private var lastOcrTime = 0L
+[?2004l[?2004h>     private val OCR_INTERVAL_MS = 1000L
+[?2004l[?2004h> 
+[?2004l[?2004h>     private val recognizer = TextRecognition.getClient(TextRecognizerOptions.DEFAULT_OPTIONS)
+[?2004l[?2004h> 
+[?2004l[?2004h>     override fun onBind(intent: Intent?): IBinder? = null
+[?2004l[?2004h> 
+[?2004l[?2004h>     override fun onCreate() {
+[?2004l[?2004h>         super.onCreate()
+[?2004l[?2004h>         initializeOverlayUI()
+[?2004l[?2004h>     }
+[?2004l[?2004h> 
+[?2004l[?2004h>     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
+[?2004l[?2004h>         val resultCode = EngineData.code
+[?2004l[?2004h>         val data = EngineData.intent
+[?2004l[?2004h>         
+[?2004l[?2004h>         if (resultCode == Activity.RESULT_OK && data != null) {
+[?2004l[?2004h>             startForegroundSafely()
+[?2004l[?2004h>             try {
+[?2004l[?2004h>                 setupMediaProjection(resultCode, data)
+[?2004l[?2004h>                 if (!isRunning) {
+[?2004l[?2004h>                     initializeProcessingEngine()
+[?2004l[?2004h>                 }
+[?2004l[?2004h>             } catch (e: Exception) {
+[?2004l[?2004h>                 throw RuntimeException("VirtualDisplay Initialization Failed: ${e.message}", e)
+[?2004l[?2004h>             }
+[?2004l[?2004h>         } else {
+[?2004l[?2004h>             stopSelf()
+[?2004l[?2004h>         }
+[?2004l[?2004h>         return START_NOT_STICKY
+[?2004l[?2004h>     }
+[?2004l[?2004h> 
+[?2004l[?2004h>     private fun startForegroundSafely() {
+[?2004l[?2004h>         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+[?2004l[?2004h>             val channel = NotificationChannel(CHANNEL_ID, "Assistant Engine Background", NotificationManager.IMPORTANCE_LOW)
+[?2004l[?2004h>             val manager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+[?2004l[?2004h>             manager.createNotificationChannel(channel)
+[?2004l[?2004h>         }
+[?2004l[?2004h>         val notification: Notification = NotificationCompat.Builder(this, CHANNEL_ID)
+[?2004l[?2004h>             .setContentTitle("Splendor Assist Active")
+[?2004l[?2004h>             .setContentText("Hybrid Engine scanning frames...")
+[?2004l[?2004h>             .setSmallIcon(android.R.drawable.ic_menu_compass)
+[?2004l[?2004h>             .setPriority(NotificationCompat.PRIORITY_LOW)
+[?2004l[?2004h>             .build()
+[?2004l[?2004h> 
+[?2004l[?2004h>         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+[?2004l[?2004h>             startForeground(NOTIFICATION_ID, notification, ServiceInfo.FOREGROUND_SERVICE_TYPE_MEDIA_PROJECTION)
+[?2004l[?2004h>         } else {
+[?2004l[?2004h>             startForeground(NOTIFICATION_ID, notification)
+[?2004l[?2004h>         }
+[?2004l[?2004h>     }
+[?2004l[?2004h> 
+[?2004l[?2004h>     private fun initializeOverlayUI() {
+[?2004l[?2004h>         windowManager = getSystemService(Context.WINDOW_SERVICE) as WindowManager
+[?2004l[?2004h>         val inflater = getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
+[?2004l[?2004h>         overlayView = inflater.inflate(com.assistant.overlay.R.layout.overlay_layout, null)
+[?2004l[?2004h> 
+[?2004l[?2004h>         @Suppress("DEPRECATION")
+[?2004l[?2004h>         val layoutType = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY else WindowManager.LayoutParams.TYPE_PHONE
+[?2004l[?2004h>         val layoutParams = WindowManager.LayoutParams(
+[?2004l[?2004h>             WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.MATCH_PARENT,
+[?2004l[?2004h>             layoutType, WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE or WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE or WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
+[?2004l[?2004h>             PixelFormat.TRANSLUCENT
+[?2004l[?2004h>         )
+[?2004l[?2004h>         layoutParams.gravity = Gravity.TOP or Gravity.START
+[?2004l[?2004h>         windowManager.addView(overlayView, layoutParams)
+[?2004l[?2004h>     }
+[?2004l[?2004h> 
+[?2004l[?2004h>     private fun setupMediaProjection(code: Int, intent: Intent) {
+[?2004l[?2004h>         val projectionManager = getSystemService(Context.MEDIA_PROJECTION_SERVICE) as MediaProjectionManager
+[?2004l[?2004h>         mediaProjection = projectionManager.getMediaProjection(code, intent)
+[?2004l[?2004h>         
+[?2004l[?2004h>         projectionCallback = object : MediaProjection.Callback() {
+[?2004l[?2004h>             override fun onStop() {
+[?2004l[?2004h>                 super.onStop()
+[?2004l[?2004h>                 stopSelf()
+[?2004l[?2004h>             }
+[?2004l[?2004h>         }
+[?2004l[?2004h>         mediaProjection?.registerCallback(projectionCallback!!, Handler(Looper.getMainLooper()))
+[?2004l[?2004h> 
+[?2004l[?2004h>         val metrics = DisplayMetrics()
+[?2004l[?2004h>         @Suppress("DEPRECATION")
+[?2004l[?2004h>         windowManager.defaultDisplay.getRealMetrics(metrics)
+[?2004l[?2004h>         
+[?2004l[?2004h>         var width = metrics.widthPixels
+[?2004l[?2004h>         var height = metrics.heightPixels
+[?2004l[?2004h>         if (width <= 0 || height <= 0) { width = 720; height = 1280 }
+[?2004l[?2004h> 
+[?2004l[?2004h>         val maxDimension = Math.max(width, height)
+[?2004l[?2004h>         val scale = if (maxDimension > 720) 720f / maxDimension else 1f
+[?2004l[?2004h>         var finalWidth = (width * scale).toInt()
+[?2004l[?2004h>         var finalHeight = (height * scale).toInt()
+[?2004l[?2004h>         
+[?2004l[?2004h>         if (finalWidth % 2 != 0) finalWidth -= 1
+[?2004l[?2004h>         if (finalHeight % 2 != 0) finalHeight -= 1
+[?2004l[?2004h>         
+[?2004l[?2004h>         imageReader = ImageReader.newInstance(finalWidth, finalHeight, PixelFormat.RGBA_8888, 2)
+[?2004l[?2004h>         
+[?2004l[?2004h>         imageReader?.setOnImageAvailableListener({ reader ->
+[?2004l[?2004h>             val image = reader.acquireLatestImage() ?: return@setOnImageAvailableListener
+[?2004l[?2004h>             val currentTime = System.currentTimeMillis()
+[?2004l[?2004h>             
+[?2004l[?2004h>             if (currentTime - lastOcrTime >= OCR_INTERVAL_MS) {
+[?2004l[?2004h>                 lastOcrTime = currentTime
+[?2004l[?2004h>                 processImageForOCR(image)
+[?2004l[?2004h>             } else {
+[?2004l[?2004h>                 image.close()
+[?2004l[?2004h>             }
+[?2004l[?2004h>         }, Handler(Looper.getMainLooper()))
+[?2004l[?2004h> 
+[?2004l[?2004h>         virtualDisplay = mediaProjection?.createVirtualDisplay(
+[?2004l[?2004h>             "HybridCoachScreen", finalWidth, finalHeight, metrics.densityDpi,
+[?2004l[?2004h>             DisplayManager.VIRTUAL_DISPLAY_FLAG_AUTO_MIRROR, imageReader?.surface, null, null
+[?2004l[?2004h>         ) ?: throw Exception("Kernel denied VirtualDisplay creation.")
+[?2004l[?2004h> 
+[?2004l[?2004h>         startHardwareDVR()
+[?2004l[?2004h>     }
+[?2004l[?2004h> 
+[?2004l[?2004h>     private fun processImageForOCR(image: Image) {
+[?2004l[?2004h>         try {
+[?2004l[?2004h>             val planes = image.planes
+[?2004l[?2004h>             val buffer = planes[0].buffer
+[?2004l[?2004h>             val pixelStride = planes[0].pixelStride
+[?2004l[?2004h>             val rowStride = planes[0].rowStride
+[?2004l[?2004h>             val rowPadding = rowStride - pixelStride * image.width
+[?2004l[?2004h>             val bitmapWidth = image.width + rowPadding / pixelStride
+[?2004l[?2004h> 
+[?2004l[?2004h>             val bitmap = Bitmap.createBitmap(bitmapWidth, image.height, Bitmap.Config.ARGB_8888)
+[?2004l[?2004h>             bitmap.copyPixelsFromBuffer(buffer)
+[?2004l[?2004h>             
+[?2004l[?2004h>             val cleanBitmap = Bitmap.createBitmap(bitmap, 0, 0, image.width, image.height)
+[?2004l[?2004h>             val inputImage = InputImage.fromBitmap(cleanBitmap, 0)
+[?2004l[?2004h>             
+[?2004l[?2004h>             recognizer.process(inputImage)
+[?2004l[?2004h>                 .addOnSuccessListener { visionText ->
+[?2004l[?2004h>                     if (visionText.text.contains("Full Time", ignoreCase = true) || visionText.text.contains("Half Time", ignoreCase = true)) {
+[?2004l[?2004h>                         Toast.makeText(applicationContext, "MATCH STATE DETECTED", Toast.LENGTH_SHORT).show()
+[?2004l[?2004h>                     }
+[?2004l[?2004h>                 }
+[?2004l[?2004h>                 .addOnCompleteListener {
+[?2004l[?2004h>                     image.close()
+[?2004l[?2004h>                 }
+[?2004l[?2004h>         } catch (e: Exception) {
+[?2004l[?2004h>             image.close()
+[?2004l[?2004h>         }
+[?2004l[?2004h>     }
+[?2004l[?2004h> 
+[?2004l[?2004h>     private fun initializeProcessingEngine() {
+[?2004l[?2004h>         isRunning = true
+[?2004l[?2004h>         processingThread = Thread {
+[?2004l[?2004h>             Process.setThreadPriority(Process.THREAD_PRIORITY_FOREGROUND)
+[?2004l[?2004h>             while (isRunning) {
+[?2004l[?2004h>                 try { Thread.sleep(16) } catch (e: InterruptedException) { break }
+[?2004l[?2004h>             }
+[?2004l[?2004h>         }.apply { start() }
+[?2004l[?2004h>     }
+[?2004l[?2004h> 
+[?2004l[?2004h>     private fun startHardwareDVR() {
+[?2004l[?2004h>         try {
+[?2004l[?2004h>             mediaRecorder = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+[?2004l[?2004h>                 android.media.MediaRecorder(this)
+[?2004l[?2004h>             } else {
+[?2004l[?2004h>                 @Suppress("DEPRECATION")
+[?2004l[?2004h>                 android.media.MediaRecorder()
+[?2004l[?2004h>             }
+[?2004l[?2004h>             mediaRecorder?.setVideoSource(android.media.MediaRecorder.VideoSource.SURFACE)
+[?2004l[?2004h>             mediaRecorder?.setOutputFormat(android.media.MediaRecorder.OutputFormat.MPEG_4)
+[?2004l[?2004h>             mediaRecorder?.setVideoEncoder(android.media.MediaRecorder.VideoEncoder.H264)
+[?2004l[?2004h>             mediaRecorder?.setVideoSize(1280, 720)
+[?2004l[?2004h>             mediaRecorder?.setVideoFrameRate(30)
+[?2004l[?2004h>             mediaRecorder?.setOutputFile(externalCacheDir?.absolutePath + "/match_chunk.mp4")
+[?2004l[?2004h>             mediaRecorder?.prepare()
+[?2004l[?2004h>             mediaRecorder?.start()
+[?2004l[?2004h>         } catch (e: Exception) {
+[?2004l[?2004h>             Log.e("OverlayService", "DVR Failed to start: ${e.message}")
+[?2004l[?2004h>         }
+[?2004l[?2004h>     }
+[?2004l[?2004h> 
+[?2004l[?2004h>     override fun onDestroy() {
+[?2004l[?2004h>         isRunning = false
+[?2004l[?2004h>         processingThread?.interrupt()
+[?2004l[?2004h>         processingThread = null
+[?2004l[?2004h>         if (::overlayView.isInitialized) { windowManager.removeView(overlayView) }
+[?2004l[?2004h>         virtualDisplay?.release()
+[?2004l[?2004h>         imageReader?.close()
+[?2004l[?2004h>         projectionCallback?.let { mediaProjection?.unregisterCallback(it) }
+[?2004l[?2004h>         mediaProjection?.stop()
+[?2004l[?2004h>         try {
+[?2004l[?2004h>             mediaRecorder?.stop()
+[?2004l[?2004h>             mediaRecorder?.release()
+[?2004l[?2004h>         } catch (e: Exception) {
+[?2004l[?2004h>             Log.e("OverlayService", "Error releasing recorder: ${e.message}")
+[?2004l[?2004h>         }
+[?2004l[?2004h>         super.onDestroy()
+[?2004l[?2004h>     }
+[?2004l[?2004h> }
+[?2004l[?2004h> EOF
+[?2004lbash: __vsc_prompt_cmd_original: command not found
+[?2004h]0;user@firebase-efootball-assistant-1779975046441: ~/efootball-assistant[00;35mefootball-assistant-00995228[00m:[01;34m~/efootball-assistant[00m[01;32m{main}[00m$ [K]0;user@firebase-efootball-assistant-1779975046441: ~/efootball-assistant[00;35mefootball-assistant-00995228[00m:[01;34m~/efootball-assistant[00m[01;32m{main}[00m$ [K]0;user@firebase-efootball-assistant-1779975046441: ~/efootball-assistant[00;35mefootball-assistant-00995228[00m:[01;34m~/efootball-assistant[00m[01;32m{main}[00m$ cat > app/src/main/java/com/assistant/EngineData.kt << 'EOF'
+[?2004l[?2004h> package com.assistant
+[?2004l[?2004h> 
+[?2004l[?2004h> import android.content.Intent
+[?2004l[?2004h> 
+[?2004l[?2004h> object EngineData {
+[?2004l[?2004h>     var code: Int = 0
+[?2004l[?2004h>     var intent: Intent? = null
+[?2004l[?2004h> }
+[?2004l[?2004h> EOF
+[?2004lbash: __vsc_prompt_cmd_original: command not found
+[?2004h]0;user@firebase-efootball-assistant-1779975046441: ~/efootball-assistant[00;35mefootball-assistant-00995228[00m:[01;34m~/efootball-assistant[00m[01;32m{main}[00m$ [K]0;user@firebase-efootball-assistant-1779975046441: ~/efootball-assistant[00;35mefootball-assistant-00995228[00m:[01;34m~/efootball-assistant[00m[01;32m{main}[00m$ [K]0;user@firebase-efootball-assistant-1779975046441: ~/efootball-assistant[00;35mefootball-assistant-00995228[00m:[01;34m~/efootball-assistant[00m[01;32m{main}[00m$ ./gradlew clean assembleDebug
+[?2004l> Task :app:clean
+> Task :app:preBuild UP-TO-DATE
 > Task :app:preDebugBuild UP-TO-DATE
 > Task :app:mergeDebugNativeDebugMetadata NO-SOURCE
 > Task :app:checkKotlinGradlePluginConfigurationErrors
-> Task :app:checkDebugAarMetadata UP-TO-DATE
-> Task :app:generateDebugResValues UP-TO-DATE
-> Task :app:mapDebugSourceSetPaths UP-TO-DATE
-> Task :app:generateDebugResources UP-TO-DATE
-> Task :app:mergeDebugResources UP-TO-DATE
-> Task :app:packageDebugResources UP-TO-DATE
-> Task :app:parseDebugLocalResources UP-TO-DATE
-> Task :app:createDebugCompatibleScreenManifests UP-TO-DATE
-> Task :app:extractDeepLinksDebug UP-TO-DATE
-> Task :app:processDebugMainManifest UP-TO-DATE
-> Task :app:processDebugManifest UP-TO-DATE
-> Task :app:processDebugManifestForPackage UP-TO-DATE
-> Task :app:processDebugResources UP-TO-DATE
-> Task :app:javaPreCompileDebug UP-TO-DATE
-> Task :app:mergeDebugShaders UP-TO-DATE
+> Task :app:checkDebugAarMetadata
+> Task :app:generateDebugResValues
+> Task :app:mapDebugSourceSetPaths
+> Task :app:generateDebugResources
+> Task :app:packageDebugResources
+> Task :app:createDebugCompatibleScreenManifests
+> Task :app:extractDeepLinksDebug
+> Task :app:parseDebugLocalResources
+> Task :app:processDebugMainManifest
+> Task :app:processDebugManifest
+> Task :app:mergeDebugResources
+> Task :app:javaPreCompileDebug
+> Task :app:mergeDebugShaders
 > Task :app:compileDebugShaders NO-SOURCE
 > Task :app:generateDebugAssets UP-TO-DATE
-> Task :app:mergeDebugAssets UP-TO-DATE
-> Task :app:compressDebugAssets UP-TO-DATE
-> Task :app:desugarDebugFileDependencies UP-TO-DATE
-> Task :app:checkDebugDuplicateClasses UP-TO-DATE
-> Task :app:mergeExtDexDebug UP-TO-DATE
-> Task :app:mergeLibDexDebug UP-TO-DATE
-> Task :app:mergeDebugJniLibFolders UP-TO-DATE
-> Task :app:mergeDebugNativeLibs UP-TO-DATE
-> Task :app:stripDebugDebugSymbols UP-TO-DATE
-> Task :app:validateSigningDebug UP-TO-DATE
-> Task :app:writeDebugAppMetadata UP-TO-DATE
-> Task :app:writeDebugSigningConfigVersions UP-TO-DATE
-
-> Task :app:compileDebugKotlin FAILED
-e: file:///home/user/efootball-assistant/app/src/main/java/com/assistant/MainActivity.kt:60:25 Unresolved reference: VpnService
-e: file:///home/user/efootball-assistant/app/src/main/java/com/assistant/OverlayService.kt:8:1 Expecting a top level declaration
-e: file:///home/user/efootball-assistant/app/src/main/java/com/assistant/OverlayService.kt:8:9 Expecting a top level declaration
-e: file:///home/user/efootball-assistant/app/src/main/java/com/assistant/OverlayService.kt:8:12 Expecting a top level declaration
-e: file:///home/user/efootball-assistant/app/src/main/java/com/assistant/OverlayService.kt:8:13 Expecting a top level declaration
-e: file:///home/user/efootball-assistant/app/src/main/java/com/assistant/OverlayService.kt:8:22 imports are only allowed in the beginning of file
-e: file:///home/user/efootball-assistant/app/src/main/java/com/assistant/OverlayService.kt:173:27 Expecting ','
-e: file:///home/user/efootball-assistant/app/src/main/java/com/assistant/OverlayService.kt:3:22 Conflicting import, imported name 'MediaRecorder' is ambiguous
-e: file:///home/user/efootball-assistant/app/src/main/java/com/assistant/OverlayService.kt:4:24 Conflicting import, imported name 'Context' is ambiguous
-e: file:///home/user/efootball-assistant/app/src/main/java/com/assistant/OverlayService.kt:5:24 Conflicting import, imported name 'Intent' is ambiguous
-e: file:///home/user/efootball-assistant/app/src/main/java/com/assistant/OverlayService.kt:7:22 Conflicting import, imported name 'MediaRecorder' is ambiguous
-e: file:///home/user/efootball-assistant/app/src/main/java/com/assistant/OverlayService.kt:15:24 Conflicting import, imported name 'Context' is ambiguous
-e: file:///home/user/efootball-assistant/app/src/main/java/com/assistant/OverlayService.kt:16:24 Conflicting import, imported name 'Intent' is ambiguous
-e: file:///home/user/efootball-assistant/app/src/main/java/com/assistant/OverlayService.kt:173:9 Type mismatch: inferred type is Unit but String was expected
-e: file:///home/user/efootball-assistant/app/src/main/java/com/assistant/OverlayService.kt:174:13 Type mismatch: inferred type is String but Int was expected
-e: file:///home/user/efootball-assistant/app/src/main/java/com/assistant/OverlayService.kt:175:13 Type mismatch: inferred type is Int but Surface? was expected
-e: file:///home/user/efootball-assistant/app/src/main/java/com/assistant/OverlayService.kt:175:62 Type mismatch: inferred type is Surface? but VirtualDisplay.Callback? was expected
-e: file:///home/user/efootball-assistant/app/src/main/java/com/assistant/OverlayService.kt:175:90 Too many arguments for public open fun createVirtualDisplay(p0: String, p1: Int, p2: Int, p3: Int, p4: Int, p5: Surface?, p6: VirtualDisplay.Callback?, p7: Handler?): VirtualDisplay! defined in android.media.projection.MediaProjection
-e: file:///home/user/efootball-assistant/app/src/main/java/com/assistant/OverlayService.kt:234:9 Unresolved reference: mediaRecorder
-e: file:///home/user/efootball-assistant/app/src/main/java/com/assistant/OverlayService.kt:235:9 Unresolved reference: mediaRecorder
-e: file:///home/user/efootball-assistant/app/src/main/java/com/assistant/OverlayService.kt:236:9 Unresolved reference: mediaRecorder
-e: file:///home/user/efootball-assistant/app/src/main/java/com/assistant/OverlayService.kt:237:9 Unresolved reference: mediaRecorder
-e: file:///home/user/efootball-assistant/app/src/main/java/com/assistant/OverlayService.kt:238:9 Unresolved reference: mediaRecorder
-e: file:///home/user/efootball-assistant/app/src/main/java/com/assistant/OverlayService.kt:239:9 Unresolved reference: mediaRecorder
-e: file:///home/user/efootball-assistant/app/src/main/java/com/assistant/OverlayService.kt:240:9 Unresolved reference: mediaRecorder
-e: file:///home/user/efootball-assistant/app/src/main/java/com/assistant/OverlayService.kt:240:38 Unresolved reference: externalCacheDir
-e: file:///home/user/efootball-assistant/app/src/main/java/com/assistant/OverlayService.kt:241:9 Unresolved reference: mediaRecorder
-e: file:///home/user/efootball-assistant/app/src/main/java/com/assistant/OverlayService.kt:242:9 Unresolved reference: mediaRecorder
-
-FAILURE: Build failed with an exception.
-
-* What went wrong:
-Execution failed for task ':app:compileDebugKotlin'.
-> A failure occurred while executing org.jetbrains.kotlin.compilerRunner.GradleCompilerRunnerWithWorkers$GradleKotlinCompilerWorkAction
-   > Compilation error. See log for more details
-
-* Try:
-> Run with --stacktrace option to get the stack trace.
-> Run with --info or --debug option to get more log output.
-> Run with --scan to get full insights.
-> Get more help at https://help.gradle.org.
-
-BUILD FAILED in 2s
-28 actionable tasks: 2 executed, 26 up-to-date
-bash: __vsc_prompt_cmd_original: command not found
-[?2004h]0;user@firebase-efootball-assistant-1779975046441: ~/efootball-assistant[00;35mefootball-assistant-00995228[00m:[01;34m~/efootball-assistant[00m[01;32m{main}[00m$ [K]0;user@firebase-efootball-assistant-1779975046441: ~/efootball-assistant[00;35mefootball-assistant-00995228[00m:[01;34m~/efootball-assistant[00m[01;32m{main}[00m$ [K]0;user@firebase-efootball-assistant-1779975046441: ~/efootball-assistant[00;35mefootball-assistant-00995228[00m:[01;34m~/efootball-assistant[00m[01;32m{main}[00m$ [K]0;user@firebase-efootball-assistant-1779975046441: ~/efootball-assistant[00;35mefootball-assistant-00995228[00m:[01;34m~/efootball-assistant[00m[01;32m{main}[00m$ [K]0;user@firebase-efootball-assistant-1779975046441: ~/efootball-assistant[00;35mefootball-assistant-00995228[00m:[01;34m~/efootball-assistant[00m[01;32m{main}[00m$ [K]0;user@firebase-efootball-assistant-1779975046441: ~/efootball-assistant[00;35mefootball-assistant-00995228[00m:[01;34m~/efootball-assistant[00m[01;32m{main}[00m$ [K]0;user@firebase-efootball-assistant-1779975046441: ~/efootball-assistant[00;35mefootball-assistant-00995228[00m:[01;34m~/efootball-assistant[00m[01;32m{main}[00m$ exit
-[?2004lexit
-
-Script done on 2026-05-31 09:33:31+00:00 [COMMAND_EXIT_CODE="1"]
+> Task :app:mergeDebugAssets
+> Task :app:desugarDebugFileDependenci

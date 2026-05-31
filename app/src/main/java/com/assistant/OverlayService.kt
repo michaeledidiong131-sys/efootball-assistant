@@ -1,12 +1,5 @@
 package com.assistant
 
-import android.media.MediaRecorder
-import android.content.Context
-import android.content.Intent
-
-import android.media.MediaRecorder
-package com.assistant
-
 import android.app.Activity
 import android.app.Notification
 import android.app.NotificationChannel
@@ -29,6 +22,7 @@ import android.os.IBinder
 import android.os.Looper
 import android.os.Process
 import android.util.DisplayMetrics
+import android.util.Log
 import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
@@ -58,7 +52,7 @@ class OverlayService : Service() {
 
     // OCR Throttle State
     private var lastOcrTime = 0L
-    private val OCR_INTERVAL_MS = 1000L // Scan screen 1 time per second
+    private val OCR_INTERVAL_MS = 1000L
 
     private val recognizer = TextRecognition.getClient(TextRecognizerOptions.DEFAULT_OPTIONS)
 
@@ -81,7 +75,6 @@ class OverlayService : Service() {
                     initializeProcessingEngine()
                 }
             } catch (e: Exception) {
-                // If it fails during setup, throw to GlobalCrashHandler
                 throw RuntimeException("VirtualDisplay Initialization Failed: ${e.message}", e)
             }
         } else {
@@ -156,7 +149,6 @@ class OverlayService : Service() {
         
         imageReader = ImageReader.newInstance(finalWidth, finalHeight, PixelFormat.RGBA_8888, 2)
         
-        // --- PHASE B: THE OCR THROTTLE PIPELINE ---
         imageReader?.setOnImageAvailableListener({ reader ->
             val image = reader.acquireLatestImage() ?: return@setOnImageAvailableListener
             val currentTime = System.currentTimeMillis()
@@ -165,15 +157,16 @@ class OverlayService : Service() {
                 lastOcrTime = currentTime
                 processImageForOCR(image)
             } else {
-                image.close() // Discard frame to prevent OOM memory leaks
+                image.close()
             }
         }, Handler(Looper.getMainLooper()))
 
         virtualDisplay = mediaProjection?.createVirtualDisplay(
-        startHardwareDVR()
             "HybridCoachScreen", finalWidth, finalHeight, metrics.densityDpi,
             DisplayManager.VIRTUAL_DISPLAY_FLAG_AUTO_MIRROR, imageReader?.surface, null, null
         ) ?: throw Exception("Kernel denied VirtualDisplay creation.")
+
+        startHardwareDVR()
     }
 
     private fun processImageForOCR(image: Image) {
@@ -188,19 +181,17 @@ class OverlayService : Service() {
             val bitmap = Bitmap.createBitmap(bitmapWidth, image.height, Bitmap.Config.ARGB_8888)
             bitmap.copyPixelsFromBuffer(buffer)
             
-            // Clean padding
             val cleanBitmap = Bitmap.createBitmap(bitmap, 0, 0, image.width, image.height)
             val inputImage = InputImage.fromBitmap(cleanBitmap, 0)
             
             recognizer.process(inputImage)
                 .addOnSuccessListener { visionText ->
-                    // Proof of Concept: Log detected match states to UI
                     if (visionText.text.contains("Full Time", ignoreCase = true) || visionText.text.contains("Half Time", ignoreCase = true)) {
                         Toast.makeText(applicationContext, "MATCH STATE DETECTED", Toast.LENGTH_SHORT).show()
                     }
                 }
                 .addOnCompleteListener {
-                    image.close() // CRITICAL: Release hardware buffer
+                    image.close()
                 }
         } catch (e: Exception) {
             image.close()
@@ -217,6 +208,27 @@ class OverlayService : Service() {
         }.apply { start() }
     }
 
+    private fun startHardwareDVR() {
+        try {
+            mediaRecorder = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+                android.media.MediaRecorder(this)
+            } else {
+                @Suppress("DEPRECATION")
+                android.media.MediaRecorder()
+            }
+            mediaRecorder?.setVideoSource(android.media.MediaRecorder.VideoSource.SURFACE)
+            mediaRecorder?.setOutputFormat(android.media.MediaRecorder.OutputFormat.MPEG_4)
+            mediaRecorder?.setVideoEncoder(android.media.MediaRecorder.VideoEncoder.H264)
+            mediaRecorder?.setVideoSize(1280, 720)
+            mediaRecorder?.setVideoFrameRate(30)
+            mediaRecorder?.setOutputFile(externalCacheDir?.absolutePath + "/match_chunk.mp4")
+            mediaRecorder?.prepare()
+            mediaRecorder?.start()
+        } catch (e: Exception) {
+            Log.e("OverlayService", "DVR Failed to start: ${e.message}")
+        }
+    }
+
     override fun onDestroy() {
         isRunning = false
         processingThread?.interrupt()
@@ -226,18 +238,12 @@ class OverlayService : Service() {
         imageReader?.close()
         projectionCallback?.let { mediaProjection?.unregisterCallback(it) }
         mediaProjection?.stop()
+        try {
+            mediaRecorder?.stop()
+            mediaRecorder?.release()
+        } catch (e: Exception) {
+            Log.e("OverlayService", "Error releasing recorder: ${e.message}")
+        }
         super.onDestroy()
     }
 }
-
-    private fun startHardwareDVR() {
-        mediaRecorder = android.media.MediaRecorder()
-        mediaRecorder?.setVideoSource(android.media.MediaRecorder.VideoSource.SURFACE)
-        mediaRecorder?.setOutputFormat(android.media.MediaRecorder.OutputFormat.MPEG_4)
-        mediaRecorder?.setVideoEncoder(android.media.MediaRecorder.VideoEncoder.H264)
-        mediaRecorder?.setVideoSize(1280, 720)
-        mediaRecorder?.setVideoFrameRate(30)
-        mediaRecorder?.setOutputFile(externalCacheDir?.absolutePath + "/match_chunk.mp4")
-        mediaRecorder?.prepare()
-        mediaRecorder?.start()
-    }
