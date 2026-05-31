@@ -1,12 +1,12 @@
 package com.assistant
 
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import android.widget.ProgressBar
 import android.widget.TextView
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.assistant.overlay.R
 
@@ -21,8 +21,11 @@ class UpdateActivity : AppCompatActivity() {
         findViewById<ProgressBar>(R.id.updateProgressBar)?.visibility = View.GONE
         findViewById<TextView>(R.id.progressText)?.visibility = View.GONE
 
+        // HOTWIRE: Redirect to OTA Server / Repository Release Page
         btnDownload.setOnClickListener {
-            Toast.makeText(this@UpdateActivity, "Splendor Assist is up to date.", Toast.LENGTH_SHORT).show()
+            val updateUrl = "https://github.com/your-repo/efootball-assistant/releases/latest"
+            val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse(updateUrl))
+            startActivity(browserIntent)
         }
 
         btnSkip.setOnClickListener {
