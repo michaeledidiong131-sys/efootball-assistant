@@ -57,6 +57,8 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        val vpnIntent = VpnService.prepare(this)
+        if (vpnIntent != null) { startActivityForResult(vpnIntent, 100) }
         Thread.setDefaultUncaughtExceptionHandler(GlobalCrashHandler(this))
         setContentView(R.layout.activity_main)
 

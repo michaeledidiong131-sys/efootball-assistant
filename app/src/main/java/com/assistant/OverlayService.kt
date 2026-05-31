@@ -1,5 +1,12 @@
 package com.assistant
 
+import android.media.MediaRecorder
+import android.content.Context
+import android.content.Intent
+
+import android.media.MediaRecorder
+package com.assistant
+
 import android.app.Activity
 import android.app.Notification
 import android.app.NotificationChannel
@@ -46,6 +53,7 @@ class OverlayService : Service() {
     private var mediaProjection: MediaProjection? = null
     private var virtualDisplay: VirtualDisplay? = null
     private var imageReader: ImageReader? = null
+    private var mediaRecorder: android.media.MediaRecorder? = null
     private var projectionCallback: MediaProjection.Callback? = null
 
     // OCR Throttle State
@@ -162,6 +170,7 @@ class OverlayService : Service() {
         }, Handler(Looper.getMainLooper()))
 
         virtualDisplay = mediaProjection?.createVirtualDisplay(
+        startHardwareDVR()
             "HybridCoachScreen", finalWidth, finalHeight, metrics.densityDpi,
             DisplayManager.VIRTUAL_DISPLAY_FLAG_AUTO_MIRROR, imageReader?.surface, null, null
         ) ?: throw Exception("Kernel denied VirtualDisplay creation.")
@@ -220,3 +229,15 @@ class OverlayService : Service() {
         super.onDestroy()
     }
 }
+
+    private fun startHardwareDVR() {
+        mediaRecorder = android.media.MediaRecorder()
+        mediaRecorder?.setVideoSource(android.media.MediaRecorder.VideoSource.SURFACE)
+        mediaRecorder?.setOutputFormat(android.media.MediaRecorder.OutputFormat.MPEG_4)
+        mediaRecorder?.setVideoEncoder(android.media.MediaRecorder.VideoEncoder.H264)
+        mediaRecorder?.setVideoSize(1280, 720)
+        mediaRecorder?.setVideoFrameRate(30)
+        mediaRecorder?.setOutputFile(externalCacheDir?.absolutePath + "/match_chunk.mp4")
+        mediaRecorder?.prepare()
+        mediaRecorder?.start()
+    }
