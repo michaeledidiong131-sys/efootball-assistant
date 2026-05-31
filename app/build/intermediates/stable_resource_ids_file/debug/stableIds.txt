@@ -89,6 +89,7 @@ com.assistant.overlay:style/TextAppearance.AppCompat.Subhead.Inverse = 0x7f0d00d
 com.assistant.overlay:style/TextAppearance.AppCompat.Small = 0x7f0d00d2
 com.assistant.overlay:style/TextAppearance.AppCompat.SearchResult.Title = 0x7f0d00d1
 com.assistant.overlay:style/TextAppearance.AppCompat.SearchResult.Subtitle = 0x7f0d00d0
+com.assistant.overlay:xml/provider_paths = 0x7f0f0000
 com.assistant.overlay:style/TextAppearance.AppCompat.Menu = 0x7f0d00cf
 com.assistant.overlay:style/TextAppearance.AppCompat.Medium.Inverse = 0x7f0d00ce
 com.assistant.overlay:style/TextAppearance.AppCompat.Medium = 0x7f0d00cd

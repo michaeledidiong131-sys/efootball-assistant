@@ -4,6 +4,10 @@
         "source": "com.assistant.overlay.app-main-24:/layout/overlay_layout.xml"
     },
     {
+        "merged": "com.assistant.overlay.app-merged_res-22:/xml_provider_paths.xml.flat",
+        "source": "com.assistant.overlay.app-main-24:/xml/provider_paths.xml"
+    },
+    {
         "merged": "com.assistant.overlay.app-merged_res-22:/layout_activity_update.xml.flat",
         "source": "com.assistant.overlay.app-main-24:/layout/activity_update.xml"
     },

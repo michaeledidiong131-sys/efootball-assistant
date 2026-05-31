@@ -186,7 +186,7 @@ class OverlayService : Service() {
             recognizer.process(inputImage)
                 .addOnSuccessListener { visionText ->
                     // Proof of Concept: Log detected match states to UI
-                    if (visionText.text.contains("FT") || visionText.text.contains("HT")) {
+                    if (visionText.text.contains("Full Time", ignoreCase = true) || visionText.text.contains("Half Time", ignoreCase = true)) {
                         Toast.makeText(applicationContext, "MATCH STATE DETECTED", Toast.LENGTH_SHORT).show()
                     }
                 }

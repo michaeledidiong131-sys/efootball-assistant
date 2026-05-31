@@ -12,3 +12,4 @@ layout activity_error
 layout activity_main
 layout activity_update
 layout overlay_layout
+xml provider_paths
