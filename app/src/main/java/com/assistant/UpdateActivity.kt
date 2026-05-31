@@ -5,6 +5,7 @@ import android.app.DownloadManager
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
+import com.assistant.overlay.R
 import android.os.Bundle
 import android.os.Environment
 import android.os.Handler
