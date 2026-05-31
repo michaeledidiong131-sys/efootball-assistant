@@ -22,7 +22,6 @@ import android.os.IBinder
 import android.os.Looper
 import android.os.Process
 import android.util.DisplayMetrics
-import android.util.Log
 import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
@@ -47,12 +46,10 @@ class OverlayService : Service() {
     private var mediaProjection: MediaProjection? = null
     private var virtualDisplay: VirtualDisplay? = null
     private var imageReader: ImageReader? = null
-    private var mediaRecorder: android.media.MediaRecorder? = null
     private var projectionCallback: MediaProjection.Callback? = null
 
-    // OCR Throttle State
     private var lastOcrTime = 0L
-    private val OCR_INTERVAL_MS = 1000L
+    private val OCR_INTERVAL_MS = 1500L // Throttled to prevent lag
 
     private val recognizer = TextRecognition.getClient(TextRecognizerOptions.DEFAULT_OPTIONS)
 
@@ -75,7 +72,7 @@ class OverlayService : Service() {
                     initializeProcessingEngine()
                 }
             } catch (e: Exception) {
-                throw RuntimeException("VirtualDisplay Initialization Failed: ${e.message}", e)
+                stopSelf()
             }
         } else {
             stopSelf()
@@ -110,9 +107,16 @@ class OverlayService : Service() {
 
         @Suppress("DEPRECATION")
         val layoutType = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY else WindowManager.LayoutParams.TYPE_PHONE
+        
+        // CRITICAL FIX: HyperOS anti-tapjacking bypass
         val layoutParams = WindowManager.LayoutParams(
             WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.MATCH_PARENT,
-            layoutType, WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE or WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE or WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
+            layoutType, 
+            WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE or 
+            WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE or 
+            WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL or 
+            WindowManager.LayoutParams.FLAG_HARDWARE_ACCELERATED or
+            WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
             PixelFormat.TRANSLUCENT
         )
         layoutParams.gravity = Gravity.TOP or Gravity.START
@@ -139,6 +143,7 @@ class OverlayService : Service() {
         var height = metrics.heightPixels
         if (width <= 0 || height <= 0) { width = 720; height = 1280 }
 
+        // Downscale to save memory and prevent lag
         val maxDimension = Math.max(width, height)
         val scale = if (maxDimension > 720) 720f / maxDimension else 1f
         var finalWidth = (width * scale).toInt()
@@ -165,8 +170,6 @@ class OverlayService : Service() {
             "HybridCoachScreen", finalWidth, finalHeight, metrics.densityDpi,
             DisplayManager.VIRTUAL_DISPLAY_FLAG_AUTO_MIRROR, imageReader?.surface, null, null
         ) ?: throw Exception("Kernel denied VirtualDisplay creation.")
-
-        startHardwareDVR()
     }
 
     private fun processImageForOCR(image: Image) {
@@ -186,12 +189,14 @@ class OverlayService : Service() {
             
             recognizer.process(inputImage)
                 .addOnSuccessListener { visionText ->
-                    if (visionText.text.contains("Full Time", ignoreCase = true) || visionText.text.contains("Half Time", ignoreCase = true)) {
-                        Toast.makeText(applicationContext, "MATCH STATE DETECTED", Toast.LENGTH_SHORT).show()
+                    // WIDENED SEARCH: Look for fragments of the words to beat stylized Konami fonts
+                    val text = visionText.text.lowercase()
+                    if (text.contains("half") || text.contains("full") || text.contains("time")) {
+                        Toast.makeText(applicationContext, "MATCH STATE DETECTED", Toast.LENGTH_LONG).show()
                     }
                 }
                 .addOnCompleteListener {
-                    image.close()
+                    image.close() // ALWAYS close to prevent memory leaks
                 }
         } catch (e: Exception) {
             image.close()
@@ -201,32 +206,11 @@ class OverlayService : Service() {
     private fun initializeProcessingEngine() {
         isRunning = true
         processingThread = Thread {
-            Process.setThreadPriority(Process.THREAD_PRIORITY_FOREGROUND)
+            Process.setThreadPriority(Process.THREAD_PRIORITY_BACKGROUND)
             while (isRunning) {
-                try { Thread.sleep(16) } catch (e: InterruptedException) { break }
+                try { Thread.sleep(50) } catch (e: InterruptedException) { break }
             }
         }.apply { start() }
-    }
-
-    private fun startHardwareDVR() {
-        try {
-            mediaRecorder = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
-                android.media.MediaRecorder(this)
-            } else {
-                @Suppress("DEPRECATION")
-                android.media.MediaRecorder()
-            }
-            mediaRecorder?.setVideoSource(android.media.MediaRecorder.VideoSource.SURFACE)
-            mediaRecorder?.setOutputFormat(android.media.MediaRecorder.OutputFormat.MPEG_4)
-            mediaRecorder?.setVideoEncoder(android.media.MediaRecorder.VideoEncoder.H264)
-            mediaRecorder?.setVideoSize(1280, 720)
-            mediaRecorder?.setVideoFrameRate(30)
-            mediaRecorder?.setOutputFile(externalCacheDir?.absolutePath + "/match_chunk.mp4")
-            mediaRecorder?.prepare()
-            mediaRecorder?.start()
-        } catch (e: Exception) {
-            Log.e("OverlayService", "DVR Failed to start: ${e.message}")
-        }
     }
 
     override fun onDestroy() {
@@ -238,12 +222,6 @@ class OverlayService : Service() {
         imageReader?.close()
         projectionCallback?.let { mediaProjection?.unregisterCallback(it) }
         mediaProjection?.stop()
-        try {
-            mediaRecorder?.stop()
-            mediaRecorder?.release()
-        } catch (e: Exception) {
-            Log.e("OverlayService", "Error releasing recorder: ${e.message}")
-        }
         super.onDestroy()
     }
 }
