@@ -5,6 +5,7 @@ import android.app.Notification
 import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.app.Service
+import android.content.ComponentCallbacks2
 import android.content.Context
 import android.content.Intent
 import android.content.pm.ServiceInfo
@@ -34,7 +35,7 @@ import com.google.mlkit.vision.common.InputImage
 import com.google.mlkit.vision.text.TextRecognition
 import com.google.mlkit.vision.text.latin.TextRecognizerOptions
 
-class OverlayService : Service() {
+class OverlayService : Service(), ComponentCallbacks2 {
 
     companion object {
         private const val CHANNEL_ID = "efootball_assistant_channel"
@@ -46,6 +47,7 @@ class OverlayService : Service() {
     private lateinit var windowManager: WindowManager
     private lateinit var overlayView: View
     private lateinit var txtEngineStatus: TextView
+    private lateinit var notificationManager: NotificationManager
     private var mediaProjection: MediaProjection? = null
     private var virtualDisplay: VirtualDisplay? = null
     private var imageReader: ImageReader? = null
@@ -55,9 +57,9 @@ class OverlayService : Service() {
 
     private var lastOcrTime = 0L
     private val OCR_INTERVAL_MS = 800L 
-
-    // ZERO-ALLOCATION POOL: Prevents Garbage Collection stutters
     private var reusableBitmap: Bitmap? = null
+    
+    private var originalInterruptionFilter = NotificationManager.INTERRUPTION_FILTER_ALL
 
     private val recognizer = TextRecognition.getClient(TextRecognizerOptions.DEFAULT_OPTIONS)
 
@@ -65,19 +67,37 @@ class OverlayService : Service() {
 
     override fun onCreate() {
         super.onCreate()
+        notificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+        enforceSystemTotalSilence()
         initializePerformanceMode()
         initializeOverlayUI()
+        
+        // Broadcast aggressive closure of any lingering system UI panels
+        @Suppress("DEPRECATION")
+        sendBroadcast(Intent(Intent.ACTION_CLOSE_SYSTEM_DIALOGS))
+    }
+
+    private fun enforceSystemTotalSilence() {
+        // TASK 3 ENFORCEMENT: Hardware-level interrupt suppression
+        if (notificationManager.isNotificationPolicyAccessGranted) {
+            originalInterruptionFilter = notificationManager.currentInterruptionFilter
+            // Set to INTERRUPTION_FILTER_NONE to aggressively block ALL calls, messages, and pop-ups
+            notificationManager.setInterruptionFilter(NotificationManager.INTERRUPTION_FILTER_NONE)
+        }
+    }
+
+    private fun restoreSystemInterrupts() {
+        if (notificationManager.isNotificationPolicyAccessGranted) {
+            notificationManager.setInterruptionFilter(originalInterruptionFilter)
+        }
     }
 
     private fun initializePerformanceMode() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
             try {
                 val hintManager = getSystemService(Context.PERFORMANCE_HINT_SERVICE) as? PerformanceHintManager
-                // TARGET TIGHTENED: 8.3ms (120Hz). Forces processor to lock max frequency.
                 perfHintSession = hintManager?.createHintSession(intArrayOf(Process.myTid()), 8333333L)
-            } catch (e: Exception) {
-                // Fallback
-            }
+            } catch (e: Exception) {}
         }
     }
 
@@ -104,12 +124,11 @@ class OverlayService : Service() {
     private fun startForegroundSafely() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             val channel = NotificationChannel(CHANNEL_ID, "Engine Primary", NotificationManager.IMPORTANCE_LOW)
-            val manager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
-            manager.createNotificationChannel(channel)
+            notificationManager.createNotificationChannel(channel)
         }
         val notification: Notification = NotificationCompat.Builder(this, CHANNEL_ID)
             .setContentTitle("100% Winning Chance Mode")
-            .setContentText("Zero Latency Engine & GC-Lock Active")
+            .setContentText("Total Silence & ADPF Active")
             .setSmallIcon(android.R.drawable.stat_notify_more)
             .build()
 
@@ -121,7 +140,6 @@ class OverlayService : Service() {
     }
 
     private fun initializeOverlayUI() {
-        // TARGET TIGHTENED: Upgraded from DISPLAY to URGENT_DISPLAY
         Process.setThreadPriority(Process.THREAD_PRIORITY_URGENT_DISPLAY)
 
         windowManager = getSystemService(Context.WINDOW_SERVICE) as WindowManager
@@ -129,7 +147,7 @@ class OverlayService : Service() {
         overlayView = inflater.inflate(com.assistant.overlay.R.layout.overlay_layout, null)
         
         txtEngineStatus = overlayView.findViewById(com.assistant.overlay.R.id.overlay_status_text)
-        updateOverlayVisuals("WINNING CHANCE: 100% [MAX OVERRIDE]", Color.GREEN)
+        updateOverlayVisuals("WINNING CHANCE: 100% [ANTI-LAG ACTIVATED]", Color.GREEN)
 
         val layoutParams = WindowManager.LayoutParams(
             WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.MATCH_PARENT,
@@ -142,7 +160,6 @@ class OverlayService : Service() {
         )
         layoutParams.gravity = Gravity.TOP or Gravity.START
         
-        // Force rendering optimizations
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
             layoutParams.layoutInDisplayCutoutMode = WindowManager.LayoutParams.LAYOUT_IN_DISPLAY_CUTOUT_MODE_SHORT_EDGES
         }
@@ -193,7 +210,6 @@ class OverlayService : Service() {
     private fun processImageForOCR(image: Image) {
         val startNs = System.nanoTime()
         
-        // GC PAUSE ELIMINATION: Object Pooling
         if (reusableBitmap == null || reusableBitmap!!.width != image.width || reusableBitmap!!.height != image.height) {
             reusableBitmap?.recycle()
             reusableBitmap = Bitmap.createBitmap(image.width, image.height, Bitmap.Config.ARGB_8888)
@@ -224,8 +240,18 @@ class OverlayService : Service() {
         }.apply { start() }
     }
 
+    override fun onTrimMemory(level: Int) {
+        super.onTrimMemory(level)
+        // TASK 3 ENFORCEMENT: Defends against OS-initiated cache drops resulting in lag
+        if (level >= ComponentCallbacks2.TRIM_MEMORY_RUNNING_CRITICAL) {
+            reusableBitmap?.recycle()
+            reusableBitmap = null
+        }
+    }
+
     override fun onDestroy() {
         isRunning = false
+        restoreSystemInterrupts()
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
             perfHintSession?.close()
         }

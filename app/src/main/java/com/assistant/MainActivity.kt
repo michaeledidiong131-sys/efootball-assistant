@@ -2,12 +2,12 @@ package com.assistant
 
 import android.Manifest
 import android.app.Activity
+import android.app.NotificationManager
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.media.projection.MediaProjectionManager
 import android.net.Uri
-import android.net.VpnService
 import android.os.Build
 import android.os.Bundle
 import android.provider.Settings
@@ -21,6 +21,7 @@ import com.assistant.overlay.R
 class MainActivity : AppCompatActivity() {
 
     private lateinit var projectionManager: MediaProjectionManager
+    private lateinit var notificationManager: NotificationManager
 
     private val screenCaptureLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
         if (result.resultCode == Activity.RESULT_OK && result.data != null) {
@@ -35,7 +36,7 @@ class MainActivity : AppCompatActivity() {
             }
             Toast.makeText(this, "Hybrid Coach Engine Online", Toast.LENGTH_LONG).show()
         } else {
-            Toast.makeText(this, "Engine Authorization Denied.", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Engine Authorization Denied.", Toast.LENGTH_LONG).show()
         }
     }
 
@@ -49,7 +50,7 @@ class MainActivity : AppCompatActivity() {
 
     private val overlayPermissionLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
         if (Settings.canDrawOverlays(this)) {
-            requestScreenCapture()
+            checkDndAndProceed()
         } else {
             Toast.makeText(this, "Overlay Permission Required.", Toast.LENGTH_LONG).show()
         }
@@ -57,12 +58,11 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val vpnIntent = VpnService.prepare(this)
-        if (vpnIntent != null) { startActivityForResult(vpnIntent, 100) }
         Thread.setDefaultUncaughtExceptionHandler(GlobalCrashHandler(this))
         setContentView(R.layout.activity_main)
 
         projectionManager = getSystemService(Context.MEDIA_PROJECTION_SERVICE) as MediaProjectionManager
+        notificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
 
         val btnStart = findViewById<Button>(R.id.btnStartEngine)
         btnStart.setOnClickListener {
@@ -80,6 +80,17 @@ class MainActivity : AppCompatActivity() {
         if (!Settings.canDrawOverlays(this)) {
             val intent = Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION, Uri.parse("package:$packageName"))
             overlayPermissionLauncher.launch(intent)
+        } else {
+            checkDndAndProceed()
+        }
+    }
+
+    private fun checkDndAndProceed() {
+        // TASK 3 ENFORCEMENT: Request DND Access to kill pop-up lag
+        if (!notificationManager.isNotificationPolicyAccessGranted) {
+            Toast.makeText(this, "Please grant Do Not Disturb access to eliminate pop-up lag.", Toast.LENGTH_LONG).show()
+            val intent = Intent(Settings.ACTION_NOTIFICATION_POLICY_ACCESS_SETTINGS)
+            startActivity(intent)
         } else {
             requestScreenCapture()
         }
