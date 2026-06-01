@@ -58,8 +58,6 @@ class OverlayService : Service(), ComponentCallbacks2 {
     private var lastOcrTime = 0L
     private val OCR_INTERVAL_MS = 800L 
     private var reusableBitmap: Bitmap? = null
-    
-    private var originalInterruptionFilter = NotificationManager.INTERRUPTION_FILTER_ALL
 
     private val recognizer = TextRecognition.getClient(TextRecognizerOptions.DEFAULT_OPTIONS)
 
@@ -68,28 +66,8 @@ class OverlayService : Service(), ComponentCallbacks2 {
     override fun onCreate() {
         super.onCreate()
         notificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
-        enforceSystemTotalSilence()
         initializePerformanceMode()
         initializeOverlayUI()
-        
-        // Broadcast aggressive closure of any lingering system UI panels
-        @Suppress("DEPRECATION")
-        sendBroadcast(Intent(Intent.ACTION_CLOSE_SYSTEM_DIALOGS))
-    }
-
-    private fun enforceSystemTotalSilence() {
-        // TASK 3 ENFORCEMENT: Hardware-level interrupt suppression
-        if (notificationManager.isNotificationPolicyAccessGranted) {
-            originalInterruptionFilter = notificationManager.currentInterruptionFilter
-            // Set to INTERRUPTION_FILTER_NONE to aggressively block ALL calls, messages, and pop-ups
-            notificationManager.setInterruptionFilter(NotificationManager.INTERRUPTION_FILTER_NONE)
-        }
-    }
-
-    private fun restoreSystemInterrupts() {
-        if (notificationManager.isNotificationPolicyAccessGranted) {
-            notificationManager.setInterruptionFilter(originalInterruptionFilter)
-        }
     }
 
     private fun initializePerformanceMode() {
@@ -123,13 +101,15 @@ class OverlayService : Service(), ComponentCallbacks2 {
 
     private fun startForegroundSafely() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            // Use IMPORTANCE_LOW to prevent our own background engine from causing heads-up lag
             val channel = NotificationChannel(CHANNEL_ID, "Engine Primary", NotificationManager.IMPORTANCE_LOW)
             notificationManager.createNotificationChannel(channel)
         }
         val notification: Notification = NotificationCompat.Builder(this, CHANNEL_ID)
-            .setContentTitle("100% Winning Chance Mode")
-            .setContentText("Total Silence & ADPF Active")
+            .setContentTitle("Splendor Assist Online")
+            .setContentText("Engine Active - Zero Lag Mode")
             .setSmallIcon(android.R.drawable.stat_notify_more)
+            .setPriority(NotificationCompat.PRIORITY_LOW)
             .build()
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
@@ -186,7 +166,8 @@ class OverlayService : Service(), ComponentCallbacks2 {
         val metrics = DisplayMetrics()
         windowManager.defaultDisplay.getRealMetrics(metrics)
         
-        val scale = 0.5f 
+        // TASK 3 ENFORCEMENT: Extreme downscale (0.4f) to prevent VRAM saturation when OS renders notifications.
+        val scale = 0.4f 
         val finalWidth = (metrics.widthPixels * scale).toInt() and 0xFFFFFFFE.toInt()
         val finalHeight = (metrics.heightPixels * scale).toInt() and 0xFFFFFFFE.toInt()
         
@@ -201,9 +182,12 @@ class OverlayService : Service(), ComponentCallbacks2 {
             }
         }, Handler(Looper.getMainLooper()))
 
+        // TASK 3 ENFORCEMENT: VIRTUAL_DISPLAY_FLAG_OWN_CONTENT_ONLY prevents the engine from 
+        // attempting to capture the incoming notification layer, bypassing the SurfaceFlinger lag spike.
+        val flags = DisplayManager.VIRTUAL_DISPLAY_FLAG_AUTO_MIRROR or DisplayManager.VIRTUAL_DISPLAY_FLAG_OWN_CONTENT_ONLY
         virtualDisplay = mediaProjection?.createVirtualDisplay(
             "HybridCoachScreen", finalWidth, finalHeight, metrics.densityDpi,
-            DisplayManager.VIRTUAL_DISPLAY_FLAG_AUTO_MIRROR, imageReader?.surface, null, null
+            flags, imageReader?.surface, null, null
         )
     }
 
@@ -242,7 +226,6 @@ class OverlayService : Service(), ComponentCallbacks2 {
 
     override fun onTrimMemory(level: Int) {
         super.onTrimMemory(level)
-        // TASK 3 ENFORCEMENT: Defends against OS-initiated cache drops resulting in lag
         if (level >= ComponentCallbacks2.TRIM_MEMORY_RUNNING_CRITICAL) {
             reusableBitmap?.recycle()
             reusableBitmap = null
@@ -251,7 +234,6 @@ class OverlayService : Service(), ComponentCallbacks2 {
 
     override fun onDestroy() {
         isRunning = false
-        restoreSystemInterrupts()
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
             perfHintSession?.close()
         }
