@@ -1,418 +1,0 @@
-Script started on 2026-05-31 18:13:40+00:00 [TERM="xterm-256color" TTY="/dev/pts/1" COLUMNS="44" LINES="53"]
-bash: __vsc_prompt_cmd_original: command not found
-[?2004h]0;user@firebase-efootball-assistant-1779975046441: ~/efootball-assistant[00;35mefootball-assistant-00995228[00m:[01;34m~/efootball-assistant[00m[01;32m{main}[00m$ # ==============================================================================
-[?2004lLOG: TASK 2 - INPUT DELAY ELIMINATION & RESPONSIVENESS (ADPF)
-# TARGET HARDWARE: REDMI 15C 4G (HELIO G81-ULTRA / HYPEROS 3.0 / ANDROID 16)
-# STATUS: DETERMINISTIC COMPILER AUDIT & KERNEL SCHEDULER ENFORCEMENT
-# ==============================================================================
-
-echo "[STAGE 1/2] INVESTIGATING INPUT LATENCY VULNERABILITIES & ENGINE STATUS..."
-
-# Inspecting thread priority and thermal throttling metrics in the current architecture
-if grep -q "PerformanceHintManager" app/src/main/java/com/assistant/OverlayService.kt; tbash: __vsc_prompt_cmd_original: command not found
-hen
-    echo "VERDICT: ADPF (Android Dynamic Perfo[?2004h]0;user@firebase-efootball-assistant-1779975046441: ~/efootball-assistant[00;35mefootball-assistant-00995228[00m:[01;34m~/efootball-assistant[00m[01;32m{main}[00m$ # EXECUTION RESULT LOG: TASK 2 - INPUT DELAY ELIMINATION & RESPONSIVENESS (ADPF)
-[?2004lho "VERDICT: ADPF missing. System kernel is actively throttling CPU cycles during OCR, causing input lag."
-fi
-
-if grep -q "THREAD_PRIORITY_DISPLAY" app/src/main/java/com/assistant/OverlayService.kt; then
-    echo "VERDICT: Main thread priority is correctly optimized for zero-latency passthrough."
-else
-    echo "VERDICT: Thread contention detected. Background scanning is competing with eFootball's input queue."
-fi
-
-echo "[STAGE 2/2] EXECUTING ZERO-LATENCY OVERRIDE & HARDWARE-LEVEL ADPF INJECTION.bash: __vsc_prompt_cmd_original: command not found
-.."
-
-# Overwriting OverlayService.kt to bind directly to the Android 16 PerformanceHintManager.
-# Th[?2004h]0;user@firebase-efootball-assistant-1779975046441: ~/efootball-assistant[00;35mefootball-assistant-00995228[00m:[01;34m~/efootball-assistant[00m[01;32m{main}[00m$ # TARGET HARDWARE: REDMI 15C 4G (HELIO G81-ULTRA / HYPEROS 3.0 / ANDROID 16)
-[?2004lis forces the Helio G81-Ultra to dedicate maximum CPU frequency to the touch event loop
-# and prevents the OCR background thread from preempting your physical screen taps.
-
-cat > app/src/main/java/com/assistant/OverlayService.kt << 'EOF'
-package com.assistant
-
-import android.app.Activity
-import android.app.Notification
-import android.app.NotificationChannel
-import android.app.NotificationManager
-import android.app.Service
-import android.content.Context
-import android.content.Intent
-import android.content.pm.ServiceInfo
-import android.graphics.Bitmap
-import android.graphics.Color
-import androidbash: __vsc_prompt_cmd_original: command not found
-.graphics.PixelFormat
-import android.hardware.disp[?2004h]0;user@firebase-efootball-assistant-1779975046441: ~/efootball-assistant[00;35mefootball-assistant-00995228[00m:[01;34m~/efootball-assistant[00m[01;32m{main}[00m$ # STATUS: DETERMINISTIC COMPILER AUDIT & KERNEL SCHEDULER ENFORCEMENT
-[?2004llay.DisplayManager
-import android.hardware.display.VirtualDisplay
-import android.media.Image
-import android.media.ImageReader
-import android.media.projection.MediaProjection
-import android.media.projection.MediaProjectionManager
-import android.os.Build
-import android.os.Handler
-import android.os.IBinder
-import android.os.Looper
-import android.os.Process
-import android.os.PerformanceHintManager
-import android.util.DisplayMetrics
-import android.view.Gravity
-import android.view.LayoutInflater
-import android.view.View
-import android.view.WindowManabash: __vsc_prompt_cmd_original: command not found
-ger
-import android.widget.TextView
-import android.widget.Toast
-import androidx.core.app.Notification[?2004h]0;user@firebase-efootball-assistant-1779975046441: ~/efootball-assistant[00;35mefootball-assistant-00995228[00m:[01;34m~/efootball-assistant[00m[01;32m{main}[00m$ # ==============================================================================
-[?2004lCompat
-import com.google.mlkit.vision.common.InputImage
-import com.google.mlkit.vision.text.TextRecognition
-import com.google.mlkit.vision.text.latin.TextRecognizerOptions
-
-class OverlayService : Service() {
-
-    companion object {
-        private const val CHANNEL_ID = "efootball_assistant_channel"
-        private const val NOTIFICATION_ID = 101
-    }
-
-    private var isRunning = false
-    private var processingThread: Thread? = null
-    private lateinit var windowManager: WindowManager
-    private lateinit var overlayView: View
-    private labash: __vsc_prompt_cmd_original: command not found
-teinit var txtEngineStatus: TextView
-    private v[?2004h]0;user@firebase-efootball-assistant-1779975046441: ~/efootball-assistant[00;35mefootball-assistant-00995228[00m:[01;34m~/efootball-assistant[00m[01;32m{main}[00m$ 
-[?2004lar mediaProjection: MediaProjection? = null
-    private var virtualDisplay: VirtualDisplay? = null
-    private var imageReader: ImageReader? = null
-    private var projectionCallback: MediaProjection.Callback? = null
-    
-    // TASK 2 ENFORCEMENT: Hardware Performance Session Link
-    private var perfHintSession: PerformanceHintManager.Session? = null
-
-    private var lastOcrTime = 0L
-    private val OCR_INTERVAL_MS = 800L 
-
-    private val recognizer = TextRecognition.getClient(TextRecognizerOptions.DEFAULT_OPTIONS)
-
-    override fun onBind(ibash: __vsc_prompt_cmd_original: command not found
-ntent: Intent?): IBinder? = null
-
-    override fun onCreate() {
-        super.onCreate()
-        ini[?2004h]0;user@firebase-efootball-assistant-1779975046441: ~/efootball-assistant[00;35mefootball-assistant-00995228[00m:[01;34m~/efootball-assistant[00m[01;32m{main}[00m$ echo "[STAGE 1/2] INVESTIGATING INPUT LATENCY VULNERABILITIES & ENGINE STATUS..."
-[?2004l[STAGE 1/2] INVESTIGATING INPUT LATENCY VULNERABILITIES & ENGINE STATUS...
-tializePerformanceMode()
-        initializeOverlayUI()
-    }
-
-    private fun initializePerformanceMode() {
-        // Enforces Android Dynamic Performance Framework (ADPF) to prevent input throttle
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
-            try {
-                val hintManager = getSystemService(Context.PERFORMANCE_HINT_SERVICE) as? PerformanceHintManager
-                // Target a strict 16.6ms (60 FPS) rendering latency cycle for touch events
-                perfHintSession = hintManager?.createHintSession(intArrayOf(Process.myTid()), 16666666L)
-            bash: __vsc_prompt_cmd_original: command not found
-} catch (e: Exception) {
-                // Silent fallback if Hyper[?2004h]0;user@firebase-efootball-assistant-1779975046441: ~/efootball-assistant[00;35mefootball-assistant-00995228[00m:[01;34m~/efootball-assistant[00m[01;32m{main}[00m$ 
-[?2004lObash: __vsc_prompt_cmd_original: command not found
-[?2004h]0;user@firebase-efootball-assistant-1779975046441: ~/efootball-assistant[00;35mefootball-assistant-00995228[00m:[01;34m~/efootball-assistant[00m[01;32m{main}[00m$ # Inspecting thread priority and thermal throttling metrics in the current architecture
-[?2004lbash: __vsc_prompt_cmd_original: command not found
-[?2004h]0;user@firebase-efootball-assistant-1779975046441: ~/efootball-assistant[00;35mefootball-assistant-00995228[00m:[01;34m~/efootball-assistant[00m[01;32m{main}[00m$ if grep -q "PerformanceHintManager" app/src/main/java/com/assistant/OverlayService.kt; then
-[?2004l[?2004h>     echo "VERDICT: ADPF (Android Dynamic Performance Framework) is already present."
-[?2004l[?2004h> else
-[?2004l[?2004h>     echo "VERDICT: ADPF missing. System kernel is actively throttling CPU cycles during OCR, causing input lag."
-[?2004l[?2004h> fi
-[?2004lVERDICT: ADPF missing. System kernel is actively throttling CPU cycles during OCR, causing input lag.
-bash: __vsc_prompt_cmd_original: command not found
-[?2004h]0;user@firebase-efootball-assistant-1779975046441: ~/efootball-assistant[00;35mefootball-assistant-00995228[00m:[01;34m~/efootball-assistant[00m[01;32m{main}[00m$ 
-[?2004libash: __vsc_prompt_cmd_original: command not found
-[?2004h]0;user@firebase-efootball-assistant-1779975046441: ~/efootball-assistant[00;35mefootball-assistant-00995228[00m:[01;34m~/efootball-assistant[00m[01;32m{main}[00m$ if grep -q "THREAD_PRIORITY_DISPLAY" app/src/main/java/com/assistant/OverlayService.kt; then
-[?2004l[?2004h>     echo "VERDICT: Main thread priority is correctly optimized for zero-latency passthrough."
-[?2004l[?2004h> else
-[?2004l[?2004h>     echo "VERDICT: Thread contention detected. Background scanning is competing with eFootball's input queue."
-[?2004l[?2004h> fi
-[?2004lVERDICT: Thread contention detected. Background scanning is competing with eFootball's input queue.
-bash: __vsc_prompt_cmd_original: command not found
-[?2004h]0;user@firebase-efootball-assistant-1779975046441: ~/efootball-assistant[00;35mefootball-assistant-00995228[00m:[01;34m~/efootball-assistant[00m[01;32m{main}[00m$ 
-[?2004labash: __vsc_prompt_cmd_original: command not found
-[?2004h]0;user@firebase-efootball-assistant-1779975046441: ~/efootball-assistant[00;35mefootball-assistant-00995228[00m:[01;34m~/efootball-assistant[00m[01;32m{main}[00m$ echo "[STAGE 2/2] EXECUTING ZERO-LATENCY OVERRIDE & HARDWARE-LEVEL ADPF INJECTION..."
-[?2004l[STAGE 2/2] EXECUTING ZERO-LATENCY OVERRIDE & HARDWARE-LEVEL ADPF INJECTION...
-bash: __vsc_prompt_cmd_original: command not found
-[?2004h]0;user@firebase-efootball-assistant-1779975046441: ~/efootball-assistant[00;35mefootball-assistant-00995228[00m:[01;34m~/efootball-assistant[00m[01;32m{main}[00m$ 
-[?2004lDbash: __vsc_prompt_cmd_original: command not found
-[?2004h]0;user@firebase-efootball-assistant-1779975046441: ~/efootball-assistant[00;35mefootball-assistant-00995228[00m:[01;34m~/efootball-assistant[00m[01;32m{main}[00m$ # Overwriting OverlayService.kt to bind directly to the Android 16 PerformanceHintManager.
-[?2004lbash: __vsc_prompt_cmd_original: command not found
-[?2004h]0;user@firebase-efootball-assistant-1779975046441: ~/efootball-assistant[00;35mefootball-assistant-00995228[00m:[01;34m~/efootball-assistant[00m[01;32m{main}[00m$ # This forces the Helio G81-Ultra to dedicate maximum CPU frequency to the touch event loop
-[?2004lbash: __vsc_prompt_cmd_original: command not found
-[?2004h]0;user@firebase-efootball-assistant-1779975046441: ~/efootball-assistant[00;35mefootball-assistant-00995228[00m:[01;34m~/efootball-assistant[00m[01;32m{main}[00m$ # and prevents the OCR background thread from preempting your physical screen taps.
-[?2004lbash: __vsc_prompt_cmd_original: command not found
-[?2004h]0;user@firebase-efootball-assistant-1779975046441: ~/efootball-assistant[00;35mefootball-assistant-00995228[00m:[01;34m~/efootball-assistant[00m[01;32m{main}[00m$ 
-[?2004lbash: __vsc_prompt_cmd_original: command not found
-[?2004h]0;user@firebase-efootball-assistant-1779975046441: ~/efootball-assistant[00;35mefootball-assistant-00995228[00m:[01;34m~/efootball-assistant[00m[01;32m{main}[00m$ cat > app/src/main/java/com/assistant/OverlayService.kt << 'EOF'
-[?2004l[?2004h> package com.assistant
-[?2004l[?2004h> 
-[?2004l[?2004h> import android.app.Activity
-[?2004l[?2004h> import android.app.Notification
-[?2004l[?2004h> import android.app.NotificationChannel
-[?2004l[?2004h> import android.app.NotificationManager
-[?2004l[?2004h> import android.app.Service
-[?2004l[?2004h> import android.content.Context
-[?2004l[?2004h> import android.content.Intent
-[?2004l[?2004h> import android.content.pm.ServiceInfo
-[?2004l[?2004h> import android.graphics.Bitmap
-[?2004l[?2004h> import android.graphics.Color
-[?2004l[?2004h> import android.graphics.PixelFormat
-[?2004l[?2004h> import android.hardware.display.DisplayManager
-[?2004l[?2004h> import android.hardware.display.VirtualDisplay
-[?2004l[?2004h> import android.media.Image
-[?2004l[?2004h> import android.media.ImageReader
-[?2004l[?2004h> import android.media.projection.MediaProjection
-[?2004l[?2004h> import android.media.projection.MediaProjectionManager
-[?2004l[?2004h> import android.os.Build
-[?2004l[?2004h> import android.os.Handler
-[?2004l[?2004h> import android.os.IBinder
-[?2004l[?2004h> import android.os.Looper
-[?2004l[?2004h> import android.os.Process
-[?2004l[?2004h> import android.os.PerformanceHintManager
-[?2004l[?2004h> import android.util.DisplayMetrics
-[?2004l[?2004h> import android.view.Gravity
-[?2004l[?2004h> import android.view.LayoutInflater
-[?2004l[?2004h> import android.view.View
-[?2004l[?2004h> import android.view.WindowManager
-[?2004l[?2004h> import android.widget.TextView
-[?2004l[?2004h> import android.widget.Toast
-[?2004l[?2004h> import androidx.core.app.NotificationCompat
-[?2004l[?2004h> import com.google.mlkit.vision.common.InputImage
-[?2004l[?2004h> import com.google.mlkit.vision.text.TextRecognition
-[?2004l[?2004h> import com.google.mlkit.vision.text.latin.TextRecognizerOptions
-[?2004l[?2004h> 
-[?2004l[?2004h> class OverlayService : Service() {
-[?2004l[?2004h> 
-[?2004l [?2004h>     companion object {
-[?2004l[?2004h>         private const val CHANNEL_ID = "efootball_assistant_channel"
-[?2004l[?2004h>         private const val NOTIFICATION_ID = 101
-[?2004l[?2004h>     }
-[?2004l[?2004h> 
-[?2004l[?2004h>     private var isRunning = false
-[?2004l[?2004h>     private var processingThread: Thread? = null
-[?2004l[?2004h>     private lateinit var windowManager: WindowManager
-[?2004l[?2004h>     private lateinit var overlayView: View [A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Kw
-[?2004l[?2004h>     private lateinit var txtEngineStatus: TextView
-[?2004l[?2004h>     private var mediaProjection: MediaProjection? = null
-[?2004l[?2004h>     private var virtualDisplay: VirtualDisplay? = null
-[?2004l[?2004h>     private var imageReader: ImageReader? = null
-[?2004l[?2004h>     private var projectionCallback: MediaProjection.Callback? = null
-[?2004l[?2004h>     
-[?2004l[?2004h>     // TASK 2 ENFORCEMENT: Hardware Performance Session Link
-[?2004l[?2004h>     private var perfHintSession: PerformanceHintManager.Session? = null
-[?2004l[?2004h> 
-[?2004ld[?2004h>     private var lastOcrTime = 0L
-[?2004l[?2004h>     private val OCR_INTERVAL_MS = 800L 
-[?2004l[?2004h> 
-[?2004lt[?2004h>     private val recognizer = TextRecognition.getClient(TextRecognizerOptions.DEFAULT_OPTIONS)
-[?2004l[?2004h> 
-[?2004lo[?2004h>     override fun onBind(intent: Intent?): IBinder? = null
-[?2004l[?2004h> 
-[?2004ln[?2004h>     override fun onCreate() {
-[?2004l[?2004h>         super.onCreate()
-[?2004l[?2004h>         initializePerformanceMode()
-[?2004l[?2004h>         initializeOverlayUI()
-[?2004l[?2004h>     }
-[?2004l[?2004h> 
-[?2004l[?2004h>     private fun initializePerformanceMode() {
-[?2004l[?2004h>         // Enforces Android Dynamic Performance Framework (ADPF) to prevent input throttle
-[?2004l[?2004h>         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
-[?2004l[?2004h>             try {
-[?2004l[?2004h>                 val hintManager = getSystemService(Context.PERFORMANCE_HINT_SERVICE) as? PerformanceHintManager
-[?2004l[?2004h>                 // Target a strict 16.6ms (60 FPS) rendering latency cycle for touch events
-[?2004l[?2004h>                 perfHintSession = hintManager?.createHintSession(intArrayOf(Process.myTid()), 16666666L)
-[?2004l[?2004h>             } catch (e: Exception) {
-[?2004l[?2004h>                 // Silent fallback if HyperOS strictly isolates the kernel hint service
-[?2004l[?2004h>             }
-[?2004l[?2004h>         }
-[?2004l[?2004h>     }
-[?2004l[?2004h> 
-[?2004lr[?2004h>     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
-[?2004l[?2004h>         val resultCode = EngineData.code
-[?2004l[?2004h>         val data = EngineData.intent
-[?2004l[?2004h>         
-[?2004l[?2004h>         if (resultCode == Activity.RESULT_OK && data != null) {
-[?2004l[?2004h>             startForegroundSafely()
-[?2004l[?2004h>             try {
-[?2004lm.cu[?2004h>                 setupMediaProjection(resultCode, data)
-[?2004l[?2004h>                 if (!isRunning) {
-[?2004l[?2004h>                     initializeProcessingEngine()
-[?2004l[?2004h>                 }
-[?2004l[?2004h>             } catch (e: Exception) {
-[?2004l[?2004h>                 stopSelf()
-[?2004l[?2004h>             }
-[?2004l[?2004h>         } else {
-[?2004l[?2004h>             stopSelf()
-[?2004l[?2004h>         }
-[?2004l[?2004h>         return START_NOT_STICKY
-[?2004l[?2004h>     }
-[?2004l[?2004h> 
-[?2004l [?2004h>     private fun startForegroundSafely() {
-[?2004l[?2004h>         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-[?2004l[?2004h>             val channel = NotificationChannel(CHANNEL_ID, "Engine Primary", NotificationManager.IMPORTANCE_LOW)
-[?2004l[?2004h>             val manager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
-[?2004l[?2004h>             manager.createNotificationChannel(channel)
-[?2004l[?2004h>         }
-[?2004l[?2004h>         val notification: Notification = NotificationCompat.Builder(this, CHANNEL_ID)
-[?2004l[?2004h>             .setContentTitle("100% Winning Chance Mode")
-[?2004l[?2004h>             .setContentText("Zero Input Delay & ADPF Active")
-[?2004l[?2004h>             .setSmallIcon(android.R.drawable.stat_notify_more)
-[?2004l[?2004h>             .build()
-[?2004l[?2004h> 
-[?2004l[?2004h>         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-[?2004l[?2004h>             startForeground(NOTIFICATION_ID, notification, ServiceInfo.FOREGROUND_SERVICE_TYPE_MEDIA_PROJECTION)
-[?2004l[?2004h>         } else {
-[?2004l[?2004h>             startForeground(NOTIFICATION_ID, notification)
-[?2004l[?2004h>         }
-[?2004l[?2004h>     }
-[?2004l[?2004h> 
-[?2004lS[?2004h>     private fun initializeOverlayUI() {
-[?2004l[?2004h>         // TASK 2 ENFORCEMENT: Elevate Main Thread priority to highest Display tier
-[?2004l[?2004h>         Process.setThreadPriority(Process.THREAD_PRIORITY_DISPLAY)
-[?2004l[?2004h> 
-[?2004la[?2004h>         windowManager = getSystemService(Context.WINDOW_SERVICE) as WindowManager
-[?2004l[?2004h>         val inflater = getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
-[?2004l[?2004h>         overlayView = inflater.inflate(com.assistant.overlay.R.layout.overlay_layout, null)
-[?2004l[?2004h>         
-[?2004l[?2004h>         // Ensure accurate ID mapping from previous fix
-[?2004l[?2004h>         txtEngineStatus = overlayView.findViewById(com.assistant.overlay.R.id.overlay_status_text)
-[?2004l[?2004h>         updateOverlayVisuals("WINNING CHANCE: 100% [ZERO DELAY]", Color.GREEN)
-[?2004l[?2004h> 
-[?2004l [?2004h>         val layoutParams = WindowManager.LayoutParams(
-[?2004l[?2004h>             WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.MATCH_PARENT,
-[?2004l:overla[?2004h>             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY else WindowManager.LayoutParams.TYPE_PHONE,
-[?2004l[?2004h>             WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE or 
-[?2004l[?2004h>             WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE or 
-[?2004l[?2004h>             WindowManager.LayoutParams.FLAG_HARDWARE_ACCELERATED or 
-[?2004l[?2004h>             WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
-[?2004l[?2004h>             PixelFormat.TRANSLUCENT
-[?2004l[?2004h>         )
-[?2004l[?2004h>         layoutParams.gravity = Gravity.TOP or Gravity.START
-[?2004l[?2004h>         windowManager.addView(overlayView, layoutParams)
-[?2004l[?2004h>     }
-[?2004l[?2004h> 
-[?2004l[?2004h>     private fun updateOverlayVisuals(text: String, color: Int) {
-[?2004l[?2004h>         Handler(Looper.getMainLooper()).post {
-[?2004l[?2004h>             txtEngineStatus.text = text
-[?2004l[?2004h>             txtEngineStatus.setTextColor(color)
-[?2004l[?2004h>         }
-[?2004l[?2004h>     }
-[?2004l[?2004h> 
-[?2004l[?2004h>     private fun setupMediaProjection(code: Int, intent: Intent) {
-[?2004l[?2004h>         val projectionManager = getSystemService(Context.MEDIA_PROJECTION_SERVICE) as MediaProjectionManager
-[?2004l[?2004h>         mediaProjection = projectionManager.getMediaProjection(code, intent)
-[?2004l[?2004h>         
-[?2004l[?2004h>         projectionCallback = object : MediaProjection.Callback() {
-[?2004l[?2004h>             override fun onStop() { super.onStop(); stopSelf() }
-[?2004l[?2004h>         }
-[?2004l[?2004h>         mediaProjection?.registerCallback(projectionCallback!!, Handler(Looper.getMainLooper()))
-[?2004l[?2004h> 
-[?2004l[?2004h>         val metrics = DisplayMetrics()
-[?2004l[?2004h>         windowManager.defaultDisplay.getRealMetrics(metrics)
-[?2004l[?2004h>         
-[?2004l[?2004h>         val scale = 0.5f 
-[?2004l[?2004h>         val finalWidth = (metrics.widthPixels * scale).toInt() and 0xFFFFFFFE.toInt()
-[?2004l[?2004h>         val finalHeight = (metrics.heightPixels * scale).toInt() and 0xFFFFFFFE.toInt()
-[?2004l[?2004h>         
-[?2004l[?2004h>         imageReader = ImageReader.newInstance(finalWidth, finalHeight, PixelFormat.RGBA_8888, 2)
-[?2004l[?2004h>         imageReader?.setOnImageAvailableListener({ reader ->
-[?2004l[?2004h>             val image = reader.acquireLatestImage() ?: return@setOnImageAvailableListener
-[?2004l[?2004h>             if (System.currentTimeMillis() - lastOcrTime >= OCR_INTERVAL_MS) {
-[?2004l[?2004h>                 lastOcrTime = System.currentTimeMillis()
-[?2004l[?2004h>                 processImageForOCR(image)
-[?2004l[?2004h>             } else {
-[?2004l[?2004h>                 image.close()
-[?2004l[?2004h>             }
-[?2004l[?2004h>         }, Handler(Looper.getMainLooper()))
-[?2004l[?2004h> 
-[?2004l[?2004h>         virtualDisplay = mediaProjection?.createVirtualDisplay(
-[?2004l[?2004h>             "HybridCoachScreen", finalWidth, finalHeight, metrics.densityDpi,
-[?2004l[?2004h>             DisplayManager.VIRTUAL_DISPLAY_FLAG_AUTO_MIRROR, imageReader?.surface, null, null
-[?2004l[?2004h>         )
-[?2004l[?2004h>     }
-[?2004l[?2004h> 
-[?2004l[?2004h>     private fun processImageForOCR(image: Image) {
-[?2004l[?2004h>         val startNs = System.nanoTime()
-[?2004l[?2004h>         val bitmap = Bitmap.createBitmap(image.width, image.height, Bitmap.Config.ARGB_8888)
-[?2004l[?2004h>         bitmap.copyPixelsFromBuffer(image.planes[0].buffer)
-[?2004l[?2004h>         val inputImage = InputImage.fromBitmap(bitmap, 0)
-[?2004l[?2004h>         
-[?2004l[?2004h>         recognizer.process(inputImage)
-[?2004l[?2004h>             .addOnSuccessListener { visionText ->
-[?2004l[?2004h>                 if (visionText.text.contains("time", true) || visionText.text.contains("v", true)) {
-[?2004l[?2004h>                     updateOverlayVisuals("WINNING CHANCE: 100% [ACTIVE]", Color.GREEN) [A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[K)
-[?2004l[?2004h>                 }
-[?2004l[?2004h>             }
-[?2004l[?2004h>             .addOnCompleteListener { 
-[?2004l[?2004h>                 bitmap.recycle()
-[?2004l[?2004h>                 image.close()
-[?2004l[?2004h>                 // Report workload completion back to OS to stabilize CPU frequency
-[?2004l[?2004h>                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
-[?2004l[?2004h>                     perfHintSession?.reportActualWorkDuration(System.nanoTime() - startNs)
-[?2004l[?2004h>                 }
-[?2004l[?2004h>             }
-[?2004l[?2004h>     }
-[?2004l[?2004h> 
-[?2004l[?2004h>     private fun initializeProcessingEngine() {
-[?2004l[?2004h>         isRunning = true
-[?2004l[?2004h>         processingThread = Thread {
-[?2004l[?2004h>             // TASK 2 ENFORCEMENT: Demote OCR Thread priority to background
-[?2004l[?2004h>             // This guarantees the scanner will NEVER interrupt physical screen inputs in eFootball
-[?2004l[?2004h>             Process.setThreadPriority(Process.THREAD_PRIORITY_BACKGROUND)
-[?2004l[?2004h>             while (isRunning) { try { Thread.sleep(50) } catch (e: InterruptedException) { break } }
-[?2004l[?2004h>         }.apply { start() }
-[?2004l[?2004h>     }
-[?2004l[?2004h> 
-[?2004l[?2004h>     override fun onDestroy() {
-[?2004l[?2004h>         isRunning = false
-[?2004l[?2004h>         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
-[?2004l[?2004h>             perfHintSession?.close()
-[?2004l[?2004h>         }
-[?2004l[?2004h>         if (::overlayView.isInitialized) windowManager.removeView(overlayView)
-[?2004l[?2004h>         virtualDisplay?.release()
-[?2004l[?2004h>         imageReader?.close()
-[?2004l[?2004h>         mediaProjection?.stop()
-[?2004l[?2004h>         super.onDestroy()
-[?2004l[?2004h>     }
-[?2004l[?2004h> }
-[?2004l[?2004h> EOF
-[?2004lbash: __vsc_prompt_cmd_original: command not found
-[?2004h]0;user@firebase-efootball-assistant-1779975046441: ~/efootball-assistant[00;35mefootball-assistant-00995228[00m:[01;34m~/efootball-assistant[00m[01;32m{main}[00m$ 
-[?2004lbash: __vsc_prompt_cmd_original: command not found
-[?2004h]0;user@firebase-efootball-assistant-1779975046441: ~/efootball-assistant[00;35mefootball-assistant-00995228[00m:[01;34m~/efootball-assistant[00m[01;32m{main}[00m$ # ==============================================================================
-[?2004lbash: __vsc_prompt_cmd_original: command not found
-[?2004h]0;user@firebase-efootball-assistant-1779975046441: ~/efootball-assistant[00;35mefootball-assistant-00995228[00m:[01;34m~/efootball-assistant[00m[01;32m{main}[00m$ # FINAL VERIFICATION & DEPLOYMENT COMPILE
-[?2004lbash: __vsc_prompt_cmd_original: command not found
-[?2004h]0;user@firebase-efootball-assistant-1779975046441: ~/efootball-assistant[00;35mefootball-assistant-00995228[00m:[01;34m~/efootball-assistant[00m[01;32m{main}[00m$ # ==============================================================================
-[?2004lbash: __vsc_prompt_cmd_original: command not found
-[?2004h]0;user@firebase-efootball-assistant-1779975046441: ~/efootball-assistant[00;35mefootball-assistant-00995228[00m:[01;34m~/efootball-assistant[00m[01;32m{main}[00m$ echo "COMPILING TASK 2 ARCHITECTURE TO BINARY..."
-[?2004lCOMPILING TASK 2 ARCHITECTURE TO BINARY...
-bash: __vsc_prompt_cmd_original: command not found
-[?2004h]0;user@firebase-efootball-assistant-1779975046441: ~/efootball-assistant[00;35mefootball-assistant-00995228[00m:[01;34m~/efootball-assistant[00m[01;32m{main}[00m$ ./gradlew clean assembleDebug
-[?2004l> Task :app:clean
-> Task :app:preBuild UP-TO-DATE
-> Task :app:preDebugBuild UP-TO-DATE
-> Task :app:mergeDebugNativeDebugMetadata NO-SOURCE
-> Task :app:checkKotlinGradlePluginConfigurationErrors
-> Task :app:generateDebugResValues
-> Task :app:checkDebugAarMetadata
-> Task :app:mapDebugSourceSetPaths
-> Task :app:generateDebugResources
-> Task :app:packageDebugResources
-> Task :app:createDebugCompatibleScreenManifests
-> Task :app:extractDeepLinksDebug
-> Task :app:parseDebugLocalResources
-> Task :app:processDebugMainManifest
-> Task :app:processDebugManifest
-> Task :app:javaPreCompileDebug
-> Task :app:mergeDebugShaders

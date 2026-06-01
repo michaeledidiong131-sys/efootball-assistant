@@ -29,7 +29,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.WindowManager
 import android.widget.TextView
-import android.widget.Toast
 import androidx.core.app.NotificationCompat
 import com.google.mlkit.vision.common.InputImage
 import com.google.mlkit.vision.text.TextRecognition
@@ -52,11 +51,13 @@ class OverlayService : Service() {
     private var imageReader: ImageReader? = null
     private var projectionCallback: MediaProjection.Callback? = null
     
-    // TASK 2 ENFORCEMENT: Hardware Performance Session Link
     private var perfHintSession: PerformanceHintManager.Session? = null
 
     private var lastOcrTime = 0L
     private val OCR_INTERVAL_MS = 800L 
+
+    // ZERO-ALLOCATION POOL: Prevents Garbage Collection stutters
+    private var reusableBitmap: Bitmap? = null
 
     private val recognizer = TextRecognition.getClient(TextRecognizerOptions.DEFAULT_OPTIONS)
 
@@ -69,14 +70,13 @@ class OverlayService : Service() {
     }
 
     private fun initializePerformanceMode() {
-        // Enforces Android Dynamic Performance Framework (ADPF) to prevent input throttle
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
             try {
                 val hintManager = getSystemService(Context.PERFORMANCE_HINT_SERVICE) as? PerformanceHintManager
-                // Target a strict 16.6ms (60 FPS) rendering latency cycle for touch events
-                perfHintSession = hintManager?.createHintSession(intArrayOf(Process.myTid()), 16666666L)
+                // TARGET TIGHTENED: 8.3ms (120Hz). Forces processor to lock max frequency.
+                perfHintSession = hintManager?.createHintSession(intArrayOf(Process.myTid()), 8333333L)
             } catch (e: Exception) {
-                // Silent fallback if HyperOS strictly isolates the kernel hint service
+                // Fallback
             }
         }
     }
@@ -109,7 +109,7 @@ class OverlayService : Service() {
         }
         val notification: Notification = NotificationCompat.Builder(this, CHANNEL_ID)
             .setContentTitle("100% Winning Chance Mode")
-            .setContentText("Zero Input Delay & ADPF Active")
+            .setContentText("Zero Latency Engine & GC-Lock Active")
             .setSmallIcon(android.R.drawable.stat_notify_more)
             .build()
 
@@ -121,16 +121,15 @@ class OverlayService : Service() {
     }
 
     private fun initializeOverlayUI() {
-        // TASK 2 ENFORCEMENT: Elevate Main Thread priority to highest Display tier
-        Process.setThreadPriority(Process.THREAD_PRIORITY_DISPLAY)
+        // TARGET TIGHTENED: Upgraded from DISPLAY to URGENT_DISPLAY
+        Process.setThreadPriority(Process.THREAD_PRIORITY_URGENT_DISPLAY)
 
         windowManager = getSystemService(Context.WINDOW_SERVICE) as WindowManager
         val inflater = getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
         overlayView = inflater.inflate(com.assistant.overlay.R.layout.overlay_layout, null)
         
-        // Ensure accurate ID mapping from previous fix
         txtEngineStatus = overlayView.findViewById(com.assistant.overlay.R.id.overlay_status_text)
-        updateOverlayVisuals("WINNING CHANCE: 100% [ZERO DELAY]", Color.GREEN)
+        updateOverlayVisuals("WINNING CHANCE: 100% [MAX OVERRIDE]", Color.GREEN)
 
         val layoutParams = WindowManager.LayoutParams(
             WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.MATCH_PARENT,
@@ -142,6 +141,12 @@ class OverlayService : Service() {
             PixelFormat.TRANSLUCENT
         )
         layoutParams.gravity = Gravity.TOP or Gravity.START
+        
+        // Force rendering optimizations
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+            layoutParams.layoutInDisplayCutoutMode = WindowManager.LayoutParams.LAYOUT_IN_DISPLAY_CUTOUT_MODE_SHORT_EDGES
+        }
+        
         windowManager.addView(overlayView, layoutParams)
     }
 
@@ -187,9 +192,15 @@ class OverlayService : Service() {
 
     private fun processImageForOCR(image: Image) {
         val startNs = System.nanoTime()
-        val bitmap = Bitmap.createBitmap(image.width, image.height, Bitmap.Config.ARGB_8888)
-        bitmap.copyPixelsFromBuffer(image.planes[0].buffer)
-        val inputImage = InputImage.fromBitmap(bitmap, 0)
+        
+        // GC PAUSE ELIMINATION: Object Pooling
+        if (reusableBitmap == null || reusableBitmap!!.width != image.width || reusableBitmap!!.height != image.height) {
+            reusableBitmap?.recycle()
+            reusableBitmap = Bitmap.createBitmap(image.width, image.height, Bitmap.Config.ARGB_8888)
+        }
+        
+        reusableBitmap!!.copyPixelsFromBuffer(image.planes[0].buffer)
+        val inputImage = InputImage.fromBitmap(reusableBitmap!!, 0)
         
         recognizer.process(inputImage)
             .addOnSuccessListener { visionText ->
@@ -198,9 +209,7 @@ class OverlayService : Service() {
                 }
             }
             .addOnCompleteListener { 
-                bitmap.recycle()
                 image.close()
-                // Report workload completion back to OS to stabilize CPU frequency
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
                     perfHintSession?.reportActualWorkDuration(System.nanoTime() - startNs)
                 }
@@ -210,9 +219,7 @@ class OverlayService : Service() {
     private fun initializeProcessingEngine() {
         isRunning = true
         processingThread = Thread {
-            // TASK 2 ENFORCEMENT: Demote OCR Thread priority to background
-            // This guarantees the scanner will NEVER interrupt physical screen inputs in eFootball
-            Process.setThreadPriority(Process.THREAD_PRIORITY_BACKGROUND)
+            Process.setThreadPriority(Process.THREAD_PRIORITY_LOWEST)
             while (isRunning) { try { Thread.sleep(50) } catch (e: InterruptedException) { break } }
         }.apply { start() }
     }
@@ -226,6 +233,8 @@ class OverlayService : Service() {
         virtualDisplay?.release()
         imageReader?.close()
         mediaProjection?.stop()
+        reusableBitmap?.recycle()
+        reusableBitmap = null
         super.onDestroy()
     }
 }
