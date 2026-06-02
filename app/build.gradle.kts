@@ -5,21 +5,27 @@ plugins {
 
 android {
     namespace = "com.assistant.overlay"
-
     compileSdk = 34
 
     defaultConfig {
         applicationId = "com.assistant.overlay"
         minSdk = 26
         targetSdk = 34
-
         versionCode = 1
-        versionName = "1.0"
+        versionName = "1.0-SECURE-LOCKED"
     }
 
     buildTypes {
         release {
-            isMinifyEnabled = false
+            isMinifyEnabled = true
+            isShrinkResources = true
+            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
+        }
+        debug {
+            // ENFORCEMENT: Force obfuscation even on debug builds to test anti-cheat resilience
+            isMinifyEnabled = true
+            isShrinkResources = true
+            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
         }
     }
 

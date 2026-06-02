@@ -20,6 +20,7 @@ com.assistant.overlay.app-pngs-18 /home/user/efootball-assistant/app/build/gener
 com.assistant.overlay.app-resValues-19 /home/user/efootball-assistant/app/build/generated/res/resValues/debug
 com.assistant.overlay.app-packageDebugResources-20 /home/user/efootball-assistant/app/build/intermediates/incremental/debug/packageDebugResources/merged.dir
 com.assistant.overlay.app-packageDebugResources-21 /home/user/efootball-assistant/app/build/intermediates/incremental/debug/packageDebugResources/stripped.dir
-com.assistant.overlay.app-merged_res-22 /home/user/efootball-assistant/app/build/intermediates/merged_res/debug
-com.assistant.overlay.app-debug-23 /home/user/efootball-assistant/app/src/debug/res
-com.assistant.overlay.app-main-24 /home/user/efootball-assistant/app/src/main/res
+com.assistant.overlay.app-merged-not-compiled-resources-22 /home/user/efootball-assistant/app/build/intermediates/merged-not-compiled-resources/debug
+com.assistant.overlay.app-merged_res-23 /home/user/efootball-assistant/app/build/intermediates/merged_res/debug
+com.assistant.overlay.app-debug-24 /home/user/efootball-assistant/app/src/debug/res
+com.assistant.overlay.app-main-25 /home/user/efootball-assistant/app/src/main/res
