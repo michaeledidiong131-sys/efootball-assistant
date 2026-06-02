@@ -7364,6 +7364,12 @@ com.assistant.OtaGatewayEngine:
 com.assistant.OverlayService:
     private static final java.lang.String CHANNEL_ID
     private static final int NOTIFICATION_ID
+com.assistant.coach.DvrSyncEngine
+com.assistant.core.AdapterIpcBridge$inputConnection$1
+com.assistant.core.AdapterIpcBridge$lmkConnection$1
+com.assistant.core.AdapterIpcBridge$netConnection$1
+com.assistant.core.AdapterIpcBridge$syncConnection$1
+com.assistant.core.AdapterIpcBridge
 com.assistant.overlay.R$id:
     public static int btnCopyLog
     public static int txtCrashLog
