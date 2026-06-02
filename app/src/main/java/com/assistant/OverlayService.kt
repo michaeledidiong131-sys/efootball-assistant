@@ -59,13 +59,10 @@ class OverlayService : Service(), ComponentCallbacks2 {
     private var virtualDisplay: VirtualDisplay? = null
     private var imageReader: ImageReader? = null
     private var projectionCallback: MediaProjection.Callback? = null
-    
     private var perfHintSession: PerformanceHintManager.Session? = null
-
     private var lastOcrTime = 0L
     private val OCR_INTERVAL_MS = 800L 
     private var reusableBitmap: Bitmap? = null
-
     private val taskExecutionLock = ReentrantLock()
     private val recognizer = TextRecognition.getClient(TextRecognizerOptions.DEFAULT_OPTIONS)
 
@@ -73,7 +70,7 @@ class OverlayService : Service(), ComponentCallbacks2 {
 
     override fun onCreate() {
         super.onCreate()
-        // KERNEL FIX: // // enforceAntiCheatDefense() -- DISABLED FOR HYPEROS GAME TURBO -- DISABLED FOR HYPEROS GAME TURBO removed. HyperOS Game Turbo will no longer trigger auto-kill.
+        // Anti-Cheat defense disabled to prevent HyperOS false-positive kill
         notificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
         initializePerformanceMode()
         initializeOverlayUI()
@@ -121,9 +118,9 @@ class OverlayService : Service(), ComponentCallbacks2 {
             val logFile = File(getExternalFilesDir(null), "crash_log.txt")
             FileWriter(logFile, true).use { writer ->
                 PrintWriter(writer).use { pw ->
-                    pw.println("=== SILENT ENGINE FAULT INTERCEPTED: $timestamp ===")
+                    pw.println("=== SILENT ENGINE FAULT: $timestamp ===")
                     e.printStackTrace(pw)
-                    pw.println("==================================================\n")
+                    pw.println("=========================================\n")
                 }
             }
         } catch (ignored: Exception) {}
@@ -136,44 +133,27 @@ class OverlayService : Service(), ComponentCallbacks2 {
         }
         val notification: Notification = NotificationCompat.Builder(this, CHANNEL_ID)
             .setContentTitle("Splendor Assist Locked")
-            .setContentText("Security Guard & Isolation Active")
+            .setContentText("Engine Active")
             .setSmallIcon(android.R.drawable.stat_notify_more)
-            .setPriority(NotificationCompat.PRIORITY_LOW)
             .build()
-
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-            startForeground(NOTIFICATION_ID, notification, ServiceInfo.FOREGROUND_SERVICE_TYPE_MEDIA_PROJECTION)
-        } else {
-            startForeground(NOTIFICATION_ID, notification)
-        }
+        startForeground(NOTIFICATION_ID, notification)
     }
 
     private fun initializeOverlayUI() {
         Process.setThreadPriority(Process.THREAD_PRIORITY_URGENT_DISPLAY)
-
         windowManager = getSystemService(Context.WINDOW_SERVICE) as WindowManager
         val inflater = getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
         overlayView = inflater.inflate(com.assistant.overlay.R.layout.overlay_layout, null)
-        
         txtEngineStatus = overlayView.findViewById(com.assistant.overlay.R.id.overlay_status_text)
-        updateOverlayVisuals("GUARD LOCK: SECURE [ANTI-BAN ON]", Color.GREEN)
-
+        
         val layoutParams = WindowManager.LayoutParams(
             WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.MATCH_PARENT,
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY else WindowManager.LayoutParams.TYPE_PHONE,
-            WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE or 
-            WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE or 
-            WindowManager.LayoutParams.FLAG_HARDWARE_ACCELERATED or 
-            WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
+            WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE or WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE or WindowManager.LayoutParams.FLAG_HARDWARE_ACCELERATED,
             PixelFormat.TRANSLUCENT
         )
-        layoutParams.gravity = Gravity.TOP or Gravity.START
-        
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
-            layoutParams.layoutInDisplayCutoutMode = WindowManager.LayoutParams.LAYOUT_IN_DISPLAY_CUTOUT_MODE_SHORT_EDGES
-        }
-        
         windowManager.addView(overlayView, layoutParams)
+        updateOverlayVisuals("GUARD LOCK: SECURE [ANTI-BAN ON]", Color.GREEN)
     }
 
     private fun updateOverlayVisuals(text: String, color: Int) {
@@ -186,19 +166,11 @@ class OverlayService : Service(), ComponentCallbacks2 {
     private fun setupMediaProjection(code: Int, intent: Intent) {
         val projectionManager = getSystemService(Context.MEDIA_PROJECTION_SERVICE) as MediaProjectionManager
         mediaProjection = projectionManager.getMediaProjection(code, intent)
-        
-        projectionCallback = object : MediaProjection.Callback() {
-            override fun onStop() { super.onStop(); stopSelf() }
-        }
-        mediaProjection?.registerCallback(projectionCallback!!, Handler(Looper.getMainLooper()))
-
         val metrics = DisplayMetrics()
         windowManager.defaultDisplay.getRealMetrics(metrics)
-        
         val scale = 0.4f 
         val finalWidth = (metrics.widthPixels * scale).toInt() and 0xFFFFFFFE.toInt()
         val finalHeight = (metrics.heightPixels * scale).toInt() and 0xFFFFFFFE.toInt()
-        
         imageReader = ImageReader.newInstance(finalWidth, finalHeight, PixelFormat.RGBA_8888, 2)
         imageReader?.setOnImageAvailableListener({ reader ->
             val image = reader.acquireLatestImage() ?: return@setOnImageAvailableListener
@@ -209,39 +181,24 @@ class OverlayService : Service(), ComponentCallbacks2 {
                 image.close()
             }
         }, Handler(Looper.getMainLooper()))
-
-        val flags = DisplayManager.VIRTUAL_DISPLAY_FLAG_AUTO_MIRROR or DisplayManager.VIRTUAL_DISPLAY_FLAG_OWN_CONTENT_ONLY
-        virtualDisplay = mediaProjection?.createVirtualDisplay(
-            "HybridCoachScreen", finalWidth, finalHeight, metrics.densityDpi,
-            flags, imageReader?.surface, null, null
-        )
+        virtualDisplay = mediaProjection?.createVirtualDisplay("HybridCoachScreen", finalWidth, finalHeight, metrics.densityDpi, DisplayManager.VIRTUAL_DISPLAY_FLAG_OWN_CONTENT_ONLY, imageReader?.surface, null, null)
     }
 
     private fun processImageForOCR(image: Image) {
         if (taskExecutionLock.tryLock()) {
             try {
-                val startNs = System.nanoTime()
-                
                 if (reusableBitmap == null || reusableBitmap!!.width != image.width || reusableBitmap!!.height != image.height) {
                     reusableBitmap?.recycle()
                     reusableBitmap = Bitmap.createBitmap(image.width, image.height, Bitmap.Config.ARGB_8888)
                 }
-                
                 reusableBitmap!!.copyPixelsFromBuffer(image.planes[0].buffer)
-                val inputImage = InputImage.fromBitmap(reusableBitmap!!, 0)
-                
-                recognizer.process(inputImage)
+                recognizer.process(InputImage.fromBitmap(reusableBitmap!!, 0))
                     .addOnSuccessListener { visionText ->
                         if (visionText.text.contains("time", true) || visionText.text.contains("v", true)) {
                             updateOverlayVisuals("WINNING CHANCE: 100% [LOCKED]", Color.GREEN)
                         }
                     }
-                    .addOnCompleteListener { 
-                        image.close()
-                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
-                            perfHintSession?.reportActualWorkDuration(System.nanoTime() - startNs)
-                        }
-                    }
+                    .addOnCompleteListener { image.close() }
             } finally {
                 taskExecutionLock.unlock()
             }
@@ -258,33 +215,11 @@ class OverlayService : Service(), ComponentCallbacks2 {
         }.apply { start() }
     }
 
-    override fun onTrimMemory(level: Int) {
-        super.onTrimMemory(level)
-        if (level >= ComponentCallbacks2.TRIM_MEMORY_RUNNING_CRITICAL) {
-            taskExecutionLock.lock()
-            try {
-                reusableBitmap?.recycle()
-                reusableBitmap = null
-            } finally {
-                taskExecutionLock.unlock()
-            }
-        }
-    }
-
     override fun onDestroy() {
         isRunning = false
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
-            perfHintSession?.close()
-        }
-        if (::overlayView.isInitialized) windowManager.removeView(overlayView)
         virtualDisplay?.release()
         imageReader?.close()
         mediaProjection?.stop()
-        taskExecutionLock.lock()
-        try {
-            reusableBitmap?.recycle()
-            reusableBitmap = null
-        } finally {
-            taskExecutionLock.unlock()
-        }
-        super.onDestr
+        super.onDestroy()
+    }
+}

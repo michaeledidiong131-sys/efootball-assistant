@@ -1,0 +1,4 @@
+#Tue Jun 02 03:59:08 UTC 2026
+base.0=/home/user/efootball-assistant/app/build/intermediates/dex/debug/minifyDebugWithR8/classes.dex
+path.0=classes.dex
+renamed.0=classes.dex
