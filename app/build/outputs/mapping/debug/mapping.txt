@@ -3,8 +3,8 @@
 # min_api: 26
 # common_typos_disable
 # {"id":"com.android.tools.r8.mapping","version":"2.2"}
-# pg_map_id: a4df430
-# pg_map_hash: SHA-256 a4df43002b0b948aa5f90d2e4e38432c292b0ef2920e6a28d750b794837af19e
+# pg_map_id: 7a90c05
+# pg_map_hash: SHA-256 7a90c05e0deb8a0ea75711a3c8533ca56f81f0a2c3bfd301e007ed085e749164
 android.app.AppComponentFactory -> android.app.AppComponentFactory:
 # {"id":"com.android.tools.r8.synthesized"}
 android.support.v4.app.RemoteActionCompatParcelizer -> android.support.v4.app.RemoteActionCompatParcelizer:
@@ -36501,6 +36501,67 @@ com.assistant.App -> com.assistant.App:
     7:7:void onCreate() -> onCreate
     9:9:void onCreate() -> onCreate
     10:10:void onCreate() -> onCreate
+com.assistant.DashboardInjector -> com.assistant.DashboardInjector:
+# {"id":"sourceFile","fileName":"DashboardInjector.kt"}
+    0:0:void $r8$lambda$cWE9FMJP8FB5qkSjlBMpim7IMr8(android.widget.TextView,android.widget.Button,android.app.Activity,android.view.View) -> $r8$lambda$cWE9FMJP8FB5qkSjlBMpim7IMr8
+      # {"id":"com.android.tools.r8.synthesized"}
+    0:0:void <clinit>() -> <clinit>
+    15:15:void <init>() -> <init>
+    17:17:void attach(android.app.Activity) -> attach
+    19:19:void attach(android.app.Activity) -> attach
+    20:20:void attach(android.app.Activity) -> attach
+    21:21:void attach(android.app.Activity) -> attach
+    22:22:void attach(android.app.Activity) -> attach
+    23:23:void attach(android.app.Activity) -> attach
+    24:24:void attach(android.app.Activity) -> attach
+    26:26:void attach(android.app.Activity) -> attach
+    27:27:void attach(android.app.Activity) -> attach
+    28:28:void attach(android.app.Activity) -> attach
+    29:29:void attach(android.app.Activity) -> attach
+    30:30:void attach(android.app.Activity) -> attach
+    32:32:void attach(android.app.Activity) -> attach
+    33:33:void attach(android.app.Activity) -> attach
+    34:34:void attach(android.app.Activity) -> attach
+    35:35:void attach(android.app.Activity) -> attach
+    36:36:void attach(android.app.Activity) -> attach
+    37:37:void attach(android.app.Activity) -> attach
+    38:38:void attach(android.app.Activity) -> attach
+    40:40:void attach(android.app.Activity) -> attach
+    42:42:void attach(android.app.Activity) -> attach
+    43:43:void attach(android.app.Activity) -> attach
+    44:44:void attach(android.app.Activity) -> attach
+    45:45:void attach(android.app.Activity) -> attach
+    46:46:void attach(android.app.Activity) -> attach
+    47:47:void attach(android.app.Activity) -> attach
+    49:49:void attach(android.app.Activity) -> attach
+    60:60:void attach(android.app.Activity) -> attach
+    62:62:void attach(android.app.Activity) -> attach
+    63:63:void attach(android.app.Activity) -> attach
+    66:66:void attach(android.app.Activity) -> attach
+    67:67:void attach(android.app.Activity) -> attach
+    68:68:void attach(android.app.Activity) -> attach
+    70:70:void attach(android.app.Activity) -> attach
+    71:71:void attach(android.app.Activity) -> attach
+    51:51:void attach$lambda$4$lambda$3(android.widget.TextView,android.widget.Button,android.app.Activity,android.view.View) -> attach$lambda$4$lambda$3
+    52:52:void attach$lambda$4$lambda$3(android.widget.TextView,android.widget.Button,android.app.Activity,android.view.View) -> attach$lambda$4$lambda$3
+    53:53:void attach$lambda$4$lambda$3(android.widget.TextView,android.widget.Button,android.app.Activity,android.view.View) -> attach$lambda$4$lambda$3
+    54:54:void attach$lambda$4$lambda$3(android.widget.TextView,android.widget.Button,android.app.Activity,android.view.View) -> attach$lambda$4$lambda$3
+    55:55:void attach$lambda$4$lambda$3(android.widget.TextView,android.widget.Button,android.app.Activity,android.view.View) -> attach$lambda$4$lambda$3
+    58:58:void attach$lambda$4$lambda$3(android.widget.TextView,android.widget.Button,android.app.Activity,android.view.View) -> attach$lambda$4$lambda$3
+    59:59:void attach$lambda$4$lambda$3(android.widget.TextView,android.widget.Button,android.app.Activity,android.view.View) -> attach$lambda$4$lambda$3
+com.assistant.DashboardInjector$$ExternalSyntheticLambda0 -> com.assistant.DashboardInjector$$ExternalSyntheticLambda0:
+# {"id":"sourceFile","fileName":"R8$$SyntheticClass"}
+# {"id":"com.android.tools.r8.synthesized"}
+    android.widget.TextView com.assistant.DashboardInjector$$InternalSyntheticLambda$2$93c69dbd9b9f139895a0460ffc9c45f2b34ba32abf282502365a62443d52f94e$0.f$0 -> f$0
+      # {"id":"com.android.tools.r8.synthesized"}
+    android.widget.Button com.assistant.DashboardInjector$$InternalSyntheticLambda$2$93c69dbd9b9f139895a0460ffc9c45f2b34ba32abf282502365a62443d52f94e$0.f$1 -> f$1
+      # {"id":"com.android.tools.r8.synthesized"}
+    android.app.Activity com.assistant.DashboardInjector$$InternalSyntheticLambda$2$93c69dbd9b9f139895a0460ffc9c45f2b34ba32abf282502365a62443d52f94e$0.f$2 -> f$2
+      # {"id":"com.android.tools.r8.synthesized"}
+    0:0:void com.assistant.DashboardInjector$$InternalSyntheticLambda$2$93c69dbd9b9f139895a0460ffc9c45f2b34ba32abf282502365a62443d52f94e$0.<init>(android.widget.TextView,android.widget.Button,android.app.Activity) -> <init>
+      # {"id":"com.android.tools.r8.synthesized"}
+    0:0:void com.assistant.DashboardInjector$$InternalSyntheticLambda$2$93c69dbd9b9f139895a0460ffc9c45f2b34ba32abf282502365a62443d52f94e$0.onClick(android.view.View) -> onClick
+      # {"id":"com.android.tools.r8.synthesized"}
 com.assistant.EngineData -> com.assistant.EngineData:
 # {"id":"sourceFile","fileName":"EngineData.kt"}
     0:0:void <clinit>() -> <clinit>
@@ -36530,6 +36591,44 @@ com.assistant.GlobalCrashHandler -> com.assistant.GlobalCrashHandler:
     32:32:void uncaughtException(java.lang.Thread,java.lang.Throwable) -> uncaughtException
     33:33:void uncaughtException(java.lang.Thread,java.lang.Throwable) -> uncaughtException
     34:34:void uncaughtException(java.lang.Thread,java.lang.Throwable) -> uncaughtException
+com.assistant.IgnitionEngine -> com.assistant.IgnitionEngine:
+# {"id":"sourceFile","fileName":"IgnitionEngine.kt"}
+    0:0:void $r8$lambda$ebHvB7skCNhZhLldoMCOOllFzKc(android.content.Context) -> $r8$lambda$ebHvB7skCNhZhLldoMCOOllFzKc
+      # {"id":"com.android.tools.r8.synthesized"}
+    16:16:void <clinit>() -> <clinit>
+    17:17:void <clinit>() -> <clinit>
+    50:50:void <clinit>() -> <clinit>
+    14:14:void <init>() -> <init>
+    20:20:void ignite(android.content.Context) -> ignite
+    45:45:void ignite(android.content.Context) -> ignite
+    21:21:void ignite$lambda$3(android.content.Context) -> ignite$lambda$3
+    22:22:void ignite$lambda$3(android.content.Context) -> ignite$lambda$3
+    23:23:void ignite$lambda$3(android.content.Context) -> ignite$lambda$3
+    24:24:void ignite$lambda$3(android.content.Context) -> ignite$lambda$3
+    25:25:void ignite$lambda$3(android.content.Context) -> ignite$lambda$3
+    28:28:void ignite$lambda$3(android.content.Context) -> ignite$lambda$3
+    29:29:void ignite$lambda$3(android.content.Context) -> ignite$lambda$3
+    31:31:void ignite$lambda$3(android.content.Context) -> ignite$lambda$3
+    32:32:void ignite$lambda$3(android.content.Context) -> ignite$lambda$3
+    34:34:void ignite$lambda$3(android.content.Context) -> ignite$lambda$3
+    35:35:void ignite$lambda$3(android.content.Context) -> ignite$lambda$3
+    36:36:void ignite$lambda$3(android.content.Context) -> ignite$lambda$3
+    40:40:void ignite$lambda$3(android.content.Context) -> ignite$lambda$3
+    43:43:void ignite$lambda$3(android.content.Context) -> ignite$lambda$3
+    44:44:void ignite$lambda$3(android.content.Context) -> ignite$lambda$3
+    1855:1855:void kotlin.collections.CollectionsKt___CollectionsKt.forEach(java.lang.Iterable,kotlin.jvm.functions.Function1) -> ignite$lambda$3
+    1855:1855:void ignite$lambda$3(android.content.Context):28 -> ignite$lambda$3
+    1856:1856:void kotlin.collections.CollectionsKt___CollectionsKt.forEach(java.lang.Iterable,kotlin.jvm.functions.Function1) -> ignite$lambda$3
+    1856:1856:void ignite$lambda$3(android.content.Context):28 -> ignite$lambda$3
+com.assistant.IgnitionEngine$$ExternalSyntheticLambda0 -> com.assistant.IgnitionEngine$$ExternalSyntheticLambda0:
+# {"id":"sourceFile","fileName":"R8$$SyntheticClass"}
+# {"id":"com.android.tools.r8.synthesized"}
+    android.content.Context com.assistant.IgnitionEngine$$InternalSyntheticLambda$3$ee695d1b4384ee80580ff802a6d70dddaf8328de92d4c23c8c7eb9edf64bbd34$0.f$0 -> f$0
+      # {"id":"com.android.tools.r8.synthesized"}
+    0:0:void com.assistant.IgnitionEngine$$InternalSyntheticLambda$3$ee695d1b4384ee80580ff802a6d70dddaf8328de92d4c23c8c7eb9edf64bbd34$0.<init>(android.content.Context) -> <init>
+      # {"id":"com.android.tools.r8.synthesized"}
+    0:0:void com.assistant.IgnitionEngine$$InternalSyntheticLambda$3$ee695d1b4384ee80580ff802a6d70dddaf8328de92d4c23c8c7eb9edf64bbd34$0.run() -> run
+      # {"id":"com.android.tools.r8.synthesized"}
 com.assistant.LogActivity -> com.assistant.LogActivity:
 # {"id":"sourceFile","fileName":"LogActivity.kt"}
     0:0:void $r8$lambda$Nsiss3lG3a-BuNAd7Ka_H98T25I(com.assistant.LogActivity,java.lang.String,android.view.View) -> $r8$lambda$Nsiss3lG3a-BuNAd7Ka_H98T25I
@@ -36580,32 +36679,33 @@ com.assistant.MainActivity -> com.assistant.MainActivity:
       # {"id":"com.android.tools.r8.synthesized"}
     20:20:void <init>() -> <init>
     24:24:void <init>() -> <init>
-    64:64:void checkBatteryAndProceed() -> checkBatteryAndProceed
-    65:65:void checkBatteryAndProceed() -> checkBatteryAndProceed
     66:66:void checkBatteryAndProceed() -> checkBatteryAndProceed
     67:67:void checkBatteryAndProceed() -> checkBatteryAndProceed
     68:68:void checkBatteryAndProceed() -> checkBatteryAndProceed
     69:69:void checkBatteryAndProceed() -> checkBatteryAndProceed
+    70:70:void checkBatteryAndProceed() -> checkBatteryAndProceed
     71:71:void checkBatteryAndProceed() -> checkBatteryAndProceed
     73:73:void checkBatteryAndProceed() -> checkBatteryAndProceed
-    74:74:void checkBatteryAndProceed() -> checkBatteryAndProceed
+    75:75:void checkBatteryAndProceed() -> checkBatteryAndProceed
     76:76:void checkBatteryAndProceed() -> checkBatteryAndProceed
-    79:79:void checkOverlayAndProceed() -> checkOverlayAndProceed
-    80:80:void checkOverlayAndProceed() -> checkOverlayAndProceed
+    78:78:void checkBatteryAndProceed() -> checkBatteryAndProceed
     81:81:void checkOverlayAndProceed() -> checkOverlayAndProceed
+    82:82:void checkOverlayAndProceed() -> checkOverlayAndProceed
     83:83:void checkOverlayAndProceed() -> checkOverlayAndProceed
     85:85:void checkOverlayAndProceed() -> checkOverlayAndProceed
+    87:87:void checkOverlayAndProceed() -> checkOverlayAndProceed
     48:48:void onCreate(android.os.Bundle) -> onCreate
     49:49:void onCreate(android.os.Bundle) -> onCreate
     50:50:void onCreate(android.os.Bundle) -> onCreate
     52:52:void onCreate(android.os.Bundle) -> onCreate
     54:54:void onCreate(android.os.Bundle) -> onCreate
-    58:58:void onCreate(android.os.Bundle) -> onCreate
-    61:61:void onCreate(android.os.Bundle) -> onCreate
-    55:55:void onCreate$lambda$2(com.assistant.MainActivity,android.view.View) -> onCreate$lambda$2
-    56:56:void onCreate$lambda$2(com.assistant.MainActivity,android.view.View) -> onCreate$lambda$2
-    59:59:void onCreate$lambda$3(com.assistant.MainActivity,android.view.View) -> onCreate$lambda$3
-    60:60:void onCreate$lambda$3(com.assistant.MainActivity,android.view.View) -> onCreate$lambda$3
+    56:56:void onCreate(android.os.Bundle) -> onCreate
+    60:60:void onCreate(android.os.Bundle) -> onCreate
+    63:63:void onCreate(android.os.Bundle) -> onCreate
+    57:57:void onCreate$lambda$2(com.assistant.MainActivity,android.view.View) -> onCreate$lambda$2
+    58:58:void onCreate$lambda$2(com.assistant.MainActivity,android.view.View) -> onCreate$lambda$2
+    61:61:void onCreate$lambda$3(com.assistant.MainActivity,android.view.View) -> onCreate$lambda$3
+    62:62:void onCreate$lambda$3(com.assistant.MainActivity,android.view.View) -> onCreate$lambda$3
     25:25:void screenCaptureLauncher$lambda$1(com.assistant.MainActivity,androidx.activity.result.ActivityResult) -> screenCaptureLauncher$lambda$1
     28:28:void screenCaptureLauncher$lambda$1(com.assistant.MainActivity,androidx.activity.result.ActivityResult) -> screenCaptureLauncher$lambda$1
     29:29:void screenCaptureLauncher$lambda$1(com.assistant.MainActivity,androidx.activity.result.ActivityResult) -> screenCaptureLauncher$lambda$1

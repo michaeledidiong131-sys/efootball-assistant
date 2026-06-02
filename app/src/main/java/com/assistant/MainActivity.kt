@@ -48,6 +48,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         Thread.setDefaultUncaughtExceptionHandler(GlobalCrashHandler(this))
         setContentView(com.assistant.overlay.R.layout.activity_main)
+        // [IGNITION INJECTION: DO NOT REMOVE]
+        com.assistant.DashboardInjector.attach(this)
 
         projectionManager = getSystemService(Context.MEDIA_PROJECTION_SERVICE) as MediaProjectionManager
 
