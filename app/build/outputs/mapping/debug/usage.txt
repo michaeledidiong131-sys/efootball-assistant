@@ -7356,7 +7356,9 @@ androidx.viewpager.widget.ViewPager$SavedState
 androidx.viewpager.widget.ViewPager$SimpleOnPageChangeListener
 androidx.viewpager.widget.ViewPager$ViewPositionComparator
 androidx.viewpager.widget.ViewPager
+com.assistant.DiagnosticsEngine
 com.assistant.ErrorActivity
+com.assistant.GlobalCrashHandlerKt
 com.assistant.OtaGatewayEngine:
     private static final void attachAndExecute$lambda$17$lambda$9(android.widget.TextView,android.widget.Button)
 com.assistant.OverlayService:

@@ -33,3 +33,12 @@ class GlobalCrashHandler(private val context: Context) : Thread.UncaughtExceptio
         }
     }
 }
+
+// EXTENSION LOGIC APPENDED VIA PROGRAMMATIC SYSTEM RULE
+fun bindDiagnosticsInterceptor(context: android.content.Context) {
+    val currentHandler = Thread.getDefaultUncaughtExceptionHandler()
+    Thread.setDefaultUncaughtExceptionHandler { thread, throwable ->
+        DiagnosticsEngine.writeCrashLog(context, throwable)
+        currentHandler?.uncaughtException(thread, throwable)
+    }
+}
