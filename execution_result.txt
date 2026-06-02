@@ -1,0 +1,85 @@
+Script started on 2026-06-02 21:11:36+00:00 [TERM="xterm-256color" TTY="/dev/pts/2" COLUMNS="93" LINES="69"]
+bash: __vsc_prompt_cmd_original: command not found
+[?2004h]0;user@firebase-efootball-assistant-1779975046441: ~/efootball-assistant[00;35mefootball-assistant-00995228[00m:[01;34m~/efootball-assistant[00m[01;32m{main}[00m$ ./gradlew assembleDebug
+[?2004l> Task :adapter_lmk:preBuild UP-TO-DATE
+> Task :adapter_lmk:preDebugBuild UP-TO-DATE
+> Task :adapter_lmk:mergeDebugNativeDebugMetadata NO-SOURCE
+> Task :adapter_lmk:checkKotlinGradlePluginConfigurationErrors
+> Task :adapter_lmk:checkDebugAarMetadata UP-TO-DATE
+> Task :adapter_lmk:generateDebugResValues UP-TO-DATE
+> Task :adapter_lmk:mapDebugSourceSetPaths UP-TO-DATE
+> Task :adapter_lmk:generateDebugResources UP-TO-DATE
+> Task :adapter_lmk:mergeDebugResources UP-TO-DATE
+> Task :adapter_lmk:packageDebugResources UP-TO-DATE
+> Task :adapter_lmk:parseDebugLocalResources UP-TO-DATE
+> Task :adapter_lmk:createDebugCompatibleScreenManifests UP-TO-DATE
+> Task :adapter_lmk:extractDeepLinksDebug UP-TO-DATE
+> Task :adapter_lmk:processDebugMainManifest UP-TO-DATE
+> Task :adapter_lmk:processDebugManifest UP-TO-DATE
+> Task :adapter_lmk:processDebugManifestForPackage UP-TO-DATE
+> Task :adapter_lmk:processDebugResources UP-TO-DATE
+> Task :adapter_lmk:compileDebugKotlin NO-SOURCE
+> Task :adapter_lmk:javaPreCompileDebug UP-TO-DATE
+> Task :adapter_lmk:compileDebugJavaWithJavac NO-SOURCE
+> Task :adapter_lmk:mergeDebugShaders UP-TO-DATE
+> Task :adapter_lmk:compileDebugShaders NO-SOURCE
+> Task :adapter_lmk:generateDebugAssets UP-TO-DATE
+> Task :adapter_lmk:mergeDebugAssets UP-TO-DATE
+> Task :adapter_lmk:compressDebugAssets UP-TO-DATE
+> Task :adapter_lmk:processDebugJavaRes NO-SOURCE
+> Task :adapter_lmk:mergeDebugJavaResource UP-TO-DATE
+> Task :adapter_lmk:checkDebugDuplicateClasses UP-TO-DATE
+> Task :adapter_lmk:desugarDebugFileDependencies UP-TO-DATE
+> Task :adapter_lmk:mergeExtDexDebug UP-TO-DATE
+> Task :adapter_lmk:mergeLibDexDebug UP-TO-DATE
+> Task :adapter_lmk:dexBuilderDebug UP-TO-DATE
+> Task :adapter_lmk:mergeProjectDexDebug UP-TO-DATE
+> Task :adapter_lmk:mergeDebugJniLibFolders UP-TO-DATE
+> Task :adapter_lmk:mergeDebugNativeLibs NO-SOURCE
+> Task :adapter_lmk:stripDebugDebugSymbols NO-SOURCE
+> Task :adapter_lmk:validateSigningDebug UP-TO-DATE
+> Task :adapter_lmk:writeDebugAppMetadata UP-TO-DATE
+> Task :adapter_lmk:writeDebugSigningConfigVersions UP-TO-DATE
+> Task :adapter_lmk:packageDebug UP-TO-DATE
+> Task :adapter_lmk:createDebugApkListingFileRedirect UP-TO-DATE
+> Task :adapter_lmk:assembleDebug UP-TO-DATE
+> Task :app:preBuild UP-TO-DATE
+> Task :app:preDebugBuild UP-TO-DATE
+> Task :app:mergeDebugNativeDebugMetadata NO-SOURCE
+> Task :app:checkKotlinGradlePluginConfigurationErrors
+> Task :app:checkDebugAarMetadata UP-TO-DATE
+> Task :app:generateDebugResValues UP-TO-DATE
+> Task :app:mapDebugSourceSetPaths UP-TO-DATE
+> Task :app:generateDebugResources UP-TO-DATE
+> Task :app:mergeDebugResources UP-TO-DATE
+> Task :app:packageDebugResources UP-TO-DATE
+> Task :app:parseDebugLocalResources UP-TO-DATE
+> Task :app:createDebugCompatibleScreenManifests UP-TO-DATE
+> Task :app:extractDeepLinksDebug UP-TO-DATE
+> Task :app:processDebugMainManifest FAILED
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':app:processDebugMainManifest'.
+> com.android.manifmerger.ManifestMerger2$MergeFailureException: Error parsing /home/user/efootball-assistant/app/src/main/AndroidManifest.xml
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights.
+> Get more help at https://help.gradle.org.
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 9.0.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/8.5/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+BUILD FAILED in 977ms
+40 actionable tasks: 3 executed, 37 up-to-date
+bash: __vsc_prompt_cmd_original: command not found
+[?2004h]0;user@firebase-efootball-assistant-1779975046441: ~/efootball-assistant[00;35mefootball-assistant-00995228[00m:[01;34m~/efootball-assistant[00m[01;32m{main}[00m$ exit
+[?2004lexit
+
+Script done on 2026-06-02 21:11:48+00:00 [COMMAND_EXIT_CODE="1"]

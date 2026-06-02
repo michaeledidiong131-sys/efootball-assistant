@@ -9,32 +9,32 @@
 9        android:targetSdkVersion="34" />
 10
 11    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
-11-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:3:5-77
-11-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:3:22-74
+11-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:4:5-77
+11-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:4:22-74
 12    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-12-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:4:5-80
-12-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:4:22-77
+12-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:5:5-80
+12-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:5:22-77
 13    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-13-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:5:5-81
-13-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:5:22-78
+13-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:6:5-81
+13-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:6:22-78
 14    <uses-permission android:name="android.permission.INTERNET" />
-14-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:6:5-67
-14-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:6:22-64
+14-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:7:5-67
+14-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:7:22-64
 15    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
-15-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:7:5-78
-15-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:7:22-75
+15-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:8:5-78
+15-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:8:22-75
 16    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
-16-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:8:5-77
-16-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:8:22-74
+16-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:9:5-77
+16-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:9:22-74
 17    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_MEDIA_PROJECTION" />
-17-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:9:5-94
-17-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:9:22-91
+17-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:10:5-94
+17-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:10:22-91
 18    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
-18-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:10:5-83
-18-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:10:22-80
+18-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:11:5-83
+18-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:11:22-80
 19    <uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS" />
-19-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:11:5-95
-19-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:11:22-92
+19-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:12:5-95
+19-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:12:22-92
 20
 21    <permission
 21-->[androidx.core:core:1.12.0] /home/user/.gradle/caches/transforms-3/440a64c1659b3784956be1ef27019da1/transformed/core-1.12.0/AndroidManifest.xml:22:5-24:47
@@ -52,109 +52,109 @@
 27-->[com.google.android.datatransport:transport-backend-cct:2.3.3] /home/user/.gradle/caches/transforms-3/e568a31c209a253e8d6a0cfaaa490986/transformed/transport-backend-cct-2.3.3/AndroidManifest.xml:25:22-76
 28
 29    <application
-29-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:13:5-64:19
+29-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:14:5-65:19
 30        android:name="com.assistant.App"
-30-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:14:9-41
+30-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:15:9-41
 31        android:allowBackup="false"
-31-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:15:9-36
+31-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:16:9-36
 32        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
 32-->[androidx.core:core:1.12.0] /home/user/.gradle/caches/transforms-3/440a64c1659b3784956be1ef27019da1/transformed/core-1.12.0/AndroidManifest.xml:28:18-86
 33        android:debuggable="true"
 34        android:extractNativeLibs="false"
-34-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:16:9-42
+34-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:17:9-42
 35        android:hardwareAccelerated="true"
-35-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:19:9-43
+35-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:20:9-43
 36        android:label="Splendor Assist"
-36-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:17:9-40
+36-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:18:9-40
 37        android:supportsRtl="true"
-37-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:18:9-35
+37-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:19:9-35
 38        android:theme="@style/Theme.AppCompat.NoActionBar" >
-38-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:20:9-59
+38-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:21:9-59
 39        <service
-39-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:22:9-26:63
+39-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:23:9-27:63
 40            android:name="com.assistant.OverlayService"
-40-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:23:13-56
+40-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:24:13-56
 41            android:enabled="true"
-41-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:24:13-35
+41-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:25:13-35
 42            android:exported="false"
-42-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:25:13-37
+42-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:26:13-37
 43            android:foregroundServiceType="mediaProjection" />
-43-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:26:13-60
+43-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:27:13-60
 44        <service
-44-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:28:9-36:19
+44-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:29:9-37:19
 45            android:name="com.assistant.PingEliminatorVpnService"
-45-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:29:13-66
+45-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:30:13-66
 46            android:enabled="true"
-46-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:30:13-35
+46-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:31:13-35
 47            android:exported="false"
-47-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:31:13-37
+47-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:32:13-37
 48            android:permission="android.permission.BIND_VPN_SERVICE" >
-48-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:32:13-69
+48-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:33:13-69
 49            <intent-filter>
-49-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:33:13-35:29
+49-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:34:13-36:29
 50                <action android:name="android.net.VpnService" />
-50-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:34:17-65
-50-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:34:25-62
+50-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:35:17-65
+50-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:35:25-62
 51            </intent-filter>
 52        </service>
 53
 54        <activity
-54-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:38:9-45:20
+54-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:39:9-46:20
 55            android:name="com.assistant.WelcomeActivity"
-55-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:39:13-57
+55-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:40:13-57
 56            android:exported="true" >
-56-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:40:13-36
+56-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:41:13-36
 57            <intent-filter>
-57-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:41:13-44:29
+57-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:42:13-45:29
 58                <action android:name="android.intent.action.MAIN" />
-58-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:42:17-69
-58-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:42:25-66
+58-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:43:17-69
+58-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:43:25-66
 59
 60                <category android:name="android.intent.category.LAUNCHER" />
-60-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:43:17-77
-60-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:43:27-74
+60-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:44:17-77
+60-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:44:27-74
 61            </intent-filter>
 62        </activity>
 63        <activity
-63-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:47:9-49:40
+63-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:48:9-50:40
 64            android:name="com.assistant.MainActivity"
-64-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:48:13-54
+64-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:49:13-54
 65            android:exported="false" />
-65-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:49:13-37
+65-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:50:13-37
 66        <activity
-66-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:51:9-90
+66-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:52:9-90
 67            android:name="com.assistant.UpdateActivity"
-67-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:51:19-62
+67-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:52:19-62
 68            android:exported="false" />
-68-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:51:63-87
+68-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:52:63-87
 69        <activity
-69-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:52:9-87
+69-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:53:9-87
 70            android:name="com.assistant.LogActivity"
-70-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:52:19-59
+70-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:53:19-59
 71            android:exported="false" />
-71-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:52:60-84
+71-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:53:60-84
 72        <activity
-72-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:53:9-76
+72-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:54:9-76
 73            android:name="com.assistant.overlay.ErrorActivity"
-73-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:53:19-48
+73-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:54:19-48
 74            android:exported="false" />
-74-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:53:49-73
+74-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:54:49-73
 75
 76        <provider
 77            android:name="androidx.core.content.FileProvider"
-77-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:56:13-62
+77-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:57:13-62
 78            android:authorities="com.assistant.overlay.provider"
-78-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:57:13-60
+78-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:58:13-60
 79            android:exported="false"
-79-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:58:13-37
+79-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:59:13-37
 80            android:grantUriPermissions="true" >
-80-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:59:13-47
+80-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:60:13-47
 81            <meta-data
-81-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:60:13-62:58
+81-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:61:13-63:58
 82                android:name="android.support.FILE_PROVIDER_PATHS"
-82-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:61:17-67
+82-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:62:17-67
 83                android:resource="@xml/provider_paths" />
-83-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:62:17-55
+83-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:63:17-55
 84        </provider>
 85
 86        <service
