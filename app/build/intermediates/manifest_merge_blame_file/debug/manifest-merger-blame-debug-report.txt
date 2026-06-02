@@ -52,7 +52,7 @@
 27-->[com.google.android.datatransport:transport-backend-cct:2.3.3] /home/user/.gradle/caches/transforms-3/e568a31c209a253e8d6a0cfaaa490986/transformed/transport-backend-cct-2.3.3/AndroidManifest.xml:25:22-76
 28
 29    <application
-29-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:13:5-50:19
+29-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:13:5-64:19
 30        android:name="com.assistant.App"
 30-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:14:9-41
 31        android:allowBackup="false"
@@ -80,166 +80,189 @@
 42-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:25:13-37
 43            android:foregroundServiceType="mediaProjection" />
 43-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:26:13-60
-44
-45        <activity
-45-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:28:9-35:20
-46            android:name="com.assistant.MainActivity"
-46-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:29:13-54
-47            android:exported="true" >
-47-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:30:13-36
-48            <intent-filter>
-48-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:31:13-34:29
-49                <action android:name="android.intent.action.MAIN" />
-49-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:32:17-69
-49-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:32:25-66
-50
-51                <category android:name="android.intent.category.LAUNCHER" />
-51-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:33:17-77
-51-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:33:27-74
-52            </intent-filter>
-53        </activity>
+44        <service
+44-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:28:9-36:19
+45            android:name="com.assistant.PingEliminatorVpnService"
+45-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:29:13-66
+46            android:enabled="true"
+46-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:30:13-35
+47            android:exported="false"
+47-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:31:13-37
+48            android:permission="android.permission.BIND_VPN_SERVICE" >
+48-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:32:13-69
+49            <intent-filter>
+49-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:33:13-35:29
+50                <action android:name="android.net.VpnService" />
+50-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:34:17-65
+50-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:34:25-62
+51            </intent-filter>
+52        </service>
+53
 54        <activity
-54-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:37:9-90
-55            android:name="com.assistant.UpdateActivity"
-55-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:37:19-62
-56            android:exported="false" />
-56-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:37:63-87
-57        <activity
-57-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:38:9-87
-58            android:name="com.assistant.LogActivity"
-58-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:38:19-59
-59            android:exported="false" />
-59-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:38:60-84
-60        <activity
-60-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:39:9-76
-61            android:name="com.assistant.overlay.ErrorActivity"
-61-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:39:19-48
-62            android:exported="false" />
-62-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:39:49-73
-63
-64        <provider
-65            android:name="androidx.core.content.FileProvider"
-65-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:42:13-62
-66            android:authorities="com.assistant.overlay.provider"
-66-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:43:13-60
-67            android:exported="false"
-67-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:44:13-37
-68            android:grantUriPermissions="true" >
-68-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:45:13-47
-69            <meta-data
-69-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:46:13-48:58
-70                android:name="android.support.FILE_PROVIDER_PATHS"
-70-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:47:17-67
-71                android:resource="@xml/provider_paths" />
-71-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:48:17-55
-72        </provider>
-73
-74        <service
-74-->[com.google.android.gms:play-services-mlkit-text-recognition-common:19.1.0] /home/user/.gradle/caches/transforms-3/3c8ca62c5780521ab3db4f1c92809907/transformed/play-services-mlkit-text-recognition-common-19.1.0/AndroidManifest.xml:9:9-15:19
-75            android:name="com.google.mlkit.common.internal.MlKitComponentDiscoveryService"
-75-->[com.google.android.gms:play-services-mlkit-text-recognition-common:19.1.0] /home/user/.gradle/caches/transforms-3/3c8ca62c5780521ab3db4f1c92809907/transformed/play-services-mlkit-text-recognition-common-19.1.0/AndroidManifest.xml:10:13-91
-76            android:directBootAware="true"
-76-->[com.google.mlkit:common:18.11.0] /home/user/.gradle/caches/transforms-3/4d432106705c4e8ed28ab36977b19534/transformed/common-18.11.0/AndroidManifest.xml:17:13-43
-77            android:exported="false" >
-77-->[com.google.android.gms:play-services-mlkit-text-recognition-common:19.1.0] /home/user/.gradle/caches/transforms-3/3c8ca62c5780521ab3db4f1c92809907/transformed/play-services-mlkit-text-recognition-common-19.1.0/AndroidManifest.xml:11:13-37
-78            <meta-data
-78-->[com.google.android.gms:play-services-mlkit-text-recognition-common:19.1.0] /home/user/.gradle/caches/transforms-3/3c8ca62c5780521ab3db4f1c92809907/transformed/play-services-mlkit-text-recognition-common-19.1.0/AndroidManifest.xml:12:13-14:85
-79                android:name="com.google.firebase.components:com.google.mlkit.vision.text.internal.TextRegistrar"
-79-->[com.google.android.gms:play-services-mlkit-text-recognition-common:19.1.0] /home/user/.gradle/caches/transforms-3/3c8ca62c5780521ab3db4f1c92809907/transformed/play-services-mlkit-text-recognition-common-19.1.0/AndroidManifest.xml:13:17-114
-80                android:value="com.google.firebase.components.ComponentRegistrar" />
-80-->[com.google.android.gms:play-services-mlkit-text-recognition-common:19.1.0] /home/user/.gradle/caches/transforms-3/3c8ca62c5780521ab3db4f1c92809907/transformed/play-services-mlkit-text-recognition-common-19.1.0/AndroidManifest.xml:14:17-82
+54-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:38:9-45:20
+55            android:name="com.assistant.WelcomeActivity"
+55-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:39:13-57
+56            android:exported="true" >
+56-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:40:13-36
+57            <intent-filter>
+57-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:41:13-44:29
+58                <action android:name="android.intent.action.MAIN" />
+58-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:42:17-69
+58-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:42:25-66
+59
+60                <category android:name="android.intent.category.LAUNCHER" />
+60-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:43:17-77
+60-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:43:27-74
+61            </intent-filter>
+62        </activity>
+63        <activity
+63-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:47:9-49:40
+64            android:name="com.assistant.MainActivity"
+64-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:48:13-54
+65            android:exported="false" />
+65-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:49:13-37
+66        <activity
+66-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:51:9-90
+67            android:name="com.assistant.UpdateActivity"
+67-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:51:19-62
+68            android:exported="false" />
+68-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:51:63-87
+69        <activity
+69-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:52:9-87
+70            android:name="com.assistant.LogActivity"
+70-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:52:19-59
+71            android:exported="false" />
+71-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:52:60-84
+72        <activity
+72-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:53:9-76
+73            android:name="com.assistant.overlay.ErrorActivity"
+73-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:53:19-48
+74            android:exported="false" />
+74-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:53:49-73
+75
+76        <provider
+77            android:name="androidx.core.content.FileProvider"
+77-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:56:13-62
+78            android:authorities="com.assistant.overlay.provider"
+78-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:57:13-60
+79            android:exported="false"
+79-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:58:13-37
+80            android:grantUriPermissions="true" >
+80-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:59:13-47
 81            <meta-data
-81-->[com.google.mlkit:vision-common:17.3.0] /home/user/.gradle/caches/transforms-3/5d203113b4d3573810332f61fcf85d30/transformed/vision-common-17.3.0/AndroidManifest.xml:12:13-14:85
-82                android:name="com.google.firebase.components:com.google.mlkit.vision.common.internal.VisionCommonRegistrar"
-82-->[com.google.mlkit:vision-common:17.3.0] /home/user/.gradle/caches/transforms-3/5d203113b4d3573810332f61fcf85d30/transformed/vision-common-17.3.0/AndroidManifest.xml:13:17-124
-83                android:value="com.google.firebase.components.ComponentRegistrar" />
-83-->[com.google.mlkit:vision-common:17.3.0] /home/user/.gradle/caches/transforms-3/5d203113b4d3573810332f61fcf85d30/transformed/vision-common-17.3.0/AndroidManifest.xml:14:17-82
-84            <meta-data
-84-->[com.google.mlkit:common:18.11.0] /home/user/.gradle/caches/transforms-3/4d432106705c4e8ed28ab36977b19534/transformed/common-18.11.0/AndroidManifest.xml:20:13-22:85
-85                android:name="com.google.firebase.components:com.google.mlkit.common.internal.CommonComponentRegistrar"
-85-->[com.google.mlkit:common:18.11.0] /home/user/.gradle/caches/transforms-3/4d432106705c4e8ed28ab36977b19534/transformed/common-18.11.0/AndroidManifest.xml:21:17-120
-86                android:value="com.google.firebase.components.ComponentRegistrar" />
-86-->[com.google.mlkit:common:18.11.0] /home/user/.gradle/caches/transforms-3/4d432106705c4e8ed28ab36977b19534/transformed/common-18.11.0/AndroidManifest.xml:22:17-82
-87        </service>
-88
-89        <provider
-89-->[com.google.mlkit:common:18.11.0] /home/user/.gradle/caches/transforms-3/4d432106705c4e8ed28ab36977b19534/transformed/common-18.11.0/AndroidManifest.xml:9:9-13:38
-90            android:name="com.google.mlkit.common.internal.MlKitInitProvider"
-90-->[com.google.mlkit:common:18.11.0] /home/user/.gradle/caches/transforms-3/4d432106705c4e8ed28ab36977b19534/transformed/common-18.11.0/AndroidManifest.xml:10:13-78
-91            android:authorities="com.assistant.overlay.mlkitinitprovider"
-91-->[com.google.mlkit:common:18.11.0] /home/user/.gradle/caches/transforms-3/4d432106705c4e8ed28ab36977b19534/transformed/common-18.11.0/AndroidManifest.xml:11:13-69
-92            android:exported="false"
-92-->[com.google.mlkit:common:18.11.0] /home/user/.gradle/caches/transforms-3/4d432106705c4e8ed28ab36977b19534/transformed/common-18.11.0/AndroidManifest.xml:12:13-37
-93            android:initOrder="99" />
-93-->[com.google.mlkit:common:18.11.0] /home/user/.gradle/caches/transforms-3/4d432106705c4e8ed28ab36977b19534/transformed/common-18.11.0/AndroidManifest.xml:13:13-35
-94
-95        <activity
-95-->[com.google.android.gms:play-services-base:18.5.0] /home/user/.gradle/caches/transforms-3/249693e3478f09a80ded5a4e55d904c3/transformed/play-services-base-18.5.0/AndroidManifest.xml:5:9-173
-96            android:name="com.google.android.gms.common.api.GoogleApiActivity"
-96-->[com.google.android.gms:play-services-base:18.5.0] /home/user/.gradle/caches/transforms-3/249693e3478f09a80ded5a4e55d904c3/transformed/play-services-base-18.5.0/AndroidManifest.xml:5:19-85
-97            android:exported="false"
-97-->[com.google.android.gms:play-services-base:18.5.0] /home/user/.gradle/caches/transforms-3/249693e3478f09a80ded5a4e55d904c3/transformed/play-services-base-18.5.0/AndroidManifest.xml:5:146-170
-98            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-98-->[com.google.android.gms:play-services-base:18.5.0] /home/user/.gradle/caches/transforms-3/249693e3478f09a80ded5a4e55d904c3/transformed/play-services-base-18.5.0/AndroidManifest.xml:5:86-145
-99
-100        <meta-data
-100-->[com.google.android.gms:play-services-basement:18.4.0] /home/user/.gradle/caches/transforms-3/eadcf0e70c6cd54ddfd33a9f813830f0/transformed/play-services-basement-18.4.0/AndroidManifest.xml:6:9-122
-101            android:name="com.google.android.gms.version"
-101-->[com.google.android.gms:play-services-basement:18.4.0] /home/user/.gradle/caches/transforms-3/eadcf0e70c6cd54ddfd33a9f813830f0/transformed/play-services-basement-18.4.0/AndroidManifest.xml:6:20-65
-102            android:value="@integer/google_play_services_version" />
-102-->[com.google.android.gms:play-services-basement:18.4.0] /home/user/.gradle/caches/transforms-3/eadcf0e70c6cd54ddfd33a9f813830f0/transformed/play-services-basement-18.4.0/AndroidManifest.xml:6:66-119
-103
-104        <provider
-104-->[androidx.emoji2:emoji2:1.2.0] /home/user/.gradle/caches/transforms-3/40af677edc9e981bf1ec9bb11c8b1d32/transformed/emoji2-1.2.0/AndroidManifest.xml:24:9-32:20
-105            android:name="androidx.startup.InitializationProvider"
-105-->[androidx.emoji2:emoji2:1.2.0] /home/user/.gradle/caches/transforms-3/40af677edc9e981bf1ec9bb11c8b1d32/transformed/emoji2-1.2.0/AndroidManifest.xml:25:13-67
-106            android:authorities="com.assistant.overlay.androidx-startup"
-106-->[androidx.emoji2:emoji2:1.2.0] /home/user/.gradle/caches/transforms-3/40af677edc9e981bf1ec9bb11c8b1d32/transformed/emoji2-1.2.0/AndroidManifest.xml:26:13-68
-107            android:exported="false" >
-107-->[androidx.emoji2:emoji2:1.2.0] /home/user/.gradle/caches/transforms-3/40af677edc9e981bf1ec9bb11c8b1d32/transformed/emoji2-1.2.0/AndroidManifest.xml:27:13-37
-108            <meta-data
-108-->[androidx.emoji2:emoji2:1.2.0] /home/user/.gradle/caches/transforms-3/40af677edc9e981bf1ec9bb11c8b1d32/transformed/emoji2-1.2.0/AndroidManifest.xml:29:13-31:52
-109                android:name="androidx.emoji2.text.EmojiCompatInitializer"
-109-->[androidx.emoji2:emoji2:1.2.0] /home/user/.gradle/caches/transforms-3/40af677edc9e981bf1ec9bb11c8b1d32/transformed/emoji2-1.2.0/AndroidManifest.xml:30:17-75
-110                android:value="androidx.startup" />
-110-->[androidx.emoji2:emoji2:1.2.0] /home/user/.gradle/caches/transforms-3/40af677edc9e981bf1ec9bb11c8b1d32/transformed/emoji2-1.2.0/AndroidManifest.xml:31:17-49
-111            <meta-data
-111-->[androidx.lifecycle:lifecycle-process:2.4.1] /home/user/.gradle/caches/transforms-3/4b8f05b04d1415b92185bf8ed00c3550/transformed/lifecycle-process-2.4.1/AndroidManifest.xml:31:13-33:52
-112                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
-112-->[androidx.lifecycle:lifecycle-process:2.4.1] /home/user/.gradle/caches/transforms-3/4b8f05b04d1415b92185bf8ed00c3550/transformed/lifecycle-process-2.4.1/AndroidManifest.xml:32:17-78
-113                android:value="androidx.startup" />
-113-->[androidx.lifecycle:lifecycle-process:2.4.1] /home/user/.gradle/caches/transforms-3/4b8f05b04d1415b92185bf8ed00c3550/transformed/lifecycle-process-2.4.1/AndroidManifest.xml:33:17-49
-114        </provider>
+81-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:60:13-62:58
+82                android:name="android.support.FILE_PROVIDER_PATHS"
+82-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:61:17-67
+83                android:resource="@xml/provider_paths" />
+83-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:62:17-55
+84        </provider>
+85
+86        <service
+86-->[com.google.android.gms:play-services-mlkit-text-recognition-common:19.1.0] /home/user/.gradle/caches/transforms-3/3c8ca62c5780521ab3db4f1c92809907/transformed/play-services-mlkit-text-recognition-common-19.1.0/AndroidManifest.xml:9:9-15:19
+87            android:name="com.google.mlkit.common.internal.MlKitComponentDiscoveryService"
+87-->[com.google.android.gms:play-services-mlkit-text-recognition-common:19.1.0] /home/user/.gradle/caches/transforms-3/3c8ca62c5780521ab3db4f1c92809907/transformed/play-services-mlkit-text-recognition-common-19.1.0/AndroidManifest.xml:10:13-91
+88            android:directBootAware="true"
+88-->[com.google.mlkit:common:18.11.0] /home/user/.gradle/caches/transforms-3/4d432106705c4e8ed28ab36977b19534/transformed/common-18.11.0/AndroidManifest.xml:17:13-43
+89            android:exported="false" >
+89-->[com.google.android.gms:play-services-mlkit-text-recognition-common:19.1.0] /home/user/.gradle/caches/transforms-3/3c8ca62c5780521ab3db4f1c92809907/transformed/play-services-mlkit-text-recognition-common-19.1.0/AndroidManifest.xml:11:13-37
+90            <meta-data
+90-->[com.google.android.gms:play-services-mlkit-text-recognition-common:19.1.0] /home/user/.gradle/caches/transforms-3/3c8ca62c5780521ab3db4f1c92809907/transformed/play-services-mlkit-text-recognition-common-19.1.0/AndroidManifest.xml:12:13-14:85
+91                android:name="com.google.firebase.components:com.google.mlkit.vision.text.internal.TextRegistrar"
+91-->[com.google.android.gms:play-services-mlkit-text-recognition-common:19.1.0] /home/user/.gradle/caches/transforms-3/3c8ca62c5780521ab3db4f1c92809907/transformed/play-services-mlkit-text-recognition-common-19.1.0/AndroidManifest.xml:13:17-114
+92                android:value="com.google.firebase.components.ComponentRegistrar" />
+92-->[com.google.android.gms:play-services-mlkit-text-recognition-common:19.1.0] /home/user/.gradle/caches/transforms-3/3c8ca62c5780521ab3db4f1c92809907/transformed/play-services-mlkit-text-recognition-common-19.1.0/AndroidManifest.xml:14:17-82
+93            <meta-data
+93-->[com.google.mlkit:vision-common:17.3.0] /home/user/.gradle/caches/transforms-3/5d203113b4d3573810332f61fcf85d30/transformed/vision-common-17.3.0/AndroidManifest.xml:12:13-14:85
+94                android:name="com.google.firebase.components:com.google.mlkit.vision.common.internal.VisionCommonRegistrar"
+94-->[com.google.mlkit:vision-common:17.3.0] /home/user/.gradle/caches/transforms-3/5d203113b4d3573810332f61fcf85d30/transformed/vision-common-17.3.0/AndroidManifest.xml:13:17-124
+95                android:value="com.google.firebase.components.ComponentRegistrar" />
+95-->[com.google.mlkit:vision-common:17.3.0] /home/user/.gradle/caches/transforms-3/5d203113b4d3573810332f61fcf85d30/transformed/vision-common-17.3.0/AndroidManifest.xml:14:17-82
+96            <meta-data
+96-->[com.google.mlkit:common:18.11.0] /home/user/.gradle/caches/transforms-3/4d432106705c4e8ed28ab36977b19534/transformed/common-18.11.0/AndroidManifest.xml:20:13-22:85
+97                android:name="com.google.firebase.components:com.google.mlkit.common.internal.CommonComponentRegistrar"
+97-->[com.google.mlkit:common:18.11.0] /home/user/.gradle/caches/transforms-3/4d432106705c4e8ed28ab36977b19534/transformed/common-18.11.0/AndroidManifest.xml:21:17-120
+98                android:value="com.google.firebase.components.ComponentRegistrar" />
+98-->[com.google.mlkit:common:18.11.0] /home/user/.gradle/caches/transforms-3/4d432106705c4e8ed28ab36977b19534/transformed/common-18.11.0/AndroidManifest.xml:22:17-82
+99        </service>
+100
+101        <provider
+101-->[com.google.mlkit:common:18.11.0] /home/user/.gradle/caches/transforms-3/4d432106705c4e8ed28ab36977b19534/transformed/common-18.11.0/AndroidManifest.xml:9:9-13:38
+102            android:name="com.google.mlkit.common.internal.MlKitInitProvider"
+102-->[com.google.mlkit:common:18.11.0] /home/user/.gradle/caches/transforms-3/4d432106705c4e8ed28ab36977b19534/transformed/common-18.11.0/AndroidManifest.xml:10:13-78
+103            android:authorities="com.assistant.overlay.mlkitinitprovider"
+103-->[com.google.mlkit:common:18.11.0] /home/user/.gradle/caches/transforms-3/4d432106705c4e8ed28ab36977b19534/transformed/common-18.11.0/AndroidManifest.xml:11:13-69
+104            android:exported="false"
+104-->[com.google.mlkit:common:18.11.0] /home/user/.gradle/caches/transforms-3/4d432106705c4e8ed28ab36977b19534/transformed/common-18.11.0/AndroidManifest.xml:12:13-37
+105            android:initOrder="99" />
+105-->[com.google.mlkit:common:18.11.0] /home/user/.gradle/caches/transforms-3/4d432106705c4e8ed28ab36977b19534/transformed/common-18.11.0/AndroidManifest.xml:13:13-35
+106
+107        <activity
+107-->[com.google.android.gms:play-services-base:18.5.0] /home/user/.gradle/caches/transforms-3/249693e3478f09a80ded5a4e55d904c3/transformed/play-services-base-18.5.0/AndroidManifest.xml:5:9-173
+108            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+108-->[com.google.android.gms:play-services-base:18.5.0] /home/user/.gradle/caches/transforms-3/249693e3478f09a80ded5a4e55d904c3/transformed/play-services-base-18.5.0/AndroidManifest.xml:5:19-85
+109            android:exported="false"
+109-->[com.google.android.gms:play-services-base:18.5.0] /home/user/.gradle/caches/transforms-3/249693e3478f09a80ded5a4e55d904c3/transformed/play-services-base-18.5.0/AndroidManifest.xml:5:146-170
+110            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+110-->[com.google.android.gms:play-services-base:18.5.0] /home/user/.gradle/caches/transforms-3/249693e3478f09a80ded5a4e55d904c3/transformed/play-services-base-18.5.0/AndroidManifest.xml:5:86-145
+111
+112        <meta-data
+112-->[com.google.android.gms:play-services-basement:18.4.0] /home/user/.gradle/caches/transforms-3/eadcf0e70c6cd54ddfd33a9f813830f0/transformed/play-services-basement-18.4.0/AndroidManifest.xml:6:9-122
+113            android:name="com.google.android.gms.version"
+113-->[com.google.android.gms:play-services-basement:18.4.0] /home/user/.gradle/caches/transforms-3/eadcf0e70c6cd54ddfd33a9f813830f0/transformed/play-services-basement-18.4.0/AndroidManifest.xml:6:20-65
+114            android:value="@integer/google_play_services_version" />
+114-->[com.google.android.gms:play-services-basement:18.4.0] /home/user/.gradle/caches/transforms-3/eadcf0e70c6cd54ddfd33a9f813830f0/transformed/play-services-basement-18.4.0/AndroidManifest.xml:6:66-119
 115
-116        <service
-116-->[com.google.android.datatransport:transport-backend-cct:2.3.3] /home/user/.gradle/caches/transforms-3/e568a31c209a253e8d6a0cfaaa490986/transformed/transport-backend-cct-2.3.3/AndroidManifest.xml:29:9-35:19
-117            android:name="com.google.android.datatransport.runtime.backends.TransportBackendDiscovery"
-117-->[com.google.android.datatransport:transport-backend-cct:2.3.3] /home/user/.gradle/caches/transforms-3/e568a31c209a253e8d6a0cfaaa490986/transformed/transport-backend-cct-2.3.3/AndroidManifest.xml:30:13-103
-118            android:exported="false" >
-118-->[com.google.android.datatransport:transport-backend-cct:2.3.3] /home/user/.gradle/caches/transforms-3/e568a31c209a253e8d6a0cfaaa490986/transformed/transport-backend-cct-2.3.3/AndroidManifest.xml:31:13-37
-119            <meta-data
-119-->[com.google.android.datatransport:transport-backend-cct:2.3.3] /home/user/.gradle/caches/transforms-3/e568a31c209a253e8d6a0cfaaa490986/transformed/transport-backend-cct-2.3.3/AndroidManifest.xml:32:13-34:39
-120                android:name="backend:com.google.android.datatransport.cct.CctBackendFactory"
-120-->[com.google.android.datatransport:transport-backend-cct:2.3.3] /home/user/.gradle/caches/transforms-3/e568a31c209a253e8d6a0cfaaa490986/transformed/transport-backend-cct-2.3.3/AndroidManifest.xml:33:17-94
-121                android:value="cct" />
-121-->[com.google.android.datatransport:transport-backend-cct:2.3.3] /home/user/.gradle/caches/transforms-3/e568a31c209a253e8d6a0cfaaa490986/transformed/transport-backend-cct-2.3.3/AndroidManifest.xml:34:17-36
-122        </service>
-123        <service
-123-->[com.google.android.datatransport:transport-runtime:2.2.6] /home/user/.gradle/caches/transforms-3/09df60286e8cad22915e1062605d218f/transformed/transport-runtime-2.2.6/AndroidManifest.xml:26:9-30:19
-124            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService"
-124-->[com.google.android.datatransport:transport-runtime:2.2.6] /home/user/.gradle/caches/transforms-3/09df60286e8cad22915e1062605d218f/transformed/transport-runtime-2.2.6/AndroidManifest.xml:27:13-117
-125            android:exported="false"
-125-->[com.google.android.datatransport:transport-runtime:2.2.6] /home/user/.gradle/caches/transforms-3/09df60286e8cad22915e1062605d218f/transformed/transport-runtime-2.2.6/AndroidManifest.xml:28:13-37
-126            android:permission="android.permission.BIND_JOB_SERVICE" >
-126-->[com.google.android.datatransport:transport-runtime:2.2.6] /home/user/.gradle/caches/transforms-3/09df60286e8cad22915e1062605d218f/transformed/transport-runtime-2.2.6/AndroidManifest.xml:29:13-69
-127        </service>
-128
-129        <receiver
-129-->[com.google.android.datatransport:transport-runtime:2.2.6] /home/user/.gradle/caches/transforms-3/09df60286e8cad22915e1062605d218f/transformed/transport-runtime-2.2.6/AndroidManifest.xml:32:9-34:40
-130            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver"
-130-->[com.google.android.datatransport:transport-runtime:2.2.6] /home/user/.gradle/caches/transforms-3/09df60286e8cad22915e1062605d218f/transformed/transport-runtime-2.2.6/AndroidManifest.xml:33:13-132
-131            android:exported="false" />
-131-->[com.google.android.datatransport:transport-runtime:2.2.6] /home/user/.gradle/caches/transforms-3/09df60286e8cad22915e1062605d218f/transformed/transport-runtime-2.2.6/AndroidManifest.xml:34:13-37
-132    </application>
-133
-134</manifest>
+116        <provider
+116-->[androidx.emoji2:emoji2:1.2.0] /home/user/.gradle/caches/transforms-3/40af677edc9e981bf1ec9bb11c8b1d32/transformed/emoji2-1.2.0/AndroidManifest.xml:24:9-32:20
+117            android:name="androidx.startup.InitializationProvider"
+117-->[androidx.emoji2:emoji2:1.2.0] /home/user/.gradle/caches/transforms-3/40af677edc9e981bf1ec9bb11c8b1d32/transformed/emoji2-1.2.0/AndroidManifest.xml:25:13-67
+118            android:authorities="com.assistant.overlay.androidx-startup"
+118-->[androidx.emoji2:emoji2:1.2.0] /home/user/.gradle/caches/transforms-3/40af677edc9e981bf1ec9bb11c8b1d32/transformed/emoji2-1.2.0/AndroidManifest.xml:26:13-68
+119            android:exported="false" >
+119-->[androidx.emoji2:emoji2:1.2.0] /home/user/.gradle/caches/transforms-3/40af677edc9e981bf1ec9bb11c8b1d32/transformed/emoji2-1.2.0/AndroidManifest.xml:27:13-37
+120            <meta-data
+120-->[androidx.emoji2:emoji2:1.2.0] /home/user/.gradle/caches/transforms-3/40af677edc9e981bf1ec9bb11c8b1d32/transformed/emoji2-1.2.0/AndroidManifest.xml:29:13-31:52
+121                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+121-->[androidx.emoji2:emoji2:1.2.0] /home/user/.gradle/caches/transforms-3/40af677edc9e981bf1ec9bb11c8b1d32/transformed/emoji2-1.2.0/AndroidManifest.xml:30:17-75
+122                android:value="androidx.startup" />
+122-->[androidx.emoji2:emoji2:1.2.0] /home/user/.gradle/caches/transforms-3/40af677edc9e981bf1ec9bb11c8b1d32/transformed/emoji2-1.2.0/AndroidManifest.xml:31:17-49
+123            <meta-data
+123-->[androidx.lifecycle:lifecycle-process:2.4.1] /home/user/.gradle/caches/transforms-3/4b8f05b04d1415b92185bf8ed00c3550/transformed/lifecycle-process-2.4.1/AndroidManifest.xml:31:13-33:52
+124                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+124-->[androidx.lifecycle:lifecycle-process:2.4.1] /home/user/.gradle/caches/transforms-3/4b8f05b04d1415b92185bf8ed00c3550/transformed/lifecycle-process-2.4.1/AndroidManifest.xml:32:17-78
+125                android:value="androidx.startup" />
+125-->[androidx.lifecycle:lifecycle-process:2.4.1] /home/user/.gradle/caches/transforms-3/4b8f05b04d1415b92185bf8ed00c3550/transformed/lifecycle-process-2.4.1/AndroidManifest.xml:33:17-49
+126        </provider>
+127
+128        <service
+128-->[com.google.android.datatransport:transport-backend-cct:2.3.3] /home/user/.gradle/caches/transforms-3/e568a31c209a253e8d6a0cfaaa490986/transformed/transport-backend-cct-2.3.3/AndroidManifest.xml:29:9-35:19
+129            android:name="com.google.android.datatransport.runtime.backends.TransportBackendDiscovery"
+129-->[com.google.android.datatransport:transport-backend-cct:2.3.3] /home/user/.gradle/caches/transforms-3/e568a31c209a253e8d6a0cfaaa490986/transformed/transport-backend-cct-2.3.3/AndroidManifest.xml:30:13-103
+130            android:exported="false" >
+130-->[com.google.android.datatransport:transport-backend-cct:2.3.3] /home/user/.gradle/caches/transforms-3/e568a31c209a253e8d6a0cfaaa490986/transformed/transport-backend-cct-2.3.3/AndroidManifest.xml:31:13-37
+131            <meta-data
+131-->[com.google.android.datatransport:transport-backend-cct:2.3.3] /home/user/.gradle/caches/transforms-3/e568a31c209a253e8d6a0cfaaa490986/transformed/transport-backend-cct-2.3.3/AndroidManifest.xml:32:13-34:39
+132                android:name="backend:com.google.android.datatransport.cct.CctBackendFactory"
+132-->[com.google.android.datatransport:transport-backend-cct:2.3.3] /home/user/.gradle/caches/transforms-3/e568a31c209a253e8d6a0cfaaa490986/transformed/transport-backend-cct-2.3.3/AndroidManifest.xml:33:17-94
+133                android:value="cct" />
+133-->[com.google.android.datatransport:transport-backend-cct:2.3.3] /home/user/.gradle/caches/transforms-3/e568a31c209a253e8d6a0cfaaa490986/transformed/transport-backend-cct-2.3.3/AndroidManifest.xml:34:17-36
+134        </service>
+135        <service
+135-->[com.google.android.datatransport:transport-runtime:2.2.6] /home/user/.gradle/caches/transforms-3/09df60286e8cad22915e1062605d218f/transformed/transport-runtime-2.2.6/AndroidManifest.xml:26:9-30:19
+136            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService"
+136-->[com.google.android.datatransport:transport-runtime:2.2.6] /home/user/.gradle/caches/transforms-3/09df60286e8cad22915e1062605d218f/transformed/transport-runtime-2.2.6/AndroidManifest.xml:27:13-117
+137            android:exported="false"
+137-->[com.google.android.datatransport:transport-runtime:2.2.6] /home/user/.gradle/caches/transforms-3/09df60286e8cad22915e1062605d218f/transformed/transport-runtime-2.2.6/AndroidManifest.xml:28:13-37
+138            android:permission="android.permission.BIND_JOB_SERVICE" >
+138-->[com.google.android.datatransport:transport-runtime:2.2.6] /home/user/.gradle/caches/transforms-3/09df60286e8cad22915e1062605d218f/transformed/transport-runtime-2.2.6/AndroidManifest.xml:29:13-69
+139        </service>
+140
+141        <receiver
+141-->[com.google.android.datatransport:transport-runtime:2.2.6] /home/user/.gradle/caches/transforms-3/09df60286e8cad22915e1062605d218f/transformed/transport-runtime-2.2.6/AndroidManifest.xml:32:9-34:40
+142            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver"
+142-->[com.google.android.datatransport:transport-runtime:2.2.6] /home/user/.gradle/caches/transforms-3/09df60286e8cad22915e1062605d218f/transformed/transport-runtime-2.2.6/AndroidManifest.xml:33:13-132
+143            android:exported="false" />
+143-->[com.google.android.datatransport:transport-runtime:2.2.6] /home/user/.gradle/caches/transforms-3/09df60286e8cad22915e1062605d218f/transformed/transport-runtime-2.2.6/AndroidManifest.xml:34:13-37
+144    </application>
+145
+146</manifest>

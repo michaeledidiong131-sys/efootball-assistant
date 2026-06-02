@@ -859,6 +859,7 @@ id titleDividerNoCustom
 id title_template
 id top
 id topPanel
+id tvCheckState
 id txtCrashLog
 id unchecked
 id uniform
@@ -917,6 +918,7 @@ layout abc_tooltip
 layout activity_error
 layout activity_main
 layout activity_update
+layout activity_welcome
 layout custom_dialog
 layout ime_base_split_test_activity
 layout ime_secondary_split_test_activity

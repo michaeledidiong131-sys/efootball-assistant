@@ -3,8 +3,8 @@
 # min_api: 26
 # common_typos_disable
 # {"id":"com.android.tools.r8.mapping","version":"2.2"}
-# pg_map_id: 23d196b
-# pg_map_hash: SHA-256 23d196beff881a84db15f91ef8b47682d1ff21c8b6d192c00c1d2778d4265f6d
+# pg_map_id: 7bebb4b
+# pg_map_hash: SHA-256 7bebb4b48fd2502049f692fffe152c03008208beb4322e32757a9efb323ac7bd
 android.app.AppComponentFactory -> android.app.AppComponentFactory:
 # {"id":"com.android.tools.r8.synthesized"}
 android.support.v4.app.RemoteActionCompatParcelizer -> android.support.v4.app.RemoteActionCompatParcelizer:
@@ -36869,6 +36869,10 @@ com.assistant.OverlayService$setupMediaProjection$1 -> com.assistant.OverlayServ
 # {"id":"sourceFile","fileName":"OverlayService.kt"}
     169:169:void <init>(com.assistant.OverlayService) -> <init>
     170:170:void onStop() -> onStop
+com.assistant.PingEliminatorVpnService -> com.assistant.PingEliminatorVpnService:
+# {"id":"sourceFile","fileName":"PingEliminatorVpnService.kt"}
+    5:5:void <init>() -> <init>
+    7:7:int onStartCommand(android.content.Intent,int,int) -> onStartCommand
 com.assistant.UpdateActivity -> com.assistant.UpdateActivity:
 # {"id":"sourceFile","fileName":"UpdateActivity.kt"}
     0:0:void $r8$lambda$_ZS1S6JmVDlz9nG8TpnPKVQBxRk(com.assistant.UpdateActivity,android.view.View) -> $r8$lambda$_ZS1S6JmVDlz9nG8TpnPKVQBxRk
@@ -37018,6 +37022,91 @@ com.assistant.UpdateActivity$trackProgress$1$$ExternalSyntheticLambda2 -> com.as
       # {"id":"com.android.tools.r8.synthesized"}
     0:0:void com.assistant.UpdateActivity$trackProgress$1$$InternalSyntheticLambda$2$4504cc4ac681da465777cddb950f6971d663845fa54679537796cb74f9e66da2$2.run() -> run
       # {"id":"com.android.tools.r8.synthesized"}
+com.assistant.WelcomeActivity -> com.assistant.WelcomeActivity:
+# {"id":"sourceFile","fileName":"WelcomeActivity.kt"}
+    0:0:void $r8$lambda$BdT2pQp-U9gj_80vF9tRPVd_bKY(com.assistant.WelcomeActivity,java.lang.String) -> $r8$lambda$BdT2pQp-U9gj_80vF9tRPVd_bKY
+      # {"id":"com.android.tools.r8.synthesized"}
+    0:0:void $r8$lambda$DYWhEG1expkECu9tr8mpNniyx1I(com.assistant.WelcomeActivity,java.lang.Class) -> $r8$lambda$DYWhEG1expkECu9tr8mpNniyx1I
+      # {"id":"com.android.tools.r8.synthesized"}
+    16:16:void <init>() -> <init>
+    20:20:void <init>() -> <init>
+    16:16:java.lang.String access$getBackendCheckUrl$p(com.assistant.WelcomeActivity) -> access$getBackendCheckUrl$p
+    16:16:void access$routeToPhase(com.assistant.WelcomeActivity,java.lang.Class) -> access$routeToPhase
+    16:16:void access$updateStatus(com.assistant.WelcomeActivity,java.lang.String) -> access$updateStatus
+    32:32:void executeDynamicCheckState() -> executeDynamicCheckState
+    76:76:void executeDynamicCheckState() -> executeDynamicCheckState
+    24:24:void onCreate(android.os.Bundle) -> onCreate
+    25:25:void onCreate(android.os.Bundle) -> onCreate
+    26:26:void onCreate(android.os.Bundle) -> onCreate
+    28:28:void onCreate(android.os.Bundle) -> onCreate
+    29:29:void onCreate(android.os.Bundle) -> onCreate
+    85:85:void routeToPhase(java.lang.Class) -> routeToPhase
+    90:90:void routeToPhase(java.lang.Class) -> routeToPhase
+    86:86:void routeToPhase$lambda$1(com.assistant.WelcomeActivity,java.lang.Class) -> routeToPhase$lambda$1
+    87:87:void routeToPhase$lambda$1(com.assistant.WelcomeActivity,java.lang.Class) -> routeToPhase$lambda$1
+    88:88:void routeToPhase$lambda$1(com.assistant.WelcomeActivity,java.lang.Class) -> routeToPhase$lambda$1
+    89:89:void routeToPhase$lambda$1(com.assistant.WelcomeActivity,java.lang.Class) -> routeToPhase$lambda$1
+    79:79:void updateStatus(java.lang.String) -> updateStatus
+    82:82:void updateStatus(java.lang.String) -> updateStatus
+    80:80:void updateStatus$lambda$0(com.assistant.WelcomeActivity,java.lang.String) -> updateStatus$lambda$0
+    81:81:void updateStatus$lambda$0(com.assistant.WelcomeActivity,java.lang.String) -> updateStatus$lambda$0
+com.assistant.WelcomeActivity$$ExternalSyntheticLambda0 -> com.assistant.WelcomeActivity$$ExternalSyntheticLambda0:
+# {"id":"sourceFile","fileName":"R8$$SyntheticClass"}
+# {"id":"com.android.tools.r8.synthesized"}
+    com.assistant.WelcomeActivity com.assistant.WelcomeActivity$$InternalSyntheticLambda$1$4a7e873e1753c86367e7f72c500b27e20e3d68ab33c14b47d4bf2ab1d3356648$0.f$0 -> f$0
+      # {"id":"com.android.tools.r8.synthesized"}
+    java.lang.Class com.assistant.WelcomeActivity$$InternalSyntheticLambda$1$4a7e873e1753c86367e7f72c500b27e20e3d68ab33c14b47d4bf2ab1d3356648$0.f$1 -> f$1
+      # {"id":"com.android.tools.r8.synthesized"}
+    0:0:void com.assistant.WelcomeActivity$$InternalSyntheticLambda$1$4a7e873e1753c86367e7f72c500b27e20e3d68ab33c14b47d4bf2ab1d3356648$0.<init>(com.assistant.WelcomeActivity,java.lang.Class) -> <init>
+      # {"id":"com.android.tools.r8.synthesized"}
+    0:0:void com.assistant.WelcomeActivity$$InternalSyntheticLambda$1$4a7e873e1753c86367e7f72c500b27e20e3d68ab33c14b47d4bf2ab1d3356648$0.run() -> run
+      # {"id":"com.android.tools.r8.synthesized"}
+com.assistant.WelcomeActivity$$ExternalSyntheticLambda1 -> com.assistant.WelcomeActivity$$ExternalSyntheticLambda1:
+# {"id":"sourceFile","fileName":"R8$$SyntheticClass"}
+# {"id":"com.android.tools.r8.synthesized"}
+    com.assistant.WelcomeActivity com.assistant.WelcomeActivity$$InternalSyntheticLambda$1$5735c1bd02542657c8d29c72c7e3ea93067d340cbfd28e4990e2c7bbd19a1c05$0.f$0 -> f$0
+      # {"id":"com.android.tools.r8.synthesized"}
+    java.lang.String com.assistant.WelcomeActivity$$InternalSyntheticLambda$1$5735c1bd02542657c8d29c72c7e3ea93067d340cbfd28e4990e2c7bbd19a1c05$0.f$1 -> f$1
+      # {"id":"com.android.tools.r8.synthesized"}
+    0:0:void com.assistant.WelcomeActivity$$InternalSyntheticLambda$1$5735c1bd02542657c8d29c72c7e3ea93067d340cbfd28e4990e2c7bbd19a1c05$0.<init>(com.assistant.WelcomeActivity,java.lang.String) -> <init>
+      # {"id":"com.android.tools.r8.synthesized"}
+    0:0:void com.assistant.WelcomeActivity$$InternalSyntheticLambda$1$5735c1bd02542657c8d29c72c7e3ea93067d340cbfd28e4990e2c7bbd19a1c05$0.run() -> run
+      # {"id":"com.android.tools.r8.synthesized"}
+com.assistant.WelcomeActivity$executeDynamicCheckState$1 -> com.assistant.WelcomeActivity$executeDynamicCheckState$1:
+# {"id":"sourceFile","fileName":"WelcomeActivity.kt"}
+    0:0:void <init>(com.assistant.WelcomeActivity) -> <init>
+    32:32:java.lang.Object invoke() -> invoke
+    34:34:void invoke() -> invoke
+    36:36:void invoke() -> invoke
+    37:37:void invoke() -> invoke
+    38:38:void invoke() -> invoke
+    40:40:void invoke() -> invoke
+    41:41:void invoke() -> invoke
+    42:42:void invoke() -> invoke
+    43:43:void invoke() -> invoke
+    44:44:void invoke() -> invoke
+    46:46:void invoke() -> invoke
+    47:47:void invoke() -> invoke
+    48:48:void invoke() -> invoke
+    49:49:void invoke() -> invoke
+    50:50:void invoke() -> invoke
+    52:52:void invoke() -> invoke
+    53:53:void invoke() -> invoke
+    54:54:void invoke() -> invoke
+    55:55:void invoke() -> invoke
+    57:57:void invoke() -> invoke
+    58:58:void invoke() -> invoke
+    59:59:void invoke() -> invoke
+    62:62:void invoke() -> invoke
+    63:63:void invoke() -> invoke
+    64:64:void invoke() -> invoke
+    66:66:void invoke() -> invoke
+    68:68:void invoke() -> invoke
+    69:69:void invoke() -> invoke
+    70:70:void invoke() -> invoke
+    73:73:void invoke() -> invoke
+    74:74:void invoke() -> invoke
+    75:75:void invoke() -> invoke
 com.google.android.datatransport.AutoValue_Event -> com.google.android.datatransport.AutoValue_Event:
 # {"id":"sourceFile","fileName":"AutoValue_Event.java"}
     19:19:void <init>(java.lang.Integer,java.lang.Object,com.google.android.datatransport.Priority) -> <init>

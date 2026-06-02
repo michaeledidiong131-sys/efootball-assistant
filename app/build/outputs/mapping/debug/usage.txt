@@ -7360,7 +7360,6 @@ com.assistant.ErrorActivity
 com.assistant.OverlayService:
     private static final java.lang.String CHANNEL_ID
     private static final int NOTIFICATION_ID
-com.assistant.PingEliminatorVpnService
 com.assistant.overlay.R$id:
     public static int btnCopyLog
     public static int txtCrashLog

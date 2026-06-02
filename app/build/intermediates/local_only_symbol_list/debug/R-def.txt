@@ -7,10 +7,12 @@ id btnStartEngine
 id btnViewLogs
 id overlay_status_text
 id progressText
+id tvCheckState
 id txtCrashLog
 id updateProgressBar
 layout activity_error
 layout activity_main
 layout activity_update
+layout activity_welcome
 layout overlay_layout
 xml provider_paths

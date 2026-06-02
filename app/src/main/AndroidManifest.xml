@@ -25,14 +25,28 @@
             android:exported="false"
             android:foregroundServiceType="mediaProjection" />
             
+        <service
+            android:name="com.assistant.PingEliminatorVpnService"
+            android:enabled="true"
+            android:exported="false"
+            android:permission="android.permission.BIND_VPN_SERVICE">
+            <intent-filter>
+                <action android:name="android.net.VpnService" />
+            </intent-filter>
+        </service>
+
         <activity
-            android:name="com.assistant.MainActivity"
+            android:name="com.assistant.WelcomeActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        
+        <activity 
+            android:name="com.assistant.MainActivity" 
+            android:exported="false" />
         
         <activity android:name="com.assistant.UpdateActivity" android:exported="false" />
         <activity android:name="com.assistant.LogActivity" android:exported="false" />
