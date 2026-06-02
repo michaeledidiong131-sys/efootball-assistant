@@ -1159,4 +1159,80 @@ to this project's gradle.properties.
 > Task :adapter_sync:processDebugResources UP-TO-DATE
 > Task :adapter_sync:compileDebugKotlin UP-TO-DATE
 > Task :adapter_sync:javaPreCompileDebug UP-TO-DATE
-> Task :adapter_sync:compileDebugJa
+> Task :adapter_sync:compileDebugJavaWithJavac NO-SOURCE
+> Task :adapter_sync:mergeDebugShaders UP-TO-DATE
+> Task :adapter_sync:compileDebugShaders NO-SOURCE
+> Task :adapter_sync:generateDebugAssets UP-TO-DATE
+> Task :adapter_sync:mergeDebugAssets UP-TO-DATE
+> Task :adapter_sync:compressDebugAssets UP-TO-DATE
+> Task :adapter_sync:desugarDebugFileDependencies UP-TO-DATE
+> Task :adapter_sync:dexBuilderDebug UP-TO-DATE
+> Task :adapter_sync:mergeDebugGlobalSynthetics UP-TO-DATE
+> Task :adapter_sync:processDebugJavaRes UP-TO-DATE
+> Task :adapter_sync:mergeDebugJavaResource UP-TO-DATE
+> Task :adapter_sync:checkDebugDuplicateClasses UP-TO-DATE
+> Task :adapter_sync:mergeExtDexDebug UP-TO-DATE
+> Task :adapter_sync:mergeLibDexDebug UP-TO-DATE
+> Task :adapter_sync:mergeProjectDexDebug UP-TO-DATE
+> Task :adapter_sync:mergeDebugJniLibFolders UP-TO-DATE
+> Task :adapter_sync:mergeDebugNativeLibs NO-SOURCE
+> Task :adapter_sync:stripDebugDebugSymbols NO-SOURCE
+> Task :adapter_sync:validateSigningDebug UP-TO-DATE
+> Task :adapter_sync:writeDebugAppMetadata UP-TO-DATE
+> Task :adapter_sync:writeDebugSigningConfigVersions UP-TO-DATE
+> Task :adapter_sync:packageDebug UP-TO-DATE
+> Task :adapter_sync:createDebugApkListingFileRedirect UP-TO-DATE
+> Task :adapter_sync:assembleDebug UP-TO-DATE
+> Task :app:preBuild UP-TO-DATE
+> Task :app:preDebugBuild UP-TO-DATE
+> Task :app:mergeDebugNativeDebugMetadata NO-SOURCE
+> Task :app:checkKotlinGradlePluginConfigurationErrors
+> Task :app:checkDebugAarMetadata UP-TO-DATE
+> Task :app:generateDebugResValues UP-TO-DATE
+> Task :app:mapDebugSourceSetPaths UP-TO-DATE
+> Task :app:generateDebugResources UP-TO-DATE
+> Task :app:mergeDebugResources UP-TO-DATE
+> Task :app:packageDebugResources UP-TO-DATE
+> Task :app:parseDebugLocalResources UP-TO-DATE
+> Task :app:createDebugCompatibleScreenManifests UP-TO-DATE
+> Task :app:extractDeepLinksDebug UP-TO-DATE
+> Task :app:processDebugMainManifest UP-TO-DATE
+> Task :app:processDebugManifest UP-TO-DATE
+> Task :app:processDebugManifestForPackage UP-TO-DATE
+> Task :app:processDebugResources UP-TO-DATE
+> Task :app:compileDebugKotlin UP-TO-DATE
+> Task :app:javaPreCompileDebug UP-TO-DATE
+> Task :app:compileDebugJavaWithJavac NO-SOURCE
+> Task :app:mergeDebugShaders UP-TO-DATE
+> Task :app:compileDebugShaders NO-SOURCE
+> Task :app:generateDebugAssets UP-TO-DATE
+> Task :app:mergeDebugAssets UP-TO-DATE
+> Task :app:compressDebugAssets UP-TO-DATE
+> Task :app:checkDebugDuplicateClasses UP-TO-DATE
+> Task :app:mergeDebugArtProfile UP-TO-DATE
+> Task :app:expandDebugArtProfileWildcards UP-TO-DATE
+> Task :app:extractProguardFiles UP-TO-DATE
+> Task :app:mergeDebugGeneratedProguardFiles UP-TO-DATE
+> Task :app:processDebugJavaRes UP-TO-DATE
+> Task :app:mergeDebugJavaResource UP-TO-DATE
+> Task :app:minifyDebugWithR8 UP-TO-DATE
+> Task :app:processApplicationManifestDebugForBundle UP-TO-DATE
+> Task :app:bundleDebugResources UP-TO-DATE
+> Task :app:shrinkDebugRes UP-TO-DATE
+> Task :app:mergeDebugJniLibFolders UP-TO-DATE
+> Task :app:mergeDebugNativeLibs UP-TO-DATE
+> Task :app:stripDebugDebugSymbols UP-TO-DATE
+> Task :app:validateSigningDebug UP-TO-DATE
+> Task :app:writeDebugAppMetadata UP-TO-DATE
+> Task :app:writeDebugSigningConfigVersions UP-TO-DATE
+> Task :app:packageDebug UP-TO-DATE
+> Task :app:createDebugApkListingFileRedirect UP-TO-DATE
+> Task :app:assembleDebug UP-TO-DATE
+
+BUILD SUCCESSFUL in 4s
+169 actionable tasks: 5 executed, 164 up-to-date
+bash: __vsc_prompt_cmd_original: command not found
+[?2004h]0;user@firebase-efootball-assistant-1779975046441: ~/efootball-assistant[00;35mefootball-assistant-00995228[00m:[01;34m~/efootball-assistant[00m[01;32m{main}[00m$ exit
+[?2004lexit
+
+Script done on 2026-06-02 22:16:42+00:00 [COMMAND_EXIT_CODE="0"]

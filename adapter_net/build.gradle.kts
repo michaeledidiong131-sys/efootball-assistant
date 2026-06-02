@@ -1,3 +1,4 @@
+// [SECURITY GUARD LOCK ACTIVE] - DEPENDENCY BOUNDARY SEALED
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
