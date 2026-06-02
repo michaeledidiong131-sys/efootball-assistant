@@ -12,5 +12,11 @@ dependencyResolutionManagement {
         mavenCentral()
     }
 }
-rootProject.name = "EFootballOverlayAssistant"
+
+rootProject.name = "SplendorAssistEngine"
 include(":app")
+// INJECTED KERNEL EXTENSIONS
+include(":adapter_lmk")
+include(":adapter_sync")
+include(":adapter_input")
+include(":adapter_net")

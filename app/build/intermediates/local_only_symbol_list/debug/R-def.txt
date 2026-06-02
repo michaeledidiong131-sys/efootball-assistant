@@ -4,6 +4,7 @@ id btnCopyLog
 id btnDownloadUpdate
 id btnSkipUpdate
 id btnStartEngine
+id btnViewLogs
 id overlay_status_text
 id progressText
 id txtCrashLog

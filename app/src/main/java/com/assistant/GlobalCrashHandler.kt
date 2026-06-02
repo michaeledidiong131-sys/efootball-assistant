@@ -1,21 +1,35 @@
 package com.assistant
 
 import android.content.Context
-import android.content.Intent
+import java.io.File
+import java.io.FileWriter
 import java.io.PrintWriter
-import java.io.StringWriter
-import kotlin.system.exitProcess
+import java.text.SimpleDateFormat
+import java.util.Date
+import java.util.Locale
 
 class GlobalCrashHandler(private val context: Context) : Thread.UncaughtExceptionHandler {
+    private val defaultHandler = Thread.getDefaultUncaughtExceptionHandler()
+
     override fun uncaughtException(thread: Thread, exception: Throwable) {
-        val sw = StringWriter()
-        exception.printStackTrace(PrintWriter(sw))
-        
-        val intent = Intent(context, ErrorActivity::class.java).apply {
-            putExtra("CRASH_LOG", sw.toString())
-            addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
+        try {
+            val timestamp = SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault()).format(Date())
+            val logFile = File(context.getExternalFilesDir(null), "crash_log.txt")
+            
+            FileWriter(logFile, true).use { writer ->
+                PrintWriter(writer).use { pw ->
+                    pw.println("=== CRASH ANATOMY REPORT: $timestamp ===")
+                    pw.println("PROCESS THREAD: ${thread.name}")
+                    pw.println("DEVICE: Redmi 15C 4G (HyperOS 3.0)")
+                    pw.println("FATAL CAUSE:")
+                    exception.printStackTrace(pw)
+                    pw.println("=====================================\n")
+                }
+            }
+        } catch (e: Exception) {
+            // Failsafe
+        } finally {
+            defaultHandler?.uncaughtException(thread, exception)
         }
-        context.startActivity(intent)
-        exitProcess(1)
     }
 }

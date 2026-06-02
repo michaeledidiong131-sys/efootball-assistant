@@ -95,8 +95,8 @@ class OverlayService : Service(), ComponentCallbacks2 {
     }
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
-        val resultCode = EngineData.code
-        val data = EngineData.intent
+        val resultCode = intent?.getIntExtra("CROSS_PROCESS_CODE", 0) ?: 0
+        val data = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) intent?.getParcelableExtra("CROSS_PROCESS_DATA", Intent::class.java) else @Suppress("DEPRECATION") intent?.getParcelableExtra<Intent>("CROSS_PROCESS_DATA")
         
         if (resultCode == Activity.RESULT_OK && data != null) {
             startForegroundSafely()

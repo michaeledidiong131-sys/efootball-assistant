@@ -9,13 +9,13 @@ import android.media.projection.MediaProjectionManager
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
+import android.os.PowerManager
 import android.provider.Settings
 import android.widget.Button
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
-import com.assistant.overlay.R
 
 class MainActivity : AppCompatActivity() {
 
@@ -23,52 +23,48 @@ class MainActivity : AppCompatActivity() {
 
     private val screenCaptureLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
         if (result.resultCode == Activity.RESULT_OK && result.data != null) {
-            EngineData.code = result.resultCode
-            EngineData.intent = result.data
             
-            val serviceIntent = Intent(this, OverlayService::class.java)
+            // IPC FIX: Passing Intent as Parcelable across the `:secure_engine` memory boundary
+            val serviceIntent = Intent(this, OverlayService::class.java).apply {
+                putExtra("CROSS_PROCESS_CODE", result.resultCode)
+                putExtra("CROSS_PROCESS_DATA", result.data)
+            }
+            
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                 startForegroundService(serviceIntent)
             } else {
                 startService(serviceIntent)
             }
-            Toast.makeText(this, "Hybrid Coach Engine Online", Toast.LENGTH_LONG).show()
+            Toast.makeText(this, "Secure Engine IPC Bridge Linked", Toast.LENGTH_LONG).show()
         } else {
             Toast.makeText(this, "Engine Authorization Denied.", Toast.LENGTH_LONG).show()
-        }
-    }
-
-    private val notificationPermissionLauncher = registerForActivityResult(ActivityResultContracts.RequestPermission()) { isGranted ->
-        if (isGranted) {
-            checkOverlayAndProceed()
-        } else {
-            Toast.makeText(this, "Notifications required for background engine.", Toast.LENGTH_LONG).show()
-        }
-    }
-
-    private val overlayPermissionLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
-        if (Settings.canDrawOverlays(this)) {
-            requestScreenCapture()
-        } else {
-            Toast.makeText(this, "Overlay Permission Required.", Toast.LENGTH_LONG).show()
         }
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         Thread.setDefaultUncaughtExceptionHandler(GlobalCrashHandler(this))
-        setContentView(R.layout.activity_main)
+        setContentView(com.assistant.overlay.R.layout.activity_main)
 
         projectionManager = getSystemService(Context.MEDIA_PROJECTION_SERVICE) as MediaProjectionManager
 
-        val btnStart = findViewById<Button>(R.id.btnStartEngine)
-        btnStart.setOnClickListener {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-                if (ContextCompat.checkSelfPermission(this, Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED) {
-                    notificationPermissionLauncher.launch(Manifest.permission.POST_NOTIFICATIONS)
-                    return@setOnClickListener
-                }
-            }
+        findViewById<Button>(com.assistant.overlay.R.id.btnStartEngine).setOnClickListener {
+            checkBatteryAndProceed()
+        }
+        
+        findViewById<Button>(com.assistant.overlay.R.id.btnViewLogs).setOnClickListener {
+            startActivity(Intent(this, LogActivity::class.java))
+        }
+    }
+
+    private fun checkBatteryAndProceed() {
+        val pm = getSystemService(Context.POWER_SERVICE) as PowerManager
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && !pm.isIgnoringBatteryOptimizations(packageName)) {
+            val intent = Intent(Settings.ACTION_REQUEST_IGNORE_BATTERY_OPTIMIZATIONS)
+            intent.data = Uri.parse("package:$packageName")
+            startActivity(intent)
+            Toast.makeText(this, "BATTERY WHITELIST REQUIRED FOR ADAPTERS", Toast.LENGTH_LONG).show()
+        } else {
             checkOverlayAndProceed()
         }
     }
@@ -76,13 +72,9 @@ class MainActivity : AppCompatActivity() {
     private fun checkOverlayAndProceed() {
         if (!Settings.canDrawOverlays(this)) {
             val intent = Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION, Uri.parse("package:$packageName"))
-            overlayPermissionLauncher.launch(intent)
+            startActivity(intent)
         } else {
-            requestScreenCapture()
+            screenCaptureLauncher.launch(projectionManager.createScreenCaptureIntent())
         }
-    }
-
-    private fun requestScreenCapture() {
-        screenCaptureLauncher.launch(projectionManager.createScreenCaptureIntent())
     }
 }

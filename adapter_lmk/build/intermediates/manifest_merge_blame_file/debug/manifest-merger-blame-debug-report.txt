@@ -1,0 +1,29 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.assistant.adapter.lmk"
+4    android:versionCode="1"
+5    android:versionName="1.0-EXT" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="26"
+9        android:targetSdkVersion="34" />
+10
+11    <application
+11-->/home/user/efootball-assistant/adapter_lmk/src/main/AndroidManifest.xml:3:5-10:19
+12        android:allowBackup="false"
+12-->/home/user/efootball-assistant/adapter_lmk/src/main/AndroidManifest.xml:5:9-36
+13        android:debuggable="true"
+14        android:extractNativeLibs="false"
+15        android:label="LMK Booster System" >
+15-->/home/user/efootball-assistant/adapter_lmk/src/main/AndroidManifest.xml:4:9-43
+16        <service
+16-->/home/user/efootball-assistant/adapter_lmk/src/main/AndroidManifest.xml:6:9-9:45
+17            android:name="com.assistant.adapter.lmk.LmkService"
+17-->/home/user/efootball-assistant/adapter_lmk/src/main/AndroidManifest.xml:7:13-39
+18            android:exported="true"
+18-->/home/user/efootball-assistant/adapter_lmk/src/main/AndroidManifest.xml:8:13-36
+19            android:process=":kernel_lmk" />
+19-->/home/user/efootball-assistant/adapter_lmk/src/main/AndroidManifest.xml:9:13-42
+20    </application>
+21
+22</manifest>

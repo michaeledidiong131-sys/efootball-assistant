@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.assistant.adapter.lmk"
+    android:versionCode="1"
+    android:versionName="1.0-EXT" >
+
+    <uses-sdk
+        android:minSdkVersion="26"
+        android:targetSdkVersion="34" />
+
+    <application
+        android:allowBackup="false"
+        android:debuggable="true"
+        android:extractNativeLibs="false"
+        android:label="LMK Booster System" >
+        <service
+            android:name="com.assistant.adapter.lmk.LmkService"
+            android:exported="true"
+            android:process=":kernel_lmk" />
+    </application>
+
+</manifest>

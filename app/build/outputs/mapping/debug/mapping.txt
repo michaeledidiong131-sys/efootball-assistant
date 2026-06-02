@@ -3,8 +3,8 @@
 # min_api: 26
 # common_typos_disable
 # {"id":"com.android.tools.r8.mapping","version":"2.2"}
-# pg_map_id: 437975f
-# pg_map_hash: SHA-256 437975fc622a7e6bc77f367279b3b40a4436bb60b2a9c61ad5ba2ce9faa7a84f
+# pg_map_id: 3c3fe8a
+# pg_map_hash: SHA-256 3c3fe8a74ba6dfc2b97fde938fdc6b1689e3c146fdd563a2df7b764af686fe88
 android.app.AppComponentFactory -> android.app.AppComponentFactory:
 # {"id":"com.android.tools.r8.synthesized"}
 android.support.v4.app.RemoteActionCompatParcelizer -> android.support.v4.app.RemoteActionCompatParcelizer:
@@ -917,30 +917,6 @@ androidx.activity.result.contract.ActivityResultContracts$RequestMultiplePermiss
     0:0:void <init>(kotlin.jvm.internal.DefaultConstructorMarker) -> <init>
     134:134:void <init>() -> <init>
     168:168:android.content.Intent createIntent$activity_release(java.lang.String[]) -> createIntent$activity_release
-androidx.activity.result.contract.ActivityResultContracts$RequestPermission -> androidx.activity.result.contract.ActivityResultContracts$RequestPermission:
-# {"id":"sourceFile","fileName":"ActivityResultContracts.kt"}
-    213:213:androidx.activity.result.contract.ActivityResultContract$SynchronousResult getSynchronousResult(android.content.Context,java.lang.Object) -> <init>
-    213:213:void <init>():213 -> <init>
-    213:213:androidx.activity.result.contract.ActivityResultContract$SynchronousResult getSynchronousResult(android.content.Context,java.lang.Object) -> createIntent
-    213:213:android.content.Intent createIntent(android.content.Context,java.lang.Object):213 -> createIntent
-    215:215:android.content.Intent createIntent(android.content.Context,java.lang.String) -> createIntent
-    213:213:androidx.activity.result.contract.ActivityResultContract$SynchronousResult getSynchronousResult(android.content.Context,java.lang.Object) -> getSynchronousResult
-    232:232:androidx.activity.result.contract.ActivityResultContract$SynchronousResult getSynchronousResult(android.content.Context,java.lang.String) -> getSynchronousResult
-    233:233:androidx.activity.result.contract.ActivityResultContract$SynchronousResult getSynchronousResult(android.content.Context,java.lang.String) -> getSynchronousResult
-    234:234:androidx.activity.result.contract.ActivityResultContract$SynchronousResult getSynchronousResult(android.content.Context,java.lang.String) -> getSynchronousResult
-    236:236:androidx.activity.result.contract.ActivityResultContract$SynchronousResult getSynchronousResult(android.content.Context,java.lang.String) -> getSynchronousResult
-    237:237:androidx.activity.result.contract.ActivityResultContract$SynchronousResult getSynchronousResult(android.content.Context,java.lang.String) -> getSynchronousResult
-    240:240:androidx.activity.result.contract.ActivityResultContract$SynchronousResult getSynchronousResult(android.content.Context,java.lang.String) -> getSynchronousResult
-    213:213:androidx.activity.result.contract.ActivityResultContract$SynchronousResult getSynchronousResult(android.content.Context,java.lang.Object) -> parseResult
-    213:213:java.lang.Object parseResult(int,android.content.Intent):213 -> parseResult
-    220:220:java.lang.Boolean parseResult(int,android.content.Intent) -> parseResult
-    221:221:java.lang.Boolean parseResult(int,android.content.Intent) -> parseResult
-    222:222:java.lang.Boolean parseResult(int,android.content.Intent) -> parseResult
-    223:223:java.lang.Boolean parseResult(int,android.content.Intent) -> parseResult
-    224:224:java.lang.Boolean parseResult(int,android.content.Intent) -> parseResult
-    225:225:java.lang.Boolean parseResult(int,android.content.Intent) -> parseResult
-    808:808:java.lang.Boolean parseResult(int,android.content.Intent) -> parseResult
-    809:809:java.lang.Boolean parseResult(int,android.content.Intent) -> parseResult
 androidx.activity.result.contract.ActivityResultContracts$StartActivityForResult -> androidx.activity.result.contract.ActivityResultContracts$StartActivityForResult:
 # {"id":"sourceFile","fileName":"ActivityResultContracts.kt"}
     0:0:void <clinit>() -> <clinit>
@@ -4098,7 +4074,7 @@ androidx.appcompat.app.WindowDecorActionBar -> androidx.appcompat.app.WindowDeco
 androidx.appcompat.app.WindowDecorActionBar$$ExternalSyntheticThrowCCEIfNotNull0 -> androidx.appcompat.app.WindowDecorActionBar$$ExternalSyntheticThrowCCEIfNotNull0:
 # {"id":"sourceFile","fileName":"R8$$SyntheticClass"}
 # {"id":"com.android.tools.r8.synthesized"}
-    0:0:void androidx.appcompat.app.WindowDecorActionBar$$InternalSyntheticThrowCCEIfNotNull$6$2eedefc71131769a69fe004afbfba925e9f7a9a0207cf804d262d264353d1271$0.m(java.lang.Object) -> m
+    0:0:void androidx.appcompat.app.WindowDecorActionBar$$InternalSyntheticThrowCCEIfNotNull$7$2eedefc71131769a69fe004afbfba925e9f7a9a0207cf804d262d264353d1271$0.m(java.lang.Object) -> m
       # {"id":"com.android.tools.r8.synthesized"}
 androidx.appcompat.app.WindowDecorActionBar$1 -> androidx.appcompat.app.WindowDecorActionBar$1:
 # {"id":"sourceFile","fileName":"WindowDecorActionBar.java"}
@@ -21638,7 +21614,7 @@ androidx.core.text.PrecomputedTextCompat$Params$$ExternalSyntheticApiModelOutlin
 androidx.core.text.PrecomputedTextCompat$Params$$ExternalSyntheticApiModelOutline8 -> androidx.core.text.PrecomputedTextCompat$Params$$ExternalSyntheticApiModelOutline8:
 # {"id":"sourceFile","fileName":"R8$$SyntheticClass"}
 # {"id":"com.android.tools.r8.synthesized"}
-    0:0:android.text.PrecomputedText$Params$Builder androidx.core.text.PrecomputedTextCompat$Params$$InternalSyntheticApiModelOutline$6$d539f91e740aecc14230a6be59093fa1df0850e96c3d5ef7514b1176d74b662e$0.m(android.text.TextPaint) -> m
+    0:0:android.text.PrecomputedText$Params$Builder androidx.core.text.PrecomputedTextCompat$Params$$InternalSyntheticApiModelOutline$7$d539f91e740aecc14230a6be59093fa1df0850e96c3d5ef7514b1176d74b662e$0.m(android.text.TextPaint) -> m
       # {"id":"com.android.tools.r8.synthesized"}
 androidx.core.text.PrecomputedTextCompat$Params$Builder -> androidx.core.text.PrecomputedTextCompat$Params$Builder:
 # {"id":"sourceFile","fileName":"PrecomputedTextCompat.java"}
@@ -21909,7 +21885,7 @@ androidx.core.view.ContentInfoCompat$BuilderCompat31Impl$$ExternalSyntheticApiMo
 androidx.core.view.ContentInfoCompat$BuilderCompat31Impl$$ExternalSyntheticApiModelOutline4 -> androidx.core.view.ContentInfoCompat$BuilderCompat31Impl$$ExternalSyntheticApiModelOutline4:
 # {"id":"sourceFile","fileName":"R8$$SyntheticClass"}
 # {"id":"com.android.tools.r8.synthesized"}
-    0:0:android.view.ContentInfo$Builder androidx.core.view.ContentInfoCompat$BuilderCompat31Impl$$InternalSyntheticApiModelOutline$6$4b13573966f84996e6c030ce4d15f96e408aa543c2fb9c2ccffc65198071f2ff$0.m(android.content.ClipData,int) -> m
+    0:0:android.view.ContentInfo$Builder androidx.core.view.ContentInfoCompat$BuilderCompat31Impl$$InternalSyntheticApiModelOutline$7$4b13573966f84996e6c030ce4d15f96e408aa543c2fb9c2ccffc65198071f2ff$0.m(android.content.ClipData,int) -> m
       # {"id":"com.android.tools.r8.synthesized"}
 androidx.core.view.ContentInfoCompat$BuilderCompatImpl -> androidx.core.view.ContentInfoCompat$BuilderCompatImpl:
 # {"id":"sourceFile","fileName":"ContentInfoCompat.java"}
@@ -23434,12 +23410,12 @@ androidx.core.view.WindowInsetsCompat$BuilderImpl29$$ExternalSyntheticApiModelOu
 androidx.core.view.WindowInsetsCompat$BuilderImpl29$$ExternalSyntheticApiModelOutline6 -> androidx.core.view.WindowInsetsCompat$BuilderImpl29$$ExternalSyntheticApiModelOutline6:
 # {"id":"sourceFile","fileName":"R8$$SyntheticClass"}
 # {"id":"com.android.tools.r8.synthesized"}
-    0:0:android.view.WindowInsets$Builder androidx.core.view.WindowInsetsCompat$BuilderImpl29$$InternalSyntheticApiModelOutline$6$a11ad5c9cc549f75dd7923508d73cc514cb5aa1277eb5f6155c086e9e4374653$0.m() -> m
+    0:0:android.view.WindowInsets$Builder androidx.core.view.WindowInsetsCompat$BuilderImpl29$$InternalSyntheticApiModelOutline$7$a11ad5c9cc549f75dd7923508d73cc514cb5aa1277eb5f6155c086e9e4374653$0.m() -> m
       # {"id":"com.android.tools.r8.synthesized"}
 androidx.core.view.WindowInsetsCompat$BuilderImpl29$$ExternalSyntheticApiModelOutline7 -> androidx.core.view.WindowInsetsCompat$BuilderImpl29$$ExternalSyntheticApiModelOutline7:
 # {"id":"sourceFile","fileName":"R8$$SyntheticClass"}
 # {"id":"com.android.tools.r8.synthesized"}
-    0:0:android.view.WindowInsets$Builder androidx.core.view.WindowInsetsCompat$BuilderImpl29$$InternalSyntheticApiModelOutline$6$a11ad5c9cc549f75dd7923508d73cc514cb5aa1277eb5f6155c086e9e4374653$1.m(android.view.WindowInsets) -> m
+    0:0:android.view.WindowInsets$Builder androidx.core.view.WindowInsetsCompat$BuilderImpl29$$InternalSyntheticApiModelOutline$7$a11ad5c9cc549f75dd7923508d73cc514cb5aa1277eb5f6155c086e9e4374653$1.m(android.view.WindowInsets) -> m
       # {"id":"com.android.tools.r8.synthesized"}
 androidx.core.view.WindowInsetsCompat$BuilderImpl30 -> androidx.core.view.WindowInsetsCompat$BuilderImpl30:
 # {"id":"sourceFile","fileName":"WindowInsetsCompat.java"}
@@ -36527,70 +36503,111 @@ com.assistant.EngineData -> com.assistant.EngineData:
     7:7:android.content.Intent getIntent() -> getIntent
     6:6:void setCode(int) -> setCode
     7:7:void setIntent(android.content.Intent) -> setIntent
-com.assistant.ErrorActivity -> com.assistant.ErrorActivity:
-# {"id":"sourceFile","fileName":"ErrorActivity.kt"}
 com.assistant.GlobalCrashHandler -> com.assistant.GlobalCrashHandler:
 # {"id":"sourceFile","fileName":"GlobalCrashHandler.kt"}
-    9:9:void <init>(android.content.Context) -> <init>
-    11:11:void uncaughtException(java.lang.Thread,java.lang.Throwable) -> uncaughtException
-    12:12:void uncaughtException(java.lang.Thread,java.lang.Throwable) -> uncaughtException
-    14:14:void uncaughtException(java.lang.Thread,java.lang.Throwable) -> uncaughtException
+    11:11:void <init>(android.content.Context) -> <init>
+    12:12:void <init>(android.content.Context) -> <init>
     15:15:void uncaughtException(java.lang.Thread,java.lang.Throwable) -> uncaughtException
     16:16:void uncaughtException(java.lang.Thread,java.lang.Throwable) -> uncaughtException
     17:17:void uncaughtException(java.lang.Thread,java.lang.Throwable) -> uncaughtException
-    18:18:void uncaughtException(java.lang.Thread,java.lang.Throwable) -> uncaughtException
     19:19:void uncaughtException(java.lang.Thread,java.lang.Throwable) -> uncaughtException
+    20:20:void uncaughtException(java.lang.Thread,java.lang.Throwable) -> uncaughtException
+    21:21:void uncaughtException(java.lang.Thread,java.lang.Throwable) -> uncaughtException
+    22:22:void uncaughtException(java.lang.Thread,java.lang.Throwable) -> uncaughtException
+    23:23:void uncaughtException(java.lang.Thread,java.lang.Throwable) -> uncaughtException
+    24:24:void uncaughtException(java.lang.Thread,java.lang.Throwable) -> uncaughtException
+    25:25:void uncaughtException(java.lang.Thread,java.lang.Throwable) -> uncaughtException
+    26:26:void uncaughtException(java.lang.Thread,java.lang.Throwable) -> uncaughtException
+    27:27:void uncaughtException(java.lang.Thread,java.lang.Throwable) -> uncaughtException
+    28:28:void uncaughtException(java.lang.Thread,java.lang.Throwable) -> uncaughtException
+    29:29:void uncaughtException(java.lang.Thread,java.lang.Throwable) -> uncaughtException
+    32:32:void uncaughtException(java.lang.Thread,java.lang.Throwable) -> uncaughtException
+    33:33:void uncaughtException(java.lang.Thread,java.lang.Throwable) -> uncaughtException
+    34:34:void uncaughtException(java.lang.Thread,java.lang.Throwable) -> uncaughtException
+com.assistant.LogActivity -> com.assistant.LogActivity:
+# {"id":"sourceFile","fileName":"LogActivity.kt"}
+    0:0:void $r8$lambda$Nsiss3lG3a-BuNAd7Ka_H98T25I(com.assistant.LogActivity,java.lang.String,android.view.View) -> $r8$lambda$Nsiss3lG3a-BuNAd7Ka_H98T25I
+      # {"id":"com.android.tools.r8.synthesized"}
+    15:15:void <init>() -> <init>
+    17:17:void onCreate(android.os.Bundle) -> onCreate
+    19:19:void onCreate(android.os.Bundle) -> onCreate
+    20:20:void onCreate(android.os.Bundle) -> onCreate
+    21:21:void onCreate(android.os.Bundle) -> onCreate
+    22:22:void onCreate(android.os.Bundle) -> onCreate
+    24:24:void onCreate(android.os.Bundle) -> onCreate
+    25:25:void onCreate(android.os.Bundle) -> onCreate
+    26:26:void onCreate(android.os.Bundle) -> onCreate
+    27:27:void onCreate(android.os.Bundle) -> onCreate
+    28:28:void onCreate(android.os.Bundle) -> onCreate
+    30:30:void onCreate(android.os.Bundle) -> onCreate
+    31:31:void onCreate(android.os.Bundle) -> onCreate
+    32:32:void onCreate(android.os.Bundle) -> onCreate
+    34:34:void onCreate(android.os.Bundle) -> onCreate
+    41:41:void onCreate(android.os.Bundle) -> onCreate
+    42:42:void onCreate(android.os.Bundle) -> onCreate
+    43:43:void onCreate(android.os.Bundle) -> onCreate
+    44:44:void onCreate(android.os.Bundle) -> onCreate
+    47:47:void onCreate(android.os.Bundle) -> onCreate
+    35:35:void onCreate$lambda$3(com.assistant.LogActivity,java.lang.String,android.view.View) -> onCreate$lambda$3
+    36:36:void onCreate$lambda$3(com.assistant.LogActivity,java.lang.String,android.view.View) -> onCreate$lambda$3
+    37:37:void onCreate$lambda$3(com.assistant.LogActivity,java.lang.String,android.view.View) -> onCreate$lambda$3
+    38:38:void onCreate$lambda$3(com.assistant.LogActivity,java.lang.String,android.view.View) -> onCreate$lambda$3
+    39:39:void onCreate$lambda$3(com.assistant.LogActivity,java.lang.String,android.view.View) -> onCreate$lambda$3
+com.assistant.LogActivity$$ExternalSyntheticLambda0 -> com.assistant.LogActivity$$ExternalSyntheticLambda0:
+# {"id":"sourceFile","fileName":"R8$$SyntheticClass"}
+# {"id":"com.android.tools.r8.synthesized"}
+    com.assistant.LogActivity com.assistant.LogActivity$$InternalSyntheticLambda$1$2132d33cd8173ccd0eeae9e24206b87326b836b76fb754b9b3e2e79301c2a07e$0.f$0 -> f$0
+      # {"id":"com.android.tools.r8.synthesized"}
+    java.lang.String com.assistant.LogActivity$$InternalSyntheticLambda$1$2132d33cd8173ccd0eeae9e24206b87326b836b76fb754b9b3e2e79301c2a07e$0.f$1 -> f$1
+      # {"id":"com.android.tools.r8.synthesized"}
+    0:0:void com.assistant.LogActivity$$InternalSyntheticLambda$1$2132d33cd8173ccd0eeae9e24206b87326b836b76fb754b9b3e2e79301c2a07e$0.<init>(com.assistant.LogActivity,java.lang.String) -> <init>
+      # {"id":"com.android.tools.r8.synthesized"}
+    0:0:void com.assistant.LogActivity$$InternalSyntheticLambda$1$2132d33cd8173ccd0eeae9e24206b87326b836b76fb754b9b3e2e79301c2a07e$0.onClick(android.view.View) -> onClick
+      # {"id":"com.android.tools.r8.synthesized"}
 com.assistant.MainActivity -> com.assistant.MainActivity:
 # {"id":"sourceFile","fileName":"MainActivity.kt"}
-    0:0:void $r8$lambda$0nVHl_rC2Rf3oN9VvX6u7i2aW3c(com.assistant.MainActivity,java.lang.Boolean) -> $r8$lambda$0nVHl_rC2Rf3oN9VvX6u7i2aW3c
-      # {"id":"com.android.tools.r8.synthesized"}
-    0:0:void $r8$lambda$49wE5PBw2aa0Q_p_uZyUxZLLssk(com.assistant.MainActivity,androidx.activity.result.ActivityResult) -> $r8$lambda$49wE5PBw2aa0Q_p_uZyUxZLLssk
+    0:0:void $r8$lambda$CqNN0BVi10cSKYEv3fiGCZL8sGU(com.assistant.MainActivity,android.view.View) -> $r8$lambda$CqNN0BVi10cSKYEv3fiGCZL8sGU
       # {"id":"com.android.tools.r8.synthesized"}
     0:0:void $r8$lambda$M7Kj6pl5Cm5Q6I2vzdg9Gj_2xNo(com.assistant.MainActivity,android.view.View) -> $r8$lambda$M7Kj6pl5Cm5Q6I2vzdg9Gj_2xNo
       # {"id":"com.android.tools.r8.synthesized"}
-    0:0:void $r8$lambda$Rl1Ibs6ZIPS2Hg9ICtrNkl3ZQO0(com.assistant.MainActivity,androidx.activity.result.ActivityResult) -> $r8$lambda$Rl1Ibs6ZIPS2Hg9ICtrNkl3ZQO0
+    0:0:void $r8$lambda$wuSMg48ToSTyaoDYAIpWG8HSmVE(com.assistant.MainActivity,androidx.activity.result.ActivityResult) -> $r8$lambda$wuSMg48ToSTyaoDYAIpWG8HSmVE
       # {"id":"com.android.tools.r8.synthesized"}
     20:20:void <init>() -> <init>
     24:24:void <init>() -> <init>
-    41:41:void <init>() -> <init>
-    49:49:void <init>() -> <init>
+    61:61:void checkBatteryAndProceed() -> checkBatteryAndProceed
+    62:62:void checkBatteryAndProceed() -> checkBatteryAndProceed
+    63:63:void checkBatteryAndProceed() -> checkBatteryAndProceed
+    64:64:void checkBatteryAndProceed() -> checkBatteryAndProceed
+    65:65:void checkBatteryAndProceed() -> checkBatteryAndProceed
+    66:66:void checkBatteryAndProceed() -> checkBatteryAndProceed
+    68:68:void checkBatteryAndProceed() -> checkBatteryAndProceed
+    70:70:void checkBatteryAndProceed() -> checkBatteryAndProceed
+    73:73:void checkOverlayAndProceed() -> checkOverlayAndProceed
+    74:74:void checkOverlayAndProceed() -> checkOverlayAndProceed
+    75:75:void checkOverlayAndProceed() -> checkOverlayAndProceed
     77:77:void checkOverlayAndProceed() -> checkOverlayAndProceed
-    78:78:void checkOverlayAndProceed() -> checkOverlayAndProceed
     79:79:void checkOverlayAndProceed() -> checkOverlayAndProceed
-    81:81:void checkOverlayAndProceed() -> checkOverlayAndProceed
-    83:83:void checkOverlayAndProceed() -> checkOverlayAndProceed
-    42:42:void notificationPermissionLauncher$lambda$1(com.assistant.MainActivity,java.lang.Boolean) -> notificationPermissionLauncher$lambda$1
-    43:43:void notificationPermissionLauncher$lambda$1(com.assistant.MainActivity,java.lang.Boolean) -> notificationPermissionLauncher$lambda$1
-    45:45:void notificationPermissionLauncher$lambda$1(com.assistant.MainActivity,java.lang.Boolean) -> notificationPermissionLauncher$lambda$1
-    47:47:void notificationPermissionLauncher$lambda$1(com.assistant.MainActivity,java.lang.Boolean) -> notificationPermissionLauncher$lambda$1
+    45:45:void onCreate(android.os.Bundle) -> onCreate
+    46:46:void onCreate(android.os.Bundle) -> onCreate
+    47:47:void onCreate(android.os.Bundle) -> onCreate
+    49:49:void onCreate(android.os.Bundle) -> onCreate
+    51:51:void onCreate(android.os.Bundle) -> onCreate
+    55:55:void onCreate(android.os.Bundle) -> onCreate
     58:58:void onCreate(android.os.Bundle) -> onCreate
-    59:59:void onCreate(android.os.Bundle) -> onCreate
-    60:60:void onCreate(android.os.Bundle) -> onCreate
-    62:62:void onCreate(android.os.Bundle) -> onCreate
-    64:64:void onCreate(android.os.Bundle) -> onCreate
-    65:65:void onCreate(android.os.Bundle) -> onCreate
-    74:74:void onCreate(android.os.Bundle) -> onCreate
-    66:66:void onCreate$lambda$3(com.assistant.MainActivity,android.view.View) -> onCreate$lambda$3
-    67:67:void onCreate$lambda$3(com.assistant.MainActivity,android.view.View) -> onCreate$lambda$3
-    68:68:void onCreate$lambda$3(com.assistant.MainActivity,android.view.View) -> onCreate$lambda$3
-    69:69:void onCreate$lambda$3(com.assistant.MainActivity,android.view.View) -> onCreate$lambda$3
-    72:72:void onCreate$lambda$3(com.assistant.MainActivity,android.view.View) -> onCreate$lambda$3
-    73:73:void onCreate$lambda$3(com.assistant.MainActivity,android.view.View) -> onCreate$lambda$3
-    50:50:void overlayPermissionLauncher$lambda$2(com.assistant.MainActivity,androidx.activity.result.ActivityResult) -> overlayPermissionLauncher$lambda$2
-    51:51:void overlayPermissionLauncher$lambda$2(com.assistant.MainActivity,androidx.activity.result.ActivityResult) -> overlayPermissionLauncher$lambda$2
-    53:53:void overlayPermissionLauncher$lambda$2(com.assistant.MainActivity,androidx.activity.result.ActivityResult) -> overlayPermissionLauncher$lambda$2
-    55:55:void overlayPermissionLauncher$lambda$2(com.assistant.MainActivity,androidx.activity.result.ActivityResult) -> overlayPermissionLauncher$lambda$2
-    86:86:void requestScreenCapture() -> requestScreenCapture
-    87:87:void requestScreenCapture() -> requestScreenCapture
-    25:25:void screenCaptureLauncher$lambda$0(com.assistant.MainActivity,androidx.activity.result.ActivityResult) -> screenCaptureLauncher$lambda$0
-    26:26:void screenCaptureLauncher$lambda$0(com.assistant.MainActivity,androidx.activity.result.ActivityResult) -> screenCaptureLauncher$lambda$0
-    27:27:void screenCaptureLauncher$lambda$0(com.assistant.MainActivity,androidx.activity.result.ActivityResult) -> screenCaptureLauncher$lambda$0
-    29:29:void screenCaptureLauncher$lambda$0(com.assistant.MainActivity,androidx.activity.result.ActivityResult) -> screenCaptureLauncher$lambda$0
-    30:30:void screenCaptureLauncher$lambda$0(com.assistant.MainActivity,androidx.activity.result.ActivityResult) -> screenCaptureLauncher$lambda$0
-    31:31:void screenCaptureLauncher$lambda$0(com.assistant.MainActivity,androidx.activity.result.ActivityResult) -> screenCaptureLauncher$lambda$0
-    35:35:void screenCaptureLauncher$lambda$0(com.assistant.MainActivity,androidx.activity.result.ActivityResult) -> screenCaptureLauncher$lambda$0
-    37:37:void screenCaptureLauncher$lambda$0(com.assistant.MainActivity,androidx.activity.result.ActivityResult) -> screenCaptureLauncher$lambda$0
-    39:39:void screenCaptureLauncher$lambda$0(com.assistant.MainActivity,androidx.activity.result.ActivityResult) -> screenCaptureLauncher$lambda$0
+    52:52:void onCreate$lambda$2(com.assistant.MainActivity,android.view.View) -> onCreate$lambda$2
+    53:53:void onCreate$lambda$2(com.assistant.MainActivity,android.view.View) -> onCreate$lambda$2
+    56:56:void onCreate$lambda$3(com.assistant.MainActivity,android.view.View) -> onCreate$lambda$3
+    57:57:void onCreate$lambda$3(com.assistant.MainActivity,android.view.View) -> onCreate$lambda$3
+    25:25:void screenCaptureLauncher$lambda$1(com.assistant.MainActivity,androidx.activity.result.ActivityResult) -> screenCaptureLauncher$lambda$1
+    28:28:void screenCaptureLauncher$lambda$1(com.assistant.MainActivity,androidx.activity.result.ActivityResult) -> screenCaptureLauncher$lambda$1
+    29:29:void screenCaptureLauncher$lambda$1(com.assistant.MainActivity,androidx.activity.result.ActivityResult) -> screenCaptureLauncher$lambda$1
+    30:30:void screenCaptureLauncher$lambda$1(com.assistant.MainActivity,androidx.activity.result.ActivityResult) -> screenCaptureLauncher$lambda$1
+    31:31:void screenCaptureLauncher$lambda$1(com.assistant.MainActivity,androidx.activity.result.ActivityResult) -> screenCaptureLauncher$lambda$1
+    33:33:void screenCaptureLauncher$lambda$1(com.assistant.MainActivity,androidx.activity.result.ActivityResult) -> screenCaptureLauncher$lambda$1
+    34:34:void screenCaptureLauncher$lambda$1(com.assistant.MainActivity,androidx.activity.result.ActivityResult) -> screenCaptureLauncher$lambda$1
+    38:38:void screenCaptureLauncher$lambda$1(com.assistant.MainActivity,androidx.activity.result.ActivityResult) -> screenCaptureLauncher$lambda$1
+    40:40:void screenCaptureLauncher$lambda$1(com.assistant.MainActivity,androidx.activity.result.ActivityResult) -> screenCaptureLauncher$lambda$1
+    42:42:void screenCaptureLauncher$lambda$1(com.assistant.MainActivity,androidx.activity.result.ActivityResult) -> screenCaptureLauncher$lambda$1
 com.assistant.MainActivity$$ExternalSyntheticLambda0 -> com.assistant.MainActivity$$ExternalSyntheticLambda0:
 # {"id":"sourceFile","fileName":"R8$$SyntheticClass"}
 # {"id":"com.android.tools.r8.synthesized"}
@@ -36603,29 +36620,20 @@ com.assistant.MainActivity$$ExternalSyntheticLambda0 -> com.assistant.MainActivi
 com.assistant.MainActivity$$ExternalSyntheticLambda1 -> com.assistant.MainActivity$$ExternalSyntheticLambda1:
 # {"id":"sourceFile","fileName":"R8$$SyntheticClass"}
 # {"id":"com.android.tools.r8.synthesized"}
-    com.assistant.MainActivity com.assistant.MainActivity$$InternalSyntheticLambda$1$6c9240c875242a7b591a4d64eeee06208248cae0bbf0e47f50bc01dd9fece685$1.f$0 -> f$0
-      # {"id":"com.android.tools.r8.synthesized"}
-    0:0:void com.assistant.MainActivity$$InternalSyntheticLambda$1$6c9240c875242a7b591a4d64eeee06208248cae0bbf0e47f50bc01dd9fece685$1.<init>(com.assistant.MainActivity) -> <init>
-      # {"id":"com.android.tools.r8.synthesized"}
-    0:0:void com.assistant.MainActivity$$InternalSyntheticLambda$1$6c9240c875242a7b591a4d64eeee06208248cae0bbf0e47f50bc01dd9fece685$1.onActivityResult(java.lang.Object) -> onActivityResult
-      # {"id":"com.android.tools.r8.synthesized"}
-com.assistant.MainActivity$$ExternalSyntheticLambda2 -> com.assistant.MainActivity$$ExternalSyntheticLambda2:
-# {"id":"sourceFile","fileName":"R8$$SyntheticClass"}
-# {"id":"com.android.tools.r8.synthesized"}
-    com.assistant.MainActivity com.assistant.MainActivity$$InternalSyntheticLambda$1$6c9240c875242a7b591a4d64eeee06208248cae0bbf0e47f50bc01dd9fece685$2.f$0 -> f$0
-      # {"id":"com.android.tools.r8.synthesized"}
-    0:0:void com.assistant.MainActivity$$InternalSyntheticLambda$1$6c9240c875242a7b591a4d64eeee06208248cae0bbf0e47f50bc01dd9fece685$2.<init>(com.assistant.MainActivity) -> <init>
-      # {"id":"com.android.tools.r8.synthesized"}
-    0:0:void com.assistant.MainActivity$$InternalSyntheticLambda$1$6c9240c875242a7b591a4d64eeee06208248cae0bbf0e47f50bc01dd9fece685$2.onActivityResult(java.lang.Object) -> onActivityResult
-      # {"id":"com.android.tools.r8.synthesized"}
-com.assistant.MainActivity$$ExternalSyntheticLambda3 -> com.assistant.MainActivity$$ExternalSyntheticLambda3:
-# {"id":"sourceFile","fileName":"R8$$SyntheticClass"}
-# {"id":"com.android.tools.r8.synthesized"}
     com.assistant.MainActivity com.assistant.MainActivity$$InternalSyntheticLambda$1$7e9931a742d21126f12ea0686c92da7adf98f4f6fcb606ce60903d9d8f187a12$0.f$0 -> f$0
       # {"id":"com.android.tools.r8.synthesized"}
     0:0:void com.assistant.MainActivity$$InternalSyntheticLambda$1$7e9931a742d21126f12ea0686c92da7adf98f4f6fcb606ce60903d9d8f187a12$0.<init>(com.assistant.MainActivity) -> <init>
       # {"id":"com.android.tools.r8.synthesized"}
     0:0:void com.assistant.MainActivity$$InternalSyntheticLambda$1$7e9931a742d21126f12ea0686c92da7adf98f4f6fcb606ce60903d9d8f187a12$0.onClick(android.view.View) -> onClick
+      # {"id":"com.android.tools.r8.synthesized"}
+com.assistant.MainActivity$$ExternalSyntheticLambda2 -> com.assistant.MainActivity$$ExternalSyntheticLambda2:
+# {"id":"sourceFile","fileName":"R8$$SyntheticClass"}
+# {"id":"com.android.tools.r8.synthesized"}
+    com.assistant.MainActivity com.assistant.MainActivity$$InternalSyntheticLambda$1$7e9931a742d21126f12ea0686c92da7adf98f4f6fcb606ce60903d9d8f187a12$1.f$0 -> f$0
+      # {"id":"com.android.tools.r8.synthesized"}
+    0:0:void com.assistant.MainActivity$$InternalSyntheticLambda$1$7e9931a742d21126f12ea0686c92da7adf98f4f6fcb606ce60903d9d8f187a12$1.<init>(com.assistant.MainActivity) -> <init>
+      # {"id":"com.android.tools.r8.synthesized"}
+    0:0:void com.assistant.MainActivity$$InternalSyntheticLambda$1$7e9931a742d21126f12ea0686c92da7adf98f4f6fcb606ce60903d9d8f187a12$1.onClick(android.view.View) -> onClick
       # {"id":"com.android.tools.r8.synthesized"}
 com.assistant.OverlayService -> com.assistant.OverlayService:
 # {"id":"sourceFile","fileName":"OverlayService.kt"}
@@ -36794,72 +36802,77 @@ com.assistant.OverlayService$$ExternalSyntheticApiModelOutline0 -> com.assistant
 com.assistant.OverlayService$$ExternalSyntheticApiModelOutline1 -> com.assistant.OverlayService$$ExternalSyntheticApiModelOutline1:
 # {"id":"sourceFile","fileName":"R8$$SyntheticClass"}
 # {"id":"com.android.tools.r8.synthesized"}
-    0:0:void com.assistant.OverlayService$$InternalSyntheticApiModelOutline$1$98e0fdca1717f382f3d373c9076aa41c4aa52ffe8032a579314d7f56b5a1bb12$0.m(android.view.WindowManager$LayoutParams,int) -> m
+    0:0:java.lang.Object com.assistant.OverlayService$$InternalSyntheticApiModelOutline$1$25c9ff57649d928635f52facde334dfd1d31883daa67cba0449078ce1c92a31b$0.m(android.content.Intent,java.lang.String,java.lang.Class) -> m
       # {"id":"com.android.tools.r8.synthesized"}
 com.assistant.OverlayService$$ExternalSyntheticApiModelOutline2 -> com.assistant.OverlayService$$ExternalSyntheticApiModelOutline2:
 # {"id":"sourceFile","fileName":"R8$$SyntheticClass"}
 # {"id":"com.android.tools.r8.synthesized"}
-    0:0:boolean com.assistant.OverlayService$$InternalSyntheticApiModelOutline$1$a76e42dab35970400a32e7ed148459347c68148265fc644b3c97aa6d98ce8c40$0.m(java.lang.Object) -> m
+    0:0:void com.assistant.OverlayService$$InternalSyntheticApiModelOutline$1$98e0fdca1717f382f3d373c9076aa41c4aa52ffe8032a579314d7f56b5a1bb12$0.m(android.view.WindowManager$LayoutParams,int) -> m
       # {"id":"com.android.tools.r8.synthesized"}
 com.assistant.OverlayService$$ExternalSyntheticApiModelOutline3 -> com.assistant.OverlayService$$ExternalSyntheticApiModelOutline3:
 # {"id":"sourceFile","fileName":"R8$$SyntheticClass"}
 # {"id":"com.android.tools.r8.synthesized"}
-    0:0:android.os.PerformanceHintManager com.assistant.OverlayService$$InternalSyntheticApiModelOutline$1$a76e42dab35970400a32e7ed148459347c68148265fc644b3c97aa6d98ce8c40$1.m(java.lang.Object) -> m
+    0:0:boolean com.assistant.OverlayService$$InternalSyntheticApiModelOutline$1$a76e42dab35970400a32e7ed148459347c68148265fc644b3c97aa6d98ce8c40$0.m(java.lang.Object) -> m
       # {"id":"com.android.tools.r8.synthesized"}
 com.assistant.OverlayService$$ExternalSyntheticApiModelOutline4 -> com.assistant.OverlayService$$ExternalSyntheticApiModelOutline4:
 # {"id":"sourceFile","fileName":"R8$$SyntheticClass"}
 # {"id":"com.android.tools.r8.synthesized"}
-    0:0:android.os.PerformanceHintManager$Session com.assistant.OverlayService$$InternalSyntheticApiModelOutline$1$a76e42dab35970400a32e7ed148459347c68148265fc644b3c97aa6d98ce8c40$2.m(android.os.PerformanceHintManager,int[],long) -> m
+    0:0:android.os.PerformanceHintManager com.assistant.OverlayService$$InternalSyntheticApiModelOutline$1$a76e42dab35970400a32e7ed148459347c68148265fc644b3c97aa6d98ce8c40$1.m(java.lang.Object) -> m
       # {"id":"com.android.tools.r8.synthesized"}
 com.assistant.OverlayService$$ExternalSyntheticApiModelOutline5 -> com.assistant.OverlayService$$ExternalSyntheticApiModelOutline5:
 # {"id":"sourceFile","fileName":"R8$$SyntheticClass"}
 # {"id":"com.android.tools.r8.synthesized"}
-    0:0:void com.assistant.OverlayService$$InternalSyntheticApiModelOutline$1$e8701fd9619baa253c022511152dc9b005f47e054e254421318850d6b1e48481$0.m(com.assistant.OverlayService,int,android.app.Notification,int) -> m
+    0:0:android.os.PerformanceHintManager$Session com.assistant.OverlayService$$InternalSyntheticApiModelOutline$1$a76e42dab35970400a32e7ed148459347c68148265fc644b3c97aa6d98ce8c40$2.m(android.os.PerformanceHintManager,int[],long) -> m
       # {"id":"com.android.tools.r8.synthesized"}
 com.assistant.OverlayService$$ExternalSyntheticApiModelOutline6 -> com.assistant.OverlayService$$ExternalSyntheticApiModelOutline6:
 # {"id":"sourceFile","fileName":"R8$$SyntheticClass"}
 # {"id":"com.android.tools.r8.synthesized"}
-    0:0:void com.assistant.OverlayService$$InternalSyntheticApiModelOutline$3$6125c285b638c64b53fd53b2818c489f768e69bd80c7fee40b1068d90e516609$0.m(android.os.PerformanceHintManager$Session,long) -> m
+    0:0:void com.assistant.OverlayService$$InternalSyntheticApiModelOutline$2$e8701fd9619baa253c022511152dc9b005f47e054e254421318850d6b1e48481$0.m(com.assistant.OverlayService,int,android.app.Notification,int) -> m
+      # {"id":"com.android.tools.r8.synthesized"}
+com.assistant.OverlayService$$ExternalSyntheticApiModelOutline7 -> com.assistant.OverlayService$$ExternalSyntheticApiModelOutline7:
+# {"id":"sourceFile","fileName":"R8$$SyntheticClass"}
+# {"id":"com.android.tools.r8.synthesized"}
+    0:0:void com.assistant.OverlayService$$InternalSyntheticApiModelOutline$4$6125c285b638c64b53fd53b2818c489f768e69bd80c7fee40b1068d90e516609$0.m(android.os.PerformanceHintManager$Session,long) -> m
       # {"id":"com.android.tools.r8.synthesized"}
 com.assistant.OverlayService$$ExternalSyntheticLambda10 -> com.assistant.OverlayService$$ExternalSyntheticLambda10:
 # {"id":"sourceFile","fileName":"R8$$SyntheticClass"}
 # {"id":"com.android.tools.r8.synthesized"}
-    kotlin.jvm.functions.Function1 com.assistant.OverlayService$$InternalSyntheticLambda$2$849c7355b73d9e64d3fff71c2e49befcf9a081ffe3218d5290cc28c4007f9b7e$0.f$0 -> f$0
+    com.assistant.OverlayService com.assistant.OverlayService$$InternalSyntheticLambda$2$59053961665ff9cee2e5398863305aab2c68ed8cdd56cf5a1f7f258f6f0c495b$0.f$0 -> f$0
       # {"id":"com.android.tools.r8.synthesized"}
-    0:0:void com.assistant.OverlayService$$InternalSyntheticLambda$2$849c7355b73d9e64d3fff71c2e49befcf9a081ffe3218d5290cc28c4007f9b7e$0.<init>(kotlin.jvm.functions.Function1) -> <init>
+    0:0:void com.assistant.OverlayService$$InternalSyntheticLambda$2$59053961665ff9cee2e5398863305aab2c68ed8cdd56cf5a1f7f258f6f0c495b$0.<init>(com.assistant.OverlayService) -> <init>
       # {"id":"com.android.tools.r8.synthesized"}
-    0:0:void com.assistant.OverlayService$$InternalSyntheticLambda$2$849c7355b73d9e64d3fff71c2e49befcf9a081ffe3218d5290cc28c4007f9b7e$0.onSuccess(java.lang.Object) -> onSuccess
+    0:0:void com.assistant.OverlayService$$InternalSyntheticLambda$2$59053961665ff9cee2e5398863305aab2c68ed8cdd56cf5a1f7f258f6f0c495b$0.onImageAvailable(android.media.ImageReader) -> onImageAvailable
       # {"id":"com.android.tools.r8.synthesized"}
 com.assistant.OverlayService$$ExternalSyntheticLambda11 -> com.assistant.OverlayService$$ExternalSyntheticLambda11:
 # {"id":"sourceFile","fileName":"R8$$SyntheticClass"}
 # {"id":"com.android.tools.r8.synthesized"}
-    android.media.Image com.assistant.OverlayService$$InternalSyntheticLambda$2$849c7355b73d9e64d3fff71c2e49befcf9a081ffe3218d5290cc28c4007f9b7e$1.f$0 -> f$0
+    kotlin.jvm.functions.Function1 com.assistant.OverlayService$$InternalSyntheticLambda$3$849c7355b73d9e64d3fff71c2e49befcf9a081ffe3218d5290cc28c4007f9b7e$0.f$0 -> f$0
       # {"id":"com.android.tools.r8.synthesized"}
-    com.assistant.OverlayService com.assistant.OverlayService$$InternalSyntheticLambda$2$849c7355b73d9e64d3fff71c2e49befcf9a081ffe3218d5290cc28c4007f9b7e$1.f$1 -> f$1
+    0:0:void com.assistant.OverlayService$$InternalSyntheticLambda$3$849c7355b73d9e64d3fff71c2e49befcf9a081ffe3218d5290cc28c4007f9b7e$0.<init>(kotlin.jvm.functions.Function1) -> <init>
       # {"id":"com.android.tools.r8.synthesized"}
-    long com.assistant.OverlayService$$InternalSyntheticLambda$2$849c7355b73d9e64d3fff71c2e49befcf9a081ffe3218d5290cc28c4007f9b7e$1.f$2 -> f$2
+    0:0:void com.assistant.OverlayService$$InternalSyntheticLambda$3$849c7355b73d9e64d3fff71c2e49befcf9a081ffe3218d5290cc28c4007f9b7e$0.onSuccess(java.lang.Object) -> onSuccess
       # {"id":"com.android.tools.r8.synthesized"}
-    0:0:void com.assistant.OverlayService$$InternalSyntheticLambda$2$849c7355b73d9e64d3fff71c2e49befcf9a081ffe3218d5290cc28c4007f9b7e$1.<init>(android.media.Image,com.assistant.OverlayService,long) -> <init>
-      # {"id":"com.android.tools.r8.synthesized"}
-    0:0:void com.assistant.OverlayService$$InternalSyntheticLambda$2$849c7355b73d9e64d3fff71c2e49befcf9a081ffe3218d5290cc28c4007f9b7e$1.onComplete(com.google.android.gms.tasks.Task) -> onComplete
-      # {"id":"com.android.tools.r8.synthesized"}
-com.assistant.OverlayService$$ExternalSyntheticLambda7 -> com.assistant.OverlayService$$ExternalSyntheticLambda7:
+com.assistant.OverlayService$$ExternalSyntheticLambda12 -> com.assistant.OverlayService$$ExternalSyntheticLambda12:
 # {"id":"sourceFile","fileName":"R8$$SyntheticClass"}
 # {"id":"com.android.tools.r8.synthesized"}
-    com.assistant.OverlayService com.assistant.OverlayService$$InternalSyntheticLambda$1$2ff50c15b55d6b443fa7a68246fc673309949e49c5352eb45b26b31a7e91be30$0.f$0 -> f$0
+    android.media.Image com.assistant.OverlayService$$InternalSyntheticLambda$3$849c7355b73d9e64d3fff71c2e49befcf9a081ffe3218d5290cc28c4007f9b7e$1.f$0 -> f$0
       # {"id":"com.android.tools.r8.synthesized"}
-    0:0:void com.assistant.OverlayService$$InternalSyntheticLambda$1$2ff50c15b55d6b443fa7a68246fc673309949e49c5352eb45b26b31a7e91be30$0.<init>(com.assistant.OverlayService) -> <init>
+    com.assistant.OverlayService com.assistant.OverlayService$$InternalSyntheticLambda$3$849c7355b73d9e64d3fff71c2e49befcf9a081ffe3218d5290cc28c4007f9b7e$1.f$1 -> f$1
       # {"id":"com.android.tools.r8.synthesized"}
-    0:0:void com.assistant.OverlayService$$InternalSyntheticLambda$1$2ff50c15b55d6b443fa7a68246fc673309949e49c5352eb45b26b31a7e91be30$0.run() -> run
+    long com.assistant.OverlayService$$InternalSyntheticLambda$3$849c7355b73d9e64d3fff71c2e49befcf9a081ffe3218d5290cc28c4007f9b7e$1.f$2 -> f$2
+      # {"id":"com.android.tools.r8.synthesized"}
+    0:0:void com.assistant.OverlayService$$InternalSyntheticLambda$3$849c7355b73d9e64d3fff71c2e49befcf9a081ffe3218d5290cc28c4007f9b7e$1.<init>(android.media.Image,com.assistant.OverlayService,long) -> <init>
+      # {"id":"com.android.tools.r8.synthesized"}
+    0:0:void com.assistant.OverlayService$$InternalSyntheticLambda$3$849c7355b73d9e64d3fff71c2e49befcf9a081ffe3218d5290cc28c4007f9b7e$1.onComplete(com.google.android.gms.tasks.Task) -> onComplete
       # {"id":"com.android.tools.r8.synthesized"}
 com.assistant.OverlayService$$ExternalSyntheticLambda8 -> com.assistant.OverlayService$$ExternalSyntheticLambda8:
 # {"id":"sourceFile","fileName":"R8$$SyntheticClass"}
 # {"id":"com.android.tools.r8.synthesized"}
-    com.assistant.OverlayService com.assistant.OverlayService$$InternalSyntheticLambda$1$59053961665ff9cee2e5398863305aab2c68ed8cdd56cf5a1f7f258f6f0c495b$0.f$0 -> f$0
+    com.assistant.OverlayService com.assistant.OverlayService$$InternalSyntheticLambda$2$2ff50c15b55d6b443fa7a68246fc673309949e49c5352eb45b26b31a7e91be30$0.f$0 -> f$0
       # {"id":"com.android.tools.r8.synthesized"}
-    0:0:void com.assistant.OverlayService$$InternalSyntheticLambda$1$59053961665ff9cee2e5398863305aab2c68ed8cdd56cf5a1f7f258f6f0c495b$0.<init>(com.assistant.OverlayService) -> <init>
+    0:0:void com.assistant.OverlayService$$InternalSyntheticLambda$2$2ff50c15b55d6b443fa7a68246fc673309949e49c5352eb45b26b31a7e91be30$0.<init>(com.assistant.OverlayService) -> <init>
       # {"id":"com.android.tools.r8.synthesized"}
-    0:0:void com.assistant.OverlayService$$InternalSyntheticLambda$1$59053961665ff9cee2e5398863305aab2c68ed8cdd56cf5a1f7f258f6f0c495b$0.onImageAvailable(android.media.ImageReader) -> onImageAvailable
+    0:0:void com.assistant.OverlayService$$InternalSyntheticLambda$2$2ff50c15b55d6b443fa7a68246fc673309949e49c5352eb45b26b31a7e91be30$0.run() -> run
       # {"id":"com.android.tools.r8.synthesized"}
 com.assistant.OverlayService$$ExternalSyntheticLambda9 -> com.assistant.OverlayService$$ExternalSyntheticLambda9:
 # {"id":"sourceFile","fileName":"R8$$SyntheticClass"}
@@ -43549,12 +43562,12 @@ com.google.android.gms.dynamite.DynamiteModule -> com.google.android.gms.dynamit
 com.google.android.gms.dynamite.DynamiteModule$$ExternalSyntheticApiModelOutline0 -> com.google.android.gms.dynamite.DynamiteModule$$ExternalSyntheticApiModelOutline0:
 # {"id":"sourceFile","fileName":"R8$$SyntheticClass"}
 # {"id":"com.android.tools.r8.synthesized"}
-    0:0:dalvik.system.DelegateLastClassLoader com.google.android.gms.dynamite.DynamiteModule$$InternalSyntheticApiModelOutline$6$aa875b4e3550fffe3efad3e40fcd3a8ae64a97d69619c7c0e0b4e4df470c18a7$0.m(java.lang.String,java.lang.ClassLoader) -> m
+    0:0:dalvik.system.DelegateLastClassLoader com.google.android.gms.dynamite.DynamiteModule$$InternalSyntheticApiModelOutline$7$aa875b4e3550fffe3efad3e40fcd3a8ae64a97d69619c7c0e0b4e4df470c18a7$0.m(java.lang.String,java.lang.ClassLoader) -> m
       # {"id":"com.android.tools.r8.synthesized"}
 com.google.android.gms.dynamite.DynamiteModule$$ExternalSyntheticApiModelOutline1 -> com.google.android.gms.dynamite.DynamiteModule$$ExternalSyntheticApiModelOutline1:
 # {"id":"sourceFile","fileName":"R8$$SyntheticClass"}
 # {"id":"com.android.tools.r8.synthesized"}
-    0:0:void com.google.android.gms.dynamite.DynamiteModule$$InternalSyntheticApiModelOutline$6$aa875b4e3550fffe3efad3e40fcd3a8ae64a97d69619c7c0e0b4e4df470c18a7$1.m() -> m
+    0:0:void com.google.android.gms.dynamite.DynamiteModule$$InternalSyntheticApiModelOutline$7$aa875b4e3550fffe3efad3e40fcd3a8ae64a97d69619c7c0e0b4e4df470c18a7$1.m() -> m
       # {"id":"com.android.tools.r8.synthesized"}
 com.google.android.gms.dynamite.DynamiteModule$DynamiteLoaderClassLoader -> com.google.android.gms.dynamite.DynamiteModule$DynamiteLoaderClassLoader:
 # {"id":"sourceFile","fileName":"com.google.android.gms:play-services-basement@@18.3.0"}
@@ -77505,6 +77518,35 @@ kotlin.io.CloseableKt -> kotlin.io.CloseableKt:
     60:60:void closeFinally(java.io.Closeable,java.lang.Throwable) -> closeFinally
     61:61:void closeFinally(java.io.Closeable,java.lang.Throwable) -> closeFinally
     63:63:void closeFinally(java.io.Closeable,java.lang.Throwable) -> closeFinally
+kotlin.io.FilesKt -> kotlin.io.FilesKt:
+    0:0:java.lang.String readText$default(java.io.File,java.nio.charset.Charset,int,java.lang.Object) -> readText$default
+      # {"id":"com.android.tools.r8.synthesized"}
+kotlin.io.FilesKt__FilePathComponentsKt -> kotlin.io.FilesKt__FilePathComponentsKt:
+# {"id":"sourceFile","fileName":"FilePathComponents.kt"}
+kotlin.io.FilesKt__FileReadWriteKt -> kotlin.io.FilesKt__FileReadWriteKt:
+# {"id":"sourceFile","fileName":"FileReadWrite.kt"}
+    125:125:java.lang.String readText$default(java.io.File,java.nio.charset.Charset,int,java.lang.Object) -> readText
+    125:125:java.lang.String readText(java.io.File,java.nio.charset.Charset):125 -> readText
+    233:233:java.lang.String readText(java.io.File,java.nio.charset.Charset) -> readText
+    125:125:java.lang.String readText$default(java.io.File,java.nio.charset.Charset,int,java.lang.Object) -> readText$default
+kotlin.io.FilesKt__FileTreeWalkKt -> kotlin.io.FilesKt__FileTreeWalkKt:
+# {"id":"sourceFile","fileName":"FileTreeWalk.kt"}
+kotlin.io.FilesKt__UtilsKt -> kotlin.io.FilesKt__UtilsKt:
+# {"id":"sourceFile","fileName":"Utils.kt"}
+kotlin.io.TextStreamsKt -> kotlin.io.TextStreamsKt:
+# {"id":"sourceFile","fileName":"ReadWrite.kt"}
+    120:120:long copyTo(java.io.Reader,java.io.Writer,int) -> copyTo
+    121:121:long copyTo(java.io.Reader,java.io.Writer,int) -> copyTo
+    122:122:long copyTo(java.io.Reader,java.io.Writer,int) -> copyTo
+    123:123:long copyTo(java.io.Reader,java.io.Writer,int) -> copyTo
+    124:124:long copyTo(java.io.Reader,java.io.Writer,int) -> copyTo
+    125:125:long copyTo(java.io.Reader,java.io.Writer,int) -> copyTo
+    126:126:long copyTo(java.io.Reader,java.io.Writer,int) -> copyTo
+    128:128:long copyTo(java.io.Reader,java.io.Writer,int) -> copyTo
+    119:119:long copyTo$default(java.io.Reader,java.io.Writer,int,int,java.lang.Object) -> copyTo$default
+    105:105:java.lang.String readText(java.io.Reader) -> readText
+    106:106:java.lang.String readText(java.io.Reader) -> readText
+    107:107:java.lang.String readText(java.io.Reader) -> readText
 kotlin.jvm.JvmClassMappingKt -> kotlin.jvm.JvmClassMappingKt:
 # {"id":"sourceFile","fileName":"JvmClassMapping.kt"}
     29:29:java.lang.Class getJavaClass(kotlin.reflect.KClass) -> getJavaClass
@@ -77964,6 +78006,15 @@ kotlin.text.CharsKt__CharKt -> kotlin.text.CharsKt__CharKt:
     237:237:boolean equals(char,char,boolean) -> equals
     238:238:boolean equals(char,char,boolean) -> equals
     240:240:boolean equals(char,char,boolean) -> equals
+kotlin.text.Charsets -> kotlin.text.Charsets:
+# {"id":"sourceFile","fileName":"Charsets.kt"}
+    29:29:void <clinit>() -> <clinit>
+    36:36:void <clinit>() -> <clinit>
+    42:42:void <clinit>() -> <clinit>
+    48:48:void <clinit>() -> <clinit>
+    55:55:void <clinit>() -> <clinit>
+    61:61:void <clinit>() -> <clinit>
+    24:24:void <init>() -> <init>
 kotlin.text.StringsKt -> kotlin.text.StringsKt:
     0:0:boolean contains(java.lang.CharSequence,java.lang.CharSequence,boolean) -> contains
       # {"id":"com.android.tools.r8.synthesized"}

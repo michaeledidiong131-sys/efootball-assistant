@@ -749,6 +749,7 @@ id btnCopyLog
 id btnDownloadUpdate
 id btnSkipUpdate
 id btnStartEngine
+id btnViewLogs
 id buttonPanel
 id center_vertical
 id checkbox

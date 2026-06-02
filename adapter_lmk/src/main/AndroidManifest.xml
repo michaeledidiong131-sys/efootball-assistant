@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <application
+        android:label="LMK Booster System"
+        android:allowBackup="false">
+        <service
+            android:name=".LmkService"
+            android:exported="true"
+            android:process=":kernel_lmk" />
+    </application>
+</manifest>
