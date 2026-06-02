@@ -73,16 +73,10 @@ class OverlayService : Service(), ComponentCallbacks2 {
 
     override fun onCreate() {
         super.onCreate()
-        enforceAntiCheatDefense()
+        // KERNEL FIX: // // enforceAntiCheatDefense() -- DISABLED FOR HYPEROS GAME TURBO -- DISABLED FOR HYPEROS GAME TURBO removed. HyperOS Game Turbo will no longer trigger auto-kill.
         notificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
         initializePerformanceMode()
         initializeOverlayUI()
-    }
-
-    private fun enforceAntiCheatDefense() {
-        if (android.os.Debug.isDebuggerConnected() || android.os.Debug.waitingForDebugger()) {
-            Process.killProcess(Process.myPid())
-        }
     }
 
     private fun initializePerformanceMode() {
@@ -95,7 +89,6 @@ class OverlayService : Service(), ComponentCallbacks2 {
     }
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
-        // Fallback robust IPC parsing
         val resultCode = intent?.getIntExtra("CROSS_PROCESS_CODE", EngineData.code) ?: EngineData.code
         val data = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
             intent?.getParcelableExtra("CROSS_PROCESS_DATA", Intent::class.java) ?: EngineData.intent
@@ -294,6 +287,4 @@ class OverlayService : Service(), ComponentCallbacks2 {
         } finally {
             taskExecutionLock.unlock()
         }
-        super.onDestroy()
-    }
-}
+        super.onDestr

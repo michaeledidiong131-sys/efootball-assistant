@@ -151,7 +151,7 @@ MERGED from [com.google.android.odml:image:1.0.0-beta1] /home/user/.gradle/cache
 	android:theme
 		ADDED from /home/user/efootball-assistant/app/src/main/AndroidManifest.xml:20:9-59
 	android:name
-		ADDED from /home/user/efootball-assistant/app/src/main/AndroidManifest.xml:14:9-28
+		ADDED from /home/user/efootball-assistant/app/src/main/AndroidManifest.xml:14:9-41
 service#com.assistant.OverlayService
 ADDED from /home/user/efootball-assistant/app/src/main/AndroidManifest.xml:22:9-26:63
 	android:enabled

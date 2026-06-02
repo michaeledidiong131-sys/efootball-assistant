@@ -1,0 +1,9 @@
+/home/user/efootball-assistant/app/src/main/java/com/assistant/PingEliminatorVpnService.kt
+/home/user/efootball-assistant/app/src/main/java/com/assistant/ErrorActivity.kt
+/home/user/efootball-assistant/app/src/main/java/com/assistant/EngineData.kt
+/home/user/efootball-assistant/app/src/main/java/com/assistant/UpdateActivity.kt
+/home/user/efootball-assistant/app/src/main/java/com/assistant/App.kt
+/home/user/efootball-assistant/app/src/main/java/com/assistant/GlobalCrashHandler.kt
+/home/user/efootball-assistant/app/src/main/java/com/assistant/LogActivity.kt
+/home/user/efootball-assistant/app/src/main/java/com/assistant/OverlayService.kt
+/home/user/efootball-assistant/app/src/main/java/com/assistant/MainActivity.kt

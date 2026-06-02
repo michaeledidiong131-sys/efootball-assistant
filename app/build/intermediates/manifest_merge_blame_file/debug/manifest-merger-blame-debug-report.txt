@@ -53,8 +53,8 @@
 28
 29    <application
 29-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:13:5-50:19
-30        android:name="com.assistant.overlay.App"
-30-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:14:9-28
+30        android:name="com.assistant.App"
+30-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:14:9-41
 31        android:allowBackup="false"
 31-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:15:9-36
 32        android:appComponentFactory="androidx.core.app.CoreComponentFactory"

@@ -24,8 +24,11 @@ class MainActivity : AppCompatActivity() {
     private val screenCaptureLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
         if (result.resultCode == Activity.RESULT_OK && result.data != null) {
             
-            // IPC FIX: Passing Intent as Parcelable across the `:secure_engine` memory boundary
-            val serviceIntent = Intent(this, OverlayService::class.java).apply {
+            // BULLETPROOFING: Double-bind both Static Memory and IPC Parceling
+            EngineData.code = result.resultCode
+            EngineData.intent = result.data
+            
+            EngineData.code = result.resultCode; EngineData.intent = result.data; EngineData.code = result.resultCode; EngineData.intent = result.data; val serviceIntent = Intent(this, OverlayService::class.java).apply {
                 putExtra("CROSS_PROCESS_CODE", result.resultCode)
                 putExtra("CROSS_PROCESS_DATA", result.data)
             }
@@ -58,13 +61,16 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun checkBatteryAndProceed() {
-        val pm = getSystemService(Context.POWER_SERVICE) as PowerManager
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && !pm.isIgnoringBatteryOptimizations(packageName)) {
-            val intent = Intent(Settings.ACTION_REQUEST_IGNORE_BATTERY_OPTIMIZATIONS)
-            intent.data = Uri.parse("package:$packageName")
-            startActivity(intent)
-            Toast.makeText(this, "BATTERY WHITELIST REQUIRED FOR ADAPTERS", Toast.LENGTH_LONG).show()
-        } else {
+        try {
+            val pm = getSystemService(Context.POWER_SERVICE) as PowerManager
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && !pm.isIgnoringBatteryOptimizations(packageName)) {
+                val intent = Intent(Settings.ACTION_REQUEST_IGNORE_BATTERY_OPTIMIZATIONS)
+                intent.data = Uri.parse("package:$packageName")
+                startActivity(intent)
+            } else {
+                checkOverlayAndProceed()
+            }
+        } catch (e: Exception) {
             checkOverlayAndProceed()
         }
     }

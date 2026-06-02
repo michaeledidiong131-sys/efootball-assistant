@@ -1,11 +1,11 @@
 -keep class androidx.core.app.CoreComponentFactory { <init>(); }
 -keep class androidx.core.content.FileProvider { <init>(); }
 -keep class androidx.startup.InitializationProvider { <init>(); }
+-keep class com.assistant.App { <init>(); }
 -keep class com.assistant.LogActivity { <init>(); }
 -keep class com.assistant.MainActivity { <init>(); }
 -keep class com.assistant.OverlayService { <init>(); }
 -keep class com.assistant.UpdateActivity { <init>(); }
--keep class com.assistant.overlay.App { <init>(); }
 -keep class com.assistant.overlay.ErrorActivity { <init>(); }
 -keep class com.google.android.datatransport.runtime.backends.TransportBackendDiscovery { <init>(); }
 -keep class com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver { <init>(); }
