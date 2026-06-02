@@ -3,8 +3,8 @@
 # min_api: 26
 # common_typos_disable
 # {"id":"com.android.tools.r8.mapping","version":"2.2"}
-# pg_map_id: 791df3f
-# pg_map_hash: SHA-256 791df3f10fa73cbad40838f305e9ab35df92004285c33f4e1c0540071fda166c
+# pg_map_id: 23d196b
+# pg_map_hash: SHA-256 23d196beff881a84db15f91ef8b47682d1ff21c8b6d192c00c1d2778d4265f6d
 android.app.AppComponentFactory -> android.app.AppComponentFactory:
 # {"id":"com.android.tools.r8.synthesized"}
 android.support.v4.app.RemoteActionCompatParcelizer -> android.support.v4.app.RemoteActionCompatParcelizer:
@@ -36683,15 +36683,15 @@ com.assistant.OverlayService -> com.assistant.OverlayService:
     83:83:void initializePerformanceMode() -> initializePerformanceMode
     84:84:void initializePerformanceMode() -> initializePerformanceMode
     86:86:void initializePerformanceMode() -> initializePerformanceMode
-    211:211:void initializeProcessingEngine() -> initializeProcessingEngine
-    212:212:void initializeProcessingEngine() -> initializeProcessingEngine
-    215:215:void initializeProcessingEngine$lambda$6(com.assistant.OverlayService) -> initializeProcessingEngine
-    215:215:void initializeProcessingEngine():215 -> initializeProcessingEngine
+    215:215:void initializeProcessingEngine() -> initializeProcessingEngine
     216:216:void initializeProcessingEngine() -> initializeProcessingEngine
-    227:227:void initializeProcessingEngine() -> initializeProcessingEngine
-    213:213:void initializeProcessingEngine$lambda$6(com.assistant.OverlayService) -> initializeProcessingEngine$lambda$6
-    214:214:void initializeProcessingEngine$lambda$6(com.assistant.OverlayService) -> initializeProcessingEngine$lambda$6
-    215:215:void initializeProcessingEngine$lambda$6(com.assistant.OverlayService) -> initializeProcessingEngine$lambda$6
+    219:219:void initializeProcessingEngine$lambda$6(com.assistant.OverlayService) -> initializeProcessingEngine
+    219:219:void initializeProcessingEngine():219 -> initializeProcessingEngine
+    220:220:void initializeProcessingEngine() -> initializeProcessingEngine
+    231:231:void initializeProcessingEngine() -> initializeProcessingEngine
+    217:217:void initializeProcessingEngine$lambda$6(com.assistant.OverlayService) -> initializeProcessingEngine$lambda$6
+    218:218:void initializeProcessingEngine$lambda$6(com.assistant.OverlayService) -> initializeProcessingEngine$lambda$6
+    219:219:void initializeProcessingEngine$lambda$6(com.assistant.OverlayService) -> initializeProcessingEngine$lambda$6
     116:116:void logSilentFailure(java.lang.Exception) -> logSilentFailure
     117:117:void logSilentFailure(java.lang.Exception) -> logSilentFailure
     118:118:void logSilentFailure(java.lang.Exception) -> logSilentFailure
@@ -36710,12 +36710,12 @@ com.assistant.OverlayService -> com.assistant.OverlayService:
     75:75:void onCreate() -> onCreate
     76:76:void onCreate() -> onCreate
     77:77:void onCreate() -> onCreate
-    219:219:void onDestroy() -> onDestroy
-    220:220:void onDestroy() -> onDestroy
-    221:221:void onDestroy() -> onDestroy
-    222:222:void onDestroy() -> onDestroy
     223:223:void onDestroy() -> onDestroy
     224:224:void onDestroy() -> onDestroy
+    225:225:void onDestroy() -> onDestroy
+    226:226:void onDestroy() -> onDestroy
+    227:227:void onDestroy() -> onDestroy
+    228:228:void onDestroy() -> onDestroy
     89:89:int onStartCommand(android.content.Intent,int,int) -> onStartCommand
     90:90:int onStartCommand(android.content.Intent,int,int) -> onStartCommand
     91:91:int onStartCommand(android.content.Intent,int,int) -> onStartCommand
@@ -36732,42 +36732,44 @@ com.assistant.OverlayService -> com.assistant.OverlayService:
     109:109:int onStartCommand(android.content.Intent,int,int) -> onStartCommand
     110:110:int onStartCommand(android.content.Intent,int,int) -> onStartCommand
     112:112:int onStartCommand(android.content.Intent,int,int) -> onStartCommand
-    188:188:void processImageForOCR(android.media.Image) -> processImageForOCR
-    189:189:void processImageForOCR(android.media.Image) -> processImageForOCR
-    190:190:void processImageForOCR(android.media.Image) -> processImageForOCR
-    191:191:void processImageForOCR(android.media.Image) -> processImageForOCR
     192:192:void processImageForOCR(android.media.Image) -> processImageForOCR
+    193:193:void processImageForOCR(android.media.Image) -> processImageForOCR
     194:194:void processImageForOCR(android.media.Image) -> processImageForOCR
     195:195:void processImageForOCR(android.media.Image) -> processImageForOCR
-    196:196:void processImageForOCR$lambda$4(kotlin.jvm.functions.Function1,java.lang.Object) -> processImageForOCR
-    196:196:void processImageForOCR(android.media.Image):196 -> processImageForOCR
-    201:201:void processImageForOCR$lambda$5(android.media.Image,com.google.android.gms.tasks.Task) -> processImageForOCR
-    201:201:void processImageForOCR(android.media.Image):201 -> processImageForOCR
-    203:203:void processImageForOCR(android.media.Image) -> processImageForOCR
-    204:204:void processImageForOCR(android.media.Image) -> processImageForOCR
-    206:206:void processImageForOCR(android.media.Image) -> processImageForOCR
+    196:196:void processImageForOCR(android.media.Image) -> processImageForOCR
+    198:198:void processImageForOCR(android.media.Image) -> processImageForOCR
+    199:199:void processImageForOCR(android.media.Image) -> processImageForOCR
+    200:200:void processImageForOCR$lambda$4(kotlin.jvm.functions.Function1,java.lang.Object) -> processImageForOCR
+    200:200:void processImageForOCR(android.media.Image):200 -> processImageForOCR
+    205:205:void processImageForOCR$lambda$5(android.media.Image,com.google.android.gms.tasks.Task) -> processImageForOCR
+    205:205:void processImageForOCR(android.media.Image):205 -> processImageForOCR
+    207:207:void processImageForOCR(android.media.Image) -> processImageForOCR
     208:208:void processImageForOCR(android.media.Image) -> processImageForOCR
-    196:196:void processImageForOCR$lambda$4(kotlin.jvm.functions.Function1,java.lang.Object) -> processImageForOCR$lambda$4
-    201:201:void processImageForOCR$lambda$5(android.media.Image,com.google.android.gms.tasks.Task) -> processImageForOCR$lambda$5
+    210:210:void processImageForOCR(android.media.Image) -> processImageForOCR
+    212:212:void processImageForOCR(android.media.Image) -> processImageForOCR
+    200:200:void processImageForOCR$lambda$4(kotlin.jvm.functions.Function1,java.lang.Object) -> processImageForOCR$lambda$4
+    205:205:void processImageForOCR$lambda$5(android.media.Image,com.google.android.gms.tasks.Task) -> processImageForOCR$lambda$5
     167:167:void setupMediaProjection(int,android.content.Intent) -> setupMediaProjection
     168:168:void setupMediaProjection(int,android.content.Intent) -> setupMediaProjection
     169:169:void setupMediaProjection(int,android.content.Intent) -> setupMediaProjection
-    170:170:void setupMediaProjection(int,android.content.Intent) -> setupMediaProjection
-    171:171:void setupMediaProjection(int,android.content.Intent) -> setupMediaProjection
     172:172:void setupMediaProjection(int,android.content.Intent) -> setupMediaProjection
     173:173:void setupMediaProjection(int,android.content.Intent) -> setupMediaProjection
     174:174:void setupMediaProjection(int,android.content.Intent) -> setupMediaProjection
     175:175:void setupMediaProjection(int,android.content.Intent) -> setupMediaProjection
-    183:183:void setupMediaProjection$lambda$3(com.assistant.OverlayService,android.media.ImageReader) -> setupMediaProjection
-    183:183:void setupMediaProjection(int,android.content.Intent):183 -> setupMediaProjection
-    184:184:void setupMediaProjection(int,android.content.Intent) -> setupMediaProjection
-    185:185:void setupMediaProjection(int,android.content.Intent) -> setupMediaProjection
-    176:176:void setupMediaProjection$lambda$3(com.assistant.OverlayService,android.media.ImageReader) -> setupMediaProjection$lambda$3
-    177:177:void setupMediaProjection$lambda$3(com.assistant.OverlayService,android.media.ImageReader) -> setupMediaProjection$lambda$3
-    178:178:void setupMediaProjection$lambda$3(com.assistant.OverlayService,android.media.ImageReader) -> setupMediaProjection$lambda$3
-    179:179:void setupMediaProjection$lambda$3(com.assistant.OverlayService,android.media.ImageReader) -> setupMediaProjection$lambda$3
+    176:176:void setupMediaProjection(int,android.content.Intent) -> setupMediaProjection
+    177:177:void setupMediaProjection(int,android.content.Intent) -> setupMediaProjection
+    178:178:void setupMediaProjection(int,android.content.Intent) -> setupMediaProjection
+    179:179:void setupMediaProjection(int,android.content.Intent) -> setupMediaProjection
+    187:187:void setupMediaProjection$lambda$3(com.assistant.OverlayService,android.media.ImageReader) -> setupMediaProjection
+    187:187:void setupMediaProjection(int,android.content.Intent):187 -> setupMediaProjection
+    188:188:void setupMediaProjection(int,android.content.Intent) -> setupMediaProjection
+    189:189:void setupMediaProjection(int,android.content.Intent) -> setupMediaProjection
+    180:180:void setupMediaProjection$lambda$3(com.assistant.OverlayService,android.media.ImageReader) -> setupMediaProjection$lambda$3
     181:181:void setupMediaProjection$lambda$3(com.assistant.OverlayService,android.media.ImageReader) -> setupMediaProjection$lambda$3
+    182:182:void setupMediaProjection$lambda$3(com.assistant.OverlayService,android.media.ImageReader) -> setupMediaProjection$lambda$3
     183:183:void setupMediaProjection$lambda$3(com.assistant.OverlayService,android.media.ImageReader) -> setupMediaProjection$lambda$3
+    185:185:void setupMediaProjection$lambda$3(com.assistant.OverlayService,android.media.ImageReader) -> setupMediaProjection$lambda$3
+    187:187:void setupMediaProjection$lambda$3(com.assistant.OverlayService,android.media.ImageReader) -> setupMediaProjection$lambda$3
     130:130:void startForegroundSafely() -> startForegroundSafely
     131:131:void startForegroundSafely() -> startForegroundSafely
     132:132:void startForegroundSafely() -> startForegroundSafely
@@ -36859,10 +36861,14 @@ com.assistant.OverlayService$Companion -> com.assistant.OverlayService$Companion
 com.assistant.OverlayService$processImageForOCR$1 -> com.assistant.OverlayService$processImageForOCR$1:
 # {"id":"sourceFile","fileName":"OverlayService.kt"}
     0:0:void <init>(com.assistant.OverlayService) -> <init>
-    196:196:java.lang.Object invoke(java.lang.Object) -> invoke
-    197:197:void invoke(com.google.mlkit.vision.text.Text) -> invoke
-    198:198:void invoke(com.google.mlkit.vision.text.Text) -> invoke
-    200:200:void invoke(com.google.mlkit.vision.text.Text) -> invoke
+    200:200:java.lang.Object invoke(java.lang.Object) -> invoke
+    201:201:void invoke(com.google.mlkit.vision.text.Text) -> invoke
+    202:202:void invoke(com.google.mlkit.vision.text.Text) -> invoke
+    204:204:void invoke(com.google.mlkit.vision.text.Text) -> invoke
+com.assistant.OverlayService$setupMediaProjection$1 -> com.assistant.OverlayService$setupMediaProjection$1:
+# {"id":"sourceFile","fileName":"OverlayService.kt"}
+    169:169:void <init>(com.assistant.OverlayService) -> <init>
+    170:170:void onStop() -> onStop
 com.assistant.UpdateActivity -> com.assistant.UpdateActivity:
 # {"id":"sourceFile","fileName":"UpdateActivity.kt"}
     0:0:void $r8$lambda$_ZS1S6JmVDlz9nG8TpnPKVQBxRk(com.assistant.UpdateActivity,android.view.View) -> $r8$lambda$_ZS1S6JmVDlz9nG8TpnPKVQBxRk

@@ -166,6 +166,10 @@ class OverlayService : Service(), ComponentCallbacks2 {
     private fun setupMediaProjection(code: Int, intent: Intent) {
         val projectionManager = getSystemService(Context.MEDIA_PROJECTION_SERVICE) as MediaProjectionManager
         mediaProjection = projectionManager.getMediaProjection(code, intent)
+        projectionCallback = object : MediaProjection.Callback() {
+            override fun onStop() { super.onStop(); stopSelf() }
+        }
+        mediaProjection?.registerCallback(projectionCallback!!, Handler(Looper.getMainLooper()))
         val metrics = DisplayMetrics()
         windowManager.defaultDisplay.getRealMetrics(metrics)
         val scale = 0.4f 
