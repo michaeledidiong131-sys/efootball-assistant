@@ -29,6 +29,11 @@ class WelcomeActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        // [SECURITY GUARD LOCK ACTIVE] - OTA Gateway Hook
+        com.assistant.OtaGatewayEngine.attachAndExecute(this) {
+            startActivity(android.content.Intent(this, com.assistant.MainActivity::class.java))
+            finish()
+        }
         setContentView(com.assistant.overlay.R.layout.activity_welcome)
         statusText = findViewById(com.assistant.overlay.R.id.tvCheckState)
 

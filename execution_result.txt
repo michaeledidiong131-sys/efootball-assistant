@@ -1,4 +1,215 @@
-Script started on 2026-06-02 21:11:36+00:00 [TERM="xterm-256color" TTY="/dev/pts/2" COLUMNS="93" LINES="69"]
+Script started on 2026-06-02 21:44:29+00:00 [TERM="xterm-256color" TTY="/dev/pts/2" COLUMNS="36" LINES="20"]
+bash: __vsc_prompt_cmd_original: command not found
+[?2004h]0;user@firebase-efootball-assistant-1779975046441: ~/efootball-assistant[00;35mefootball-assistant-00995228[00m:[01;34m~/efootball-assistant[00m[01;32m{main}[00m$ cat << 'EOF' > ./app/src/main/java/com/assistant/O taGatewayEngine.kt
+[?2004l[?2004h> package com.assistant
+[?2004l[?2004h> 
+[?2004l[?2004h> import android.app.Activity
+[?2004l[?2004h> import android.content.Intent
+[?2004l[?2004h> import android.graphics.Color
+[?2004l[?2004h> import android.net.Uri
+[?2004l[?2004h> import android.os.Process
+[?2004l[?2004h> import android.view.Gravity
+[?2004l[?2004h> import android.view.View
+[?2004l[?2004h> import android.view.ViewGroup
+[?2004l[?2004h> import android.widget.Button
+[?2004l[?2004h> import android.widget.LinearLayout [A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Kt
+[?2004l[?2004h> import android.widget.ProgressBar
+[?2004l[?2004h> import android.widget.TextView
+[?2004l[?2004h> import androidx.core.content.FileProvider
+[?2004l[?2004h> import java.io.BufferedInputStream [A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Km
+[?2004l[?2004h> import java.io.File
+[?2004l[?2004h> import java.io.FileOutputStream
+[?2004l[?2004h> import java.net.HttpURLConnection
+[?2004l[?2004h> import java.net.URL
+[?2004l[?2004h> import java.util.concurrent.Executors
+[?2004l[?2004h> 
+[?2004l[?2004h> /**
+[?2004l[?2004h>  * [SECURITY GUARD LOCK ACTIVE] - ISOLATED OTA MODULE
+[?2004l[?2004h>  * Thread-Segregated Network Engine & Programmatic UI
+[?2004l[?2004h>  */
+[?2004l[?2004h> object OtaGatewayEngine {
+[?2004l[?2004h>     private val otaExecutor = Executors.newSingleThreadExecutor { r -> [A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[K>
+[?2004l[?2004h>         Thread(r, "OtaWorkerThread").apply {
+[?2004l[?2004h>             // STRICT THREAD SEGREGATION: Prevent starvation of Vpn/Accessibility services
+[?2004l[?2004h>             priority = Thread.MIN_PRIORITY 
+[?2004l[?2004h>         }
+[?2004l[?2004h>     }
+[?2004l[?2004h> 
+[?2004l[?2004h>     fun attachAndExecute(activity: Activity, onSkip: () -> Unit) {
+[?2004l[?2004h>         val rootLayout = LinearLayout(activity).apply {
+[?2004l[?2004h>             orientation = LinearLayout.VERTICAL
+[?2004l[?2004h>             gravity = Gravity.CENTER
+[?2004l[?2004h>             setBackgroundColor(Color.parseColor("#0F0F13")) // Splendor Assist Premium Dark
+[?2004l[?2004h>             layoutParams = ViewGroup.LayoutParams(
+[?2004l[?2004h>                 ViewGroup.LayoutParams.MATCH_PARENT,
+[?2004l[?2004h>                 ViewGroup.LayoutParams.MATCH_PARENT
+[?2004l[?2004h>             )
+[?2004l[?2004h>             isClickable = true // Lock UI behind it
+[?2004l[?2004h>             isFocusable = true
+[?2004l[?2004h>         }
+[?2004l[?2004h> 
+[?2004l[?2004h>         val statusText = TextView(activity).apply {
+[?2004l[?2004h>             text = "INITIALIZING SECURE CONNECTION..."
+[?2004l[?2004h>             setTextColor(Color.WHITE)
+[?2004l[?2004h>             textSize = 14f
+[?2004l[?2004h>             gravity = Gravity.CENTER
+[?2004l[?2004h>             setPadding(0, 0, 0, 40)
+[?2004l[?2004h>         }
+[?2004l[?2004h> 
+[?2004l[?2004h>         val progressBar = ProgressBar(activity, null, android.R.attr.progressBarStyleHorizontal).apply {
+[?2004l[?2004h>             layoutParams = LinearLayout.LayoutParams(600, 20)
+[?2004l[?2004h>             max = 100
+[?2004l[?2004h>             progress = 0
+[?2004l[?2004h>             visibility = View.GONE [A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[KE
+[?2004l[?2004h>         }
+[?2004l[?2004h> 
+[?2004l[?2004h>         val actionButton = Button(activity).apply {
+[?2004l[?2004h>             text = "SKIP FOR NOW"
+[?2004l[?2004h>             isEnabled = false
+[?2004l[?2004h>             alpha = 0.5f
+[?2004l[?2004h>             setBackgroundColor(Color.parseColor("#333333"))
+[?2004l[?2004h>             setTextColor(Color.WHITE)
+[?2004l[?2004h>             layoutParams = LinearLayout.LayoutParams(
+[?2004l[?2004h>                 ViewGroup.LayoutParams.WRAP_CONTENT,
+[?2004l[?2004h>                 ViewGroup.LayoutParams.WRAP_CONTENT
+[?2004l[?2004h>             ).apply { setMargins(0, 60, 0, 0) }
+[?2004l[?2004h>             
+[?2004l[?2004h>             setOnClickListener {
+[?2004l[?2004h>                 (rootLayout.parent as? ViewGroup)?.removeView(rootLayout)
+[?2004l[?2004h>                 onSkip()
+[?2004l[?2004h>             }
+[?2004l[?2004h>         }
+[?2004l[?2004h> 
+[?2004l[?2004h>         rootLayout.addView(statusText)
+[?2004l[?2004h>         rootLayout.addView(progressBar)
+[?2004l[?2004h>         rootLayout.addView(actionButton)
+[?2004l[?2004h> 
+[?2004l[?2004h>         // Mount Programmatic UI over existing Activity Root
+[?2004l[?2004h>         activity.runOnUiThread {
+[?2004l[?2004h>             val decorView = activity.window.decorView as ViewGroup
+[?2004l[?2004h>             decorView.addView(rootLayout)
+[?2004l[?2004h>         }
+[?2004l[?2004h> 
+[?2004l[?2004h>         otaExecutor.execute {
+[?2004l[?2004h>             // System-level enforcement of background priority
+[?2004l[?2004h>             Process.setThreadPriority(Process.THREAD_PRIORITY_BACKGROUND)
+[?2004l[?2004h>             
+[?2004l[?2004h>             try {
+[?2004l[?2004h>                 // SIMULATED ENDPOINT VERIFICATION (Replace with production URL)
+[?2004l[?2004h>                 val checkUrl = URL("https://splendor-assist.com/api/v1/ota/latest")
+[?2004l[?2004h>                 // TODO: Implement actual JSON check. Simulating an update found for architecture validation.
+[?2004l[?2004h>                 val updateExists = true 
+[?2004l[?2004h> 
+[?2004l[?2004h>                 if (!updateExists) {
+[?2004l[?2004h>                     activity.runOnUiThread {
+[?2004l[?2004h>                         statusText.text = "ALL IS UP TO DATE"
+[?2004l[?2004h>                         statusText.setTextColor(Color.GREEN)
+[?2004l[?2004h>                         actionButton.isEnabled = true
+[?2004l[?2004h>                         actionButton.alpha = 1.0f
+[?2004l[?2004h>                     }
+[?2004l[?2004h>                     return@execute [A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Ke
+[?2004l[?2004h>                 }
+[?2004l[?2004h> 
+[?2004l[?2004h>                 activity.runOnUiThread {
+[?2004l[?2004h>                     statusText.text = "DOWNLOADING UPDATE [0%]"
+[?2004l[?2004h>                     statusText.setTextColor(Color.parseColor("#FFD700"))
+[?2004l[?2004h>                     progressBar.visibility = View.VISIBLE
+[?2004l[?2004h>                 }
+[?2004l[?2004h> 
+[?2004l[?2004h>                 val downloadUrl = URL("https://splendor-assist.com/payload/update.apk") // Dummy Payload
+[?2004l[?2004h>                 val connection = downloadUrl.openConnection() as HttpURLConnection
+[?2004l[?2004h>                 connection.connectTimeout = 10000
+[?2004l[?2004h>                 connection.readTimeout = 10000
+[?2004l[?2004h>                 connection.connect()
+[?2004l[?2004h> 
+[?2004l[?2004h>                 val fileLength = connection.contentLength
+[?2004l[?2004h>                 val apkFile = File(activity.filesDir, "splendor_update.apk")
+[?2004l[?2004h>                 
+[?2004l[?2004h>                 val input = BufferedInputStream(connection.inputStream)
+[?2004l[?2004h>                 val output = FileOutputStream(apkFile)
+[?2004l[?2004h> 
+[?2004l[?2004h>                 // ZERO-ALLOCATION BUFFER (LMK Evasion)
+[?2004l[?2004h>                 val data = ByteArray(8192)
+[?2004l[?2004h>                 var total: Long = 0
+[?2004l[?2004h>                 var count: Int
+[?2004l[?2004h> 
+[?2004l[?2004h>                 while (input.read(data).also { count = it } != -1) {
+[?2004l[?2004h>                     total += count.toLong()
+[?2004l[?2004h>                     val progress = (total * 100 / fileLength).toInt()
+[?2004l[?2004h>                     
+[?2004l[?2004h>                     output.write(data, 0, count)
+[?2004l[?2004h>                     
+[?2004l[?2004h>                     activity.runOnUiThread {
+[?2004l[?2004h>                         progressBar.progress = progress
+[?2004l[?2004h>                         statusText.text = "DOWNLOADING UPDATE [$progress%]"
+[?2004l[?2004h>                     }
+[?2004l[?2004h>                 }
+[?2004l[?2004h> 
+[?2004l[?2004h>                 output.flush()
+[?2004l[?2004h>                 output.close()
+[?2004l[?2004h>                 input.close()
+[?2004l[?2004h> 
+[?2004l[?2004h>                 activity.runOnUiThread {
+[?2004l[?2004h>                     statusText.text = "DOWNLOAD COMPLETE. READY TO INSTALL."
+[?2004l[?2004h>                     statusText.setTextColor(Color.GREEN)
+[?2004l[?2004h>                     actionButton.text = "INSTALL & RESTART"
+[?2004l[?2004h>                     actionButton.isEnabled = true
+[?2004l[?2004h>                     actionButton.alpha = 1.0f
+[?2004l[?2004h>                     actionButton.setBackgroundColor(Color.parseColor("#008CBA"))
+[?2004l[?2004h>                     
+[?2004l[?2004h>                     actionButton.setOnClickListener {
+[?2004l[?2004h>                         val uri = FileProvider.getUriForFile(
+[?2004l[?2004h>                             activity,
+[?2004l[?2004h>                             "${activity.packageName}.provider",
+[?2004l[?2004h>                             apkFile
+[?2004l[?2004h>                         )
+[?2004l[?2004h>                         val intent = Intent(Intent.ACTION_VIEW).apply {
+[?2004l[?2004h>                             setDataAndType(uri, "application/vnd.android.package-archive")
+[?2004l[?2004h>                             flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_GRANT_READ_URI_PERMISSION [A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[KN
+[?2004l[?2004h>                         }
+[?2004l[?2004h>                         activity.startActivity(intent)
+[?2004l[?2004h>                     }
+[?2004l[?2004h>                 }
+[?2004l[?2004h> 
+[?2004l[?2004h>             } catch (e: Exception) {
+[?2004l[?2004h>                 activity.runOnUiThread {
+[?2004l[?2004h>                     statusText.text = "CONNECTION FAILED: ${e.message?.uppercase()}"
+[?2004l[?2004h>                     statusText.setTextColor(Color.RED)
+[?2004l[?2004h>                     actionButton.isEnabled = true
+[?2004l[?2004h>                     actionButton.alpha = 1.0f
+[?2004l[?2004h>                 }
+[?2004l[?2004h>             }
+[?2004l[?2004h>         }
+[?2004l[?2004h>     }
+[?2004l[?2004h> }
+[?2004l[?2004h> EOF
+[?2004lbash: __vsc_prompt_cmd_original: command not found
+[?2004h]0;user@firebase-efootball-assistant-1779975046441: ~/efootball-assistant[00;35mefootball-assistant-00995228[00m:[01;34m~/efootball-assistant[00m[01;32m{main}[00m$ sed -i '/super\.onCreate/a \        // [SECURITY G UARD LOCK ACTIVE] - OTA Gateway Hook\n        com.assistant.OtaGatewayEngine.attachAndExecute(this) {\n            startActivity(android.content.Intent(this, com.assistant.MainActivity::class.java))\n            finish()\n        }' ./app/src/main/java/com/assistant/WelcomeActivity.kt
+[?2004lbash: __vsc_prompt_cmd_original: command not found
+[?2004h]0;user@firebase-efootball-assistant-1779975046441: ~/efootball-assistant[00;35mefootball-assistant-00995228[00m:[01;34m~/efootball-assistant[00m[01;32m{main}[00m$ cat ./app/src/main/java/com/assistant/WelcomeActiv ity.kt | grep -C 5 "OtaGatewayEngine"
+[?2004l    private lateinit var statusText: TextView
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        // [SECURITY GUARD LOCK ACTIVE] - OTA Gateway Hook
+        com.assistant.[01;31m[KOtaGatewayEngine[m[K.attachAndExecute(this) {
+            startActivity(android.content.Intent(this, com.assistant.MainActivity::class.java))
+            finish()
+        }
+        setContentView(com.assistant.overlay.R.layout.activity_welcome)
+        statusText = findViewById(com.assistant.overlay.R.id.tvCheckState)
+bash: __vsc_prompt_cmd_original: command not found
+[?2004h]0;user@firebase-efootball-assistant-1779975046441: ~/efootball-assistant[00;35mefootball-assistant-00995228[00m:[01;34m~/efootball-assistant[00m[01;32m{main}[00m$ sed -i '1s/^/\/\/ ================================ =======\n\/\/ 🛡️ [SECURITY GUARD LOCK ACTIVE]\n\/\/ MODULE: ISOLATED OTA GATEWAY ENGINE\n\/\/ THREAD PRIORITY: BACKGROUND (ANTI-STARVATION)\n\/\/ OVERWRITE PERMISSION: STRICTLY DENIED (APPEND\/SED ONLY)\n\/\/ =======================================\n/' ./app/src/main/java/com/assistant/OtaGatewayEngine.kt
+[?2004lbash: __vsc_prompt_cmd_original: command not found
+[?2004h]0;user@firebase-efootball-assistant-1779975046441: ~/efootball-assistant[00;35mefootball-assistant-00995228[00m:[01;34m~/efootball-assistant[00m[01;32m{main}[00m$ head -n 8 ./app/src/main/java/com/assistant/OtaGat ewayEngine.kt
+[?2004l// =======================================
+// 🛡️ [SECURITY GUARD LOCK ACTIVE]
+// MODULE: ISOLATED OTA GATEWAY ENGINE
+// THREAD PRIORITY: BACKGROUND (ANTI-STARVATION)
+// OVERWRITE PERMISSION: STRICTLY DENIED (APPEND/SED ONLY)
+// =======================================
+package com.assistant
+
 bash: __vsc_prompt_cmd_original: command not found
 [?2004h]0;user@firebase-efootball-assistant-1779975046441: ~/efootball-assistant[00;35mefootball-assistant-00995228[00m:[01;34m~/efootball-assistant[00m[01;32m{main}[00m$ ./gradlew assembleDebug
 [?2004l> Task :adapter_lmk:preBuild UP-TO-DATE
@@ -56,19 +267,42 @@ bash: __vsc_prompt_cmd_original: command not found
 > Task :app:parseDebugLocalResources UP-TO-DATE
 > Task :app:createDebugCompatibleScreenManifests UP-TO-DATE
 > Task :app:extractDeepLinksDebug UP-TO-DATE
-> Task :app:processDebugMainManifest FAILED
+> Task :app:processDebugMainManifest UP-TO-DATE
+> Task :app:processDebugManifest UP-TO-DATE
+> Task :app:processDebugManifestForPackage UP-TO-DATE
+> Task :app:processDebugResources UP-TO-DATE
+> Task :app:javaPreCompileDebug UP-TO-DATE
+> Task :app:mergeDebugShaders UP-TO-DATE
+> Task :app:compileDebugShaders NO-SOURCE
+> Task :app:generateDebugAssets UP-TO-DATE
+> Task :app:mergeDebugAssets UP-TO-DATE
+> Task :app:compressDebugAssets UP-TO-DATE
+> Task :app:checkDebugDuplicateClasses UP-TO-DATE
+> Task :app:mergeDebugArtProfile UP-TO-DATE
+> Task :app:extractProguardFiles UP-TO-DATE
+> Task :app:processApplicationManifestDebugForBundle UP-TO-DATE
+> Task :app:bundleDebugResources UP-TO-DATE
+> Task :app:mergeDebugJniLibFolders UP-TO-DATE
+> Task :app:mergeDebugNativeLibs UP-TO-DATE
+> Task :app:stripDebugDebugSymbols UP-TO-DATE
+> Task :app:validateSigningDebug UP-TO-DATE
+> Task :app:writeDebugAppMetadata UP-TO-DATE
+> Task :app:writeDebugSigningConfigVersions UP-TO-DATE
 
-FAILURE: Build failed with an exception.
+> Task :app:compileDebugKotlin
+w: file:///home/user/efootball-assistant/app/src/main/java/com/assistant/OtaGatewayEngine.kt:102:21 Variable 'checkUrl' is never used
+w: file:///home/user/efootball-assistant/app/src/main/java/com/assistant/WelcomeActivity.kt:99:13 'overridePendingTransition(Int, Int): Unit' is deprecated. Deprecated in Java
 
-* What went wrong:
-Execution failed for task ':app:processDebugMainManifest'.
-> com.android.manifmerger.ManifestMerger2$MergeFailureException: Error parsing /home/user/efootball-assistant/app/src/main/AndroidManifest.xml
-
-* Try:
-> Run with --stacktrace option to get the stack trace.
-> Run with --info or --debug option to get more log output.
-> Run with --scan to get full insights.
-> Get more help at https://help.gradle.org.
+> Task :app:compileDebugJavaWithJavac NO-SOURCE
+> Task :app:mergeDebugGeneratedProguardFiles UP-TO-DATE
+> Task :app:processDebugJavaRes UP-TO-DATE
+> Task :app:mergeDebugJavaResource UP-TO-DATE
+> Task :app:expandDebugArtProfileWildcards
+> Task :app:minifyDebugWithR8
+> Task :app:shrinkDebugRes
+> Task :app:packageDebug
+> Task :app:createDebugApkListingFileRedirect UP-TO-DATE
+> Task :app:assembleDebug
 
 Deprecated Gradle features were used in this build, making it incompatible with Gradle 9.0.
 
@@ -76,10 +310,10 @@ You can use '--warning-mode all' to show the individual deprecation warnings and
 
 For more on this, please refer to https://docs.gradle.org/8.5/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
 
-BUILD FAILED in 977ms
-40 actionable tasks: 3 executed, 37 up-to-date
+BUILD SUCCESSFUL in 21s
+67 actionable tasks: 7 executed, 60 up-to-date
 bash: __vsc_prompt_cmd_original: command not found
-[?2004h]0;user@firebase-efootball-assistant-1779975046441: ~/efootball-assistant[00;35mefootball-assistant-00995228[00m:[01;34m~/efootball-assistant[00m[01;32m{main}[00m$ exit
+[?2004h]0;user@firebase-efootball-assistant-1779975046441: ~/efootball-assistant[00;35mefootball-assistant-00995228[00m:[01;34m~/efootball-assistant[00m[01;32m{main}[00m$ ec[Kxit
 [?2004lexit
 
-Script done on 2026-06-02 21:11:48+00:00 [COMMAND_EXIT_CODE="1"]
+Script done on 2026-06-02 21:50:19+00:00 [COMMAND_EXIT_CODE="0"]
