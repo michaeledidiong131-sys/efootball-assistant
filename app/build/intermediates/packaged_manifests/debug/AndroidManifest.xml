@@ -27,6 +27,7 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
+        android:name="com.assistant.overlay.App"
         android:allowBackup="false"
         android:appComponentFactory="androidx.core.app.CoreComponentFactory"
         android:debuggable="true"
@@ -38,9 +39,8 @@
         <service
             android:name="com.assistant.OverlayService"
             android:enabled="true"
-            android:exported="true"
-            android:foregroundServiceType="mediaProjection"
-            android:process=":secure_engine" />
+            android:exported="false"
+            android:foregroundServiceType="mediaProjection" />
 
         <activity
             android:name="com.assistant.MainActivity"

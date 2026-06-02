@@ -34,6 +34,12 @@ import androidx.core.app.NotificationCompat
 import com.google.mlkit.vision.common.InputImage
 import com.google.mlkit.vision.text.TextRecognition
 import com.google.mlkit.vision.text.latin.TextRecognizerOptions
+import java.io.File
+import java.io.FileWriter
+import java.io.PrintWriter
+import java.text.SimpleDateFormat
+import java.util.Date
+import java.util.Locale
 import java.util.concurrent.locks.ReentrantLock
 
 class OverlayService : Service(), ComponentCallbacks2 {
@@ -60,10 +66,7 @@ class OverlayService : Service(), ComponentCallbacks2 {
     private val OCR_INTERVAL_MS = 800L 
     private var reusableBitmap: Bitmap? = null
 
-    // TASK 1 ENFORCEMENT: Security Guard Lock
-    // Guarantees zero memory collision between intersecting execution tasks.
     private val taskExecutionLock = ReentrantLock()
-
     private val recognizer = TextRecognition.getClient(TextRecognizerOptions.DEFAULT_OPTIONS)
 
     override fun onBind(intent: Intent?): IBinder? = null
@@ -77,9 +80,6 @@ class OverlayService : Service(), ComponentCallbacks2 {
     }
 
     private fun enforceAntiCheatDefense() {
-        // TASK 1 ENFORCEMENT: Security Risk Lock (Anti-Ban & Anti-Dump)
-        // If an external process (like an Anti-Cheat scanner or Malware) attaches a debugger/tracer to inspect memory,
-        // the engine instantly commits a silent suicide to protect the user's account state.
         if (android.os.Debug.isDebuggerConnected() || android.os.Debug.waitingForDebugger()) {
             Process.killProcess(Process.myPid())
         }
@@ -95,8 +95,14 @@ class OverlayService : Service(), ComponentCallbacks2 {
     }
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
-        val resultCode = intent?.getIntExtra("CROSS_PROCESS_CODE", 0) ?: 0
-        val data = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) intent?.getParcelableExtra("CROSS_PROCESS_DATA", Intent::class.java) else @Suppress("DEPRECATION") intent?.getParcelableExtra<Intent>("CROSS_PROCESS_DATA")
+        // Fallback robust IPC parsing
+        val resultCode = intent?.getIntExtra("CROSS_PROCESS_CODE", EngineData.code) ?: EngineData.code
+        val data = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            intent?.getParcelableExtra("CROSS_PROCESS_DATA", Intent::class.java) ?: EngineData.intent
+        } else {
+            @Suppress("DEPRECATION")
+            intent?.getParcelableExtra<Intent>("CROSS_PROCESS_DATA") ?: EngineData.intent
+        }
         
         if (resultCode == Activity.RESULT_OK && data != null) {
             startForegroundSafely()
@@ -106,12 +112,28 @@ class OverlayService : Service(), ComponentCallbacks2 {
                     initializeProcessingEngine()
                 }
             } catch (e: Exception) {
+                logSilentFailure(e)
                 stopSelf()
             }
         } else {
+            logSilentFailure(Exception("Intent Data Null or Result Code Invalid: $resultCode"))
             stopSelf()
         }
         return START_NOT_STICKY
+    }
+
+    private fun logSilentFailure(e: Exception) {
+        try {
+            val timestamp = SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault()).format(Date())
+            val logFile = File(getExternalFilesDir(null), "crash_log.txt")
+            FileWriter(logFile, true).use { writer ->
+                PrintWriter(writer).use { pw ->
+                    pw.println("=== SILENT ENGINE FAULT INTERCEPTED: $timestamp ===")
+                    e.printStackTrace(pw)
+                    pw.println("==================================================\n")
+                }
+            }
+        } catch (ignored: Exception) {}
     }
 
     private fun startForegroundSafely() {
@@ -203,9 +225,6 @@ class OverlayService : Service(), ComponentCallbacks2 {
     }
 
     private fun processImageForOCR(image: Image) {
-        // TASK 1 ENFORCEMENT: Security Guard Lock Execution Block
-        // If a new task is triggered while this is executing, it is strictly queued outside the lock.
-        // This guarantees 1000% stability and zero task tampering.
         if (taskExecutionLock.tryLock()) {
             try {
                 val startNs = System.nanoTime()
@@ -234,7 +253,6 @@ class OverlayService : Service(), ComponentCallbacks2 {
                 taskExecutionLock.unlock()
             }
         } else {
-            // Task collision detected. Discard secondary frame to preserve primary stability.
             image.close()
         }
     }

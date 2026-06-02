@@ -7356,6 +7356,7 @@ androidx.viewpager.widget.ViewPager$SavedState
 androidx.viewpager.widget.ViewPager$SimpleOnPageChangeListener
 androidx.viewpager.widget.ViewPager$ViewPositionComparator
 androidx.viewpager.widget.ViewPager
+com.assistant.App
 com.assistant.ErrorActivity
 com.assistant.OverlayService:
     private static final java.lang.String CHANNEL_ID

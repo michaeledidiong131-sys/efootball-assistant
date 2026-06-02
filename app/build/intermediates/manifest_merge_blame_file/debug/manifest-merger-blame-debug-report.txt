@@ -53,33 +53,33 @@
 28
 29    <application
 29-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:13:5-50:19
-30        android:allowBackup="false"
-30-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:14:9-36
-31        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
-31-->[androidx.core:core:1.12.0] /home/user/.gradle/caches/transforms-3/440a64c1659b3784956be1ef27019da1/transformed/core-1.12.0/AndroidManifest.xml:28:18-86
-32        android:debuggable="true"
-33        android:extractNativeLibs="false"
-33-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:15:9-42
-34        android:hardwareAccelerated="true"
-34-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:18:9-43
-35        android:label="Splendor Assist"
-35-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:16:9-40
-36        android:supportsRtl="true"
-36-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:17:9-35
-37        android:theme="@style/Theme.AppCompat.NoActionBar" >
-37-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:19:9-59
-38        <service
-38-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:21:9-26:63
-39            android:name="com.assistant.OverlayService"
-39-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:22:13-56
-40            android:enabled="true"
-40-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:23:13-35
-41            android:exported="true"
-41-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:24:13-36
-42            android:foregroundServiceType="mediaProjection"
-42-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:26:13-60
-43            android:process=":secure_engine" />
-43-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:25:13-45
+30        android:name="com.assistant.overlay.App"
+30-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:14:9-28
+31        android:allowBackup="false"
+31-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:15:9-36
+32        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+32-->[androidx.core:core:1.12.0] /home/user/.gradle/caches/transforms-3/440a64c1659b3784956be1ef27019da1/transformed/core-1.12.0/AndroidManifest.xml:28:18-86
+33        android:debuggable="true"
+34        android:extractNativeLibs="false"
+34-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:16:9-42
+35        android:hardwareAccelerated="true"
+35-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:19:9-43
+36        android:label="Splendor Assist"
+36-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:17:9-40
+37        android:supportsRtl="true"
+37-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:18:9-35
+38        android:theme="@style/Theme.AppCompat.NoActionBar" >
+38-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:20:9-59
+39        <service
+39-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:22:9-26:63
+40            android:name="com.assistant.OverlayService"
+40-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:23:13-56
+41            android:enabled="true"
+41-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:24:13-35
+42            android:exported="false"
+42-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:25:13-37
+43            android:foregroundServiceType="mediaProjection" />
+43-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:26:13-60
 44
 45        <activity
 45-->/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:28:9-35:20

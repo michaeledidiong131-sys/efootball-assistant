@@ -137,31 +137,31 @@ MERGED from [androidx.startup:startup-runtime:1.1.1] /home/user/.gradle/caches/t
 MERGED from [com.google.android.odml:image:1.0.0-beta1] /home/user/.gradle/caches/transforms-3/08d97bae2e9642a8cc45508bc7a28558/transformed/image-1.0.0-beta1/AndroidManifest.xml:7:5-20
 MERGED from [com.google.android.odml:image:1.0.0-beta1] /home/user/.gradle/caches/transforms-3/08d97bae2e9642a8cc45508bc7a28558/transformed/image-1.0.0-beta1/AndroidManifest.xml:7:5-20
 	android:extractNativeLibs
-		ADDED from /home/user/efootball-assistant/app/src/main/AndroidManifest.xml:15:9-42
+		ADDED from /home/user/efootball-assistant/app/src/main/AndroidManifest.xml:16:9-42
 	android:appComponentFactory
 		ADDED from [androidx.core:core:1.12.0] /home/user/.gradle/caches/transforms-3/440a64c1659b3784956be1ef27019da1/transformed/core-1.12.0/AndroidManifest.xml:28:18-86
 	android:supportsRtl
-		ADDED from /home/user/efootball-assistant/app/src/main/AndroidManifest.xml:17:9-35
+		ADDED from /home/user/efootball-assistant/app/src/main/AndroidManifest.xml:18:9-35
 	android:label
-		ADDED from /home/user/efootball-assistant/app/src/main/AndroidManifest.xml:16:9-40
+		ADDED from /home/user/efootball-assistant/app/src/main/AndroidManifest.xml:17:9-40
 	android:hardwareAccelerated
-		ADDED from /home/user/efootball-assistant/app/src/main/AndroidManifest.xml:18:9-43
+		ADDED from /home/user/efootball-assistant/app/src/main/AndroidManifest.xml:19:9-43
 	android:allowBackup
-		ADDED from /home/user/efootball-assistant/app/src/main/AndroidManifest.xml:14:9-36
+		ADDED from /home/user/efootball-assistant/app/src/main/AndroidManifest.xml:15:9-36
 	android:theme
-		ADDED from /home/user/efootball-assistant/app/src/main/AndroidManifest.xml:19:9-59
+		ADDED from /home/user/efootball-assistant/app/src/main/AndroidManifest.xml:20:9-59
+	android:name
+		ADDED from /home/user/efootball-assistant/app/src/main/AndroidManifest.xml:14:9-28
 service#com.assistant.OverlayService
-ADDED from /home/user/efootball-assistant/app/src/main/AndroidManifest.xml:21:9-26:63
-	android:process
-		ADDED from /home/user/efootball-assistant/app/src/main/AndroidManifest.xml:25:13-45
+ADDED from /home/user/efootball-assistant/app/src/main/AndroidManifest.xml:22:9-26:63
 	android:enabled
-		ADDED from /home/user/efootball-assistant/app/src/main/AndroidManifest.xml:23:13-35
+		ADDED from /home/user/efootball-assistant/app/src/main/AndroidManifest.xml:24:13-35
 	android:exported
-		ADDED from /home/user/efootball-assistant/app/src/main/AndroidManifest.xml:24:13-36
+		ADDED from /home/user/efootball-assistant/app/src/main/AndroidManifest.xml:25:13-37
 	android:foregroundServiceType
 		ADDED from /home/user/efootball-assistant/app/src/main/AndroidManifest.xml:26:13-60
 	android:name
-		ADDED from /home/user/efootball-assistant/app/src/main/AndroidManifest.xml:22:13-56
+		ADDED from /home/user/efootball-assistant/app/src/main/AndroidManifest.xml:23:13-56
 activity#com.assistant.MainActivity
 ADDED from /home/user/efootball-assistant/app/src/main/AndroidManifest.xml:28:9-35:20
 	android:exported
