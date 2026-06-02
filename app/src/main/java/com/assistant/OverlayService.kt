@@ -204,7 +204,7 @@ class OverlayService : Service(), ComponentCallbacks2 {
                     }
                     .addOnCompleteListener { image.close() }
             } finally {
-                taskExecutionLock.unlock()
+                taskExecutionLock.unlock(); try { image.close() } catch(e:Exception){}
             }
         } else {
             image.close()
