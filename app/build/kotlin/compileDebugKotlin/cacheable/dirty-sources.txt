@@ -1,0 +1,17 @@
+/home/user/efootball-assistant/app/src/main/java/com/assistant/core/AdapterIpcBridge.kt
+/home/user/efootball-assistant/app/src/main/java/com/assistant/IgnitionEngine.kt
+/home/user/efootball-assistant/app/src/main/java/com/assistant/EngineData.kt
+/home/user/efootball-assistant/app/src/main/java/com/assistant/UpdateActivity.kt
+/home/user/efootball-assistant/app/src/main/java/com/assistant/App.kt
+/home/user/efootball-assistant/app/src/main/java/com/assistant/LogActivity.kt
+/home/user/efootball-assistant/app/src/main/java/com/assistant/DashboardInjector.kt
+/home/user/efootball-assistant/app/src/main/java/com/assistant/app/dvr/DvrProjectionService.kt
+/home/user/efootball-assistant/app/src/main/java/com/assistant/DiagnosticsEngine.kt
+/home/user/efootball-assistant/app/src/main/java/com/assistant/PingEliminatorVpnService.kt
+/home/user/efootball-assistant/app/src/main/java/com/assistant/ErrorActivity.kt
+/home/user/efootball-assistant/app/src/main/java/com/assistant/OtaGatewayEngine.kt
+/home/user/efootball-assistant/app/src/main/java/com/assistant/WelcomeActivity.kt
+/home/user/efootball-assistant/app/src/main/java/com/assistant/GlobalCrashHandler.kt
+/home/user/efootball-assistant/app/src/main/java/com/assistant/OverlayService.kt
+/home/user/efootball-assistant/app/src/main/java/com/assistant/coach/DvrSyncEngine.kt
+/home/user/efootball-assistant/app/src/main/java/com/assistant/MainActivity.kt
