@@ -3345,10 +3345,19 @@ androidx.core.app.RemoteInput:
     public boolean isDataOnly()
     public static void setResultsSource(android.content.Intent,int)
 androidx.core.app.ServiceCompat$Api24Impl
-androidx.core.app.ServiceCompat$Api29Impl
-androidx.core.app.ServiceCompat$Api34Impl
+androidx.core.app.ServiceCompat$Api29Impl:
+    private void <init>()
+androidx.core.app.ServiceCompat$Api34Impl:
+    private void <init>()
 androidx.core.app.ServiceCompat$StopForegroundFlags
-androidx.core.app.ServiceCompat
+androidx.core.app.ServiceCompat:
+    private static final int FOREGROUND_SERVICE_TYPE_ALLOWED_SINCE_Q
+    private static final int FOREGROUND_SERVICE_TYPE_ALLOWED_SINCE_U
+    public static final int START_STICKY
+    public static final int STOP_FOREGROUND_DETACH
+    public static final int STOP_FOREGROUND_REMOVE
+    private void <init>()
+    public static void stopForeground(android.app.Service,int)
 androidx.core.app.ShareCompat$Api16Impl
 androidx.core.app.ShareCompat$IntentBuilder
 androidx.core.app.ShareCompat$IntentReader
@@ -7379,7 +7388,6 @@ com.assistant.overlay.R$layout:
     private void <init>()
 com.assistant.overlay.R$xml
 com.assistant.overlay.R
-com.assistant.overlay.dvr.DvrProjectionService
 com.google.android.datatransport.BuildConfig
 com.google.android.datatransport.Event:
     public static com.google.android.datatransport.Event ofData(int,java.lang.Object)

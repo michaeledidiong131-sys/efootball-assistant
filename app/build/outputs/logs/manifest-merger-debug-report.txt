@@ -1,20 +1,14 @@
 -- Merging decision tree log ---
 provider#androidx.core.content.FileProvider
 INJECTED from /home/user/efootball-assistant/app/src/main/AndroidManifest.xml:56:9-64:20
-	android:grantUriPermissions
-		ADDED from /home/user/efootball-assistant/app/src/main/AndroidManifest.xml:60:13-47
 	android:authorities
 		INJECTED from /home/user/efootball-assistant/app/src/main/AndroidManifest.xml
-		ADDED from /home/user/efootball-assistant/app/src/main/AndroidManifest.xml:58:13-60
-	android:exported
-		ADDED from /home/user/efootball-assistant/app/src/main/AndroidManifest.xml:59:13-37
-	android:name
-		ADDED from /home/user/efootball-assistant/app/src/main/AndroidManifest.xml:57:13-62
 manifest
 ADDED from /home/user/efootball-assistant/app/src/main/AndroidManifest.xml:3:1-66:12
-INJECTED from /home/user/efootball-assistant/app/src/main/AndroidManifest.xml:3:1-66:12
-INJECTED from /home/user/efootball-assistant/app/src/main/AndroidManifest.xml:3:1-66:12
-INJECTED from /home/user/efootball-assistant/app/src/main/AndroidManifest.xml:3:1-66:12
+MERGED from /home/user/efootball-assistant/app/src/main/AndroidManifest.xml:3:1-66:12
+INJECTED from /home/user/efootball-assistant/app/src/debug/AndroidManifest.xml:2:1-6:12
+INJECTED from /home/user/efootball-assistant/app/src/debug/AndroidManifest.xml:2:1-6:12
+INJECTED from /home/user/efootball-assistant/app/src/debug/AndroidManifest.xml:2:1-6:12
 MERGED from [com.google.mlkit:text-recognition:16.0.1] /home/user/.gradle/caches/transforms-3/d1766399e94044580378e782c2407bf4/transformed/text-recognition-16.0.1/AndroidManifest.xml:2:1-7:12
 MERGED from [com.google.android.gms:play-services-mlkit-text-recognition:19.0.1] /home/user/.gradle/caches/transforms-3/6ee6c6fa1399b4b5973c325cb913b6e2/transformed/play-services-mlkit-text-recognition-19.0.1/AndroidManifest.xml:2:1-8:12
 MERGED from [com.google.mlkit:text-recognition-bundled-common:17.0.0] /home/user/.gradle/caches/transforms-3/3860684bbf32387a8951e7caac79a9b4/transformed/text-recognition-bundled-common-17.0.0/AndroidManifest.xml:2:1-7:12
@@ -61,11 +55,11 @@ MERGED from [androidx.arch.core:core-runtime:2.1.0] /home/user/.gradle/caches/tr
 MERGED from [androidx.exifinterface:exifinterface:1.0.0] /home/user/.gradle/caches/transforms-3/23f735b06af2d4f43da848d61b5d9783/transformed/exifinterface-1.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [com.google.android.odml:image:1.0.0-beta1] /home/user/.gradle/caches/transforms-3/08d97bae2e9642a8cc45508bc7a28558/transformed/image-1.0.0-beta1/AndroidManifest.xml:2:1-9:12
 	package
-		INJECTED from /home/user/efootball-assistant/app/src/main/AndroidManifest.xml
+		INJECTED from /home/user/efootball-assistant/app/src/debug/AndroidManifest.xml
 	android:versionName
-		INJECTED from /home/user/efootball-assistant/app/src/main/AndroidManifest.xml
+		INJECTED from /home/user/efootball-assistant/app/src/debug/AndroidManifest.xml
 	android:versionCode
-		INJECTED from /home/user/efootball-assistant/app/src/main/AndroidManifest.xml
+		INJECTED from /home/user/efootball-assistant/app/src/debug/AndroidManifest.xml
 	xmlns:android
 		ADDED from /home/user/efootball-assistant/app/src/main/AndroidManifest.xml:3:11-69
 uses-permission#android.permission.POST_NOTIFICATIONS
@@ -108,6 +102,8 @@ ADDED from /home/user/efootball-assistant/app/src/main/AndroidManifest.xml:12:5-
 		ADDED from /home/user/efootball-assistant/app/src/main/AndroidManifest.xml:12:22-92
 application
 ADDED from /home/user/efootball-assistant/app/src/main/AndroidManifest.xml:14:5-65:19
+MERGED from /home/user/efootball-assistant/app/src/main/AndroidManifest.xml:14:5-65:19
+MERGED from /home/user/efootball-assistant/app/src/main/AndroidManifest.xml:14:5-65:19
 MERGED from [com.google.android.gms:play-services-mlkit-text-recognition-common:19.1.0] /home/user/.gradle/caches/transforms-3/3c8ca62c5780521ab3db4f1c92809907/transformed/play-services-mlkit-text-recognition-common-19.1.0/AndroidManifest.xml:8:5-16:19
 MERGED from [com.google.android.gms:play-services-mlkit-text-recognition-common:19.1.0] /home/user/.gradle/caches/transforms-3/3c8ca62c5780521ab3db4f1c92809907/transformed/play-services-mlkit-text-recognition-common-19.1.0/AndroidManifest.xml:8:5-16:19
 MERGED from [com.google.mlkit:vision-common:17.3.0] /home/user/.gradle/caches/transforms-3/5d203113b4d3573810332f61fcf85d30/transformed/vision-common-17.3.0/AndroidManifest.xml:8:5-16:19
@@ -138,19 +134,26 @@ MERGED from [com.google.android.odml:image:1.0.0-beta1] /home/user/.gradle/cache
 MERGED from [com.google.android.odml:image:1.0.0-beta1] /home/user/.gradle/caches/transforms-3/08d97bae2e9642a8cc45508bc7a28558/transformed/image-1.0.0-beta1/AndroidManifest.xml:7:5-20
 	android:extractNativeLibs
 		ADDED from /home/user/efootball-assistant/app/src/main/AndroidManifest.xml:17:9-42
+		ADDED from /home/user/efootball-assistant/app/src/main/AndroidManifest.xml:17:9-42
 	android:appComponentFactory
 		ADDED from [androidx.core:core:1.12.0] /home/user/.gradle/caches/transforms-3/440a64c1659b3784956be1ef27019da1/transformed/core-1.12.0/AndroidManifest.xml:28:18-86
 	android:supportsRtl
 		ADDED from /home/user/efootball-assistant/app/src/main/AndroidManifest.xml:19:9-35
+		ADDED from /home/user/efootball-assistant/app/src/main/AndroidManifest.xml:19:9-35
 	android:label
+		ADDED from /home/user/efootball-assistant/app/src/main/AndroidManifest.xml:18:9-40
 		ADDED from /home/user/efootball-assistant/app/src/main/AndroidManifest.xml:18:9-40
 	android:hardwareAccelerated
 		ADDED from /home/user/efootball-assistant/app/src/main/AndroidManifest.xml:20:9-43
+		ADDED from /home/user/efootball-assistant/app/src/main/AndroidManifest.xml:20:9-43
 	android:allowBackup
+		ADDED from /home/user/efootball-assistant/app/src/main/AndroidManifest.xml:16:9-36
 		ADDED from /home/user/efootball-assistant/app/src/main/AndroidManifest.xml:16:9-36
 	android:theme
 		ADDED from /home/user/efootball-assistant/app/src/main/AndroidManifest.xml:21:9-59
+		ADDED from /home/user/efootball-assistant/app/src/main/AndroidManifest.xml:21:9-59
 	android:name
+		ADDED from /home/user/efootball-assistant/app/src/main/AndroidManifest.xml:15:9-41
 		ADDED from /home/user/efootball-assistant/app/src/main/AndroidManifest.xml:15:9-41
 service#com.assistant.OverlayService
 ADDED from /home/user/efootball-assistant/app/src/main/AndroidManifest.xml:23:9-27:63
@@ -218,16 +221,18 @@ ADDED from /home/user/efootball-assistant/app/src/main/AndroidManifest.xml:54:9-
 		ADDED from /home/user/efootball-assistant/app/src/main/AndroidManifest.xml:54:49-73
 	android:name
 		ADDED from /home/user/efootball-assistant/app/src/main/AndroidManifest.xml:54:19-48
-meta-data#android.support.FILE_PROVIDER_PATHS
-ADDED from /home/user/efootball-assistant/app/src/main/AndroidManifest.xml:61:13-63:58
-	android:resource
-		ADDED from /home/user/efootball-assistant/app/src/main/AndroidManifest.xml:63:17-55
+service#com.assistant.overlay.dvr.DvrProjectionService
+ADDED from /home/user/efootball-assistant/app/src/debug/AndroidManifest.xml:4:9-133
+	android:exported
+		ADDED from /home/user/efootball-assistant/app/src/debug/AndroidManifest.xml:4:107-130
+	android:foregroundServiceType
+		ADDED from /home/user/efootball-assistant/app/src/debug/AndroidManifest.xml:4:59-106
 	android:name
-		ADDED from /home/user/efootball-assistant/app/src/main/AndroidManifest.xml:62:17-67
+		ADDED from /home/user/efootball-assistant/app/src/debug/AndroidManifest.xml:4:18-58
 uses-sdk
-INJECTED from /home/user/efootball-assistant/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
-INJECTED from /home/user/efootball-assistant/app/src/main/AndroidManifest.xml
-INJECTED from /home/user/efootball-assistant/app/src/main/AndroidManifest.xml
+INJECTED from /home/user/efootball-assistant/app/src/debug/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /home/user/efootball-assistant/app/src/debug/AndroidManifest.xml
+INJECTED from /home/user/efootball-assistant/app/src/debug/AndroidManifest.xml
 MERGED from [com.google.mlkit:text-recognition:16.0.1] /home/user/.gradle/caches/transforms-3/d1766399e94044580378e782c2407bf4/transformed/text-recognition-16.0.1/AndroidManifest.xml:5:5-44
 MERGED from [com.google.mlkit:text-recognition:16.0.1] /home/user/.gradle/caches/transforms-3/d1766399e94044580378e782c2407bf4/transformed/text-recognition-16.0.1/AndroidManifest.xml:5:5-44
 MERGED from [com.google.android.gms:play-services-mlkit-text-recognition:19.0.1] /home/user/.gradle/caches/transforms-3/6ee6c6fa1399b4b5973c325cb913b6e2/transformed/play-services-mlkit-text-recognition-19.0.1/AndroidManifest.xml:6:5-44
@@ -319,9 +324,9 @@ MERGED from [androidx.exifinterface:exifinterface:1.0.0] /home/user/.gradle/cach
 MERGED from [com.google.android.odml:image:1.0.0-beta1] /home/user/.gradle/caches/transforms-3/08d97bae2e9642a8cc45508bc7a28558/transformed/image-1.0.0-beta1/AndroidManifest.xml:5:5-44
 MERGED from [com.google.android.odml:image:1.0.0-beta1] /home/user/.gradle/caches/transforms-3/08d97bae2e9642a8cc45508bc7a28558/transformed/image-1.0.0-beta1/AndroidManifest.xml:5:5-44
 	android:targetSdkVersion
-		INJECTED from /home/user/efootball-assistant/app/src/main/AndroidManifest.xml
+		INJECTED from /home/user/efootball-assistant/app/src/debug/AndroidManifest.xml
 	android:minSdkVersion
-		INJECTED from /home/user/efootball-assistant/app/src/main/AndroidManifest.xml
+		INJECTED from /home/user/efootball-assistant/app/src/debug/AndroidManifest.xml
 service#com.google.mlkit.common.internal.MlKitComponentDiscoveryService
 ADDED from [com.google.android.gms:play-services-mlkit-text-recognition-common:19.1.0] /home/user/.gradle/caches/transforms-3/3c8ca62c5780521ab3db4f1c92809907/transformed/play-services-mlkit-text-recognition-common-19.1.0/AndroidManifest.xml:9:9-15:19
 MERGED from [com.google.mlkit:vision-common:17.3.0] /home/user/.gradle/caches/transforms-3/5d203113b4d3573810332f61fcf85d30/transformed/vision-common-17.3.0/AndroidManifest.xml:9:9-15:19

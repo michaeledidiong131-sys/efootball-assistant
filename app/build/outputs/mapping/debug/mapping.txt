@@ -3,8 +3,8 @@
 # min_api: 26
 # common_typos_disable
 # {"id":"com.android.tools.r8.mapping","version":"2.2"}
-# pg_map_id: 7a90c05
-# pg_map_hash: SHA-256 7a90c05e0deb8a0ea75711a3c8533ca56f81f0a2c3bfd301e007ed085e749164
+# pg_map_id: f65b58f
+# pg_map_hash: SHA-256 f65b58fd3ba62114a4f3372d55a148afa907105920d594ef4eca76e756c6bcf6
 android.app.AppComponentFactory -> android.app.AppComponentFactory:
 # {"id":"com.android.tools.r8.synthesized"}
 android.support.v4.app.RemoteActionCompatParcelizer -> android.support.v4.app.RemoteActionCompatParcelizer:
@@ -18985,6 +18985,26 @@ androidx.core.app.RemoteInput$Api29Impl -> androidx.core.app.RemoteInput$Api29Im
 # {"id":"sourceFile","fileName":"RemoteInput.java"}
     713:713:int getEditChoicesBeforeSending(java.lang.Object) -> getEditChoicesBeforeSending
     719:719:android.app.RemoteInput$Builder setEditChoicesBeforeSending(android.app.RemoteInput$Builder,int) -> setEditChoicesBeforeSending
+androidx.core.app.ServiceCompat -> androidx.core.app.ServiceCompat:
+# {"id":"sourceFile","fileName":"ServiceCompat.java"}
+    171:171:void startForeground(android.app.Service,int,android.app.Notification,int) -> startForeground
+    172:172:void startForeground(android.app.Service,int,android.app.Notification,int) -> startForeground
+    173:173:void startForeground(android.app.Service,int,android.app.Notification,int) -> startForeground
+    174:174:void startForeground(android.app.Service,int,android.app.Notification,int) -> startForeground
+    176:176:void startForeground(android.app.Service,int,android.app.Notification,int) -> startForeground
+    178:178:void startForeground(android.app.Service,int,android.app.Notification,int) -> startForeground
+androidx.core.app.ServiceCompat$Api29Impl -> androidx.core.app.ServiceCompat$Api29Impl:
+# {"id":"sourceFile","fileName":"ServiceCompat.java"}
+    217:217:void startForeground(android.app.Service,int,android.app.Notification,int) -> startForeground
+    219:219:void startForeground(android.app.Service,int,android.app.Notification,int) -> startForeground
+    221:221:void startForeground(android.app.Service,int,android.app.Notification,int) -> startForeground
+    224:224:void startForeground(android.app.Service,int,android.app.Notification,int) -> startForeground
+androidx.core.app.ServiceCompat$Api34Impl -> androidx.core.app.ServiceCompat$Api34Impl:
+# {"id":"sourceFile","fileName":"ServiceCompat.java"}
+    236:236:void startForeground(android.app.Service,int,android.app.Notification,int) -> startForeground
+    238:238:void startForeground(android.app.Service,int,android.app.Notification,int) -> startForeground
+    240:240:void startForeground(android.app.Service,int,android.app.Notification,int) -> startForeground
+    243:243:void startForeground(android.app.Service,int,android.app.Notification,int) -> startForeground
 androidx.core.app.SharedElementCallback -> androidx.core.app.SharedElementCallback:
 # {"id":"sourceFile","fileName":"SharedElementCallback.java"}
 androidx.core.app.TaskStackBuilder -> androidx.core.app.TaskStackBuilder:
@@ -37456,6 +37476,52 @@ com.assistant.WelcomeActivity$onCreate$1 -> com.assistant.WelcomeActivity$onCrea
     34:34:void invoke() -> invoke
     35:35:void invoke() -> invoke
     36:36:void invoke() -> invoke
+com.assistant.overlay.dvr.DvrProjectionService -> com.assistant.overlay.dvr.DvrProjectionService:
+# {"id":"sourceFile","fileName":"DvrProjectionService.kt"}
+    0:0:void $r8$lambda$ZQgesG00hYlUgbrYu3Am3ci3WLQ(com.assistant.overlay.dvr.DvrProjectionService) -> $r8$lambda$ZQgesG00hYlUgbrYu3Am3ci3WLQ
+      # {"id":"com.android.tools.r8.synthesized"}
+    18:18:void <init>() -> <init>
+    22:22:void <init>() -> <init>
+    55:55:void executeRollingRecord() -> executeRollingRecord
+    57:57:android.os.IBinder onBind(android.content.Intent) -> onBind
+    25:25:void onCreate() -> onCreate
+    26:26:void onCreate() -> onCreate
+    27:27:void onCreate() -> onCreate
+    28:28:void onCreate() -> onCreate
+    29:29:void onCreate() -> onCreate
+    30:30:void onCreate() -> onCreate
+    31:31:void onCreate() -> onCreate
+    60:60:void onDestroy() -> onDestroy
+    61:61:void onDestroy() -> onDestroy
+    62:62:void onDestroy() -> onDestroy
+    63:63:void onDestroy() -> onDestroy
+    34:34:int onStartCommand(android.content.Intent,int,int) -> onStartCommand
+    35:35:int onStartCommand(android.content.Intent,int,int) -> onStartCommand
+    36:36:int onStartCommand(android.content.Intent,int,int) -> onStartCommand
+    37:37:int onStartCommand(android.content.Intent,int,int) -> onStartCommand
+    38:38:int onStartCommand(android.content.Intent,int,int) -> onStartCommand
+    40:40:int onStartCommand(android.content.Intent,int,int) -> onStartCommand
+    41:41:int onStartCommand(android.content.Intent,int,int) -> onStartCommand
+    42:42:int onStartCommand(android.content.Intent,int,int) -> onStartCommand
+    43:43:int onStartCommand(android.content.Intent,int,int) -> onStartCommand
+    44:44:int onStartCommand(android.content.Intent,int,int) -> onStartCommand
+    45:45:int onStartCommand(android.content.Intent,int,int) -> onStartCommand
+    46:46:int onStartCommand(android.content.Intent,int,int) -> onStartCommand
+    47:47:int onStartCommand(android.content.Intent,int,int) -> onStartCommand
+    48:48:int onStartCommand(android.content.Intent,int,int) -> onStartCommand
+    49:49:int onStartCommand(android.content.Intent,int,int) -> onStartCommand
+    51:51:int onStartCommand(android.content.Intent,int,int) -> onStartCommand
+    52:52:int onStartCommand(android.content.Intent,int,int) -> onStartCommand
+    51:51:void onStartCommand$lambda$1(com.assistant.overlay.dvr.DvrProjectionService) -> onStartCommand$lambda$1
+com.assistant.overlay.dvr.DvrProjectionService$$ExternalSyntheticLambda0 -> com.assistant.overlay.dvr.DvrProjectionService$$ExternalSyntheticLambda0:
+# {"id":"sourceFile","fileName":"R8$$SyntheticClass"}
+# {"id":"com.android.tools.r8.synthesized"}
+    com.assistant.overlay.dvr.DvrProjectionService com.assistant.overlay.dvr.DvrProjectionService$$InternalSyntheticLambda$1$c493c7b8de2be9529a70fb31684c21275a537d774535894f0bcfea2c1e166f59$0.f$0 -> f$0
+      # {"id":"com.android.tools.r8.synthesized"}
+    0:0:void com.assistant.overlay.dvr.DvrProjectionService$$InternalSyntheticLambda$1$c493c7b8de2be9529a70fb31684c21275a537d774535894f0bcfea2c1e166f59$0.<init>(com.assistant.overlay.dvr.DvrProjectionService) -> <init>
+      # {"id":"com.android.tools.r8.synthesized"}
+    0:0:void com.assistant.overlay.dvr.DvrProjectionService$$InternalSyntheticLambda$1$c493c7b8de2be9529a70fb31684c21275a537d774535894f0bcfea2c1e166f59$0.run() -> run
+      # {"id":"com.android.tools.r8.synthesized"}
 com.google.android.datatransport.AutoValue_Event -> com.google.android.datatransport.AutoValue_Event:
 # {"id":"sourceFile","fileName":"AutoValue_Event.java"}
     19:19:void <init>(java.lang.Integer,java.lang.Object,com.google.android.datatransport.Priority) -> <init>

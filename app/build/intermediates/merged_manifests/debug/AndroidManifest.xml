@@ -37,6 +37,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar" >
         <service
+            android:name="com.assistant.overlay.dvr.DvrProjectionService"
+            android:exported="true"
+            android:foregroundServiceType="mediaProjection" />
+        <service
             android:name="com.assistant.OverlayService"
             android:enabled="true"
             android:exported="false"
