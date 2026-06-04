@@ -1,4 +1,4 @@
-#Thu Jun 04 03:02:33 UTC 2026
+#Thu Jun 04 03:49:23 UTC 2026
 base.0=/home/user/efootball-assistant/adapter_input/build/intermediates/dex/debug/mergeExtDexDebug/classes.dex
 base.1=/home/user/efootball-assistant/adapter_input/build/intermediates/dex/debug/mergeProjectDexDebug/0/classes.dex
 base.2=/home/user/efootball-assistant/adapter_input/build/intermediates/dex/debug/mergeProjectDexDebug/15/classes.dex

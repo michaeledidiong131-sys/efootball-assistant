@@ -7364,7 +7364,6 @@ com.assistant.OtaGatewayEngine:
 com.assistant.OverlayService:
     private static final java.lang.String CHANNEL_ID
     private static final int NOTIFICATION_ID
-com.assistant.app.dvr.DvrProjectionService
 com.assistant.coach.DvrSyncEngine
 com.assistant.core.AdapterIpcBridge$inputConnection$1
 com.assistant.core.AdapterIpcBridge$lmkConnection$1
@@ -7380,6 +7379,7 @@ com.assistant.overlay.R$layout:
     private void <init>()
 com.assistant.overlay.R$xml
 com.assistant.overlay.R
+com.assistant.overlay.dvr.DvrProjectionService
 com.google.android.datatransport.BuildConfig
 com.google.android.datatransport.Event:
     public static com.google.android.datatransport.Event ofData(int,java.lang.Object)

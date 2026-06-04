@@ -1,4 +1,4 @@
-package com.assistant.app.dvr
+package com.assistant.overlay.dvr
 
 import android.app.NotificationChannel
 import android.app.NotificationManager
