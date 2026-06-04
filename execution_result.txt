@@ -1,24 +1,168 @@
+Script started on 2026-06-04 02:49:40+00:00 [TERM="xterm-256color" TTY="/dev/pts/0" COLUMNS="48" LINES="52"]
 bash: __vsc_prompt_cmd_original: command not found
-[?2004h]0;user@firebase-efootball-assistant-1779975046441: ~/efootball-assistant[00;35mefootball-assistant-00995228[00m:[01;34m~/efootball-assistant[00m[01;32m{main}[00m$ mkdir -p app/src/main/java/com/assistant/app/dvr && printf 'package com.assistant.app.dvr\n\nimport android.app.Service\nimport android.content.Intent\nimport android.content.pm.ServiceInfo\nimport android.os.Handler\nimport android.os.HandlerThread\nimport android.os.IBinder\nimport android.os.Process\nimport androidx.core.app.ServiceCompat\nimport java.nio.ByteBuffer\n\nclass DvrProjectionService : Service() {\n    private var dvrThread: HandlerThread? = null\n    private var dvrHandler: Handl er? = null\n    private var videoBuffer: ByteBuffer? = null\n    private val BUFFER_CAPACITY = 16 * 1024 * 1024\n\n    override fun onCreate() {\n        super.onCreate()\n        dvrThread = HandlerThread("DvrIOLoop", Process.THREAD_PRIORITY_VIDEO).apply {\n            start()\n            dvrHandler = Handler(looper)\n        }\n        videoBuffer = ByteBuffer.allocateDirect(BUFFER_CAPACITY)\n    }\n\n    override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {\n        ServiceCompat.startForeground(\n            this,\n            1001,\n            DvrNotificationBuilder.build(this),\n            ServiceInfo.FOREGROUND_SERVICE_TYPE_MEDIA_PROJECTION\n        )\n        dvrHandler?.post { executeRollingRecord() }\n        return START_STICKY\n    }\n\n    private fun executeRollingRecord() {}\n\n    override fun onBind(intent: Intent?): IBinder? = null\n\n    override fun onDestroy() {\n        dvrThread?.quitSafely()\n        videoBuffer?.clear()\n        super.onDestroy()\n    }\n}' > app/src/main/java/com/assistant/app/dvr/DvrProjectionService.kt && sed -i '/<service android:name=".dvr.DvrProjectionService"/!b;n;/<intent-filter>/!s/.*/    android:foregroundServiceType="mediaProjection"\n&/' app/src/main/AndroidManifest.xml && ./gradlew clean :app:assembleDebug :adapter-lmk:assembleDebug --parallel --build-cache -Pandroid.overridePathCheck=true
+[?2004h]0;user@firebase-efootball-assistant-1779975046441: ~/efootball-assistant[00;35mefootball-assistant-00995228[00m:[01;34m~/efootball-assistant[00m[01;32m{main}[00m$ printf 'package com.assistant.app.dvr\n\nimport android.app.NotificationChannel\nimport android.app.NotificationManager\nimport android.app.Service\nimport android.content.Context\nimport android.content.Intent\nimport android.content.pm.ServiceInfo\nimport android.os.Build\nimport android.os.Handler\nimport android.os.HandlerThread\nimport android.os.IBinder\nimport android.os.Process\nimport androidx.core.app.NotificationCompat\nimport androidx.core.app.ServiceCompat\nimport java.nio.ByteBuffer\n\nclass DvrProjectionService : Service() {\n    private var dvrThread: HandlerThread? = null\n    private var dvrHandler: Handler? = null\n    private var videoBuffer: ByteBuffer? = null\n    private val BUFFER_CAPACITY = 16 * 1024 * 1024\n\n    override fun onCreate() {\n        super.onCreate()\n        dvrThread = HandlerThread("DvrIOLoop", Process.THREAD_PRIORITY_VIDEO).apply {\n            start()\n            dvrHandler = Handler(looper) \n        }\n        videoBuffer = ByteBuffer.allocateDirect(BUFFER_CAPACITY)\n    }\n\n    override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {\n        val channelId = "dvr_service_channel"\n        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {\n            val channel = NotificationChannel(channelId, "DVR Service", NotificationManager.IMPORTANCE_LOW)\n            val manager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager\n            manager.createNotificationChannel(channel)\n        }\n        val notification = NotificationCompat.Builder(this, channelId)\n            .setContentTitle("Hybrid Coach DVR")\n            .setContentText("Recording in background")\n            .setSmallIcon(android.R.drawable.ic_menu_camera)\n            .build()\n        ServiceCompat.startForeground(\n            this,\n            1001,\n            notification,\n            ServiceInfo.FOREGROUND_SERVICE_TYPE_MEDIA_PROJECTION\n        )\n        dvrHandler?.post { executeRollingRecord() }\n        return START_STICKY\n    }\n\n    private fun executeRollingRecord() {}\n\n    override fun onBind(intent: Intent?): IBinder? = null\n\n    o verride fun onDestroy() {\n        dvrThread?.quitSafely()\n        videoBuffer?.clear()\n        super.onDestroy()\n    }\n}' > app/src/main/java/com/assistant/app/dvr/DvrProjectionService.kt && ./gradlew clean :app:assembleDebug :adapter_lmk:assembleDebug --parallel --build-cache -Pandroid.overridePathCheck=true
 [?2004l
 > Configure project :adapter_input
 WARNING: The option setting 'android.overridePathCheck=true' is experimental.
 The current default is 'false'.
+WARNING: We recommend using a newer Android Gradle plugin to use compileSdk = 36
 
-FAILURE: Build failed with an exception.
+This Android Gradle plugin (8.2.2) was tested up to compileSdk = 34.
 
-* What went wrong:
-Cannot locate tasks that match ':adapter-lmk:assembleDebug' as project 'adapter-lmk' not found in root project 'SplendorAssistEngine'. Some candidates are: 'adapter_lmk'.
+You are strongly encouraged to update your project to use a newer
+Android Gradle plugin that has been tested with compileSdk = 36.
 
-* Try:
-> Run gradlew projects to get a list of available projects.
-> For more on name expansion, please refer to https://docs.gradle.org/8.5/userguide/command_line_interface.html#sec:name_abbreviation in the Gradle documentation.
-> Run with --stacktrace option to get the stack trace.
-> Run with --info or --debug option to get more log output.
-> Run with --scan to get full insights.
-> Get more help at https://help.gradle.org.
+If you are already using the latest version of the Android Gradle plugin,
+you may need to wait until a newer version with support for compileSdk = 36 is available.
 
-BUILD FAILED in 775ms
+To suppress this warning, add/update
+    android.suppressUnsupportedCompileSdk=36
+to this project's gradle.properties.
+
+> Task :adapter_sync:clean
+> Task :adapter_net:clean
+> Task :adapter_input:clean
+> Task :app:clean
+> Task :app:preBuild UP-TO-DATE
+> Task :app:preDebugBuild UP-TO-DATE
+> Task :app:mergeDebugNativeDebugMetadata NO-SOURCE
+> Task :app:checkKotlinGradlePluginConfigurationErrors
+> Task :adapter_lmk:clean
+> Task :adapter_lmk:preBuild UP-TO-DATE
+> Task :adapter_lmk:preDebugBuild UP-TO-DATE
+> Task :adapter_lmk:mergeDebugNativeDebugMetadata NO-SOURCE
+> Task :adapter_lmk:checkKotlinGradlePluginConfigurationErrors
+> Task :adapter_lmk:checkDebugAarMetadata
+> Task :adapter_lmk:generateDebugResValues FROM-CACHE
+> Task :app:generateDebugResValues FROM-CACHE
+> Task :app:checkDebugAarMetadata
+> Task :adapter_lmk:mapDebugSourceSetPaths
+> Task :adapter_lmk:generateDebugResources UP-TO-DATE
+> Task :app:mapDebugSourceSetPaths
+> Task :app:generateDebugResources UP-TO-DATE
+> Task :adapter_lmk:mergeDebugResources FROM-CACHE
+> Task :adapter_lmk:packageDebugResources FROM-CACHE
+> Task :adapter_lmk:parseDebugLocalResources FROM-CACHE
+> Task :adapter_lmk:createDebugCompatibleScreenManifests
+> Task :adapter_lmk:extractDeepLinksDebug FROM-CACHE
+> Task :adapter_lmk:processDebugMainManifest FROM-CACHE
+> Task :adapter_lmk:processDebugManifest FROM-CACHE
+> Task :adapter_lmk:processDebugManifestForPackage FROM-CACHE
+> Task :app:mergeDebugResources FROM-CACHE
+> Task :adapter_lmk:processDebugResources FROM-CACHE
+> Task :app:packageDebugResources FROM-CACHE
+> Task :app:parseDebugLocalResources FROM-CACHE
+> Task :app:createDebugCompatibleScreenManifests
+> Task :app:extractDeepLinksDebug FROM-CACHE
+> Task :app:processDebugMainManifest FROM-CACHE
+> Task :app:processDebugManifest FROM-CACHE
+> Task :app:processDebugManifestForPackage FROM-CACHE
+> Task :adapter_lmk:compileDebugKotlin FROM-CACHE
+> Task :adapter_lmk:javaPreCompileDebug FROM-CACHE
+> Task :adapter_lmk:compileDebugJavaWithJavac NO-SOURCE
+> Task :adapter_lmk:mergeDebugShaders FROM-CACHE
+> Task :adapter_lmk:compileDebugShaders NO-SOURCE
+> Task :adapter_lmk:generateDebugAssets UP-TO-DATE
+> Task :adapter_lmk:mergeDebugAssets FROM-CACHE
+> Task :adapter_lmk:compressDebugAssets FROM-CACHE
+> Task :adapter_lmk:desugarDebugFileDependencies FROM-CACHE
+> Task :adapter_lmk:dexBuilderDebug FROM-CACHE
+> Task :app:processDebugResources FROM-CACHE
+> Task :adapter_lmk:mergeDebugGlobalSynthetics FROM-CACHE
+> Task :adapter_lmk:processDebugJavaRes
+> Task :app:javaPreCompileDebug FROM-CACHE
+> Task :app:mergeDebugShaders FROM-CACHE
+> Task :app:compileDebugShaders NO-SOURCE
+> Task :app:generateDebugAssets UP-TO-DATE
+> Task :app:mergeDebugAssets FROM-CACHE
+> Task :adapter_lmk:mergeDebugJniLibFolders FROM-CACHE
+> Task :adapter_lmk:mergeDebugNativeLibs NO-SOURCE
+> Task :adapter_lmk:stripDebugDebugSymbols NO-SOURCE
+> Task :adapter_lmk:checkDebugDuplicateClasses
+> Task :app:compressDebugAssets FROM-CACHE
+> Task :app:mergeDebugArtProfile
+> Task :app:checkDebugDuplicateClasses
+> Task :adapter_lmk:validateSigningDebug
+> Task :app:extractProguardFiles
+> Task :adapter_lmk:mergeExtDexDebug FROM-CACHE
+> Task :adapter_lmk:mergeLibDexDebug FROM-CACHE
+> Task :adapter_lmk:mergeProjectDexDebug FROM-CACHE
+> Task :adapter_lmk:writeDebugAppMetadata
+> Task :adapter_lmk:writeDebugSigningConfigVersions
+> Task :app:processApplicationManifestDebugForBundle
+> Task :app:bundleDebugResources FROM-CACHE
+> Task :app:mergeDebugJniLibFolders FROM-CACHE
+> Task :app:validateSigningDebug
+> Task :app:writeDebugAppMetadata
+> Task :app:writeDebugSigningConfigVersions
+> Task :adapter_lmk:mergeDebugJavaResource
+> Task :app:mergeDebugNativeLibs
+
+> Task :app:stripDebugDebugSymbols
+Unable to strip the following libraries, packaging them as they are: libmlkit_google_ocr_pipeline.so.
+
+> Task :adapter_lmk:packageDebug
+> Task :adapter_lmk:createDebugApkListingFileRedirect
+> Task :adapter_lmk:assembleDebug
+
+> Task :app:compileDebugKotlin
+w: file:///home/user/efootball-assistant/app/src/main/java/com/assistant/DiagnosticsEngine.kt:53:26 Parameter 'context' is never used
+w: file:///home/user/efootball-assistant/app/src/main/java/com/assistant/OtaGatewayEngine.kt:102:21 Variable 'checkUrl' is never used
+w: file:///home/user/efootball-assistant/app/src/main/java/com/assistant/OverlayService.kt:151:149 'TYPE_PHONE: Int' is deprecated. Deprecated in Java
+w: file:///home/user/efootball-assistant/app/src/main/java/com/assistant/OverlayService.kt:174:23 'getter for defaultDisplay: Display!' is deprecated. Deprecated in Java
+w: file:///home/user/efootball-assistant/app/src/main/java/com/assistant/OverlayService.kt:174:38 'getRealMetrics(DisplayMetrics!): Unit' is deprecated. Deprecated in Java
+w: file:///home/user/efootball-assistant/app/src/main/java/com/assistant/WelcomeActivity.kt:99:13 'overridePendingTransition(Int, Int): Unit' is deprecated. Deprecated in Java
+
+> Task :app:compileDebugJavaWithJavac NO-SOURCE
+> Task :app:mergeDebugGeneratedProguardFiles UP-TO-DATE
+> Task :app:processDebugJavaRes
+> Task :app:mergeDebugJavaResource
+> Task :app:expandDebugArtProfileWildcards
+> Task :app:minifyDebugWithR8
+> Task :app:shrinkDebugRes
+> Task :app:packageDebug
+> Task :app:createDebugApkListingFileRedirect
+> Task :app:assembleDebug
+
+BUILD SUCCESSFUL in 52s
+75 actionable tasks: 38 executed, 36 from cache, 1 up-to-date
 bash: __vsc_prompt_cmd_original: command not found
-[?2004h]0;user@firebase-efootball-assistant-1779975046441: ~/efootball-assistant[00;35mefootball-assistant-00995228[00m:[01;34m~/efootball-assistant[00m[01;32m{main}[00m$ exit [A
+[?2004h]0;user@firebase-efootball-assistant-1779975046441: ~/efootball-assistant[00;35mefootball-assistant-00995228[00m:[01;34m~/efootball-assistant[00m[01;32m{main}[00m$ adb install -r -d app/build/outputs/apk/debug/app-debug.apk
+[?2004ladb is not installed, but available in package android-tools, press [Enter] to run it, Ctrl+C to cancel.
+these 6 paths will be fetched (6.63 MiB download, 38.16 MiB unpacked):
+  /nix/store/3j9kmkqjzmv8nzwal713z20qm8pg0ylp-abseil-cpp-20240116.2
+  /nix/store/hlfly8k0wsh2b5r9g7cyflkkd20cbffm-android-tools-35.0.1
+  /nix/store/76a4wzlz2iydzin9w6ag5m7nldjpv3pm-gtest-1.14.0
+  /nix/store/2abn91wajq4jxl37dymvsh8hg6xg9kw0-protobuf-24.4
+  /nix/store/a39gbfhml6a9sib8s0lhp3bv8pnx9kz2-python3-3.11.10-env
+  /nix/store/dsy343vfb36dfgc4x0q9f1z60dmxk4c0-python3.11-protobuf-4.24.4
+copying path '/nix/store/76a4wzlz2iydzin9w6ag5m7nldjpv3pm-gtest-1.14.0' from 'https://cache.nixos.org' to 'local-overlay://'...
+copying path '/nix/store/3j9kmkqjzmv8nzwal713z20qm8pg0ylp-abseil-cpp-20240116.2' from 'https://cache.nixos.org' to 'local-overlay://'...
+copying path '/nix/store/2abn91wajq4jxl37dymvsh8hg6xg9kw0-protobuf-24.4' from 'https://cache.nixos.org' to 'local-overlay://'...
+copying path '/nix/store/dsy343vfb36dfgc4x0q9f1z60dmxk4c0-python3.11-protobuf-4.24.4' from 'https://cache.nixos.org' to 'local-overlay://'...
+copying path '/nix/store/a39gbfhml6a9sib8s0lhp3bv8pnx9kz2-python3-3.11.10-env' from 'https://cache.nixos.org' to 'local-overlay://'...
+copying path '/nix/store/hlfly8k0wsh2b5r9g7cyflkkd20cbffm-android-tools-35.0.1' from 'https://cache.nixos.org' to 'local-overlay://'...
+* daemon not running; starting now at tcp:5037
+* daemon started successfully
+adb: no devices/emulators found
+To permanently add this package to your environment, please add [1;92mpkgs.android-tools[m to the list of packages in your dev.nix file, then rebuild your environment
+bash: __vsc_prompt_cmd_original: command not found
+[?2004h]0;user@firebase-efootball-assistant-1779975046441: ~/efootball-assistant[00;35mefootball-assistant-00995228[00m:[01;34m~/efootball-assistant[00m[01;32m{main}[00m$ adb install -r -d app/build/outputs/apk/debug/app-debug.apk
+[?2004ladb is not installed, but available in package android-tools, press [Enter] to run it, Ctrl+C to cancel.
+adb: no devices/emulators found
+To permanently add this package to your environment, please add [1;92mpkgs.android-tools[m to the list of packages in your dev.nix file, then rebuild your environment
+bash: __vsc_prompt_cmd_original: command not found
+[?2004h]0;user@firebase-efootball-assistant-1779975046441: ~/efootball-assistant[00;35mefootball-assistant-00995228[00m:[01;34m~/efootball-assistant[00m[01;32m{main}[00m$ adb shell dumpsys deviceidle whitelist +com.assistant.app
+[?2004l PROJECT_MEDIA allowadb is not installed, but available in package android-tools, press [Enter] to run it, Ctrl+C to cancel.
+adb: no devices/emulators found
+To permanently add this package to your environment, please add [1;92mpkgs.android-tools[m to the list of packages in your dev.nix file, then rebuild your environment
+bash: __vsc_prompt_cmd_original: command not found
+[?2004h]0;user@firebase-efootball-assistant-1779975046441: ~/efootball-assistant[00;35mefootball-assistant-00995228[00m:[01;34m~/efootball-assistant[00m[01;32m{main}[00m$ adb shell am start-foreground-service -n com.assistant.app/.dvr.DvrProjectionService
+[?2004ladb is not installed, but available in package android-tools, press [Enter] to run it, Ctrl+C to cancel.
+adb: no devices/emulators found
+To permanently add this package to your environment, please add [1;92mpkgs.android-tools[m to the list of packages in your dev.nix file, then rebuild your environment
+bash: __vsc_prompt_cmd_original: command not found
+[?2004h]0;user@firebase-efootball-assistant-1779975046441: ~/efootball-assistant[00;35mefootball-assistant-00995228[00m:[01;34m~/efootball-assistant[00m[01;32m{main}[00m$ exit
 [?2004lexit
+
+Script done on 2026-06-04 02:53:09+00:00 [COMMAND_EXIT_CODE="0"]
