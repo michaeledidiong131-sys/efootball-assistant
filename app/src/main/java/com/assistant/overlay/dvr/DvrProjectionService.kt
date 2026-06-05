@@ -1,3 +1,12 @@
+// =======================================
+// 🔒 [SECURITY GUARD LOCK ACTIVE]
+// MODULE: Hybrid Coach DVR (DvrProjectionService)
+// CONTEXT: Android 16 / HyperOS 3 (4GB RAM) Constraint
+// ARCHITECTURE: 16MB Off-Heap ByteBuffer Ring (GC Thrash Prevention)
+// LMK EVASION: FOREGROUND_SERVICE_TYPE_MEDIA_PROJECTION (API 36)
+// INSTRUCTION: DO NOT OVERWRITE. DO NOT ALTER BUFFER CAPACITY. USE APPEND OR SURGICAL SED ONLY.
+// =======================================
+
 package com.assistant.overlay.dvr
 
 import android.app.NotificationChannel
