@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.assistant.overlay.app-mergeDebugResources-30:/values-az/values-az.xml",
+            "outputFile": "com.assistant.overlay.app-mergeDebugResources-31:/values-az/values-az.xml",
             "map": [
                 {
                     "source": "/home/user/.gradle/caches/transforms-3/249693e3478f09a80ded5a4e55d904c3/transformed/play-services-base-18.5.0/res/values-az/values.xml",

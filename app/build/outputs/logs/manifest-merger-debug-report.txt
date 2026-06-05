@@ -13,6 +13,7 @@ INJECTED from /home/user/efootball-assistant/app/src/debug/AndroidManifest.xml:2
 INJECTED from /home/user/efootball-assistant/app/src/debug/AndroidManifest.xml:2:1-6:12
 MERGED from [androidx.room:room-runtime:2.6.1] /home/user/.gradle/caches/transforms-3/c363904246bbe96b7f2bb0f97c333860/transformed/room-runtime-2.6.1/AndroidManifest.xml:17:1-31:12
 MERGED from [androidx.room:room-ktx:2.6.1] /home/user/.gradle/caches/transforms-3/0fd743b5a7d1501e5d43ef78ac27f78a/transformed/room-ktx-2.6.1/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] /home/user/.gradle/caches/transforms-3/488aad099d5ebc6b5042a6b3b7d174ef/transformed/constraintlayout-2.1.4/AndroidManifest.xml:2:1-11:12
 MERGED from [com.google.mlkit:text-recognition:16.0.1] /home/user/.gradle/caches/transforms-3/d1766399e94044580378e782c2407bf4/transformed/text-recognition-16.0.1/AndroidManifest.xml:2:1-7:12
 MERGED from [com.google.android.gms:play-services-mlkit-text-recognition:19.0.1] /home/user/.gradle/caches/transforms-3/6ee6c6fa1399b4b5973c325cb913b6e2/transformed/play-services-mlkit-text-recognition-19.0.1/AndroidManifest.xml:2:1-8:12
 MERGED from [com.google.mlkit:text-recognition-bundled-common:17.0.0] /home/user/.gradle/caches/transforms-3/3860684bbf32387a8951e7caac79a9b4/transformed/text-recognition-bundled-common-17.0.0/AndroidManifest.xml:2:1-7:12
@@ -123,6 +124,8 @@ MERGED from /home/user/efootball-assistant/app/src/main/AndroidManifest.xml:14:5
 MERGED from /home/user/efootball-assistant/app/src/main/AndroidManifest.xml:14:5-69:19
 MERGED from [androidx.room:room-runtime:2.6.1] /home/user/.gradle/caches/transforms-3/c363904246bbe96b7f2bb0f97c333860/transformed/room-runtime-2.6.1/AndroidManifest.xml:23:5-29:19
 MERGED from [androidx.room:room-runtime:2.6.1] /home/user/.gradle/caches/transforms-3/c363904246bbe96b7f2bb0f97c333860/transformed/room-runtime-2.6.1/AndroidManifest.xml:23:5-29:19
+MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] /home/user/.gradle/caches/transforms-3/488aad099d5ebc6b5042a6b3b7d174ef/transformed/constraintlayout-2.1.4/AndroidManifest.xml:9:5-20
+MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] /home/user/.gradle/caches/transforms-3/488aad099d5ebc6b5042a6b3b7d174ef/transformed/constraintlayout-2.1.4/AndroidManifest.xml:9:5-20
 MERGED from [com.google.android.gms:play-services-mlkit-text-recognition-common:19.1.0] /home/user/.gradle/caches/transforms-3/3c8ca62c5780521ab3db4f1c92809907/transformed/play-services-mlkit-text-recognition-common-19.1.0/AndroidManifest.xml:8:5-16:19
 MERGED from [com.google.android.gms:play-services-mlkit-text-recognition-common:19.1.0] /home/user/.gradle/caches/transforms-3/3c8ca62c5780521ab3db4f1c92809907/transformed/play-services-mlkit-text-recognition-common-19.1.0/AndroidManifest.xml:8:5-16:19
 MERGED from [com.google.mlkit:vision-common:17.3.0] /home/user/.gradle/caches/transforms-3/5d203113b4d3573810332f61fcf85d30/transformed/vision-common-17.3.0/AndroidManifest.xml:8:5-16:19
@@ -262,6 +265,8 @@ MERGED from [androidx.room:room-runtime:2.6.1] /home/user/.gradle/caches/transfo
 MERGED from [androidx.room:room-runtime:2.6.1] /home/user/.gradle/caches/transforms-3/c363904246bbe96b7f2bb0f97c333860/transformed/room-runtime-2.6.1/AndroidManifest.xml:21:5-44
 MERGED from [androidx.room:room-ktx:2.6.1] /home/user/.gradle/caches/transforms-3/0fd743b5a7d1501e5d43ef78ac27f78a/transformed/room-ktx-2.6.1/AndroidManifest.xml:20:5-44
 MERGED from [androidx.room:room-ktx:2.6.1] /home/user/.gradle/caches/transforms-3/0fd743b5a7d1501e5d43ef78ac27f78a/transformed/room-ktx-2.6.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] /home/user/.gradle/caches/transforms-3/488aad099d5ebc6b5042a6b3b7d174ef/transformed/constraintlayout-2.1.4/AndroidManifest.xml:5:5-7:41
+MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] /home/user/.gradle/caches/transforms-3/488aad099d5ebc6b5042a6b3b7d174ef/transformed/constraintlayout-2.1.4/AndroidManifest.xml:5:5-7:41
 MERGED from [com.google.mlkit:text-recognition:16.0.1] /home/user/.gradle/caches/transforms-3/d1766399e94044580378e782c2407bf4/transformed/text-recognition-16.0.1/AndroidManifest.xml:5:5-44
 MERGED from [com.google.mlkit:text-recognition:16.0.1] /home/user/.gradle/caches/transforms-3/d1766399e94044580378e782c2407bf4/transformed/text-recognition-16.0.1/AndroidManifest.xml:5:5-44
 MERGED from [com.google.android.gms:play-services-mlkit-text-recognition:19.0.1] /home/user/.gradle/caches/transforms-3/6ee6c6fa1399b4b5973c325cb913b6e2/transformed/play-services-mlkit-text-recognition-19.0.1/AndroidManifest.xml:6:5-44

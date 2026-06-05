@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.assistant.overlay.app-mergeDebugResources-30:/values-zh-rTW/values-zh-rTW.xml",
+            "outputFile": "com.assistant.overlay.app-mergeDebugResources-31:/values-zh-rTW/values-zh-rTW.xml",
             "map": [
                 {
                     "source": "/home/user/.gradle/caches/transforms-3/9756fab58daf3b55028a539310104216/transformed/appcompat-1.6.1/res/values-zh-rTW/values-zh-rTW.xml",

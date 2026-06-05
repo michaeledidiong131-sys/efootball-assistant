@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.assistant.overlay.app-mergeDebugResources-30:/values-lo/values-lo.xml",
+            "outputFile": "com.assistant.overlay.app-mergeDebugResources-31:/values-lo/values-lo.xml",
             "map": [
                 {
                     "source": "/home/user/.gradle/caches/transforms-3/9756fab58daf3b55028a539310104216/transformed/appcompat-1.6.1/res/values-lo/values-lo.xml",
