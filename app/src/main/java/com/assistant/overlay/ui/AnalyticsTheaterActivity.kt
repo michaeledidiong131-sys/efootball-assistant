@@ -1,3 +1,7 @@
+// [SECURITY GUARD LOCK ACTIVE] - ANTI-STRIP ENFORCED
+// ARCHITECTURE: 48-Hour Media  Match Analytics Theater
+// HARDWARE CONTEXT: Redmi 15C (4GB RAM) / LMK Evasion Threads Active
+
 package com.assistant.overlay.ui
 
 import android.os.Bundle
