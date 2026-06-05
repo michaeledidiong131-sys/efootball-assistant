@@ -3,8 +3,8 @@
 # min_api: 26
 # common_typos_disable
 # {"id":"com.android.tools.r8.mapping","version":"2.2"}
-# pg_map_id: b18da95
-# pg_map_hash: SHA-256 b18da95f08908d95957795abb04b9795406362302560319524ec455d944a0b0b
+# pg_map_id: 6151416
+# pg_map_hash: SHA-256 6151416aa04a498848c93e3d521dc5ad0dae809fdb37703095a7c4ab1e5b097a
 android.app.AppComponentFactory -> android.app.AppComponentFactory:
 # {"id":"com.android.tools.r8.synthesized"}
 android.support.v4.app.RemoteActionCompatParcelizer -> android.support.v4.app.RemoteActionCompatParcelizer:
@@ -66277,23 +66277,23 @@ com.assistant.WelcomeActivity$onCreate$1 -> com.assistant.WelcomeActivity$onCrea
     36:36:void invoke() -> invoke
 com.assistant.overlay.database.MatchAnalyticsEntity -> com.assistant.overlay.database.MatchAnalyticsEntity:
 # {"id":"sourceFile","fileName":"MatchAnalyticsEntity.kt"}
-    6:6:void <init>(java.lang.String,long,long,java.lang.String,boolean,float,float,int,long,java.lang.String) -> <init>
-    7:7:void <init>(java.lang.String,long,long,java.lang.String,boolean,float,float,int,long,java.lang.String) -> <init>
-    8:8:void <init>(java.lang.String,long,long,java.lang.String,boolean,float,float,int,long,java.lang.String) -> <init>
-    9:9:void <init>(java.lang.String,long,long,java.lang.String,boolean,float,float,int,long,java.lang.String) -> <init>
     10:10:void <init>(java.lang.String,long,long,java.lang.String,boolean,float,float,int,long,java.lang.String) -> <init>
     11:11:void <init>(java.lang.String,long,long,java.lang.String,boolean,float,float,int,long,java.lang.String) -> <init>
     12:12:void <init>(java.lang.String,long,long,java.lang.String,boolean,float,float,int,long,java.lang.String) -> <init>
+    13:13:void <init>(java.lang.String,long,long,java.lang.String,boolean,float,float,int,long,java.lang.String) -> <init>
+    14:14:void <init>(java.lang.String,long,long,java.lang.String,boolean,float,float,int,long,java.lang.String) -> <init>
     15:15:void <init>(java.lang.String,long,long,java.lang.String,boolean,float,float,int,long,java.lang.String) -> <init>
     16:16:void <init>(java.lang.String,long,long,java.lang.String,boolean,float,float,int,long,java.lang.String) -> <init>
-    17:17:void <init>(java.lang.String,long,long,java.lang.String,boolean,float,float,int,long,java.lang.String) -> <init>
-    18:18:void <init>(java.lang.String,long,long,java.lang.String,boolean,float,float,int,long,java.lang.String) -> <init>
     19:19:void <init>(java.lang.String,long,long,java.lang.String,boolean,float,float,int,long,java.lang.String) -> <init>
+    20:20:void <init>(java.lang.String,long,long,java.lang.String,boolean,float,float,int,long,java.lang.String) -> <init>
+    21:21:void <init>(java.lang.String,long,long,java.lang.String,boolean,float,float,int,long,java.lang.String) -> <init>
+    22:22:void <init>(java.lang.String,long,long,java.lang.String,boolean,float,float,int,long,java.lang.String) -> <init>
+    23:23:void <init>(java.lang.String,long,long,java.lang.String,boolean,float,float,int,long,java.lang.String) -> <init>
     0:0:boolean equals(java.lang.Object) -> equals
-    11:11:java.lang.String getDvrVideoPath() -> getDvrVideoPath
-    8:8:java.lang.String getMatchId() -> getMatchId
+    15:15:java.lang.String getDvrVideoPath() -> getDvrVideoPath
+    12:12:java.lang.String getMatchId() -> getMatchId
     0:0:int hashCode() -> hashCode
-    12:12:boolean isPermanentlySaved() -> isPermanentlySaved
+    16:16:boolean isPermanentlySaved() -> isPermanentlySaved
     0:0:java.lang.String toString() -> toString
 com.assistant.overlay.database.TheaterCleanupReceiver -> com.assistant.overlay.database.TheaterCleanupReceiver:
 # {"id":"sourceFile","fileName":"TheaterCleanupReceiver.kt"}
@@ -66303,31 +66303,31 @@ com.assistant.overlay.database.TheaterCleanupReceiver -> com.assistant.overlay.d
       # {"id":"com.android.tools.r8.synthesized"}
     0:0:void $r8$lambda$cYLyvs7VMhlmiXDwYmZf0U3c6Q0(android.content.Context,android.content.BroadcastReceiver$PendingResult) -> $r8$lambda$cYLyvs7VMhlmiXDwYmZf0U3c6Q0
       # {"id":"com.android.tools.r8.synthesized"}
-    10:10:void <init>() -> <init>
-    13:13:void <init>() -> <init>
-    14:14:java.lang.Thread cleanupExecutor$lambda$2(java.lang.Runnable) -> cleanupExecutor$lambda$2
+    14:14:void <init>() -> <init>
+    17:17:void <init>() -> <init>
     18:18:java.lang.Thread cleanupExecutor$lambda$2(java.lang.Runnable) -> cleanupExecutor$lambda$2
-    49:49:java.lang.Thread cleanupExecutor$lambda$2(java.lang.Runnable) -> cleanupExecutor$lambda$2
-    16:16:void cleanupExecutor$lambda$2$lambda$0(java.lang.Runnable) -> cleanupExecutor$lambda$2$lambda$0
-    17:17:void cleanupExecutor$lambda$2$lambda$0(java.lang.Runnable) -> cleanupExecutor$lambda$2$lambda$0
-    18:18:java.lang.Thread cleanupExecutor$lambda$2(java.lang.Runnable) -> cleanupExecutor$lambda$2$lambda$0
-    18:18:void cleanupExecutor$lambda$2$lambda$0(java.lang.Runnable):18 -> cleanupExecutor$lambda$2$lambda$0
-    22:22:void onReceive(android.content.Context,android.content.Intent) -> onReceive
-    24:24:void onReceive(android.content.Context,android.content.Intent) -> onReceive
-    46:46:void onReceive(android.content.Context,android.content.Intent) -> onReceive
-    25:25:void onReceive$lambda$3(android.content.Context,android.content.BroadcastReceiver$PendingResult) -> onReceive$lambda$3
-    26:26:void onReceive$lambda$3(android.content.Context,android.content.BroadcastReceiver$PendingResult) -> onReceive$lambda$3
-    27:27:void onReceive$lambda$3(android.content.Context,android.content.BroadcastReceiver$PendingResult) -> onReceive$lambda$3
+    22:22:java.lang.Thread cleanupExecutor$lambda$2(java.lang.Runnable) -> cleanupExecutor$lambda$2
+    53:53:java.lang.Thread cleanupExecutor$lambda$2(java.lang.Runnable) -> cleanupExecutor$lambda$2
+    20:20:void cleanupExecutor$lambda$2$lambda$0(java.lang.Runnable) -> cleanupExecutor$lambda$2$lambda$0
+    21:21:void cleanupExecutor$lambda$2$lambda$0(java.lang.Runnable) -> cleanupExecutor$lambda$2$lambda$0
+    22:22:java.lang.Thread cleanupExecutor$lambda$2(java.lang.Runnable) -> cleanupExecutor$lambda$2$lambda$0
+    22:22:void cleanupExecutor$lambda$2$lambda$0(java.lang.Runnable):22 -> cleanupExecutor$lambda$2$lambda$0
+    26:26:void onReceive(android.content.Context,android.content.Intent) -> onReceive
+    28:28:void onReceive(android.content.Context,android.content.Intent) -> onReceive
+    50:50:void onReceive(android.content.Context,android.content.Intent) -> onReceive
+    29:29:void onReceive$lambda$3(android.content.Context,android.content.BroadcastReceiver$PendingResult) -> onReceive$lambda$3
     30:30:void onReceive$lambda$3(android.content.Context,android.content.BroadcastReceiver$PendingResult) -> onReceive$lambda$3
     31:31:void onReceive$lambda$3(android.content.Context,android.content.BroadcastReceiver$PendingResult) -> onReceive$lambda$3
-    33:33:void onReceive$lambda$3(android.content.Context,android.content.BroadcastReceiver$PendingResult) -> onReceive$lambda$3
     34:34:void onReceive$lambda$3(android.content.Context,android.content.BroadcastReceiver$PendingResult) -> onReceive$lambda$3
+    35:35:void onReceive$lambda$3(android.content.Context,android.content.BroadcastReceiver$PendingResult) -> onReceive$lambda$3
     37:37:void onReceive$lambda$3(android.content.Context,android.content.BroadcastReceiver$PendingResult) -> onReceive$lambda$3
     38:38:void onReceive$lambda$3(android.content.Context,android.content.BroadcastReceiver$PendingResult) -> onReceive$lambda$3
-    40:40:void onReceive$lambda$3(android.content.Context,android.content.BroadcastReceiver$PendingResult) -> onReceive$lambda$3
-    43:43:void onReceive$lambda$3(android.content.Context,android.content.BroadcastReceiver$PendingResult) -> onReceive$lambda$3
+    41:41:void onReceive$lambda$3(android.content.Context,android.content.BroadcastReceiver$PendingResult) -> onReceive$lambda$3
+    42:42:void onReceive$lambda$3(android.content.Context,android.content.BroadcastReceiver$PendingResult) -> onReceive$lambda$3
     44:44:void onReceive$lambda$3(android.content.Context,android.content.BroadcastReceiver$PendingResult) -> onReceive$lambda$3
-    45:45:void onReceive$lambda$3(android.content.Context,android.content.BroadcastReceiver$PendingResult) -> onReceive$lambda$3
+    47:47:void onReceive$lambda$3(android.content.Context,android.content.BroadcastReceiver$PendingResult) -> onReceive$lambda$3
+    48:48:void onReceive$lambda$3(android.content.Context,android.content.BroadcastReceiver$PendingResult) -> onReceive$lambda$3
+    49:49:void onReceive$lambda$3(android.content.Context,android.content.BroadcastReceiver$PendingResult) -> onReceive$lambda$3
 com.assistant.overlay.database.TheaterCleanupReceiver$$ExternalSyntheticLambda0 -> com.assistant.overlay.database.TheaterCleanupReceiver$$ExternalSyntheticLambda0:
 # {"id":"sourceFile","fileName":"R8$$SyntheticClass"}
 # {"id":"com.android.tools.r8.synthesized"}
@@ -66428,20 +66428,20 @@ com.assistant.overlay.database.TheaterDatabase -> com.assistant.overlay.database
       # {"id":"com.android.tools.r8.synthesized"}
     0:0:void $r8$lambda$Z3Q4j8mDNiYt3hRZF18BzV49iXU(java.lang.Runnable) -> $r8$lambda$Z3Q4j8mDNiYt3hRZF18BzV49iXU
       # {"id":"com.android.tools.r8.synthesized"}
-    19:19:void <clinit>() -> <clinit>
-    11:11:void <init>() -> <init>
-    10:10:void access$setINSTANCE$cp(com.assistant.overlay.database.TheaterDatabase) -> access$getINSTANCE$cp
-    10:10:com.assistant.overlay.database.TheaterDatabase access$getINSTANCE$cp():10 -> access$getINSTANCE$cp
-    10:10:void access$setINSTANCE$cp(com.assistant.overlay.database.TheaterDatabase) -> access$getLmkEvasionExecutor$cp
-    10:10:java.util.concurrent.ExecutorService access$getLmkEvasionExecutor$cp():10 -> access$getLmkEvasionExecutor$cp
-    10:10:void access$setINSTANCE$cp(com.assistant.overlay.database.TheaterDatabase) -> access$setINSTANCE$cp
-    20:20:java.lang.Thread lmkEvasionExecutor$lambda$2(java.lang.Runnable) -> lmkEvasionExecutor$lambda$2
+    23:23:void <clinit>() -> <clinit>
+    15:15:void <init>() -> <init>
+    14:14:void access$setINSTANCE$cp(com.assistant.overlay.database.TheaterDatabase) -> access$getINSTANCE$cp
+    14:14:com.assistant.overlay.database.TheaterDatabase access$getINSTANCE$cp():14 -> access$getINSTANCE$cp
+    14:14:void access$setINSTANCE$cp(com.assistant.overlay.database.TheaterDatabase) -> access$getLmkEvasionExecutor$cp
+    14:14:java.util.concurrent.ExecutorService access$getLmkEvasionExecutor$cp():14 -> access$getLmkEvasionExecutor$cp
+    14:14:void access$setINSTANCE$cp(com.assistant.overlay.database.TheaterDatabase) -> access$setINSTANCE$cp
     24:24:java.lang.Thread lmkEvasionExecutor$lambda$2(java.lang.Runnable) -> lmkEvasionExecutor$lambda$2
-    44:44:java.lang.Thread lmkEvasionExecutor$lambda$2(java.lang.Runnable) -> lmkEvasionExecutor$lambda$2
-    22:22:void lmkEvasionExecutor$lambda$2$lambda$0(java.lang.Runnable) -> lmkEvasionExecutor$lambda$2$lambda$0
-    23:23:void lmkEvasionExecutor$lambda$2$lambda$0(java.lang.Runnable) -> lmkEvasionExecutor$lambda$2$lambda$0
-    24:24:java.lang.Thread lmkEvasionExecutor$lambda$2(java.lang.Runnable) -> lmkEvasionExecutor$lambda$2$lambda$0
-    24:24:void lmkEvasionExecutor$lambda$2$lambda$0(java.lang.Runnable):24 -> lmkEvasionExecutor$lambda$2$lambda$0
+    28:28:java.lang.Thread lmkEvasionExecutor$lambda$2(java.lang.Runnable) -> lmkEvasionExecutor$lambda$2
+    48:48:java.lang.Thread lmkEvasionExecutor$lambda$2(java.lang.Runnable) -> lmkEvasionExecutor$lambda$2
+    26:26:void lmkEvasionExecutor$lambda$2$lambda$0(java.lang.Runnable) -> lmkEvasionExecutor$lambda$2$lambda$0
+    27:27:void lmkEvasionExecutor$lambda$2$lambda$0(java.lang.Runnable) -> lmkEvasionExecutor$lambda$2$lambda$0
+    28:28:java.lang.Thread lmkEvasionExecutor$lambda$2(java.lang.Runnable) -> lmkEvasionExecutor$lambda$2$lambda$0
+    28:28:void lmkEvasionExecutor$lambda$2$lambda$0(java.lang.Runnable):28 -> lmkEvasionExecutor$lambda$2$lambda$0
 com.assistant.overlay.database.TheaterDatabase$$ExternalSyntheticLambda0 -> com.assistant.overlay.database.TheaterDatabase$$ExternalSyntheticLambda0:
 # {"id":"sourceFile","fileName":"R8$$SyntheticClass"}
 # {"id":"com.android.tools.r8.synthesized"}
@@ -66461,16 +66461,16 @@ com.assistant.overlay.database.TheaterDatabase$$ExternalSyntheticLambda1 -> com.
 com.assistant.overlay.database.TheaterDatabase$Companion -> com.assistant.overlay.database.TheaterDatabase$Companion:
 # {"id":"sourceFile","fileName":"TheaterDatabase.kt"}
     0:0:void <init>(kotlin.jvm.internal.DefaultConstructorMarker) -> <init>
-    14:14:void <init>() -> <init>
-    28:28:com.assistant.overlay.database.TheaterDatabase getDatabase(android.content.Context) -> getDatabase
-    29:29:com.assistant.overlay.database.TheaterDatabase getDatabase(android.content.Context) -> getDatabase
-    30:30:com.assistant.overlay.database.TheaterDatabase getDatabase(android.content.Context) -> getDatabase
+    18:18:void <init>() -> <init>
     32:32:com.assistant.overlay.database.TheaterDatabase getDatabase(android.content.Context) -> getDatabase
+    33:33:com.assistant.overlay.database.TheaterDatabase getDatabase(android.content.Context) -> getDatabase
     34:34:com.assistant.overlay.database.TheaterDatabase getDatabase(android.content.Context) -> getDatabase
-    35:35:com.assistant.overlay.database.TheaterDatabase getDatabase(android.content.Context) -> getDatabase
     36:36:com.assistant.overlay.database.TheaterDatabase getDatabase(android.content.Context) -> getDatabase
-    37:37:com.assistant.overlay.database.TheaterDatabase getDatabase(android.content.Context) -> getDatabase
     38:38:com.assistant.overlay.database.TheaterDatabase getDatabase(android.content.Context) -> getDatabase
+    39:39:com.assistant.overlay.database.TheaterDatabase getDatabase(android.content.Context) -> getDatabase
+    40:40:com.assistant.overlay.database.TheaterDatabase getDatabase(android.content.Context) -> getDatabase
+    41:41:com.assistant.overlay.database.TheaterDatabase getDatabase(android.content.Context) -> getDatabase
+    42:42:com.assistant.overlay.database.TheaterDatabase getDatabase(android.content.Context) -> getDatabase
 com.assistant.overlay.database.TheaterDatabase_Impl -> com.assistant.overlay.database.TheaterDatabase_Impl:
 # {"id":"sourceFile","fileName":"TheaterDatabase_Impl.java"}
     28:28:void <init>() -> <init>
