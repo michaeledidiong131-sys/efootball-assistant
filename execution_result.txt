@@ -1,71 +1,89 @@
-Script started on 2026-06-05 04:47:41+00:00 [TERM="xterm-256color" TTY="/dev/pts/0" COLUMNS="34" LINES="8"]
+Script started on 2026-06-05 05:17:24+00:00 [TERM="xterm-256color" TTY="/dev/pts/1" COLUMNS="34" LINES="23"]
 bash: __vsc_prompt_cmd_original: command not found
-[?2004h]0;user@firebase-efootball-assistant-1779975046441: ~/efootball-assistant[00;35mefootball-assistant-00995228[00m:[01;34m~/efootball-assistant[00m[01;32m{main}[00m$ echo "=== GENERATING DAEMON: AUTO-DELETE SCRIPT ==="
-[?2004l=== GENERATING DAEMON: AUTO-DELETE SCRIPT ===
-/overlay/database/TheaterCleanupReceiver.kt
-package com.assistant.overlay.database
+[?2004h]0;user@firebase-efootball-assistant-1779975046441: ~/efootball-assistant[00;35mefootball-assistant-00995228[00m:[01;34m~/efootball-assistant[00m[01;32m{main}[00m$ echo "=== 1. GENERATING ADAPTER APK PAYLOAD ==="
+[?2004l=== 1. GENERATING ADAPTER APK PAYLOAD ===
+/gradlew :app:assembleDebug
 
-import android.content.BroadcastReceiver
-import android.content.Context
-import android.content.Intent
-import android.os.Process
-import java.io.File
-import java.util.concurrent.Executors
+echo "=== 2. LOCATING APK ARTIFACT FOR DOWNLOAD ==="
+find app/build/outputs/apk/debug -name "*.apk" | xargs -I {} ls -lh {}bash: __vsc_prompt_cmd_original: command not found
+[?2004h]0;user@firebase-efootball-assistant-1779975046441: ~/efootball-assistant[00;35mefootball-assistant-00995228[00m:[01;34m~/efootball-assistant[00m[01;32m{main}[00m$ ./gradlew :app:assembleDebug
+[?2004l> Task :app:preBuild UP-TO-DATE
+> Task :app:preDebugBuild UP-TO-DATE
+> Task :app:mergeDebugNativeDebugMetadata NO-SOURCE
+> Task :app:checkKotlinGradlePluginConfigurationErrors
+> Task :app:checkDebugAarMetadata UP-TO-DATE
+> Task :app:generateDebugResValues UP-TO-DATE
+> Task :app:mapDebugSourceSetPaths UP-TO-DATE
+> Task :app:generateDebugResources UP-TO-DATE
+> Task :app:mergeDebugResources UP-TO-DATE
+> Task :app:packageDebugResources UP-TO-DATE
+> Task :app:parseDebugLocalResources UP-TO-DATE
+> Task :app:createDebugCompatibleScreenManifests UP-TO-DATE
+> Task :app:extractDeepLinksDebug UP-TO-DATE
+> Task :app:processDebugMainManifest UP-TO-DATE
+> Task :app:processDebugManifest UP-TO-DATE
+> Task :app:processDebugManifestForPackage UP-TO-DATE
+> Task :app:javaPreCompileDebug UP-TO-DATE
+> Task :app:mergeDebugShaders UP-TO-DATE
+> Task :app:compileDebugShaders NO-SOURCE
+> Task :app:generateDebugAssets UP-TO-DATE
+> Task :app:mergeDebugAssets UP-TO-DATE
+> Task :app:compressDebugAssets UP-TO-DATE
+> Task :app:checkDebugDuplicateClasses UP-TO-DATE
+> Task :app:mergeDebugArtProfile UP-TO-DATE
+> Task :app:extractProguardFiles UP-TO-DATE
+> Task :app:processApplicationManifestDebugForBundle UP-TO-DATE
+> Task :app:mergeDebugJniLibFolders UP-TO-DATE
+> Task :app:mergeDebugNativeLibs UP-TO-DATE
+> Task :app:stripDebugDebugSymbols UP-TO-DATE
+> Task :app:validateSigningDebug UP-TO-DATE
+> Task :app:writeDebugAppMetadata UP-TO-DATE
+> Task :app:writeDebugSigningConfigVersions UP-TO-DATE
+> Task :app:processDebugResources FAILED
 
-class TheaterCleanupReceiver : BroadcastReceiver() {
-    
-    // Explicit low-priority executor to evade HyperOS lmkd during I/O operations
-    private val cleanupExecutor = Executors.newSingleThreadExecutor { runnable ->
-        Thread {
-            // Drops priority natively to protect the locked 16MB DVR Projection Buffer
-            Process.setThreadPriority(Process.THREADbash: __vsc_prompt_cmd_original: command not found
-_PRIORITY_BACKGROUND)
-            runnable.run()
-        }.apply { name = "Theater_Cleanup_Daemon" }[?2004h]0;user@firebase-efootball-assistant-1779975046441: ~/efootball-assistant[00;35mefootball-assistant-00995228[00m:[01;34m~/efootball-assistant[00m[01;32m{main}[00m$ 
-[?2004l
-    }
+FAILURE: Build failed with an exception.
 
-    override fun onReceive(context: Context, intent: Intent) {
-        val pendingResult = goAsync()
-        
-        cleanupExecutor.execute {
-            try {
-                val db = TheaterDatabase.getDatabase(context)
-                val dao = db.theaterDao()
-                
-                // 48 hours in milliseconds = 172,800,000L
-                val expirationEpoch = System.currebash: __vsc_prompt_cmd_original: command not found
-ntTimeMillis() - 172800000L
-                val ex[?2004h]0;user@firebase-efootball-assistant-1779975046441: ~/efootball-assistant[00;35mefootball-assistant-00995228[00m:[01;34m~/efootball-assistant[00m[01;32m{main}[00m$ cat << 'EOF' > app/src/main/java/com/assistant/overlay/database/TheaterCleanupReceiver.kt
-[?2004l[?2004h> package com.assistant.overlay.database
-[?2004l[?2004h> 
-[?2004l[?2004h> import android.content.BroadcastReceiver
-[?2004l[?2004h> import android.content.Context
-[?2004l[?2004h> import android.content.Intent
-[?2004l[?2004h> import android.os.Process
-[?2004l[?2004h> import java.io.File
-[?2004l[?2004h> import java.util.concurrent.Executors
-[?2004l[?2004h> 
-[?2004l[?2004h> class TheaterCleanupReceiver : BroadcastReceiver() {
-[?2004l[?2004h>     
-[?2004l[?2004h>     // Explicit low-priority executor to evade HyperOS lmkd during I/O operations
-[?2004l[?2004h>     private val cleanupExecutor = Executors.newSingleThreadExecutor { runnable ->
-[?2004l[?2004h>         Thread {
-[?2004l[?2004h>             // Drops priority natively to protect the locked 16MB DVR Projection Buffer
-[?2004l[?2004h>             Process.setThreadPriority(Process.THREAD_PRIORITY_BACKGROUND)
-[?2004l[?2004h>             runnable.run()
-[?2004l[?2004h>         }.apply { name = "Theater_Cleanup_Daemon" }
-[?2004l[?2004h>     }
-[?2004l[?2004h> 
-[?2004l[?2004h>     override fun onReceive(context: Context, intent: Intent) {
-[?2004l[?2004h>         val pendingResult = goAsync()
-[?2004l[?2004h>         
-[?2004l[?2004h>         cleanupExecutor.execute {
-[?2004l[?2004h>             try {
-[?2004l[?2004h>                 val db = TheaterDatabase.getDatabase(context)
-[?2004l[?2004h>                 val dao = db.theaterDao()
-[?2004l[?2004h>                 
-[?2004l[?2004h>                 // 48 hours in milliseconds = 172,800,000L
-[?2004l[?2004h>                 val expirationEpoch = System.currentTimeMillis() - 172800000L
-[?2004l[?2004h>                 val expiredMatches = dao.getExpiredMatchesForDeletion(expirationEpoch)
-[?2004l
+* What went wrong:
+Execution failed for task ':app:processDebugResources'.
+> A failure occurred while executing com.android.build.gradle.internal.res.LinkApplicationAndroidResourcesTask$TaskAction
+   > Android resource linking failed
+     ERROR: /home/user/efootball-assistant/app/src/main/res/layout/activity_analytics_theater.xml:17: AAPT: error: attribute layout_constraintTop_toTopOf (aka com.assistant.overlay:layout_constraintTop_toTopOf) not found.
+         
+     ERROR: /home/user/efootball-assistant/app/src/main/res/layout/activity_analytics_theater.xml:17: AAPT: error: attribute layout_constraintStart_toStartOf (aka com.assistant.overlay:layout_constraintStart_toStartOf) not found.
+         
+     ERROR: /home/user/efootball-assistant/app/src/main/res/layout/activity_analytics_theater.xml:17: AAPT: error: attribute layout_constraintEnd_toEndOf (aka com.assistant.overlay:layout_constraintEnd_toEndOf) not found.
+         
+     ERROR: /home/user/efootball-assistant/app/src/main/res/layout/activity_analytics_theater.xml:26: AAPT: error: attribute layout_constraintTop_toBottomOf (aka com.assistant.overlay:layout_constraintTop_toBottomOf) not found.
+         
+     ERROR: /home/user/efootball-assistant/app/src/main/res/layout/activity_analytics_theater.xml:56: AAPT: error: attribute layout_constraintStart_toStartOf (aka com.assistant.overlay:layout_constraintStart_toStartOf) not found.
+         
+     ERROR: /home/user/efootball-assistant/app/src/main/res/layout/activity_analytics_theater.xml:56: AAPT: error: attribute layout_constraintEnd_toEndOf (aka com.assistant.overlay:layout_constraintEnd_toEndOf) not found.
+         
+     ERROR: /home/user/efootball-assistant/app/src/main/res/layout/activity_analytics_theater.xml:56: AAPT: error: attribute layout_constraintBottom_toBottomOf (aka com.assistant.overlay:layout_constraintBottom_toBottomOf) not found.
+         
+     ERROR: /home/user/efootball-assistant/app/src/main/res/layout/activity_analytics_theater.xml:56: AAPT: error: attribute layout_constraintTop_toBottomOf (aka com.assistant.overlay:layout_constraintTop_toBottomOf) not found.
+         
+     ERROR: /home/user/efootball-assistant/app/src/main/res/layout/item_match_history.xml:19: AAPT: error: attribute layout_constraintTop_toTopOf (aka com.assistant.overlay:layout_constraintTop_toTopOf) not found.
+         
+     ERROR: /home/user/efootball-assistant/app/src/main/res/layout/item_match_history.xml:19: AAPT: error: attribute layout_constraintStart_toStartOf (aka com.assistant.overlay:layout_constraintStart_toStartOf) not found.
+         
+     ERROR: /home/user/efootball-assistant/app/src/main/res/layout/item_match_history.xml:28: AAPT: error: attribute layout_constraintStart_toStartOf (aka com.assistant.overlay:layout_constraintStart_toStartOf) not found.
+         
+     ERROR: /home/user/efootball-assistant/app/src/main/res/layout/item_match_history.xml:28: AAPT: error: attribute layout_constraintTop_toBottomOf (aka com.assistant.overlay:layout_constraintTop_toBottomOf) not found.
+         
+     ERROR: /home/user/efootball-assistant/app/src/main/res/layout/item_match_history.xml:37: AAPT: error: attribute layout_constraintTop_toBottomOf (aka com.assistant.overlay:layout_constraintTop_toBottomOf) not found.
+         
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights.
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 1s
+27 actionable tasks: 2 executed, 25 up-to-date
+bash: __vsc_prompt_cmd_original: command not found
+[?2004h]0;user@firebase-efootball-assistant-1779975046441: ~/efootball-assistant[00;35mefootball-assistant-00995228[00m:[01;34m~/efootball-assistant[00m[01;32m{main}[00m$ ext[K[Kxit
+[?2004lexit
+
+Script done on 2026-06-05 05:17:42+00:00 [COMMAND_EXIT_CODE="1"]
