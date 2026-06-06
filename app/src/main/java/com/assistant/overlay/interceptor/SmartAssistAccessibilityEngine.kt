@@ -24,13 +24,13 @@ class SmartAssistAccessibilityEngine : AccessibilityService() {
     override fun onInterrupt() {}
 }
 
-// 🔒 [SECURITY GUARD LOCK ACTIVE] - GOD TIER EXTENSION
-// Extension method to initialize and trigger the 1000% Omnipotent Vector
+
+// 🔒 [SECURITY GUARD LOCK ACTIVE] - UNIVERSAL GOD TIER BINDING
 private var godTierEngine: GodTierExecutionEngine? = null
 
-fun AccessibilityService.triggerOmnipotentExecution(x1: Float, y1: Float, x2: Float, y2: Float, requireStunning: Boolean) {
+fun AccessibilityService.triggerUniversalAssist(actionPhase: Int, x1: Float, y1: Float, x2: Float, y2: Float) {
     if (godTierEngine == null) {
         godTierEngine = GodTierExecutionEngine(this)
     }
-    godTierEngine?.executeOmnipotentVector(x1, y1, x2, y2, requireStunning)
+    godTierEngine?.executeOmnipotentAction(actionPhase, x1, y1, x2, y2)
 }

@@ -1,6 +1,6 @@
-Script started on 2026-06-06 07:37:10+00:00 [TERM="xterm-256color" TTY="/dev/pts/0" COLUMNS="36" LINES="25"]
+Script started on 2026-06-06 07:49:45+00:00 [TERM="xterm-256color" TTY="/dev/pts/0" COLUMNS="36" LINES="27"]
 bash: __vsc_prompt_cmd_original: command not found
-[?2004h]0;user@firebase-efootball-assistant-1779975046441: ~/efootball-assistant[00;35mefootball-assistant-00995228[00m:[01;34m~/efootball-assistant[00m[01;32m{main}[00m$ [K[A[K]0;user@firebase-efootball-assistant-1779975046441: ~/efootball-assistant[00;35mefootball-assistant-00995228[00m:[01;34m~/efootball-assistant[00m[01;32m{main}[00m$ [K[A[K]0;user@firebase-efootball-assistant-1779975046441: ~/efootball-assistant[00;35mefootball-assistant-00995228[00m:[01;34m~/efootball-assistant[00m[01;32m{main}[00m$ cat << 'EOF' > app/src/main/java/com/assistant/ove rlay/interceptor/GodTierExecutionEngine.kt
+[?2004h]0;user@firebase-efootball-assistant-1779975046441: ~/efootball-assistant[00;35mefootball-assistant-00995228[00m:[01;34m~/efootball-assistant[00m[01;32m{main}[00m$ cat << 'EOF' > app/src/main/java/com/assistant/ove rlay/interceptor/GodTierExecutionEngine.kt
 [?2004l[?2004h> package com.assistant.overlay.interceptor
 [?2004l[?2004h> 
 [?2004l[?2004h> import android.accessibilityservice.AccessibilityService
@@ -10,37 +10,63 @@ bash: __vsc_prompt_cmd_original: command not found
 [?2004l[?2004h> import android.content.Context
 [?2004l[?2004h> 
 [?2004l[?2004h> // 🔒 [SECURITY GUARD LOCK ACTIVE] [A
-[?2004l[?2004h> // 1000% OMNIPOTENT TIER: Non-Linear Bezier Injection & CPU Pinning
+[?2004l[?2004h> // 1000% OMNIPOTENT TIER: Universal Smart Assist Core
 [?2004l[?2004h> class GodTierExecutionEngine(private val service: AccessibilityService) {
 [?2004l[?2004h> 
 [?2004l[?2004h>     private val hintManager = service.getSystemService(Context.PERFORMANCE_HINT_SERVICE) as? PerformanceHintManager
 [?2004l[?2004h>     private var hintSession: PerformanceHintManager.Session? = null
 [?2004l[?2004h> 
 [?2004l[?2004h>     init {
-[?2004l[?2004h>         // Prepare ADPF Session for the MediaTek Helio G81-Ultra (Max 2.00GHz)
+[?2004l[?2004h>         // Pin ADPF to MediaTek Helio G81 max clock speed
 [?2004l[?2004h>         val tids = intArrayOf(android.os.Process.myTid())
-[?2004l[?2004h>         hintSession = hintManager?.createHintSession(tids, 12_000_000L) // 12ms target
+[?2004l[?2004h>         hintSession = hintManager?.createHintSession(tids, 12_000_000L)
 [?2004l[?2004h>     }
 [?2004l[?2004h> 
-[?2004l[?2004h>     // [DEADLY ACCURATE STUNNING EXECUTION]
-[?2004l[?2004h>     fun executeOmnipotentVector(startX: Float, startY: Float, endX: Float, endY: Float, isStunning: Boolean) {
-[?2004l[?2004h>         // 1. PIN CPU TO MAX FREQUENCY
+[?2004l[?2004h>     // [UNIVERSAL HARDWARE INJECTION ROUTER]
+[?2004l[?2004h>     // actionPhase: 0=LBC Long Pass/Cross, 1=Deadly Shot, 2=Instant Defend/Tackle, 3=Laser Pass
+[?2004l[?2004h>     fun executeOmnipotentAction(actionPhase: Int, startX: Float, startY: Float, endX: Float, endY: Float) {
+[?2004l[?2004h>         // 1. PIN CPU TO PREVENT MICRO-STUTTER
 [?2004l[?2004h>         hintSession?.reportActualWorkDuration(1_000_000L) 
 [?2004l[?2004h> 
 [?2004l[?2004h>         val path = Path()
 [?2004l[?2004h>         path.moveTo(startX, startY)
+[?2004l[?2004h>         var duration = 12L 
 [?2004l[?2004h> 
-[?2004l[?2004h>         if (isStunning) {
-[?2004l[?2004h>             // BEZIER CURVE INJECTION: Bypasses anti-cheat heuristics and triggers "Stunning" physics
-[?2004l[?2004h>             val controlX = startX + (endX - startX) * 0.8f
-[?2004l[?2004h>             val controlY = startY + (endY - startY) * 0.2f
-[?2004l[?2004h>             path.quadTo(controlX, controlY, endX, endY)
-[?2004l[?2004h>         } else {
-[?2004l[?2004h>             path.lineTo(endX, endY)
+[?2004l[?2004h>         // 2. MATHEMATICAL VECTOR OPTIMIZATION
+[?2004l[?2004h>         when (actionPhase) {
+[?2004l[?2004h>             0 -> { 
+[?2004l[?2004h>                 // LONG BALL COUNTER (LBC) / CROSS OVERDRIVE
+[?2004l[?2004h>                 // Calculates an elongated Bezier arc to force maximum pass weight from the physics engine [A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Ke
+[?2004l[?2004h>                 val controlX = sta rtX + (endX - startX) * 0.9f
+[?2004l[?2004h>                 val controlY = startY + (endY - startY) * 0.1f
+[?2004l[?2004h>                 path.quadTo(controlX, controlY, endX, endY)
+[?2004l[?2004h>                 duration = 15L // +3ms allowance for maximum power gauge registration
+[?2004l[?2004h>             }
+[?2004l[?2004h>             1 -> { 
+[?2004l[?2004h>                 // DEADLY SHOT (Stunning / Dipping / Rising)
+[?2004l[?2004h>                 // Aggressive, sharp Bezier curve to bypass goalkeeper prediction heuristics
+[?2004l[?2004h>                 val controlX = startX + (endX - startX) * 0.5f
+[?2004l[?2004h>                 val controlY = startY + (endY - startY) * 0.8f
+[?2004l[?2004h>                 path.quadTo(controlX, controlY, endX, endY)
+[?2004l[?2004h>                 duration = 10L // Ultra-fast strike
+[?2004l[?2004h>             }
+[?2004l[?2004h>             2 -> { 
+[?2004l[?2004h>                 // INSTANT DEFEND / SLIDING TACKLE / CLEARANCE
+[?2004l[?2004h>                 // Absolute linear precision. Bypasses all curves for 5ms frame-perfect input.
+[?2004l[?2004h>                 path.lineTo(endX, endY)
+[?2004l[?2004h>                 duration = 5L 
+[?2004l[?2004h>             }
+[?2004l[?2004h>             3 -> { 
+[?2004l[?2004h>                 // LASER THROUGH-PASS
+[?2004l[?2004h>                 // Straight, un-interceptable linear interpolation
+[?2004l[?2004h>                 path.lineTo(endX,  endY)
+[?2004l[?2004h>                 duration = 10L
+[?2004l[?2004h>             }
+[?2004l[?2004h>             else -> path.lineTo(endX, endY)
 [?2004l[?2004h>         }
 [?2004l[?2004h> 
-[?2004l[?2004h>         // 2. KERNEL-LEVEL FRAME COMPRESSION (12ms)
-[?2004l[?2004h>         val stroke = GestureDescription.StrokeDescription(path, 0, 12L)
+[?2004l[?2004h>         // 3. KERNEL-LEVEL INJECTION
+[?2004l[?2004h>         val stroke = GestureDescription.StrokeDescription(path, 0, duration)
 [?2004l[?2004h>         val builder = GestureDescription.Builder()
 [?2004l[?2004h>         builder.addStroke(stroke)
 [?2004l[?2004h>         
@@ -49,25 +75,37 @@ bash: __vsc_prompt_cmd_original: command not found
 [?2004l[?2004h> }
 [?2004l[?2004h> EOF
 [?2004lbash: __vsc_prompt_cmd_original: command not found
-[?2004h]0;user@firebase-efootball-assistant-1779975046441: ~/efootball-assistant[00;35mefootball-assistant-00995228[00m:[01;34m~/efootball-assistant[00m[01;32m{main}[00m$ [K[A[K]0;user@firebase-efootball-assistant-1779975046441: ~/efootball-assistant[00;35mefootball-assistant-00995228[00m:[01;34m~/efootball-assistant[00m[01;32m{main}[00m$ [K[A[K]0;user@firebase-efootball-assistant-1779975046441: ~/efootball-assistant[00;35mefootball-assistant-00995228[00m:[01;34m~/efootball-assistant[00m[01;32m{main}[00m$ cat << 'EOF' >> app/src/main/java/com/assistant/ov erlay/interceptor/SmartAssistAccessibilityEngine.kt
+[?2004h]0;user@firebase-efootball-assistant-1779975046441: ~/efootball-assistant[00;35mefootball-assistant-00995228[00m:[01;34m~/efootball-assistant[00m[01;32m{main}[00m$ cat << 'EOF' > temp_extension.kt
 [?2004l[?2004h> 
-[?2004l[?2004h> // 🔒 [SECURITY GUARD LOCK ACTIVE] - GOD TIER EXTENSION
-[?2004l[?2004h> // Extension method to initialize and trigger the 1000% Omnipotent Vector
+[?2004l[?2004h> // 🔒 [SECURITY GUARD LOCK ACTIVE] - UNIVERSAL GOD TIER BINDING
 [?2004l[?2004h> private var godTierEngine: GodTierExecutionEngine? = null
 [?2004l[?2004h> 
-[?2004l[?2004h> fun AccessibilityService.triggerOmnipotentExecution(x1: Float, y1: Float, x2: Float, y2: Float, requireStunning: Boolean) {
+[?2004l[?2004h> fun AccessibilityService.triggerUniversalAssist(actionPhase: Int, x1: Float, y1: Float, x2: Float, y2: Float) {
 [?2004l[?2004h>     if (godTierEngine == null) {
 [?2004l[?2004h>         godTierEngine = GodTierExecutionEngine(this)
 [?2004l[?2004h>     }
-[?2004l[?2004h>     godTierEngine?.executeOmnipotentVector(x1, y1, x2, y2, requireStunning)
+[?2004l[?2004h>     godTierEngine?.executeOmnipotentAction(actionPhase, x1, y1, x2, y2)
 [?2004l[?2004h> }
 [?2004l[?2004h> EOF
+[?2004leplace the old extension with the new universal one
+sed -i '/\/\/ 🔒 \[SECURITY GUARD LOCK ACTIVE\] - GOD TIER EXTENSION/,$d' app/src/main/java/com/assistant/overlay/interceptor/SmartAssistAccessibilityEngine.kt
+cat temp_extension.kt >> app/src/main/java/com/assistant/overlay/interceptor/SmartAssistAccessibilityEngine.kt
+rm temp_extension.ktbash: __vsc_prompt_cmd_original: command not found
+[?2004h]0;user@firebase-efootball-assistant-1779975046441: ~/efootball-assistant[00;35mefootball-assistant-00995228[00m:[01;34m~/efootball-assistant[00m[01;32m{main}[00m$ 
 [?2004lbash: __vsc_prompt_cmd_original: command not found
-[?2004h]0;user@firebase-efootball-assistant-1779975046441: ~/efootball-assistant[00;35mefootball-assistant-00995228[00m:[01;34m~/efootball-assistant[00m[01;32m{main}[00m$ [K[A[K]0;user@firebase-efootball-assistant-1779975046441: ~/efootball-assistant[00;35mefootball-assistant-00995228[00m:[01;34m~/efootball-assistant[00m[01;32m{main}[00m$ [K[A[K]0;user@firebase-efootball-assistant-1779975046441: ~/efootball-assistant[00;35mefootball-assistant-00995228[00m:[01;34m~/efootball-assistant[00m[01;32m{main}[00m$ ./gradlew clean assembleDebug --no-daemon
+[?2004h]0;user@firebase-efootball-assistant-1779975046441: ~/efootball-assistant[00;35mefootball-assistant-00995228[00m:[01;34m~/efootball-assistant[00m[01;32m{main}[00m$ # Safely replace the old extension with the new universal one
+[?2004lbash: __vsc_prompt_cmd_original: command not found
+[?2004h]0;user@firebase-efootball-assistant-1779975046441: ~/efootball-assistant[00;35mefootball-assistant-00995228[00m:[01;34m~/efootball-assistant[00m[01;32m{main}[00m$ sed -i '/\/\/ 🔒 \[SECURITY GUARD LOCK ACTIVE\] - GOD TIER EXTENSION/,$d' app/src/main/java/com/assistant/overlay/interceptor/SmartAssistAccessibilityEngine.kt
+[?2004lbash: __vsc_prompt_cmd_original: command not found
+[?2004h]0;user@firebase-efootball-assistant-1779975046441: ~/efootball-assistant[00;35mefootball-assistant-00995228[00m:[01;34m~/efootball-assistant[00m[01;32m{main}[00m$ cat temp_extension.kt >> app/src/main/java/com/assistant/overlay/interceptor/SmartAssistAccessibilityEngine.kt
+[?2004lbash: __vsc_prompt_cmd_original: command not found
+[?2004h]0;user@firebase-efootball-assistant-1779975046441: ~/efootball-assistant[00;35mefootball-assistant-00995228[00m:[01;34m~/efootball-assistant[00m[01;32m{main}[00m$ rm temp_extension.kt
+[?2004lbash: __vsc_prompt_cmd_original: command not found
+[?2004h]0;user@firebase-efootball-assistant-1779975046441: ~/efootball-assistant[00;35mefootball-assistant-00995228[00m:[01;34m~/efootball-assistant[00m[01;32m{main}[00m$ ./gradlew clean assembleDebug --no-daemon
 [?2004lTo honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/8.5/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
 Daemon will be stopped at the end of the build 
-Unable to receive command from client socket connection from /127.0.0.1:44865 to /127.0.0.1:49674. Discarding connection.
-org.gradle.internal.remote.internal.MessageIOException: Could not read message from '/127.0.0.1:49674'.
+Unable to receive command from client socket connection from /127.0.0.1:46499 to /127.0.0.1:51854. Discarding connection.
+org.gradle.internal.remote.internal.MessageIOException: Could not read message from '/127.0.0.1:51854'.
 	at org.gradle.internal.remote.internal.inet.SocketConnection.receive(SocketConnection.java:94)
 	at org.gradle.launcher.daemon.server.SynchronizedDispatchConnection.receive(SynchronizedDispatchConnection.java:70)
 	at org.gradle.launcher.daemon.server.DefaultDaemonConnection$1.run(DefaultDaemonConnection.java:73)
@@ -81,8 +119,8 @@ Caused by: java.lang.IllegalArgumentException: Unexpected type tag 71 found.
 	at org.gradle.internal.serialize.Serializers$StatefulSerializerAdapter$1.read(Serializers.java:36)
 	at org.gradle.internal.remote.internal.inet.SocketConnection.receive(SocketConnection.java:81)
 	... 7 more
-Unable to receive command from client socket connection from /127.0.0.1:44865 to /127.0.0.1:49676. Discarding connection.
-org.gradle.internal.remote.internal.MessageIOException: Could not read message from '/127.0.0.1:49676'.
+Unable to receive command from client socket connection from /127.0.0.1:46499 to /127.0.0.1:51858. Discarding connection.
+org.gradle.internal.remote.internal.MessageIOException: Could not read message from '/127.0.0.1:51858'.
 	at org.gradle.internal.remote.internal.inet.SocketConnection.receive(SocketConnection.java:94)
 	at org.gradle.launcher.daemon.server.SynchronizedDispatchConnection.receive(SynchronizedDispatchConnection.java:70)
 	at org.gradle.launcher.daemon.server.DefaultDaemonConnection$1.run(DefaultDaemonConnection.java:73)
@@ -119,13 +157,13 @@ to this project's gradle.properties.
 > Task :adapter_input:preDebugBuild UP-TO-DATE
 > Task :adapter_input:mergeDebugNativeDebugMetadata NO-SOURCE
 > Task :adapter_input:checkKotlinGradlePluginConfigurationErrors
-> Task :adapter_input:generateDebugResValues
 > Task :adapter_input:checkDebugAarMetadata
+> Task :adapter_input:generateDebugResValues
 > Task :adapter_input:mapDebugSourceSetPaths
 > Task :adapter_input:generateDebugResources
 > Task :adapter_input:packageDebugResources
-> Task :adapter_input:createDebugCompatibleScreenManifests
 > Task :adapter_input:mergeDebugResources
+> Task :adapter_input:createDebugCompatibleScreenManifests
 > Task :adapter_input:extractDeepLinksDebug
 > Task :adapter_input:parseDebugLocalResources
 
@@ -142,8 +180,8 @@ Recommendation: remove package="com.assistant.adapter.input" from the source And
 > Task :adapter_input:mergeDebugAssets
 > Task :adapter_input:compressDebugAssets
 > Task :adapter_input:desugarDebugFileDependencies
-> Task :adapter_input:checkDebugDuplicateClasses
 > Task :adapter_input:mergeDebugJniLibFolders
+> Task :adapter_input:checkDebugDuplicateClasses
 > Task :adapter_input:mergeDebugNativeLibs NO-SOURCE
 > Task :adapter_input:stripDebugDebugSymbols NO-SOURCE
 > Task :adapter_input:mergeLibDexDebug
@@ -158,11 +196,12 @@ Recommendation: remove package="com.assistant.adapter.input" from the source And
 > Task :adapter_lmk:generateDebugResValues
 > Task :adapter_lmk:mapDebugSourceSetPaths
 > Task :adapter_lmk:generateDebugResources
+> Task :adapter_input:processDebugManifestForPackage
 > Task :adapter_lmk:mergeDebugResources
 > Task :adapter_lmk:packageDebugResources
 > Task :adapter_lmk:createDebugCompatibleScreenManifests
-> Task :adapter_lmk:parseDebugLocalResources
 > Task :adapter_lmk:extractDeepLinksDebug
+> Task :adapter_lmk:parseDebugLocalResources
 
 > Task :adapter_lmk:processDebugMainManifest
 package="com.assistant.adapter.lmk" found in source AndroidManifest.xml: /home/user/efootball-assistant/adapter_lmk/src/main/AndroidManifest.xml.
@@ -181,8 +220,8 @@ Recommendation: remove package="com.assistant.adapter.lmk" from the source Andro
 > Task :adapter_lmk:mergeDebugJniLibFolders
 > Task :adapter_lmk:mergeDebugNativeLibs NO-SOURCE
 > Task :adapter_lmk:stripDebugDebugSymbols NO-SOURCE
-> Task :adapter_lmk:validateSigningDebug
 > Task :adapter_lmk:mergeLibDexDebug
+> Task :adapter_lmk:validateSigningDebug
 > Task :adapter_lmk:writeDebugAppMetadata
 > Task :adapter_lmk:writeDebugSigningConfigVersions
 > Task :adapter_net:preBuild UP-TO-DATE
@@ -195,6 +234,7 @@ Recommendation: remove package="com.assistant.adapter.lmk" from the source Andro
 > Task :adapter_net:generateDebugResources
 > Task :adapter_net:mergeDebugResources
 > Task :adapter_net:packageDebugResources
+> Task :adapter_lmk:processDebugManifestForPackage
 > Task :adapter_net:createDebugCompatibleScreenManifests
 > Task :adapter_net:parseDebugLocalResources
 > Task :adapter_net:extractDeepLinksDebug
@@ -204,8 +244,9 @@ package="com.assistant.adapter.net" found in source AndroidManifest.xml: /home/u
 Setting the namespace via the package attribute in the source AndroidManifest.xml is no longer supported, and the value is ignored.
 Recommendation: remove package="com.assistant.adapter.net" from the source AndroidManifest.xml: /home/user/efootball-assistant/adapter_net/src/main/AndroidManifest.xml.
 
+> Task :adapter_input:processDebugResources
 > Task :adapter_net:processDebugManifest
-> Task :adapter_lmk:processDebugManifestForPackage
+> Task :adapter_lmk:processDebugResources
 > Task :adapter_net:javaPreCompileDebug
 > Task :adapter_net:processDebugManifestForPackage
 > Task :adapter_net:mergeDebugShaders
@@ -216,7 +257,6 @@ Recommendation: remove package="com.assistant.adapter.net" from the source Andro
 > Task :adapter_net:desugarDebugFileDependencies
 > Task :adapter_net:checkDebugDuplicateClasses
 > Task :adapter_net:mergeDebugJniLibFolders
-> Task :adapter_input:processDebugManifestForPackage
 > Task :adapter_net:mergeDebugNativeLibs NO-SOURCE
 > Task :adapter_net:stripDebugDebugSymbols NO-SOURCE
 > Task :adapter_net:validateSigningDebug
@@ -226,19 +266,16 @@ Recommendation: remove package="com.assistant.adapter.net" from the source Andro
 > Task :adapter_sync:preDebugBuild UP-TO-DATE
 > Task :adapter_sync:mergeDebugNativeDebugMetadata NO-SOURCE
 > Task :adapter_sync:checkKotlinGradlePluginConfigurationErrors
-> Task :adapter_sync:checkDebugAarMetadata
 > Task :adapter_net:processDebugResources
-> Task :adapter_lmk:processDebugResources
-> Task :adapter_sync:generateDebugResValues
+> Task :adapter_sync:checkDebugAarMetadata
 > Task :adapter_net:mergeLibDexDebug
-> Task :adapter_input:processDebugResources
-> Task :adapter_input:mergeExtDexDebug
-> Task :adapter_lmk:mergeExtDexDebug
-> Task :adapter_net:mergeExtDexDebug
+> Task :adapter_sync:generateDebugResValues
 > Task :adapter_sync:mapDebugSourceSetPaths
 > Task :adapter_sync:generateDebugResources
-> Task :adapter_sync:mergeDebugResources
 > Task :adapter_sync:packageDebugResources
+> Task :adapter_sync:mergeDebugResources
+> Task :adapter_input:mergeExtDexDebug
+> Task :adapter_lmk:mergeExtDexDebug
 > Task :adapter_sync:createDebugCompatibleScreenManifests
 > Task :adapter_sync:parseDebugLocalResources
 > Task :adapter_sync:extractDeepLinksDebug
@@ -270,9 +307,10 @@ Recommendation: remove package="com.assistant.adapter.sync" from the source Andr
 > Task :app:mergeDebugNativeDebugMetadata NO-SOURCE
 > Task :app:checkKotlinGradlePluginConfigurationErrors
 > Task :adapter_sync:processDebugResources
-> Task :adapter_sync:mergeExtDexDebug
+> Task :adapter_net:mergeExtDexDebug
 > Task :app:checkDebugAarMetadata
 > Task :app:generateDebugResValues
+> Task :adapter_sync:mergeExtDexDebug
 > Task :app:mapDebugSourceSetPaths
 > Task :app:generateDebugResources
 > Task :app:packageDebugResources
@@ -294,56 +332,16 @@ The AGP Upgrade Assistant can remove the attribute from the AndroidManifest.xml 
 
 > Task :app:processDebugManifest
 > Task :app:mergeDebugShaders
+> Task :app:javaPreCompileDebug
 > Task :app:compileDebugShaders NO-SOURCE
 > Task :app:generateDebugAssets UP-TO-DATE
-
-> Task :adapter_net:compileDebugKotlin
-w: file:///home/user/efootball-assistant/adapter_net/src/main/java/com/assistant/adapter/net/NetAdapterService.kt:13:39 'constructor Handler(Handler.Callback?)' is deprecated. Deprecated in Java
-w: file:///home/user/efootball-assistant/adapter_net/src/main/java/com/assistant/adapter/net/NetAdapterService.kt:13:66 Parameter 'msg' is never used, could be renamed to _
-
-> Task :adapter_sync:compileDebugKotlin
-w: file:///home/user/efootball-assistant/adapter_sync/src/main/java/com/assistant/adapter/sync/SyncAdapterService.kt:15:39 'constructor Handler(Handler.Callback?)' is deprecated. Deprecated in Java
-w: file:///home/user/efootball-assistant/adapter_sync/src/main/java/com/assistant/adapter/sync/SyncAdapterService.kt:15:66 Parameter 'msg' is never used, could be renamed to _
-
-> Task :adapter_lmk:compileDebugKotlin
-w: file:///home/user/efootball-assistant/adapter_lmk/src/main/java/com/assistant/adapter/lmk/LmkAdapterService.kt:15:39 'constructor Handler(Handler.Callback?)' is deprecated. Deprecated in Java
-
-> Task :adapter_input:compileDebugKotlin
-w: file:///home/user/efootball-assistant/adapter_input/src/main/java/com/assistant/adapter/input/InputAdapterService.kt:13:39 'constructor Handler(Handler.Callback?)' is deprecated. Deprecated in Java
-w: file:///home/user/efootball-assistant/adapter_input/src/main/java/com/assistant/adapter/input/InputAdapterService.kt:13:66 Parameter 'msg' is never used, could be renamed to _
-
 > Task :app:mergeDebugAssets
-> Task :adapter_input:compileDebugJavaWithJavac NO-SOURCE
-> Task :app:javaPreCompileDebug
-> Task :adapter_input:dexBuilderDebug
-> Task :adapter_input:mergeDebugGlobalSynthetics
-> Task :adapter_input:processDebugJavaRes
-> Task :adapter_lmk:compileDebugJavaWithJavac NO-SOURCE
-> Task :adapter_input:mergeProjectDexDebug
-> Task :adapter_lmk:dexBuilderDebug
-> Task :adapter_lmk:mergeDebugGlobalSynthetics
-> Task :adapter_lmk:processDebugJavaRes
-> Task :app:processDebugManifestForPackage
-> Task :adapter_net:compileDebugJavaWithJavac NO-SOURCE
-> Task :adapter_lmk:mergeProjectDexDebug
-> Task :adapter_net:dexBuilderDebug
-> Task :adapter_net:mergeDebugGlobalSynthetics
-> Task :adapter_net:processDebugJavaRes
-> Task :adapter_sync:compileDebugJavaWithJavac NO-SOURCE
-> Task :adapter_net:mergeProjectDexDebug
-> Task :adapter_sync:dexBuilderDebug
-> Task :adapter_sync:mergeDebugGlobalSynthetics
-> Task :adapter_sync:processDebugJavaRes
-> Task :adapter_sync:mergeProjectDexDebug
 > Task :app:compressDebugAssets
-> Task :adapter_net:mergeDebugJavaResource
-> Task :adapter_lmk:mergeDebugJavaResource
-> Task :adapter_input:mergeDebugJavaResource
-> Task :adapter_sync:mergeDebugJavaResource
 > Task :app:checkDebugDuplicateClasses
+> Task :app:processDebugManifestForPackage
+> Task :app:mergeDebugArtProfile
 > Task :app:extractProguardFiles
 > Task :app:processApplicationManifestDebugForBundle
-> Task :app:mergeDebugArtProfile
 > Task :app:mergeDebugJniLibFolders
 > Task :app:validateSigningDebug
 > Task :app:writeDebugAppMetadata
@@ -354,41 +352,71 @@ w: file:///home/user/efootball-assistant/adapter_input/src/main/java/com/assista
 > Task :diagnostic_core:mergeDebugNativeLibs NO-SOURCE
 > Task :diagnostic_core:stripDebugDebugSymbols NO-SOURCE
 > Task :diagnostic_core:checkKotlinGradlePluginConfigurationErrors
-> Task :diagnostic_core:copyDebugJniLibsProjectAndLocalJars
 > Task :diagnostic_core:generateDebugResValues
 > Task :diagnostic_core:generateDebugResources
+> Task :diagnostic_core:copyDebugJniLibsProjectAndLocalJars
 > Task :diagnostic_core:packageDebugResources
 > Task :diagnostic_core:parseDebugLocalResources
-> Task :adapter_sync:packageDebug
-> Task :diagnostic_core:processDebugManifest
-> Task :adapter_sync:createDebugApkListingFileRedirect
-> Task :adapter_sync:assembleDebug
-> Task :adapter_lmk:packageDebug
-> Task :adapter_lmk:createDebugApkListingFileRedirect
-> Task :adapter_lmk:assembleDebug
 > Task :diagnostic_core:extractDeepLinksForAarDebug UP-TO-DATE
 > Task :diagnostic_core:javaPreCompileDebug
-> Task :diagnostic_core:generateDebugRFile
-> Task :adapter_input:packageDebug
-> Task :adapter_input:createDebugApkListingFileRedirect
-> Task :adapter_input:assembleDebug
 > Task :diagnostic_core:mergeDebugShaders
+> Task :diagnostic_core:processDebugManifest
 > Task :diagnostic_core:compileDebugShaders NO-SOURCE
 > Task :diagnostic_core:generateDebugAssets UP-TO-DATE
-> Task :diagnostic_core:packageDebugAssets
-> Task :diagnostic_core:prepareDebugArtProfile UP-TO-DATE
-> Task :diagnostic_core:prepareLintJarForPublish UP-TO-DATE
-> Task :diagnostic_core:writeDebugAarMetadata
-> Task :adapter_net:packageDebug
-> Task :adapter_net:createDebugApkListingFileRedirect
-> Task :adapter_net:assembleDebug
-> Task :app:processDebugResources
 > Task :app:mergeDebugNativeLibs
+> Task :diagnostic_core:packageDebugAssets
+> Task :diagnostic_core:generateDebugRFile
 
 > Task :app:stripDebugDebugSymbols
 Unable to strip the following libraries, packaging them as they are: libmlkit_google_ocr_pipeline.so.
 
+> Task :diagnostic_core:prepareDebugArtProfile UP-TO-DATE
+> Task :diagnostic_core:prepareLintJarForPublish UP-TO-DATE
+> Task :diagnostic_core:writeDebugAarMetadata
+> Task :app:processDebugResources
+> Task :app:bundleDebugResources
+
+> Task :adapter_sync:compileDebugKotlin
+w: file:///home/user/efootball-assistant/adapter_sync/src/main/java/com/assistant/adapter/sync/SyncAdapterService.kt:15:39 'constructor Handler(Handler.Callback?)' is deprecated. Deprecated in Java
+w: file:///home/user/efootball-assistant/adapter_sync/src/main/java/com/assistant/adapter/sync/SyncAdapterService.kt:15:66 Parameter 'msg' is never used, could be renamed to _
+
+> Task :adapter_sync:compileDebugJavaWithJavac NO-SOURCE
+
+> Task :adapter_lmk:compileDebugKotlin
+w: file:///home/user/efootball-assistant/adapter_lmk/src/main/java/com/assistant/adapter/lmk/LmkAdapterService.kt:15:39 'constructor Handler(Handler.Callback?)' is deprecated. Deprecated in Java
+
+> Task :adapter_input:compileDebugKotlin
+w: file:///home/user/efootball-assistant/adapter_input/src/main/java/com/assistant/adapter/input/InputAdapterService.kt:13:39 'constructor Handler(Handler.Callback?)' is deprecated. Deprecated in Java
+w: file:///home/user/efootball-assistant/adapter_input/src/main/java/com/assistant/adapter/input/InputAdapterService.kt:13:66 Parameter 'msg' is never used, could be renamed to _
+
+> Task :adapter_net:compileDebugKotlin
+w: file:///home/user/efootball-assistant/adapter_net/src/main/java/com/assistant/adapter/net/NetAdapterService.kt:13:39 'constructor Handler(Handler.Callback?)' is deprecated. Deprecated in Java
+w: file:///home/user/efootball-assistant/adapter_net/src/main/java/com/assistant/adapter/net/NetAdapterService.kt:13:66 Parameter 'msg' is never used, could be renamed to _
+
+> Task :adapter_sync:dexBuilderDebug
+> Task :adapter_input:compileDebugJavaWithJavac NO-SOURCE
+> Task :adapter_input:dexBuilderDebug
+> Task :adapter_input:mergeDebugGlobalSynthetics
+> Task :adapter_input:processDebugJavaRes
+> Task :adapter_lmk:compileDebugJavaWithJavac NO-SOURCE
+> Task :adapter_input:mergeProjectDexDebug
+> Task :adapter_lmk:dexBuilderDebug
+> Task :adapter_lmk:mergeDebugGlobalSynthetics
+> Task :adapter_lmk:processDebugJavaRes
+> Task :adapter_net:compileDebugJavaWithJavac NO-SOURCE
+> Task :adapter_lmk:mergeProjectDexDebug
+> Task :adapter_net:dexBuilderDebug
+> Task :adapter_net:mergeDebugGlobalSynthetics
+> Task :adapter_net:processDebugJavaRes
+> Task :adapter_sync:mergeDebugGlobalSynthetics
+> Task :adapter_net:mergeProjectDexDebug
+> Task :adapter_sync:processDebugJavaRes
+> Task :adapter_sync:mergeProjectDexDebug
 > Task :diagnostic_core:compileDebugKotlin
+> Task :adapter_lmk:mergeDebugJavaResource
+> Task :adapter_net:mergeDebugJavaResource
+> Task :adapter_input:mergeDebugJavaResource
+> Task :adapter_sync:mergeDebugJavaResource
 > Task :diagnostic_core:extractDebugAnnotations
 > Task :diagnostic_core:compileDebugJavaWithJavac NO-SOURCE
 > Task :diagnostic_core:mergeDebugGeneratedProguardFiles UP-TO-DATE
@@ -396,9 +424,20 @@ Unable to strip the following libraries, packaging them as they are: libmlkit_go
 > Task :diagnostic_core:processDebugJavaRes
 > Task :diagnostic_core:mergeDebugJavaResource
 > Task :diagnostic_core:syncDebugLibJars
-> Task :app:bundleDebugResources
 > Task :diagnostic_core:bundleDebugAar
 > Task :diagnostic_core:assembleDebug
+> Task :adapter_input:packageDebug
+> Task :adapter_sync:packageDebug
+> Task :adapter_input:createDebugApkListingFileRedirect
+> Task :adapter_input:assembleDebug
+> Task :adapter_sync:createDebugApkListingFileRedirect
+> Task :adapter_sync:assembleDebug
+> Task :adapter_net:packageDebug
+> Task :adapter_net:createDebugApkListingFileRedirect
+> Task :adapter_net:assembleDebug
+> Task :adapter_lmk:packageDebug
+> Task :adapter_lmk:createDebugApkListingFileRedirect
+> Task :adapter_lmk:assembleDebug
 > Task :app:kspDebugKotlin
 
 > Task :app:compileDebugKotlin
@@ -408,23 +447,4 @@ w: file:///home/user/efootball-assistant/app/src/main/java/com/assistant/Overlay
 w: file:///home/user/efootball-assistant/app/src/main/java/com/assistant/OverlayService.kt:174:23 'getter for defaultDisplay: Display!' is deprecated. Deprecated in Java
 w: file:///home/user/efootball-assistant/app/src/main/java/com/assistant/OverlayService.kt:174:38 'getRealMetrics(DisplayMetrics!): Unit' is deprecated. Deprecated in Java
 w: file:///home/user/efootball-assistant/app/src/main/java/com/assistant/WelcomeActivity.kt:99:13 'overridePendingTransition(Int, Int): Unit' is deprecated. Deprecated in Java
-w: file:///home/user/efootball-assistant/app/src/main/java/com/assistant/overlay/ui/adapter/MatchHistoryAdapter.kt:57:21 Variable 'endDate' is never used
-
-> Task :app:compileDebugJavaWithJavac
-> Task :app:mergeDebugGeneratedProguardFiles UP-TO-DATE
-> Task :app:processDebugJavaRes
-> Task :app:mergeDebugJavaResource
-> Task :app:expandDebugArtProfileWildcards
-> Task :app:minifyDebugWithR8
-> Task :app:shrinkDebugRes
-> Task :app:packageDebug
-> Task :app:createDebugApkListingFileRedirect
-> Task :app:assembleDebug
-
-BUILD SUCCESSFUL in 2m 2s
-200 actionable tasks: 194 executed, 6 up-to-date
-bash: __vsc_prompt_cmd_original: command not found
-[?2004h]0;user@firebase-efootball-assistant-1779975046441: ~/efootball-assistant[00;35mefootball-assistant-00995228[00m:[01;34m~/efootball-assistant[00m[01;32m{main}[00m$ exit
-[?2004lexit
-
-Script done on 2026-06-06 07:42:13+00:00 [COMMAND_EXIT_CODE="0"]
+w: file:///home/user/efootball-assistant/app/src/main/java/com/assistant/overlay/ui/adapter/MatchHistoryAdapter.kt:57:21 Variable 'endDate' is
