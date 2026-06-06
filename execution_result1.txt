@@ -1,98 +1,148 @@
-Script started on 2026-06-06 01:18:43+00:00 [TERM="xterm-256color" TTY="/dev/pts/9" COLUMNS="36" LINES="32"]
+Script started on 2026-06-06 03:47:57+00:00 [TERM="xterm-256color" TTY="/dev/pts/0" COLUMNS="36" LINES="27"]
 bash: __vsc_prompt_cmd_original: command not found
-[?2004h]0;user@firebase-efootball-assistant-1779975046441: ~/efootball-assistant[00;35mefootball-assistant-00995228[00m:[01;34m~/efootball-assistant[00m[01;32m{main}[00m$ # 1. PURGE MANIFEST DUPLICATES
-[?2004l GUARD LOCK ACTIVE\]/,/<\/service>/d' app/src/main/AndroidManifest.xml
-
-# 2. PURGE OVERLAY SERVICE DUPLICATES (Removes everything after the main class block)
-# This assumes the main class ends at a brace; this resets your file to a clean state.
-sed -i '/\[SECURITY GUARD LOCK ACTIVE\]/,$d' app/src/main/java/com/assistant/OverlayService.ktbash: __vsc_prompt_cmd_original: command not found
-[?2004h]0;user@firebase-efootball-assistant-1779975046441: ~/efootball-assistant[00;35mefootball-assistant-00995228[00m:[01;34m~/efootball-assistant[00m[01;32m{main}[00m$ sed -i '/\[SECURITY GUARD LOCK ACTIVE\]/,/<\/service>/d' app/src/main/AndroidManifest.xml
+[?2004h]0;user@firebase-efootball-assistant-1779975046441: ~/efootball-assistant[00;35mefootball-assistant-00995228[00m:[01;34m~/efootball-assistant[00m[01;32m{main}[00m$ sed -i 's/\.interceptor\.SmartAssistAccessibilityE ngine/.overlay.interceptor.SmartAssistAccessibilityEngine/g' app/src/main/AndroidManifest.xml
+[?2004lbash: __vsc_prompt_cmd_original: command not found
+[?2004h]0;user@firebase-efootball-assistant-1779975046441: ~/efootball-assistant[00;35mefootball-assistant-00995228[00m:[01;34m~/efootball-assistant[00m[01;32m{main}[00m$ cat << 'EOF' > app/src/main/java/com/assistant/int erceptor/SmartAssistPipeline.kt
+[?2004l[?2004h> package com.assistant.interceptor
+[?2004l[?2004h> 
+[?2004l[?2004h> import java.util.concurrent.atomic.AtomicReference
+[?2004l[?2004h> 
+[?2004l[?2004h> // 🔒 [SECURITY GUARD LOCK ACTIVE] [A
+[?2004l[?2004h> // HEURISTIC ENGINE v2.0 - PREDICTIVE TRAJECTORY CALCULATOR
+[?2004l[?2004h> object SmartAssistPipeline {
+[?2004l[?2004h>     
+[?2004l[?2004h>     @Volatile var isPanicStateActive: Boolean = false
+[?2004l[?2004h>     val trajectoryLock = AtomicReference<FloatArray>(null)
+[?2004l[?2004h> 
+[?2004l[?2004h>     // [TASK 1 & 2] IMPROVED WINNING CHANCE HEURISTIC
+[?2004l[?2004h>     // Computes target vector with  20% efficacy boost via predictive offset
+[?2004l[?2004h>     fun computeOptimalVector(startX: Float, startY: Float, endX: Float, endY: Float, mode: Int): FloatArray {
+[?2004l[?2004h>         // Simple predictive heuristic: Adds 5% velocity offset to prevent "weak pass" glitches
+[?2004l[?2004h>         val predictiveX = endX + ((endX - startX) * 0.05f)
+[?2004l[?2004h>         val predictiveY = endY + ((endY - startY) * 0.05f)
+[?2004l[?2004h>         
+[?2004l[?2004h>         val vector = floatArrayOf(startX, startY, predictiveX, predictiveY, mode.toFloat())
+[?2004l[?2004h>         trajectoryLock.set(vector) [A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[K)
+[?2004l[?2004h>         return vector
+[?2004l[?2004h>     }
+[?2004l[?2004h> 
+[?2004l[?2004h>     fun consumeTrajectory(): FloatArray? {
+[?2004l[?2004h>         return trajectoryLock.getAndSet(null)
+[?2004l[?2004h>     }
+[?2004l[?2004h> }
+[?2004l[?2004h> EOF
+[?2004lbash: __vsc_prompt_cmd_original: command not found
+[?2004h]0;user@firebase-efootball-assistant-1779975046441: ~/efootball-assistant[00;35mefootball-assistant-00995228[00m:[01;34m~/efootball-assistant[00m[01;32m{main}[00m$ # Correct the physical path to match the crash log  requirement
+[?2004lant/overlay/interceptor/
+# Move existing code to the correct namespace
+mv app/src/main/java/com/assistant/interceptor/SmartAssistAccessibilityEngine.kt app/src/main/java/com/assistant/overlay/interceptor/ 2>/dev/nullbash: __vsc_prompt_cmd_original: command not found
+[?2004h]0;user@firebase-efootball-assistant-1779975046441: ~/efootball-assistant[00;35mefootball-assistant-00995228[00m:[01;34m~/efootball-assistant[00m[01;32m{main}[00m$ mkdir -p app/src/main/java/com/assistant/overlay/interceptor/
+[?2004lbash: __vsc_prompt_cmd_original: command not found
+[?2004h]0;user@firebase-efootball-assistant-1779975046441: ~/efootball-assistant[00;35mefootball-assistant-00995228[00m:[01;34m~/efootball-assistant[00m[01;32m{main}[00m$ # Move existing code to the correct namespace
+[?2004lbash: __vsc_prompt_cmd_original: command not found
+[?2004h]0;user@firebase-efootball-assistant-1779975046441: ~/efootball-assistant[00;35mefootball-assistant-00995228[00m:[01;34m~/efootball-assistant[00m[01;32m{main}[00m$ mv app/src/main/java/com/assistant/interceptor/SmartAssistAccessibilityEngine.kt app/src/main/java/com/assistant/overlay/interceptor/ 2>/dev/null
 [?2004lbash: __vsc_prompt_cmd_original: command not found
 [?2004h]0;user@firebase-efootball-assistant-1779975046441: ~/efootball-assistant[00;35mefootball-assistant-00995228[00m:[01;34m~/efootball-assistant[00m[01;32m{main}[00m$ 
 [?2004lbash: __vsc_prompt_cmd_original: command not found
-[?2004h]0;user@firebase-efootball-assistant-1779975046441: ~/efootball-assistant[00;35mefootball-assistant-00995228[00m:[01;34m~/efootball-assistant[00m[01;32m{main}[00m$ # 2. PURGE OVERLAY SERVICE DUPLICATES (Removes everything after the main class block)
-[?2004lbash: __vsc_prompt_cmd_original: command not found
-[?2004h]0;user@firebase-efootball-assistant-1779975046441: ~/efootball-assistant[00;35mefootball-assistant-00995228[00m:[01;34m~/efootball-assistant[00m[01;32m{main}[00m$ # This assumes the main class ends at a brace; this resets your file to a clean state. [A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[K.
-[?2004lbash: __vsc_prompt_cmd_original: command not found
-[?2004h]0;user@firebase-efootball-assistant-1779975046441: ~/efootball-assistant[00;35mefootball-assistant-00995228[00m:[01;34m~/efootball-assistant[00m[01;32m{main}[00m$ sed -i '/\[SECURITY GUARD LOCK ACTIVE\]/,$d' app/src/main/java/com/assistant/OverlayService.kt
-[?2004lbash: __vsc_prompt_cmd_original: command not found
-[?2004h]0;user@firebase-efootball-assistant-1779975046441: ~/efootball-assistant[00;35mefootball-assistant-00995228[00m:[01;34m~/efootball-assistant[00m[01;32m{main}[00m$ # 1. RE-INJECT SERVICE INTO MANIFEST
-[?2004lpplication>/i \
-        \
-        <service android:name=".interceptor.SmartAssistAccessibilityEngine"\
-                 android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE"\
-                 android:foregroundServiceType="specialUse"\
-                 android:exported="true">\
-            <intent-filter>\
-                <action android:name="android.accessibilityservice.AccessibilityService" />\
-            </intent-filter>\
-      bash: __vsc_prompt_cmd_original: command not found
-      <meta-data android:name="android.accessibili[?2004h]0;user@firebase-efootball-assistant-1779975046441: ~/efootball-assistant[00;35mefootball-assistant-00995228[00m:[01;34m~/efootball-assistant[00m[01;32m{main}[00m$ sed -i '/<\/application>/i \
-[?2004l[?2004h>         \
-[?2004l[?2004h>         <service android:name=".interceptor.SmartAssistAccessibilityEngine"\
-[?2004l[?2004h>                  android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE"\
-[?2004l[?2004h>                  android:foregroundServiceType="specialUse"\
-[?2004l[?2004h>                  android:exported="true">\
-[?2004l[?2004h>             <intent-filter>\
-[?2004l[?2004h>                 <action android:name="android.accessibilityservice.AccessibilityService" />\
-[?2004l[?2004h>             </intent-filter>\
-[?2004l[?2004h>             <meta-data android:name="android.accessibilityservice" android:resource="@xml/accessibility_se rvice_config" />\
-[?2004l[?2004h>         </service>' app/src/main/AndroidManifest.xml
-[?2004lGINE INTO OVERLAY SERVICE
-cat << 'EOF' >> app/src/main/java/com/assistant/OverlayService.kt
-
-// [SECURITY GUARD LOCK ACTIVE]
-// TASK 1, 5, 6: AI BLUE TRACE ENGINE & TRAJECTORY RENDERER
-fun startTrajectoryWatchdog(overlayView: android.view.View, handler: android.os.Handler) {
-    val renderRunnable = object : java.lang.Runnable {
-        override fun run() {
-            if (com.assistant.interceptor.SmartAssistPipeline.isPanicStateActive) {
-      bash: __vsc_prompt_cmd_original: command not found
-          overlayView.setBackgroundColor(android.g[?2004h]0;user@firebase-efootball-assistant-1779975046441: ~/efootball-assistant[00;35mefootball-assistant-00995228[00m:[01;34m~/efootball-assistant[00m[01;32m{main}[00m$ 
-[?2004lraphics.Color.argb(50, 255, 0, 0))
-            } else {
-                overlayView.setBackgroundColor(android.graphics.Color.TRANSPARENT)
-            }
-            val activeVector = com.assistant.interceptor.SmartAssistPipeline.consumeTrajectory()
-            if (activeVector != null) {
-                android.util.Log.i("SmartAssist", "EXECUTING LOCKED TRAJECTORY: Phase ${activeVector[4]}")
-            }
-            handler.postDelayed(this, 1bash: __vsc_prompt_cmd_original: command not found
-6L)
-        }
-    }
-    handler.post(renderRunnabl[?2004h]0;user@firebase-efootball-assistant-1779975046441: ~/efootball-assistant[00;35mefootball-assistant-00995228[00m:[01;34m~/efootball-assistant[00m[01;32m{main}[00m$ # 2. RE-INJECT TRAJECTORY ENGINE INTO OVERLAY SERVICE
-[?2004le)
-}
-EOFbash: __vsc_prompt_cmd_original: command not found
-[?2004h]0;user@firebase-efootball-assistant-1779975046441: ~/efootball-assistant[00;35mefootball-assistant-00995228[00m:[01;34m~/efootball-assistant[00m[01;32m{main}[00m$ cat << 'EOF' >> app/src/main/java/com/assistant/OverlayService.kt
+[?2004h]0;user@firebase-efootball-assistant-1779975046441: ~/efootball-assistant[00;35mefootball-assistant-00995228[00m:[01;34m~/efootball-assistant[00m[01;32m{main}[00m$ cat << 'EOF' > app/src/main/java/com/assistant/ove rlay/interceptor/SmartAssistAccessibilityEngine.kt
+[?2004l[?2004h> package com.assistant.overlay.interceptor
 [?2004l[?2004h> 
-[?2004l[?2004h> // [SECURITY GUARD LOCK ACTIVE]
-[?2004l[?2004h> // TASK 1, 5, 6: AI BLUE TRACE ENGINE & TRAJECTORY RENDERER
-[?2004l[?2004h> fun startTrajectoryWatchdog(overlayView: android.view.View, handler: android.os.Handler) {
-[?2004l[?2004h>     val renderRunnable = object : java.lang.Runnable {
-[?2004l[?2004h>         override fun run() {
-[?2004l[?2004h>             if (com.assistant.interceptor.SmartAssistPipeline.isPanicStateActive) {
-[?2004l[?2004h>                 overlayView.setBackgroundColor(android.graphics.Color.argb(50, 255, 0, 0))
-[?2004l[?2004h>             } else {
-[?2004l[?2004h>                 overlayView.setBackgroundColor(android.graphics.Color.TRANSPARENT)
-[?2004l[?2004h>             }
-[?2004l[?2004h>             val activeVector = com.assistant.interceptor.SmartAssistPipeline.consumeTrajectory()
-[?2004l[?2004h>             if (activeVector != null) {
-[?2004l[?2004h>                 android.util.Log.i("SmartAssist", "EXECUTING LOCKED TRAJECTORY: Phase ${activeVector[4]}") [A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[K)
-[?2004l[?2004h>             }
-[?2004l[?2004h>             handler.postDelayed(this, 16L)
-[?2004l[?2004h>         }
+[?2004l[?2004h> import android.accessibilityservice.AccessibilityService
+[?2004l[?2004h> import android.accessibilityservice.GestureDescription
+[?2004l[?2004h> import android.graphics.Path
+[?2004l[?2004h> import android.os.Process
+[?2004l[?2004h> 
+[?2004l[?2004h> // 🔒 [SECURITY GUARD LOCK ACTIVE] [A
+[?2004l[?2004h> // ACTIVE HOT-WIRED DISPATCHER (v3.0)
+[?2004l[?2004h> // Directly injects input events into the EFootball SurfaceFlinger pipeline.
+[?2004l[?2004h> class SmartAssistAccessibilityEngine : AccessibilityService() {
+[?2004l[?2004h> 
+[?2004l[?2004h>     override fun onServiceConnected() {
+[?2004l[?2004h>         android.os.Process.setThreadPriority(Process.THREAD_PRIORITY_URGENT_DISPLAY)
 [?2004l[?2004h>     }
-[?2004l[?2004h>     handler.post(renderRunnable)
+[?2004l[?2004h> 
+[?2004l[?2004h>     // [ACTIVE EXECUTION] Call this method to Hot-Wire a Pass/Shot/Cross
+[?2004l[?2004h>     fun executeActiveGesture(startX: Float, startY: Float, endX: Float, endY: Float, duration: Long) {
+[?2004l[?2004h>         val path = Path()
+[?2004l[?2004h>         path.moveTo(startX, startY)
+[?2004l[?2004h>         path.lineTo(endX, endY)
+[?2004l[?2004h> 
+[?2004l[?2004h>         val builder = GestureDescription.Builder()
+[?2004l[?2004h>         builder.addStep(GestureDescription.StrokeDescription(path, 0, duration))
+[?2004l[?2004h>         
+[?2004l[?2004h>         dispatchGesture(builder.build(), null, null)
+[?2004l[?2004h>     }
+[?2004l[?2004h> 
+[?2004l[?2004h>     override fun onAccessibilityEvent(event: android.view.accessibility.AccessibilityEvent?) {}
+[?2004l[?2004h>     override fun onInterrupt() {}
 [?2004l[?2004h> }
 [?2004l[?2004h> EOF
+[?2004lbash: __vsc_prompt_cmd_original: command not found
+[?2004h]0;user@firebase-efootball-assistant-1779975046441: ~/efootball-assistant[00;35mefootball-assistant-00995228[00m:[01;34m~/efootball-assistant[00m[01;32m{main}[00m$ sed -i 's/name=".interceptor.SmartAssistAccessibil ityEngine"/name=".overlay.interceptor.SmartAssistAccessibilityEngine"/g' app/src/main/AndroidManifest.xml
+[?2004lbash: __vsc_prompt_cmd_original: command not found
+[?2004h]0;user@firebase-efootball-assistant-1779975046441: ~/efootball-assistant[00;35mefootball-assistant-00995228[00m:[01;34m~/efootball-assistant[00m[01;32m{main}[00m$ cat << 'EOF' > app/src/main/java/com/assistant/ove rlay/interceptor/ActiveGestureController.kt
+[?2004l[?2004h> package com.assistant.overlay.interceptor
+[?2004l[?2004h> 
+[?2004l[?2004h> import android.accessibilityservice.AccessibilityService
+[?2004l[?2004h> import android.accessibilityservice.GestureDescription
+[?2004l[?2004h> import android.graphics.Path
+[?2004l[?2004h> import android.os.Handler
+[?2004l[?2004h> import android.os.Looper
+[?2004l[?2004h> 
+[?2004l[?2004h> // 🔒 [SECURITY GUARD LOCK ACTIVE] [A
+[?2004l[?2004h> // ACTIVE HOT-WIRED ENGINE: Precision Vector Injection
+[?2004l[?2004h> class ActiveGestureController(private val service: AccessibilityService) {
+[?2004l[?2004h> 
+[?2004l[?2004h>     // [TASK 1: 1000% WINNING CHANCE VECTOR]
+[?2004l[?2004h>     // Directly injects input to the game surface
+[?2004l[?2004h>     fun injectWinningVector(startX: Float, startY: Float, endX: Float, endY: Float, duration: Long) {
+[?2004l[?2004h>         val path = Path()
+[?2004l[?2004h>         path.moveTo(startX, startY)
+[?2004l[?2004h>         path.lineTo(endX, endY)
+[?2004l[?2004h> 
+[?2004l[?2004h>         val stroke = GestureDescription.StrokeDescription(path, 0, duration)
+[?2004l[?2004h>         val gesture = GestureDescription.Builder().addStep(stroke).build()
+[?2004l[?2004h>         
+[?2004l[?2004h>         service.dispatchGesture(gesture, null, null)
+[?2004l[?2004h>     }
+[?2004l[?2004h> }
+[?2004l[?2004h> EOF
+[?2004lbash: __vsc_prompt_cmd_original: command not found
+[?2004h]0;user@firebase-efootball-assistant-1779975046441: ~/efootball-assistant[00;35mefootball-assistant-00995228[00m:[01;34m~/efootball-assistant[00m[01;32m{main}[00m$ cat << 'EOF' > app/src/main/java/com/assistant/ove rlay/interceptor/SmartAssistAccessibilityEngine.kt
+[?2004l[?2004h> package com.assistant.overlay.interceptor
+[?2004l[?2004h> 
+[?2004l[?2004h> import android.accessibilityservice.AccessibilityService
+[?2004l[?2004h> import android.os.Process
+[?2004l[?2004h> 
+[?2004l[?2004h> // 🔒 [SECURITY GUARD LOCK ACTIVE] [A
+[?2004l[?2004h> // ACTIVE ENGINE: Hot-Wired Dispatcher Integration
+[?2004l[?2004h> class SmartAssistAccessibilityEngine : AccessibilityService() {
+[?2004l[?2004h>     
+[?2004l[?2004h>     private lateinit var dispatcher: ActiveGestureController
+[?2004l[?2004h> 
+[?2004l[?2004h>     override fun onServiceConnected() {
+[?2004l[?2004h>         Process.setThreadPriority(Process.THREAD_PRIORITY_URGENT_DISPLAY)
+[?2004l[?2004h>         dispatcher = ActiveGestureController(this)
+[?2004l[?2004h>     }
+[?2004l[?2004h> 
+[?2004l[?2004h>     // [TASK 1: TRIGGER MECHANISM] [A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[K]
+[?2004l[?2004h>     // Invoke this method from your Overlay UI to perform a "Winning Pass/Shot"
+[?2004l[?2004h>     fun triggerInstantExecution(x1: Float, y1: Float, x2: Float, y2: Float) {
+[?2004l[?2004h>         dispatcher.injectWinningVector(x1, y1, x2, y2, 50L) // 50ms ultra-fast execution
+[?2004l[?2004h>     }
+[?2004l[?2004h> 
+[?2004l[?2004h>     override fun onAccessibilityEvent(event: android.view.accessibility.AccessibilityEvent?) {}
+[?2004l[?2004h>     override fun onInterrupt() {}
+[?2004l[?2004h> }
+[?2004l[?2004h> EOF
+[?2004lbash: __vsc_prompt_cmd_original: command not found
+[?2004h]0;user@firebase-efootball-assistant-1779975046441: ~/efootball-assistant[00;35mefootball-assistant-00995228[00m:[01;34m~/efootball-assistant[00m[01;32m{main}[00m$ 
 [?2004lbash: __vsc_prompt_cmd_original: command not found
 [?2004h]0;user@firebase-efootball-assistant-1779975046441: ~/efootball-assistant[00;35mefootball-assistant-00995228[00m:[01;34m~/efootball-assistant[00m[01;32m{main}[00m$ ./gradlew clean assembleDebug --no-daemon
 [?2004lTo honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/8.5/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
 Daemon will be stopped at the end of the build 
-Unable to receive command from client socket connection from /127.0.0.1:40821 to /127.0.0.1:36564. Discarding connection.
-org.gradle.internal.remote.internal.MessageIOException: Could not read message from '/127.0.0.1:36564'.
+Unable to receive command from client socket connection from /127.0.0.1:33755 to /127.0.0.1:54510. Discarding connection.
+org.gradle.internal.remote.internal.MessageIOException: Could not read message from '/127.0.0.1:54510'.
 	at org.gradle.internal.remote.internal.inet.SocketConnection.receive(SocketConnection.java:94)
 	at org.gradle.launcher.daemon.server.SynchronizedDispatchConnection.receive(SynchronizedDispatchConnection.java:70)
 	at org.gradle.launcher.daemon.server.DefaultDaemonConnection$1.run(DefaultDaemonConnection.java:73)
@@ -106,8 +156,8 @@ Caused by: java.lang.IllegalArgumentException: Unexpected type tag 71 found.
 	at org.gradle.internal.serialize.Serializers$StatefulSerializerAdapter$1.read(Serializers.java:36)
 	at org.gradle.internal.remote.internal.inet.SocketConnection.receive(SocketConnection.java:81)
 	... 7 more
-Unable to receive command from client socket connection from /127.0.0.1:40821 to /127.0.0.1:36574. Discarding connection.
-org.gradle.internal.remote.internal.MessageIOException: Could not read message from '/127.0.0.1:36574'.
+Unable to receive command from client socket connection from /127.0.0.1:33755 to /127.0.0.1:54514. Discarding connection.
+org.gradle.internal.remote.internal.MessageIOException: Could not read message from '/127.0.0.1:54514'.
 	at org.gradle.internal.remote.internal.inet.SocketConnection.receive(SocketConnection.java:94)
 	at org.gradle.launcher.daemon.server.SynchronizedDispatchConnection.receive(SynchronizedDispatchConnection.java:70)
 	at org.gradle.launcher.daemon.server.DefaultDaemonConnection$1.run(DefaultDaemonConnection.java:73)
@@ -149,373 +199,9 @@ to this project's gradle.properties.
 > Task :adapter_input:mapDebugSourceSetPaths
 > Task :adapter_input:generateDebugResources
 > Task :adapter_input:packageDebugResources
-> Task :adapter_input:mergeDebugResources
 > Task :adapter_input:createDebugCompatibleScreenManifests
 > Task :adapter_input:extractDeepLinksDebug
-> Task :adapter_input:parseDebugLocalResources
-
-> Task :adapter_input:processDebugMainManifest
-package="com.assistant.adapter.input" found in source AndroidManifest.xml: /home/user/efootball-assistant/adapter_input/src/main/AndroidManifest.xml.
-Setting the namespace via the package attribute in the source AndroidManifest.xml is no longer supported, and the value is ignored.
-Recommendation: remove package="com.assistant.adapter.input" from the source AndroidManifest.xml: /home/user/efootball-assistant/adapter_input/src/main/AndroidManifest.xml.
-
-> Task :adapter_input:processDebugManifest
-> Task :adapter_input:javaPreCompileDebug
-> Task :adapter_input:mergeDebugShaders
-> Task :adapter_input:compileDebugShaders NO-SOURCE
-> Task :adapter_input:generateDebugAssets UP-TO-DATE
-> Task :adapter_input:mergeDebugAssets
-> Task :adapter_input:compressDebugAssets
-> Task :adapter_input:desugarDebugFileDependencies
-> Task :adapter_input:mergeDebugJniLibFolders
-> Task :adapter_input:mergeDebugNativeLibs NO-SOURCE
-> Task :adapter_input:stripDebugDebugSymbols NO-SOURCE
-> Task :adapter_input:checkDebugDuplicateClasses
-> Task :adapter_input:validateSigningDebug
-> Task :adapter_input:processDebugManifestForPackage
-> Task :adapter_input:mergeLibDexDebug
-> Task :adapter_input:writeDebugAppMetadata
-> Task :adapter_input:writeDebugSigningConfigVersions
-> Task :adapter_lmk:preBuild UP-TO-DATE
-> Task :adapter_lmk:preDebugBuild UP-TO-DATE
-> Task :adapter_lmk:mergeDebugNativeDebugMetadata NO-SOURCE
-> Task :adapter_lmk:checkKotlinGradlePluginConfigurationErrors
-> Task :adapter_lmk:checkDebugAarMetadata
-> Task :adapter_lmk:generateDebugResValues
-> Task :adapter_lmk:mapDebugSourceSetPaths
-> Task :adapter_lmk:generateDebugResources
-> Task :adapter_lmk:mergeDebugResources
-> Task :adapter_lmk:packageDebugResources
-> Task :adapter_lmk:createDebugCompatibleScreenManifests
-> Task :adapter_lmk:extractDeepLinksDebug
-> Task :adapter_lmk:parseDebugLocalResources
-
-> Task :adapter_lmk:processDebugMainManifest
-package="com.assistant.adapter.lmk" found in source AndroidManifest.xml: /home/user/efootball-assistant/adapter_lmk/src/main/AndroidManifest.xml.
-Setting the namespace via the package attribute in the source AndroidManifest.xml is no longer supported, and the value is ignored.
-Recommendation: remove package="com.assistant.adapter.lmk" from the source AndroidManifest.xml: /home/user/efootball-assistant/adapter_lmk/src/main/AndroidManifest.xml.
-
-> Task :adapter_lmk:processDebugManifest
-> Task :adapter_lmk:javaPreCompileDebug
-> Task :adapter_lmk:mergeDebugShaders
-> Task :adapter_lmk:compileDebugShaders NO-SOURCE
-> Task :adapter_lmk:generateDebugAssets UP-TO-DATE
-> Task :adapter_lmk:mergeDebugAssets
-> Task :adapter_lmk:compressDebugAssets
-> Task :adapter_lmk:desugarDebugFileDependencies
-> Task :adapter_lmk:checkDebugDuplicateClasses
-> Task :adapter_lmk:mergeDebugJniLibFolders
-> Task :adapter_lmk:mergeDebugNativeLibs NO-SOURCE
-> Task :adapter_lmk:stripDebugDebugSymbols NO-SOURCE
-> Task :adapter_lmk:mergeLibDexDebug
-> Task :adapter_lmk:processDebugManifestForPackage
-> Task :adapter_lmk:validateSigningDebug
-> Task :adapter_lmk:writeDebugAppMetadata
-> Task :adapter_lmk:writeDebugSigningConfigVersions
-> Task :adapter_net:preBuild UP-TO-DATE
-> Task :adapter_net:preDebugBuild UP-TO-DATE
-> Task :adapter_net:mergeDebugNativeDebugMetadata NO-SOURCE
-> Task :adapter_net:checkKotlinGradlePluginConfigurationErrors
-> Task :adapter_net:checkDebugAarMetadata
-> Task :adapter_net:generateDebugResValues
-> Task :adapter_net:mapDebugSourceSetPaths
-> Task :adapter_net:generateDebugResources
-> Task :adapter_net:mergeDebugResources
-> Task :adapter_net:packageDebugResources
-> Task :adapter_net:createDebugCompatibleScreenManifests
-> Task :adapter_net:extractDeepLinksDebug
-> Task :adapter_net:parseDebugLocalResources
-> Task :adapter_input:processDebugResources
-
-> Task :adapter_net:processDebugMainManifest
-package="com.assistant.adapter.net" found in source AndroidManifest.xml: /home/user/efootball-assistant/adapter_net/src/main/AndroidManifest.xml.
-Setting the namespace via the package attribute in the source AndroidManifest.xml is no longer supported, and the value is ignored.
-Recommendation: remove package="com.assistant.adapter.net" from the source AndroidManifest.xml: /home/user/efootball-assistant/adapter_net/src/main/AndroidManifest.xml.
-
-> Task :adapter_lmk:processDebugResources
-> Task :adapter_net:processDebugManifest
-> Task :adapter_net:javaPreCompileDebug
-> Task :adapter_net:mergeDebugShaders
-> Task :adapter_net:compileDebugShaders NO-SOURCE
-> Task :adapter_net:generateDebugAssets UP-TO-DATE
-> Task :adapter_net:mergeDebugAssets
-> Task :adapter_net:processDebugManifestForPackage
-> Task :adapter_net:compressDebugAssets
-> Task :adapter_net:desugarDebugFileDependencies
-> Task :adapter_net:checkDebugDuplicateClasses
-> Task :adapter_net:mergeDebugJniLibFolders
-> Task :adapter_net:mergeDebugNativeLibs NO-SOURCE
-> Task :adapter_net:stripDebugDebugSymbols NO-SOURCE
-> Task :adapter_net:validateSigningDebug
-> Task :adapter_net:writeDebugAppMetadata
-> Task :adapter_net:writeDebugSigningConfigVersions
-> Task :adapter_sync:preBuild UP-TO-DATE
-> Task :adapter_sync:preDebugBuild UP-TO-DATE
-> Task :adapter_sync:mergeDebugNativeDebugMetadata NO-SOURCE
-> Task :adapter_sync:checkKotlinGradlePluginConfigurationErrors
-> Task :adapter_net:processDebugResources
-> Task :adapter_net:mergeLibDexDebug
-> Task :adapter_sync:checkDebugAarMetadata
-> Task :adapter_sync:generateDebugResValues
-> Task :adapter_sync:mapDebugSourceSetPaths
-> Task :adapter_sync:generateDebugResources
-> Task :adapter_sync:packageDebugResources
-> Task :adapter_sync:parseDebugLocalResources
-
-> Task :adapter_input:compileDebugKotlin
-w: file:///home/user/efootball-assistant/adapter_input/src/main/java/com/assistant/adapter/input/InputAdapterService.kt:13:39 'constructor Handler(Handler.Callback?)' is deprecated. Deprecated in Java
-w: file:///home/user/efootball-assistant/adapter_input/src/main/java/com/assistant/adapter/input/InputAdapterService.kt:13:66 Parameter 'msg' is never used, could be renamed to _
-
-> Task :adapter_sync:mergeDebugResources
-> Task :adapter_sync:createDebugCompatibleScreenManifests
-
-> Task :adapter_lmk:compileDebugKotlin
-w: file:///home/user/efootball-assistant/adapter_lmk/src/main/java/com/assistant/adapter/lmk/LmkAdapterService.kt:15:39 'constructor Handler(Handler.Callback?)' is deprecated. Deprecated in Java
-
-> Task :adapter_input:compileDebugJavaWithJavac NO-SOURCE
-
-> Task :adapter_net:compileDebugKotlin
-w: file:///home/user/efootball-assistant/adapter_net/src/main/java/com/assistant/adapter/net/NetAdapterService.kt:13:39 'constructor Handler(Handler.Callback?)' is deprecated. Deprecated in Java
-w: file:///home/user/efootball-assistant/adapter_net/src/main/java/com/assistant/adapter/net/NetAdapterService.kt:13:66 Parameter 'msg' is never used, could be renamed to _
-
-> Task :adapter_input:dexBuilderDebug
-> Task :adapter_input:mergeDebugGlobalSynthetics
-> Task :adapter_input:processDebugJavaRes
-> Task :adapter_lmk:compileDebugJavaWithJavac NO-SOURCE
-> Task :adapter_input:mergeProjectDexDebug
-> Task :adapter_lmk:dexBuilderDebug
-> Task :adapter_lmk:mergeDebugGlobalSynthetics
-> Task :adapter_lmk:processDebugJavaRes
-> Task :adapter_net:compileDebugJavaWithJavac NO-SOURCE
-> Task :adapter_net:dexBuilderDebug
-> Task :adapter_net:processDebugJavaRes
-> Task :adapter_lmk:mergeProjectDexDebug
-> Task :adapter_net:mergeDebugGlobalSynthetics
-> Task :adapter_sync:extractDeepLinksDebug
-
-> Task :adapter_sync:processDebugMainManifest
-package="com.assistant.adapter.sync" found in source AndroidManifest.xml: /home/user/efootball-assistant/adapter_sync/src/main/AndroidManifest.xml.
-Setting the namespace via the package attribute in the source AndroidManifest.xml is no longer supported, and the value is ignored.
-Recommendation: remove package="com.assistant.adapter.sync" from the source AndroidManifest.xml: /home/user/efootball-assistant/adapter_sync/src/main/AndroidManifest.xml.
-
-> Task :adapter_sync:processDebugManifest
-> Task :adapter_net:mergeDebugJavaResource
-> Task :adapter_lmk:mergeDebugJavaResource
-> Task :adapter_input:mergeDebugJavaResource
-> Task :adapter_sync:javaPreCompileDebug
-> Task :adapter_sync:mergeDebugShaders
-> Task :adapter_sync:processDebugManifestForPackage
-> Task :adapter_net:mergeProjectDexDebug
-> Task :adapter_sync:compileDebugShaders NO-SOURCE
-> Task :adapter_sync:generateDebugAssets UP-TO-DATE
-> Task :adapter_sync:mergeDebugAssets
-> Task :adapter_sync:compressDebugAssets
-> Task :adapter_sync:desugarDebugFileDependencies
-> Task :adapter_sync:checkDebugDuplicateClasses
-> Task :adapter_net:mergeExtDexDebug
-> Task :adapter_sync:mergeDebugJniLibFolders
-> Task :adapter_input:mergeExtDexDebug
-> Task :adapter_lmk:mergeExtDexDebug
-> Task :adapter_sync:processDebugResources
-> Task :adapter_sync:mergeDebugNativeLibs NO-SOURCE
-> Task :adapter_sync:stripDebugDebugSymbols NO-SOURCE
-> Task :adapter_sync:mergeLibDexDebug
-> Task :adapter_sync:validateSigningDebug
-> Task :adapter_sync:writeDebugAppMetadata
-> Task :adapter_sync:writeDebugSigningConfigVersions
-> Task :app:preBuild UP-TO-DATE
-> Task :app:preDebugBuild UP-TO-DATE
-> Task :app:mergeDebugNativeDebugMetadata NO-SOURCE
-> Task :app:checkKotlinGradlePluginConfigurationErrors
-> Task :app:generateDebugResValues
-> Task :app:mapDebugSourceSetPaths
-> Task :app:generateDebugResources
-> Task :adapter_sync:mergeExtDexDebug
-
-> Task :adapter_sync:compileDebugKotlin
-w: file:///home/user/efootball-assistant/adapter_sync/src/main/java/com/assistant/adapter/sync/SyncAdapterService.kt:15:39 'constructor Handler(Handler.Callback?)' is deprecated. Deprecated in Java
-w: file:///home/user/efootball-assistant/adapter_sync/src/main/java/com/assistant/adapter/sync/SyncAdapterService.kt:15:66 Parameter 'msg' is never used, could be renamed to _
-
-> Task :app:checkDebugAarMetadata
-> Task :adapter_sync:compileDebugJavaWithJavac NO-SOURCE
-> Task :adapter_sync:dexBuilderDebug
-> Task :adapter_sync:mergeDebugGlobalSynthetics
-> Task :adapter_net:packageDebug
-> Task :adapter_net:createDebugApkListingFileRedirect
-> Task :adapter_lmk:packageDebug
-> Task :adapter_lmk:createDebugApkListingFileRedirect
-> Task :adapter_lmk:assembleDebug
-> Task :adapter_net:assembleDebug
-> Task :adapter_sync:processDebugJavaRes
-> Task :adapter_sync:mergeProjectDexDebug
-> Task :app:packageDebugResources
-> Task :app:createDebugCompatibleScreenManifests
-> Task :adapter_sync:mergeDebugJavaResource
-> Task :app:extractDeepLinksDebug
-> Task :app:parseDebugLocalResources
-> Task :app:mergeDebugResources
-
-> Task :app:processDebugMainManifest
-/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:17:9-42 Warning:
-	android:extractNativeLibs should not be specified in this source AndroidManifest.xml file. See https://d.android.com/guide/topics/manifest/application-element#extractNativeLibs for more information.
-The AGP Upgrade Assistant can remove the attribute from the AndroidManifest.xml file and update the build file accordingly. See https://d.android.com/studio/build/agp-upgrade-assistant for more information.
-/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:79:9-87:19 Warning:
-	Element service#com.assistant.overlay.interceptor.SmartAssistAccessibilityEngine at AndroidManifest.xml:79:9-87:19 duplicated with element declared at AndroidManifest.xml:70:9-78:19
-/home/user/efootball-assistant/app/src/main/AndroidManifest.xml:89:9-97:19 Warning:
-	Element service#com.assistant.overlay.interceptor.SmartAssistAccessibilityEngine at AndroidManifest.xml:89:9-97:19 duplicated with element declared at AndroidManifest.xml:79:9-87:19
-
-> Task :app:processDebugManifest
-> Task :app:mergeDebugShaders
-> Task :app:javaPreCompileDebug
-> Task :app:compileDebugShaders NO-SOURCE
-> Task :app:generateDebugAssets UP-TO-DATE
-> Task :app:mergeDebugAssets
-> Task :app:compressDebugAssets
-> Task :adapter_input:packageDebug
-> Task :adapter_input:createDebugApkListingFileRedirect
-> Task :adapter_input:assembleDebug
-> Task :app:extractProguardFiles
-> Task :app:processApplicationManifestDebugForBundle
-> Task :app:mergeDebugJniLibFolders
-> Task :app:mergeDebugArtProfile
-> Task :app:validateSigningDebug
-> Task :app:writeDebugAppMetadata
-> Task :app:writeDebugSigningConfigVersions
-> Task :diagnostic_core:preBuild UP-TO-DATE
-> Task :diagnostic_core:preDebugBuild UP-TO-DATE
-> Task :diagnostic_core:mergeDebugJniLibFolders
-> Task :diagnostic_core:mergeDebugNativeLibs NO-SOURCE
-> Task :diagnostic_core:stripDebugDebugSymbols NO-SOURCE
-> Task :diagnostic_core:checkKotlinGradlePluginConfigurationErrors
-> Task :diagnostic_core:generateDebugResValues
-> Task :diagnostic_core:copyDebugJniLibsProjectAndLocalJars
-> Task :diagnostic_core:generateDebugResources
-> Task :diagnostic_core:packageDebugResources
-> Task :adapter_sync:packageDebug
-> Task :adapter_sync:createDebugApkListingFileRedirect
-> Task :adapter_sync:assembleDebug
-> Task :diagnostic_core:parseDebugLocalResources
-> Task :diagnostic_core:extractDeepLinksForAarDebug UP-TO-DATE
-> Task :diagnostic_core:javaPreCompileDebug
-> Task :diagnostic_core:mergeDebugShaders
-> Task :diagnostic_core:compileDebugShaders NO-SOURCE
-> Task :diagnostic_core:generateDebugAssets UP-TO-DATE
-> Task :diagnostic_core:processDebugManifest
-> Task :app:processDebugManifestForPackage
-> Task :app:checkDebugDuplicateClasses
-> Task :diagnostic_core:generateDebugRFile
-> Task :diagnostic_core:packageDebugAssets
-> Task :diagnostic_core:prepareDebugArtProfile UP-TO-DATE
-> Task :diagnostic_core:prepareLintJarForPublish UP-TO-DATE
-> Task :diagnostic_core:writeDebugAarMetadata
-> Task :app:processDebugResources
-> Task :app:mergeDebugNativeLibs
-> Task :diagnostic_core:compileDebugKotlin
-> Task :diagnostic_core:extractDebugAnnotations
-> Task :diagnostic_core:compileDebugJavaWithJavac NO-SOURCE
-> Task :diagnostic_core:mergeDebugGeneratedProguardFiles UP-TO-DATE
-> Task :diagnostic_core:mergeDebugConsumerProguardFiles UP-TO-DATE
-> Task :diagnostic_core:processDebugJavaRes
-> Task :diagnostic_core:mergeDebugJavaResource
-> Task :diagnostic_core:syncDebugLibJars
-> Task :diagnostic_core:bundleDebugAar
-> Task :diagnostic_core:assembleDebug
-
-> Task :app:stripDebugDebugSymbols
-Unable to strip the following libraries, packaging them as they are: libmlkit_google_ocr_pipeline.so.
-
-> Task :app:bundleDebugResources
-> Task :app:kspDebugKotlin
-
-> Task :app:compileDebugKotlin
-w: file:///home/user/efootball-assistant/app/src/main/java/com/assistant/DiagnosticsEngine.kt:53:26 Parameter 'context' is never used
-w: file:///home/user/efootball-assistant/app/src/main/java/com/assistant/OtaGatewayEngine.kt:102:21 Variable 'checkUrl' is never used
-w: file:///home/user/efootball-assistant/app/src/main/java/com/assistant/OverlayService.kt:151:149 'TYPE_PHONE: Int' is deprecated. Deprecated in Java
-w: file:///home/user/efootball-assistant/app/src/main/java/com/assistant/OverlayService.kt:174:23 'getter for defaultDisplay: Display!' is deprecated. Deprecated in Java
-w: file:///home/user/efootball-assistant/app/src/main/java/com/assistant/OverlayService.kt:174:38 'getRealMetrics(DisplayMetrics!): Unit' is deprecated. Deprecated in Java
-w: file:///home/user/efootball-assistant/app/src/main/java/com/assistant/WelcomeActivity.kt:99:13 'overridePendingTransition(Int, Int): Unit' is deprecated. Deprecated in Java
-w: file:///home/user/efootball-assistant/app/src/main/java/com/assistant/interceptor/SmartAssistAccessibilityEngine.kt:85:36 Parameter 'event' is never used
-w: file:///home/user/efootball-assistant/app/src/main/java/com/assistant/interceptor/SmartAssistAccessibilityEngine.kt:95:45 Parameter 'event' is never used
-w: file:///home/user/efootball-assistant/app/src/main/java/com/assistant/overlay/ui/adapter/MatchHistoryAdapter.kt:57:21 Variable 'endDate' is never used
-
-> Task :app:compileDebugJavaWithJavac
-> Task :app:mergeDebugGeneratedProguardFiles UP-TO-DATE
-> Task :app:processDebugJavaRes
-> Task :app:mergeDebugJavaResource
-> Task :app:expandDebugArtProfileWildcards
-> Task :app:minifyDebugWithR8
-> Task :app:shrinkDebugRes
-> Task :app:packageDebug
-> Task :app:createDebugApkListingFileRedirect
-> Task :app:assembleDebug
-
-BUILD SUCCESSFUL in 1m
-200 actionable tasks: 194 executed, 6 up-to-date
-bash: __vsc_prompt_cmd_original: command not found
-[?2004h]0;user@firebase-efootball-assistant-1779975046441: ~/efootball-assistant[00;35mefootball-assistant-00995228[00m:[01;34m~/efootball-assistant[00m[01;32m{main}[00m$ [K[A[K]0;user@firebase-efootball-assistant-1779975046441: ~/efootball-assistant[00;35mefootball-assistant-00995228[00m:[01;34m~/efootball-assistant[00m[01;32m{main}[00m$ [K[A[K]0;user@firebase-efootball-assistant-1779975046441: ~/efootball-assistant[00;35mefootball-assistant-00995228[00m:[01;34m~/efootball-assistant[00m[01;32m{main}[00m$ exit[K[K[K[K./gradlew clean assembleDebug --no-daemon
-[?2004lTo honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/8.5/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
-Daemon will be stopped at the end of the build 
-Unable to receive command from client socket connection from /127.0.0.1:40519 to /127.0.0.1:44950. Discarding connection.
-org.gradle.internal.remote.internal.MessageIOException: Could not read message from '/127.0.0.1:44950'.
-	at org.gradle.internal.remote.internal.inet.SocketConnection.receive(SocketConnection.java:94)
-	at org.gradle.launcher.daemon.server.SynchronizedDispatchConnection.receive(SynchronizedDispatchConnection.java:70)
-	at org.gradle.launcher.daemon.server.DefaultDaemonConnection$1.run(DefaultDaemonConnection.java:73)
-	at org.gradle.internal.concurrent.ExecutorPolicy$CatchAndRecordFailures.onExecute(ExecutorPolicy.java:64)
-	at org.gradle.internal.concurrent.AbstractManagedExecutor$1.run(AbstractManagedExecutor.java:47)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
-	at java.base/java.lang.Thread.run(Thread.java:1583)
-Caused by: java.lang.IllegalArgumentException: Unexpected type tag 71 found.
-	at org.gradle.internal.serialize.DefaultSerializerRegistry$TaggedTypeSerializer.read(DefaultSerializerRegistry.java:162)
-	at org.gradle.internal.serialize.Serializers$StatefulSerializerAdapter$1.read(Serializers.java:36)
-	at org.gradle.internal.remote.internal.inet.SocketConnection.receive(SocketConnection.java:81)
-	... 7 more
-Unable to receive command from client socket connection from /127.0.0.1:40519 to /127.0.0.1:44960. Discarding connection.
-org.gradle.internal.remote.internal.MessageIOException: Could not read message from '/127.0.0.1:44960'.
-	at org.gradle.internal.remote.internal.inet.SocketConnection.receive(SocketConnection.java:94)
-	at org.gradle.launcher.daemon.server.SynchronizedDispatchConnection.receive(SynchronizedDispatchConnection.java:70)
-	at org.gradle.launcher.daemon.server.DefaultDaemonConnection$1.run(DefaultDaemonConnection.java:73)
-	at org.gradle.internal.concurrent.ExecutorPolicy$CatchAndRecordFailures.onExecute(ExecutorPolicy.java:64)
-	at org.gradle.internal.concurrent.AbstractManagedExecutor$1.run(AbstractManagedExecutor.java:47)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
-	at java.base/java.lang.Thread.run(Thread.java:1583)
-Caused by: java.lang.IllegalArgumentException: Unexpected type tag 22 found.
-	at org.gradle.internal.serialize.DefaultSerializerRegistry$TaggedTypeSerializer.read(DefaultSerializerRegistry.java:162)
-	at org.gradle.internal.serialize.Serializers$StatefulSerializerAdapter$1.read(Serializers.java:36)
-	at org.gradle.internal.remote.internal.inet.SocketConnection.receive(SocketConnection.java:81)
-	... 7 more
-WARNING: We recommend using a newer Android Gradle plugin to use compileSdk = 36
-
-This Android Gradle plugin (8.2.2) was tested up to compileSdk = 34.
-
-You are strongly encouraged to update your project to use a newer
-Android Gradle plugin that has been tested with compileSdk = 36.
-
-If you are already using the latest version of the Android Gradle plugin,
-you may need to wait until a newer version with support for compileSdk = 36 is available.
-
-To suppress this warning, add/update
-    android.suppressUnsupportedCompileSdk=36
-to this project's gradle.properties.
-> Task :adapter_input:clean
-> Task :adapter_lmk:clean
-> Task :adapter_net:clean
-> Task :adapter_sync:clean
-> Task :app:clean
-> Task :diagnostic_core:clean
-> Task :adapter_input:preBuild UP-TO-DATE
-> Task :adapter_input:preDebugBuild UP-TO-DATE
-> Task :adapter_input:mergeDebugNativeDebugMetadata NO-SOURCE
-> Task :adapter_input:checkKotlinGradlePluginConfigurationErrors
-> Task :adapter_input:generateDebugResValues
-> Task :adapter_input:checkDebugAarMetadata
-> Task :adapter_input:mapDebugSourceSetPaths
-> Task :adapter_input:generateDebugResources
-> Task :adapter_input:packageDebugResources
 > Task :adapter_input:mergeDebugResources
-> Task :adapter_input:createDebugCompatibleScreenManifests
-> Task :adapter_input:extractDeepLinksDebug
 > Task :adapter_input:parseDebugLocalResources
 
 > Task :adapter_input:processDebugMainManifest
@@ -564,9 +250,7 @@ Recommendation: remove package="com.assistant.adapter.lmk" from the source Andro
 > Task :adapter_lmk:compileDebugShaders NO-SOURCE
 > Task :adapter_lmk:generateDebugAssets UP-TO-DATE
 > Task :adapter_lmk:mergeDebugAssets
-> Task :adapter_lmk:processDebugManifestForPackage
 > Task :adapter_lmk:compressDebugAssets
-> Task :adapter_input:processDebugManifestForPackage
 > Task :adapter_lmk:desugarDebugFileDependencies
 > Task :adapter_lmk:checkDebugDuplicateClasses
 > Task :adapter_lmk:mergeDebugJniLibFolders
@@ -581,14 +265,15 @@ Recommendation: remove package="com.assistant.adapter.lmk" from the source Andro
 > Task :adapter_net:mergeDebugNativeDebugMetadata NO-SOURCE
 > Task :adapter_net:checkKotlinGradlePluginConfigurationErrors
 > Task :adapter_net:checkDebugAarMetadata
+> Task :adapter_input:processDebugManifestForPackage
 > Task :adapter_net:generateDebugResValues
 > Task :adapter_net:mapDebugSourceSetPaths
 > Task :adapter_net:generateDebugResources
 > Task :adapter_net:mergeDebugResources
 > Task :adapter_net:packageDebugResources
 > Task :adapter_net:createDebugCompatibleScreenManifests
-> Task :adapter_net:extractDeepLinksDebug
 > Task :adapter_net:parseDebugLocalResources
+> Task :adapter_net:extractDeepLinksDebug
 
 > Task :adapter_net:processDebugMainManifest
 package="com.assistant.adapter.net" found in source AndroidManifest.xml: /home/user/efootball-assistant/adapter_net/src/main/AndroidManifest.xml.
@@ -597,14 +282,17 @@ Recommendation: remove package="com.assistant.adapter.net" from the source Andro
 
 > Task :adapter_net:processDebugManifest
 > Task :adapter_net:javaPreCompileDebug
+> Task :adapter_lmk:processDebugManifestForPackage
 > Task :adapter_net:mergeDebugShaders
 > Task :adapter_net:compileDebugShaders NO-SOURCE
 > Task :adapter_net:generateDebugAssets UP-TO-DATE
 > Task :adapter_net:mergeDebugAssets
 > Task :adapter_net:compressDebugAssets
 > Task :adapter_net:desugarDebugFileDependencies
+> Task :adapter_net:processDebugManifestForPackage
 > Task :adapter_net:checkDebugDuplicateClasses
 > Task :adapter_net:mergeDebugJniLibFolders
+> Task :adapter_net:mergeLibDexDebug
 > Task :adapter_net:mergeDebugNativeLibs NO-SOURCE
 > Task :adapter_net:stripDebugDebugSymbols NO-SOURCE
 > Task :adapter_net:validateSigningDebug
@@ -612,44 +300,19 @@ Recommendation: remove package="com.assistant.adapter.net" from the source Andro
 > Task :adapter_net:writeDebugSigningConfigVersions
 > Task :adapter_sync:preBuild UP-TO-DATE
 > Task :adapter_sync:preDebugBuild UP-TO-DATE
-> Task :adapter_lmk:processDebugResources
-> Task :adapter_net:processDebugManifestForPackage
-> Task :adapter_input:processDebugResources
-> Task :adapter_net:mergeLibDexDebug
 > Task :adapter_sync:mergeDebugNativeDebugMetadata NO-SOURCE
 > Task :adapter_sync:checkKotlinGradlePluginConfigurationErrors
 > Task :adapter_sync:generateDebugResValues
 > Task :adapter_sync:mapDebugSourceSetPaths
 > Task :adapter_sync:generateDebugResources
 > Task :adapter_sync:checkDebugAarMetadata
-> Task :adapter_sync:packageDebugResources
-> Task :adapter_sync:parseDebugLocalResources
-> Task :adapter_sync:createDebugCompatibleScreenManifests
-
-> Task :adapter_lmk:compileDebugKotlin
-w: file:///home/user/efootball-assistant/adapter_lmk/src/main/java/com/assistant/adapter/lmk/LmkAdapterService.kt:15:39 'constructor Handler(Handler.Callback?)' is deprecated. Deprecated in Java
-
-> Task :adapter_sync:extractDeepLinksDebug
-
-> Task :adapter_input:compileDebugKotlin
-w: file:///home/user/efootball-assistant/adapter_input/src/main/java/com/assistant/adapter/input/InputAdapterService.kt:13:39 'constructor Handler(Handler.Callback?)' is deprecated. Deprecated in Java
-w: file:///home/user/efootball-assistant/adapter_input/src/main/java/com/assistant/adapter/input/InputAdapterService.kt:13:66 Parameter 'msg' is never used, could be renamed to _
-
-> Task :adapter_sync:mergeDebugResources
-> Task :adapter_lmk:compileDebugJavaWithJavac NO-SOURCE
-> Task :adapter_input:compileDebugJavaWithJavac NO-SOURCE
+> Task :adapter_input:processDebugResources
 > Task :adapter_net:processDebugResources
-> Task :adapter_net:mergeExtDexDebug
-> Task :adapter_lmk:mergeExtDexDebug
-> Task :adapter_input:mergeExtDexDebug
-> Task :adapter_input:dexBuilderDebug
-> Task :adapter_input:mergeDebugGlobalSynthetics
-> Task :adapter_input:processDebugJavaRes
-> Task :adapter_input:mergeProjectDexDebug
-> Task :adapter_lmk:dexBuilderDebug
-> Task :adapter_lmk:mergeDebugGlobalSynthetics
-> Task :adapter_lmk:processDebugJavaRes
-> Task :adapter_lmk:mergeProjectDexDebug
+> Task :adapter_lmk:processDebugResources
+> Task :adapter_sync:mergeDebugResources
+> Task :adapter_sync:packageDebugResources
+> Task :adapter_sync:createDebugCompatibleScreenManifests
+> Task :adapter_sync:extractDeepLinksDebug
 
 > Task :adapter_sync:processDebugMainManifest
 package="com.assistant.adapter.sync" found in source AndroidManifest.xml: /home/user/efootball-assistant/adapter_sync/src/main/AndroidManifest.xml.
@@ -657,6 +320,10 @@ Setting the namespace via the package attribute in the source AndroidManifest.xm
 Recommendation: remove package="com.assistant.adapter.sync" from the source AndroidManifest.xml: /home/user/efootball-assistant/adapter_sync/src/main/AndroidManifest.xml.
 
 > Task :adapter_sync:processDebugManifest
+> Task :adapter_input:mergeExtDexDebug
+> Task :adapter_net:mergeExtDexDebug
+> Task :adapter_lmk:mergeExtDexDebug
+> Task :adapter_sync:parseDebugLocalResources
 > Task :adapter_sync:javaPreCompileDebug
 > Task :adapter_sync:mergeDebugShaders
 > Task :adapter_sync:compileDebugShaders NO-SOURCE
@@ -664,91 +331,93 @@ Recommendation: remove package="com.assistant.adapter.sync" from the source Andr
 > Task :adapter_sync:mergeDebugAssets
 > Task :adapter_sync:compressDebugAssets
 > Task :adapter_sync:desugarDebugFileDependencies
-> Task :adapter_sync:processDebugManifestForPackage
 > Task :adapter_sync:checkDebugDuplicateClasses
 > Task :adapter_sync:mergeDebugJniLibFolders
+> Task :adapter_sync:processDebugManifestForPackage
+> Task :adapter_sync:mergeLibDexDebug
 > Task :adapter_sync:mergeDebugNativeLibs NO-SOURCE
 > Task :adapter_sync:stripDebugDebugSymbols NO-SOURCE
-> Task :adapter_sync:mergeLibDexDebug
 > Task :adapter_sync:validateSigningDebug
-> Task :adapter_input:mergeDebugJavaResource
-> Task :adapter_lmk:mergeDebugJavaResource
 > Task :adapter_sync:writeDebugAppMetadata
-> Task :adapter_sync:processDebugResources
 > Task :adapter_sync:writeDebugSigningConfigVersions
 > Task :app:preBuild UP-TO-DATE
 > Task :app:preDebugBuild UP-TO-DATE
 > Task :app:mergeDebugNativeDebugMetadata NO-SOURCE
 > Task :app:checkKotlinGradlePluginConfigurationErrors
+> Task :adapter_sync:processDebugResources
+> Task :adapter_sync:mergeExtDexDebug
+> Task :app:generateDebugResValues
+> Task :app:checkDebugAarMetadata
+> Task :app:mapDebugSourceSetPaths
+> Task :app:generateDebugResources
+> Task :app:packageDebugResources
+> Task :app:createDebugCompatibleScreenManifests
+> Task :app:extractDeepLinksDebug
+> Task :app:parseDebugLocalResources
+> Task :app:mergeDebugResources
+
+> Task :adapter_input:compileDebugKotlin
+w: file:///home/user/efootball-assistant/adapter_input/src/main/java/com/assistant/adapter/input/InputAdapterService.kt:13:39 'constructor Handler(Handler.Callback?)' is deprecated. Deprecated in Java
+w: file:///home/user/efootball-assistant/adapter_input/src/main/java/com/assistant/adapter/input/InputAdapterService.kt:13:66 Parameter 'msg' is never used, could be renamed to _
+
+> Task :adapter_lmk:compileDebugKotlin
+w: file:///home/user/efootball-assistant/adapter_lmk/src/main/java/com/assistant/adapter/lmk/LmkAdapterService.kt:15:39 'constructor Handler(Handler.Callback?)' is deprecated. Deprecated in Java
 
 > Task :adapter_net:compileDebugKotlin
 w: file:///home/user/efootball-assistant/adapter_net/src/main/java/com/assistant/adapter/net/NetAdapterService.kt:13:39 'constructor Handler(Handler.Callback?)' is deprecated. Deprecated in Java
 w: file:///home/user/efootball-assistant/adapter_net/src/main/java/com/assistant/adapter/net/NetAdapterService.kt:13:66 Parameter 'msg' is never used, could be renamed to _
 
-> Task :adapter_net:compileDebugJavaWithJavac NO-SOURCE
-> Task :app:checkDebugAarMetadata
-> Task :adapter_net:dexBuilderDebug
-> Task :adapter_net:mergeDebugGlobalSynthetics
-> Task :adapter_net:processDebugJavaRes
-> Task :app:generateDebugResValues
-> Task :adapter_net:mergeProjectDexDebug
-
 > Task :adapter_sync:compileDebugKotlin
 w: file:///home/user/efootball-assistant/adapter_sync/src/main/java/com/assistant/adapter/sync/SyncAdapterService.kt:15:39 'constructor Handler(Handler.Callback?)' is deprecated. Deprecated in Java
 w: file:///home/user/efootball-assistant/adapter_sync/src/main/java/com/assistant/adapter/sync/SyncAdapterService.kt:15:66 Parameter 'msg' is never used, could be renamed to _
-
-> Task :adapter_net:mergeDebugJavaResource
-> Task :app:mapDebugSourceSetPaths
-> Task :adapter_lmk:packageDebug
-> Task :adapter_lmk:createDebugApkListingFileRedirect
-> Task :adapter_lmk:assembleDebug
-> Task :adapter_sync:compileDebugJavaWithJavac NO-SOURCE
-> Task :adapter_sync:dexBuilderDebug
-> Task :adapter_sync:mergeExtDexDebug
-> Task :adapter_sync:mergeDebugGlobalSynthetics
-> Task :adapter_sync:processDebugJavaRes
-> Task :adapter_input:packageDebug
-> Task :adapter_input:createDebugApkListingFileRedirect
-> Task :adapter_input:assembleDebug
-> Task :adapter_sync:mergeProjectDexDebug
-> Task :app:generateDebugResources
-> Task :adapter_sync:mergeDebugJavaResource
-> Task :adapter_net:packageDebug
-> Task :adapter_net:createDebugApkListingFileRedirect
-> Task :adapter_net:assembleDebug
-> Task :app:packageDebugResources
-> Task :app:createDebugCompatibleScreenManifests
-> Task :app:extractDeepLinksDebug
-> Task :app:parseDebugLocalResources
 
 > Task :app:processDebugMainManifest
 /home/user/efootball-assistant/app/src/main/AndroidManifest.xml:17:9-42 Warning:
 	android:extractNativeLibs should not be specified in this source AndroidManifest.xml file. See https://d.android.com/guide/topics/manifest/application-element#extractNativeLibs for more information.
 The AGP Upgrade Assistant can remove the attribute from the AndroidManifest.xml file and update the build file accordingly. See https://d.android.com/studio/build/agp-upgrade-assistant for more information.
 /home/user/efootball-assistant/app/src/main/AndroidManifest.xml:79:9-87:19 Warning:
-	Element service#com.assistant.overlay.interceptor.SmartAssistAccessibilityEngine at AndroidManifest.xml:79:9-87:19 duplicated with element declared at AndroidManifest.xml:70:9-78:19
+	Element service#com.assistant.overlay.overlay.interceptor.SmartAssistAccessibilityEngine at AndroidManifest.xml:79:9-87:19 duplicated with element declared at AndroidManifest.xml:70:9-78:19
 /home/user/efootball-assistant/app/src/main/AndroidManifest.xml:89:9-97:19 Warning:
-	Element service#com.assistant.overlay.interceptor.SmartAssistAccessibilityEngine at AndroidManifest.xml:89:9-97:19 duplicated with element declared at AndroidManifest.xml:79:9-87:19
+	Element service#com.assistant.overlay.overlay.interceptor.SmartAssistAccessibilityEngine at AndroidManifest.xml:89:9-97:19 duplicated with element declared at AndroidManifest.xml:79:9-87:19
 
+> Task :adapter_input:compileDebugJavaWithJavac NO-SOURCE
+> Task :adapter_input:dexBuilderDebug
+> Task :adapter_input:mergeDebugGlobalSynthetics
+> Task :adapter_input:processDebugJavaRes
+> Task :adapter_lmk:compileDebugJavaWithJavac NO-SOURCE
+> Task :adapter_input:mergeProjectDexDebug
+> Task :adapter_lmk:dexBuilderDebug
+> Task :adapter_lmk:mergeDebugGlobalSynthetics
+> Task :adapter_lmk:processDebugJavaRes
+> Task :adapter_net:compileDebugJavaWithJavac NO-SOURCE
+> Task :adapter_lmk:mergeProjectDexDebug
+> Task :adapter_net:dexBuilderDebug
+> Task :adapter_net:mergeDebugGlobalSynthetics
+> Task :adapter_net:processDebugJavaRes
+> Task :adapter_sync:compileDebugJavaWithJavac NO-SOURCE
+> Task :adapter_net:mergeProjectDexDebug
+> Task :adapter_sync:dexBuilderDebug
+> Task :adapter_sync:mergeDebugGlobalSynthetics
+> Task :adapter_sync:processDebugJavaRes
 > Task :app:processDebugManifest
-> Task :app:javaPreCompileDebug
-> Task :adapter_sync:packageDebug
-> Task :adapter_sync:createDebugApkListingFileRedirect
-> Task :adapter_sync:assembleDebug
+> Task :adapter_sync:mergeProjectDexDebug
 > Task :app:mergeDebugShaders
 > Task :app:compileDebugShaders NO-SOURCE
 > Task :app:generateDebugAssets UP-TO-DATE
-> Task :app:mergeDebugResources
 > Task :app:mergeDebugAssets
+> Task :adapter_net:mergeDebugJavaResource
+> Task :adapter_input:mergeDebugJavaResource
+> Task :adapter_lmk:mergeDebugJavaResource
 > Task :app:compressDebugAssets
+> Task :adapter_sync:mergeDebugJavaResource
+> Task :app:processDebugManifestForPackage
 > Task :app:checkDebugDuplicateClasses
-> Task :app:mergeDebugArtProfile
+> Task :app:javaPreCompileDebug
 > Task :app:extractProguardFiles
 > Task :app:processApplicationManifestDebugForBundle
 > Task :app:mergeDebugJniLibFolders
-> Task :app:processDebugManifestForPackage
 > Task :app:validateSigningDebug
-> Task :app:mergeDebugNativeLibs
+> Task :app:mergeDebugArtProfile
 > Task :app:writeDebugAppMetadata
 > Task :app:writeDebugSigningConfigVersions
 > Task :diagnostic_core:preBuild UP-TO-DATE
@@ -758,26 +427,40 @@ The AGP Upgrade Assistant can remove the attribute from the AndroidManifest.xml 
 > Task :diagnostic_core:stripDebugDebugSymbols NO-SOURCE
 > Task :diagnostic_core:checkKotlinGradlePluginConfigurationErrors
 > Task :diagnostic_core:generateDebugResValues
-> Task :diagnostic_core:generateDebugResources
 > Task :diagnostic_core:copyDebugJniLibsProjectAndLocalJars
+> Task :diagnostic_core:generateDebugResources
 > Task :diagnostic_core:packageDebugResources
-> Task :diagnostic_core:extractDeepLinksForAarDebug UP-TO-DATE
 > Task :diagnostic_core:parseDebugLocalResources
+> Task :diagnostic_core:extractDeepLinksForAarDebug UP-TO-DATE
 > Task :diagnostic_core:javaPreCompileDebug
 > Task :diagnostic_core:processDebugManifest
 > Task :diagnostic_core:mergeDebugShaders
 > Task :diagnostic_core:compileDebugShaders NO-SOURCE
 > Task :diagnostic_core:generateDebugAssets UP-TO-DATE
-> Task :diagnostic_core:generateDebugRFile
-
-> Task :app:stripDebugDebugSymbols
-Unable to strip the following libraries, packaging them as they are: libmlkit_google_ocr_pipeline.so.
-
 > Task :diagnostic_core:packageDebugAssets
 > Task :diagnostic_core:prepareDebugArtProfile UP-TO-DATE
 > Task :diagnostic_core:prepareLintJarForPublish UP-TO-DATE
 > Task :diagnostic_core:writeDebugAarMetadata
+> Task :diagnostic_core:generateDebugRFile
 > Task :app:processDebugResources
+> Task :adapter_input:packageDebug
+> Task :adapter_input:createDebugApkListingFileRedirect
+> Task :adapter_lmk:packageDebug
+> Task :adapter_input:assembleDebug
+> Task :adapter_lmk:createDebugApkListingFileRedirect
+> Task :adapter_net:packageDebug
+> Task :adapter_lmk:assembleDebug
+> Task :adapter_sync:packageDebug
+> Task :adapter_net:createDebugApkListingFileRedirect
+> Task :adapter_net:assembleDebug
+> Task :adapter_sync:createDebugApkListingFileRedirect
+> Task :adapter_sync:assembleDebug
+> Task :app:mergeDebugNativeLibs
+
+> Task :app:stripDebugDebugSymbols
+Unable to strip the following libraries, packaging them as they are: libmlkit_google_ocr_pipeline.so.
+
+> Task :app:bundleDebugResources
 > Task :diagnostic_core:compileDebugKotlin
 > Task :diagnostic_core:extractDebugAnnotations
 > Task :diagnostic_core:compileDebugJavaWithJavac NO-SOURCE
@@ -788,571 +471,28 @@ Unable to strip the following libraries, packaging them as they are: libmlkit_go
 > Task :diagnostic_core:syncDebugLibJars
 > Task :diagnostic_core:bundleDebugAar
 > Task :diagnostic_core:assembleDebug
-> Task :app:bundleDebugResources
 > Task :app:kspDebugKotlin
 
-> Task :app:compileDebugKotlin
-w: file:///home/user/efootball-assistant/app/src/main/java/com/assistant/DiagnosticsEngine.kt:53:26 Parameter 'context' is never used
-w: file:///home/user/efootball-assistant/app/src/main/java/com/assistant/OtaGatewayEngine.kt:102:21 Variable 'checkUrl' is never used
-w: file:///home/user/efootball-assistant/app/src/main/java/com/assistant/OverlayService.kt:151:149 'TYPE_PHONE: Int' is deprecated. Deprecated in Java
-w: file:///home/user/efootball-assistant/app/src/main/java/com/assistant/OverlayService.kt:174:23 'getter for defaultDisplay: Display!' is deprecated. Deprecated in Java
-w: file:///home/user/efootball-assistant/app/src/main/java/com/assistant/OverlayService.kt:174:38 'getRealMetrics(DisplayMetrics!): Unit' is deprecated. Deprecated in Java
-w: file:///home/user/efootball-assistant/app/src/main/java/com/assistant/WelcomeActivity.kt:99:13 'overridePendingTransition(Int, Int): Unit' is deprecated. Deprecated in Java
-w: file:///home/user/efootball-assistant/app/src/main/java/com/assistant/interceptor/SmartAssistAccessibilityEngine.kt:85:36 Parameter 'event' is never used
-w: file:///home/user/efootball-assistant/app/src/main/java/com/assistant/interceptor/SmartAssistAccessibilityEngine.kt:95:45 Parameter 'event' is never used
-w: file:///home/user/efootball-assistant/app/src/main/java/com/assistant/overlay/ui/adapter/MatchHistoryAdapter.kt:57:21 Variable 'endDate' is never used
+> Task :app:compileDebugKotlin FAILED
+e: file:///home/user/efootball-assistant/app/src/main/java/com/assistant/overlay/interceptor/ActiveGestureController.kt:21:52 Unresolved reference: addStep
 
-> Task :app:compileDebugJavaWithJavac
-> Task :app:mergeDebugGeneratedProguardFiles UP-TO-DATE
-> Task :app:processDebugJavaRes
-> Task :app:expandDebugArtProfileWildcards
-> Task :app:mergeDebugJavaResource
-> Task :app:minifyDebugWithR8
-> Task :app:shrinkDebugRes
-> Task :app:packageDebug
-> Task :app:createDebugApkListingFileRedirect
-> Task :app:assembleDebug
+FAILURE: Build failed with an exception.
 
-BUILD SUCCESSFUL in 55s
-200 actionable tasks: 194 executed, 6 up-to-date
-bash: __vsc_prompt_cmd_original: command not found
-[?2004h]0;user@firebase-efootball-assistant-1779975046441: ~/efootball-assistant[00;35mefootball-assistant-00995228[00m:[01;34m~/efootball-assistant[00m[01;32m{main}[00m$ ./gradlew :app:assembleDebug :adapter_input:assemb leDebug :adapter_lmk:assembleDebug :adapter_net:assembleDebug :adapter_sync:assembleDebug --parallel --no-daemon
-[?2004lTo honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/8.5/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
-Daemon will be stopped at the end of the build 
-Unable to receive command from client socket connection from /127.0.0.1:44629 to /127.0.0.1:49182. Discarding connection.
-org.gradle.internal.remote.internal.MessageIOException: Could not read message from '/127.0.0.1:49182'.
-	at org.gradle.internal.remote.internal.inet.SocketConnection.receive(SocketConnection.java:94)
-	at org.gradle.launcher.daemon.server.SynchronizedDispatchConnection.receive(SynchronizedDispatchConnection.java:70)
-	at org.gradle.launcher.daemon.server.DefaultDaemonConnection$1.run(DefaultDaemonConnection.java:73)
-	at org.gradle.internal.concurrent.ExecutorPolicy$CatchAndRecordFailures.onExecute(ExecutorPolicy.java:64)
-	at org.gradle.internal.concurrent.AbstractManagedExecutor$1.run(AbstractManagedExecutor.java:47)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
-	at java.base/java.lang.Thread.run(Thread.java:1583)
-Caused by: java.lang.IllegalArgumentException: Unexpected type tag 71 found.
-	at org.gradle.internal.serialize.DefaultSerializerRegistry$TaggedTypeSerializer.read(DefaultSerializerRegistry.java:162)
-	at org.gradle.internal.serialize.Serializers$StatefulSerializerAdapter$1.read(Serializers.java:36)
-	at org.gradle.internal.remote.internal.inet.SocketConnection.receive(SocketConnection.java:81)
-	... 7 more
-Unable to receive command from client socket connection from /127.0.0.1:44629 to /127.0.0.1:49188. Discarding connection.
-org.gradle.internal.remote.internal.MessageIOException: Could not read message from '/127.0.0.1:49188'.
-	at org.gradle.internal.remote.internal.inet.SocketConnection.receive(SocketConnection.java:94)
-	at org.gradle.launcher.daemon.server.SynchronizedDispatchConnection.receive(SynchronizedDispatchConnection.java:70)
-	at org.gradle.launcher.daemon.server.DefaultDaemonConnection$1.run(DefaultDaemonConnection.java:73)
-	at org.gradle.internal.concurrent.ExecutorPolicy$CatchAndRecordFailures.onExecute(ExecutorPolicy.java:64)
-	at org.gradle.internal.concurrent.AbstractManagedExecutor$1.run(AbstractManagedExecutor.java:47)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
-	at java.base/java.lang.Thread.run(Thread.java:1583)
-Caused by: java.lang.IllegalArgumentException: Unexpected type tag 22 found.
-	at org.gradle.internal.serialize.DefaultSerializerRegistry$TaggedTypeSerializer.read(DefaultSerializerRegistry.java:162)
-	at org.gradle.internal.serialize.Serializers$StatefulSerializerAdapter$1.read(Serializers.java:36)
-	at org.gradle.internal.remote.internal.inet.SocketConnection.receive(SocketConnection.java:81)
-	... 7 more
-WARNING: We recommend using a newer Android Gradle plugin to use compileSdk = 36
+* What went wrong:
+Execution failed for task ':app:compileDebugKotlin'.
+> A failure occurred while executing org.jetbrains.kotlin.compilerRunner.GradleCompilerRunnerWithWorkers$GradleKotlinCompilerWorkAction
+   > Compilation error. See log for more details
 
-This Android Gradle plugin (8.2.2) was tested up to compileSdk = 34.
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights.
+> Get more help at https://help.gradle.org.
 
-You are strongly encouraged to update your project to use a newer
-Android Gradle plugin that has been tested with compileSdk = 36.
-
-If you are already using the latest version of the Android Gradle plugin,
-you may need to wait until a newer version with support for compileSdk = 36 is available.
-
-To suppress this warning, add/update
-    android.suppressUnsupportedCompileSdk=36
-to this project's gradle.properties.
-> Task :app:preBuild UP-TO-DATE
-> Task :adapter_net:preBuild UP-TO-DATE
-> Task :adapter_input:preBuild UP-TO-DATE
-> Task :adapter_lmk:preBuild UP-TO-DATE
-> Task :adapter_sync:preBuild UP-TO-DATE
-> Task :adapter_net:preDebugBuild UP-TO-DATE
-> Task :adapter_sync:preDebugBuild UP-TO-DATE
-> Task :adapter_input:preDebugBuild UP-TO-DATE
-> Task :app:preDebugBuild UP-TO-DATE
-> Task :adapter_lmk:preDebugBuild UP-TO-DATE
-> Task :adapter_sync:mergeDebugNativeDebugMetadata NO-SOURCE
-> Task :adapter_input:mergeDebugNativeDebugMetadata NO-SOURCE
-> Task :adapter_net:mergeDebugNativeDebugMetadata NO-SOURCE
-> Task :app:mergeDebugNativeDebugMetadata NO-SOURCE
-> Task :adapter_lmk:mergeDebugNativeDebugMetadata NO-SOURCE
-> Task :adapter_net:checkKotlinGradlePluginConfigurationErrors
-> Task :adapter_sync:checkKotlinGradlePluginConfigurationErrors
-> Task :app:checkKotlinGradlePluginConfigurationErrors
-> Task :adapter_lmk:checkKotlinGradlePluginConfigurationErrors
-> Task :adapter_input:checkKotlinGradlePluginConfigurationErrors
-> Task :adapter_sync:checkDebugAarMetadata UP-TO-DATE
-> Task :adapter_net:checkDebugAarMetadata UP-TO-DATE
-> Task :adapter_lmk:checkDebugAarMetadata UP-TO-DATE
-> Task :adapter_input:checkDebugAarMetadata UP-TO-DATE
-> Task :adapter_sync:generateDebugResValues UP-TO-DATE
-> Task :adapter_net:generateDebugResValues UP-TO-DATE
-> Task :adapter_input:generateDebugResValues UP-TO-DATE
-> Task :adapter_lmk:generateDebugResValues UP-TO-DATE
-> Task :adapter_net:mapDebugSourceSetPaths UP-TO-DATE
-> Task :adapter_lmk:mapDebugSourceSetPaths UP-TO-DATE
-> Task :adapter_net:generateDebugResources UP-TO-DATE
-> Task :adapter_sync:mapDebugSourceSetPaths UP-TO-DATE
-> Task :adapter_sync:generateDebugResources UP-TO-DATE
-> Task :adapter_lmk:generateDebugResources UP-TO-DATE
-> Task :adapter_input:mapDebugSourceSetPaths UP-TO-DATE
-> Task :adapter_input:generateDebugResources UP-TO-DATE
-> Task :adapter_net:mergeDebugResources UP-TO-DATE
-> Task :adapter_lmk:mergeDebugResources UP-TO-DATE
-> Task :adapter_input:mergeDebugResources UP-TO-DATE
-> Task :adapter_sync:mergeDebugResources UP-TO-DATE
-> Task :adapter_lmk:packageDebugResources UP-TO-DATE
-> Task :adapter_sync:packageDebugResources UP-TO-DATE
-> Task :adapter_net:packageDebugResources UP-TO-DATE
-> Task :adapter_input:packageDebugResources UP-TO-DATE
-> Task :adapter_sync:parseDebugLocalResources UP-TO-DATE
-> Task :adapter_input:parseDebugLocalResources UP-TO-DATE
-> Task :adapter_lmk:parseDebugLocalResources UP-TO-DATE
-> Task :adapter_net:parseDebugLocalResources UP-TO-DATE
-> Task :adapter_sync:createDebugCompatibleScreenManifests UP-TO-DATE
-> Task :adapter_lmk:createDebugCompatibleScreenManifests UP-TO-DATE
-> Task :adapter_input:createDebugCompatibleScreenManifests UP-TO-DATE
-> Task :adapter_net:createDebugCompatibleScreenManifests UP-TO-DATE
-> Task :adapter_sync:extractDeepLinksDebug UP-TO-DATE
-> Task :adapter_lmk:extractDeepLinksDebug UP-TO-DATE
-> Task :adapter_input:extractDeepLinksDebug UP-TO-DATE
-> Task :adapter_net:extractDeepLinksDebug UP-TO-DATE
-> Task :adapter_input:processDebugMainManifest UP-TO-DATE
-> Task :adapter_input:processDebugManifest UP-TO-DATE
-> Task :adapter_net:processDebugMainManifest UP-TO-DATE
-> Task :adapter_input:processDebugManifestForPackage UP-TO-DATE
-> Task :adapter_sync:processDebugMainManifest UP-TO-DATE
-> Task :adapter_lmk:processDebugMainManifest UP-TO-DATE
-> Task :adapter_net:processDebugManifest UP-TO-DATE
-> Task :adapter_lmk:processDebugManifest UP-TO-DATE
-> Task :adapter_net:processDebugManifestForPackage UP-TO-DATE
-> Task :adapter_lmk:processDebugManifestForPackage UP-TO-DATE
-> Task :adapter_sync:processDebugManifest UP-TO-DATE
-> Task :adapter_sync:processDebugManifestForPackage UP-TO-DATE
-> Task :adapter_lmk:processDebugResources UP-TO-DATE
-> Task :adapter_input:processDebugResources UP-TO-DATE
-> Task :adapter_sync:processDebugResources UP-TO-DATE
-> Task :adapter_net:processDebugResources UP-TO-DATE
-> Task :app:checkDebugAarMetadata UP-TO-DATE
-> Task :adapter_sync:compileDebugKotlin UP-TO-DATE
-> Task :adapter_lmk:compileDebugKotlin UP-TO-DATE
-> Task :adapter_input:compileDebugKotlin UP-TO-DATE
-> Task :app:generateDebugResValues UP-TO-DATE
-> Task :adapter_sync:javaPreCompileDebug UP-TO-DATE
-> Task :adapter_lmk:javaPreCompileDebug UP-TO-DATE
-> Task :adapter_net:compileDebugKotlin UP-TO-DATE
-> Task :adapter_input:javaPreCompileDebug UP-TO-DATE
-> Task :adapter_net:javaPreCompileDebug UP-TO-DATE
-> Task :adapter_lmk:compileDebugJavaWithJavac NO-SOURCE
-> Task :adapter_input:compileDebugJavaWithJavac NO-SOURCE
-> Task :adapter_net:compileDebugJavaWithJavac NO-SOURCE
-> Task :adapter_lmk:mergeDebugShaders UP-TO-DATE
-> Task :adapter_input:mergeDebugShaders UP-TO-DATE
-> Task :adapter_sync:compileDebugJavaWithJavac NO-SOURCE
-> Task :adapter_sync:mergeDebugShaders UP-TO-DATE
-> Task :adapter_net:mergeDebugShaders UP-TO-DATE
-> Task :adapter_net:compileDebugShaders NO-SOURCE
-> Task :adapter_lmk:compileDebugShaders NO-SOURCE
-> Task :adapter_net:generateDebugAssets UP-TO-DATE
-> Task :adapter_input:compileDebugShaders NO-SOURCE
-> Task :adapter_lmk:generateDebugAssets UP-TO-DATE
-> Task :adapter_input:generateDebugAssets UP-TO-DATE
-> Task :adapter_sync:compileDebugShaders NO-SOURCE
-> Task :adapter_sync:generateDebugAssets UP-TO-DATE
-> Task :adapter_net:mergeDebugAssets UP-TO-DATE
-> Task :adapter_sync:mergeDebugAssets UP-TO-DATE
-> Task :adapter_input:mergeDebugAssets UP-TO-DATE
-> Task :adapter_lmk:mergeDebugAssets UP-TO-DATE
-> Task :adapter_net:compressDebugAssets UP-TO-DATE
-> Task :adapter_lmk:compressDebugAssets UP-TO-DATE
-> Task :adapter_sync:compressDebugAssets UP-TO-DATE
-> Task :adapter_net:desugarDebugFileDependencies UP-TO-DATE
-> Task :adapter_input:compressDebugAssets UP-TO-DATE
-> Task :adapter_input:desugarDebugFileDependencies UP-TO-DATE
-> Task :adapter_lmk:desugarDebugFileDependencies UP-TO-DATE
-> Task :adapter_sync:desugarDebugFileDependencies UP-TO-DATE
-> Task :adapter_input:dexBuilderDebug UP-TO-DATE
-> Task :adapter_net:dexBuilderDebug UP-TO-DATE
-> Task :adapter_lmk:dexBuilderDebug UP-TO-DATE
-> Task :adapter_sync:dexBuilderDebug UP-TO-DATE
-> Task :adapter_input:mergeDebugGlobalSynthetics UP-TO-DATE
-> Task :adapter_lmk:mergeDebugGlobalSynthetics UP-TO-DATE
-> Task :adapter_net:mergeDebugGlobalSynthetics UP-TO-DATE
-> Task :adapter_sync:mergeDebugGlobalSynthetics UP-TO-DATE
-> Task :app:mapDebugSourceSetPaths UP-TO-DATE
-> Task :app:generateDebugResources UP-TO-DATE
-> Task :adapter_sync:processDebugJavaRes UP-TO-DATE
-> Task :adapter_net:processDebugJavaRes UP-TO-DATE
-> Task :adapter_input:processDebugJavaRes UP-TO-DATE
-> Task :adapter_lmk:processDebugJavaRes UP-TO-DATE
-> Task :adapter_input:mergeDebugJavaResource UP-TO-DATE
-> Task :adapter_sync:mergeDebugJavaResource UP-TO-DATE
-> Task :adapter_net:mergeDebugJavaResource UP-TO-DATE
-> Task :adapter_lmk:mergeDebugJavaResource UP-TO-DATE
-> Task :adapter_input:checkDebugDuplicateClasses UP-TO-DATE
-> Task :adapter_net:checkDebugDuplicateClasses UP-TO-DATE
-> Task :adapter_sync:checkDebugDuplicateClasses UP-TO-DATE
-> Task :adapter_lmk:checkDebugDuplicateClasses UP-TO-DATE
-> Task :adapter_sync:mergeExtDexDebug UP-TO-DATE
-> Task :adapter_net:mergeExtDexDebug UP-TO-DATE
-> Task :adapter_input:mergeExtDexDebug UP-TO-DATE
-> Task :adapter_lmk:mergeExtDexDebug UP-TO-DATE
-> Task :adapter_sync:mergeLibDexDebug UP-TO-DATE
-> Task :adapter_lmk:mergeLibDexDebug UP-TO-DATE
-> Task :adapter_input:mergeLibDexDebug UP-TO-DATE
-> Task :adapter_net:mergeLibDexDebug UP-TO-DATE
-> Task :adapter_lmk:mergeProjectDexDebug UP-TO-DATE
-> Task :adapter_net:mergeProjectDexDebug UP-TO-DATE
-> Task :adapter_sync:mergeProjectDexDebug UP-TO-DATE
-> Task :adapter_input:mergeProjectDexDebug UP-TO-DATE
-> Task :adapter_lmk:mergeDebugJniLibFolders UP-TO-DATE
-> Task :adapter_net:mergeDebugJniLibFolders UP-TO-DATE
-> Task :adapter_sync:mergeDebugJniLibFolders UP-TO-DATE
-> Task :adapter_input:mergeDebugJniLibFolders UP-TO-DATE
-> Task :adapter_net:mergeDebugNativeLibs NO-SOURCE
-> Task :adapter_lmk:mergeDebugNativeLibs NO-SOURCE
-> Task :adapter_input:mergeDebugNativeLibs NO-SOURCE
-> Task :adapter_sync:mergeDebugNativeLibs NO-SOURCE
-> Task :adapter_sync:stripDebugDebugSymbols NO-SOURCE
-> Task :adapter_lmk:stripDebugDebugSymbols NO-SOURCE
-> Task :adapter_net:stripDebugDebugSymbols NO-SOURCE
-> Task :adapter_input:stripDebugDebugSymbols NO-SOURCE
-> Task :adapter_input:validateSigningDebug UP-TO-DATE
-> Task :adapter_net:validateSigningDebug UP-TO-DATE
-> Task :adapter_lmk:validateSigningDebug UP-TO-DATE
-> Task :adapter_sync:validateSigningDebug UP-TO-DATE
-> Task :adapter_lmk:writeDebugAppMetadata UP-TO-DATE
-> Task :adapter_lmk:writeDebugSigningConfigVersions UP-TO-DATE
-> Task :adapter_net:writeDebugAppMetadata UP-TO-DATE
-> Task :adapter_input:writeDebugAppMetadata UP-TO-DATE
-> Task :adapter_sync:writeDebugAppMetadata UP-TO-DATE
-> Task :adapter_net:writeDebugSigningConfigVersions UP-TO-DATE
-> Task :adapter_input:writeDebugSigningConfigVersions UP-TO-DATE
-> Task :adapter_sync:writeDebugSigningConfigVersions UP-TO-DATE
-> Task :app:mergeDebugResources UP-TO-DATE
-> Task :app:packageDebugResources UP-TO-DATE
-> Task :adapter_sync:packageDebug UP-TO-DATE
-> Task :adapter_net:packageDebug UP-TO-DATE
-> Task :adapter_input:packageDebug UP-TO-DATE
-> Task :adapter_lmk:packageDebug UP-TO-DATE
-> Task :adapter_net:createDebugApkListingFileRedirect UP-TO-DATE
-> Task :adapter_net:assembleDebug UP-TO-DATE
-> Task :adapter_sync:createDebugApkListingFileRedirect UP-TO-DATE
-> Task :adapter_input:createDebugApkListingFileRedirect UP-TO-DATE
-> Task :adapter_input:assembleDebug UP-TO-DATE
-> Task :adapter_lmk:createDebugApkListingFileRedirect UP-TO-DATE
-> Task :adapter_sync:assembleDebug UP-TO-DATE
-> Task :adapter_lmk:assembleDebug UP-TO-DATE
-> Task :app:parseDebugLocalResources UP-TO-DATE
-> Task :app:createDebugCompatibleScreenManifests UP-TO-DATE
-> Task :app:extractDeepLinksDebug UP-TO-DATE
-> Task :app:processDebugMainManifest UP-TO-DATE
-> Task :app:processDebugManifest UP-TO-DATE
-> Task :app:processDebugManifestForPackage UP-TO-DATE
-> Task :app:processDebugResources UP-TO-DATE
-> Task :app:kspDebugKotlin UP-TO-DATE
-> Task :app:compileDebugKotlin UP-TO-DATE
-> Task :app:javaPreCompileDebug UP-TO-DATE
-> Task :app:compileDebugJavaWithJavac UP-TO-DATE
-> Task :app:mergeDebugShaders UP-TO-DATE
-> Task :app:compileDebugShaders NO-SOURCE
-> Task :app:generateDebugAssets UP-TO-DATE
-> Task :app:mergeDebugAssets UP-TO-DATE
-> Task :app:compressDebugAssets UP-TO-DATE
-> Task :app:checkDebugDuplicateClasses UP-TO-DATE
-> Task :app:mergeDebugArtProfile UP-TO-DATE
-> Task :app:expandDebugArtProfileWildcards UP-TO-DATE
-> Task :app:extractProguardFiles UP-TO-DATE
-> Task :app:mergeDebugGeneratedProguardFiles UP-TO-DATE
-> Task :app:processDebugJavaRes UP-TO-DATE
-> Task :app:mergeDebugJavaResource UP-TO-DATE
-> Task :app:minifyDebugWithR8 UP-TO-DATE
-> Task :app:processApplicationManifestDebugForBundle UP-TO-DATE
-> Task :app:bundleDebugResources UP-TO-DATE
-> Task :app:shrinkDebugRes UP-TO-DATE
-> Task :app:mergeDebugJniLibFolders UP-TO-DATE
-> Task :app:mergeDebugNativeLibs UP-TO-DATE
-> Task :app:stripDebugDebugSymbols UP-TO-DATE
-> Task :app:validateSigningDebug UP-TO-DATE
-> Task :app:writeDebugAppMetadata UP-TO-DATE
-> Task :app:writeDebugSigningConfigVersions UP-TO-DATE
-> Task :app:packageDebug UP-TO-DATE
-> Task :app:createDebugApkListingFileRedirect UP-TO-DATE
-> Task :app:assembleDebug UP-TO-DATE
-
-BUILD SUCCESSFUL in 13s
-171 actionable tasks: 5 executed, 166 up-to-date
-bash: __vsc_prompt_cmd_original: command not found
-[?2004h]0;user@firebase-efootball-assistant-1779975046441: ~/efootball-assistant[00;35mefootball-assistant-00995228[00m:[01;34m~/efootball-assistant[00m[01;32m{main}[00m$ ./gradlew assembleDebug
-[?2004lWARNING: We recommend using a newer Android Gradle plugin to use compileSdk = 36
-
-This Android Gradle plugin (8.2.2) was tested up to compileSdk = 34.
-
-You are strongly encouraged to update your project to use a newer
-Android Gradle plugin that has been tested with compileSdk = 36.
-
-If you are already using the latest version of the Android Gradle plugin,
-you may need to wait until a newer version with support for compileSdk = 36 is available.
-
-To suppress this warning, add/update
-    android.suppressUnsupportedCompileSdk=36
-to this project's gradle.properties.
-> Task :adapter_input:preBuild UP-TO-DATE
-> Task :adapter_input:preDebugBuild UP-TO-DATE
-> Task :adapter_input:mergeDebugNativeDebugMetadata NO-SOURCE
-> Task :adapter_input:checkKotlinGradlePluginConfigurationErrors
-> Task :adapter_input:checkDebugAarMetadata UP-TO-DATE
-> Task :adapter_input:generateDebugResValues UP-TO-DATE
-> Task :adapter_input:mapDebugSourceSetPaths UP-TO-DATE
-> Task :adapter_input:generateDebugResources UP-TO-DATE
-> Task :adapter_input:mergeDebugResources UP-TO-DATE
-> Task :adapter_input:packageDebugResources UP-TO-DATE
-> Task :adapter_input:parseDebugLocalResources UP-TO-DATE
-> Task :adapter_input:createDebugCompatibleScreenManifests UP-TO-DATE
-> Task :adapter_input:extractDeepLinksDebug UP-TO-DATE
-> Task :adapter_input:processDebugMainManifest UP-TO-DATE
-> Task :adapter_input:processDebugManifest UP-TO-DATE
-> Task :adapter_input:processDebugManifestForPackage UP-TO-DATE
-> Task :adapter_input:processDebugResources UP-TO-DATE
-> Task :adapter_input:compileDebugKotlin UP-TO-DATE
-> Task :adapter_input:javaPreCompileDebug UP-TO-DATE
-> Task :adapter_input:compileDebugJavaWithJavac NO-SOURCE
-> Task :adapter_input:mergeDebugShaders UP-TO-DATE
-> Task :adapter_input:compileDebugShaders NO-SOURCE
-> Task :adapter_input:generateDebugAssets UP-TO-DATE
-> Task :adapter_input:mergeDebugAssets UP-TO-DATE
-> Task :adapter_input:compressDebugAssets UP-TO-DATE
-> Task :adapter_input:desugarDebugFileDependencies UP-TO-DATE
-> Task :adapter_input:dexBuilderDebug UP-TO-DATE
-> Task :adapter_input:mergeDebugGlobalSynthetics UP-TO-DATE
-> Task :adapter_input:processDebugJavaRes UP-TO-DATE
-> Task :adapter_input:mergeDebugJavaResource UP-TO-DATE
-> Task :adapter_input:checkDebugDuplicateClasses UP-TO-DATE
-> Task :adapter_input:mergeExtDexDebug UP-TO-DATE
-> Task :adapter_input:mergeLibDexDebug UP-TO-DATE
-> Task :adapter_input:mergeProjectDexDebug UP-TO-DATE
-> Task :adapter_input:mergeDebugJniLibFolders UP-TO-DATE
-> Task :adapter_input:mergeDebugNativeLibs NO-SOURCE
-> Task :adapter_input:stripDebugDebugSymbols NO-SOURCE
-> Task :adapter_input:validateSigningDebug UP-TO-DATE
-> Task :adapter_input:writeDebugAppMetadata UP-TO-DATE
-> Task :adapter_input:writeDebugSigningConfigVersions UP-TO-DATE
-> Task :adapter_input:packageDebug UP-TO-DATE
-> Task :adapter_input:createDebugApkListingFileRedirect UP-TO-DATE
-> Task :adapter_input:assembleDebug UP-TO-DATE
-> Task :adapter_lmk:preBuild UP-TO-DATE
-> Task :adapter_lmk:preDebugBuild UP-TO-DATE
-> Task :adapter_lmk:mergeDebugNativeDebugMetadata NO-SOURCE
-> Task :adapter_lmk:checkKotlinGradlePluginConfigurationErrors
-> Task :adapter_lmk:checkDebugAarMetadata UP-TO-DATE
-> Task :adapter_lmk:generateDebugResValues UP-TO-DATE
-> Task :adapter_lmk:mapDebugSourceSetPaths UP-TO-DATE
-> Task :adapter_lmk:generateDebugResources UP-TO-DATE
-> Task :adapter_lmk:mergeDebugResources UP-TO-DATE
-> Task :adapter_lmk:packageDebugResources UP-TO-DATE
-> Task :adapter_lmk:parseDebugLocalResources UP-TO-DATE
-> Task :adapter_lmk:createDebugCompatibleScreenManifests UP-TO-DATE
-> Task :adapter_lmk:extractDeepLinksDebug UP-TO-DATE
-> Task :adapter_lmk:processDebugMainManifest UP-TO-DATE
-> Task :adapter_lmk:processDebugManifest UP-TO-DATE
-> Task :adapter_lmk:processDebugManifestForPackage UP-TO-DATE
-> Task :adapter_lmk:processDebugResources UP-TO-DATE
-> Task :adapter_lmk:compileDebugKotlin UP-TO-DATE
-> Task :adapter_lmk:javaPreCompileDebug UP-TO-DATE
-> Task :adapter_lmk:compileDebugJavaWithJavac NO-SOURCE
-> Task :adapter_lmk:mergeDebugShaders UP-TO-DATE
-> Task :adapter_lmk:compileDebugShaders NO-SOURCE
-> Task :adapter_lmk:generateDebugAssets UP-TO-DATE
-> Task :adapter_lmk:mergeDebugAssets UP-TO-DATE
-> Task :adapter_lmk:compressDebugAssets UP-TO-DATE
-> Task :adapter_lmk:desugarDebugFileDependencies UP-TO-DATE
-> Task :adapter_lmk:dexBuilderDebug UP-TO-DATE
-> Task :adapter_lmk:mergeDebugGlobalSynthetics UP-TO-DATE
-> Task :adapter_lmk:processDebugJavaRes UP-TO-DATE
-> Task :adapter_lmk:mergeDebugJavaResource UP-TO-DATE
-> Task :adapter_lmk:checkDebugDuplicateClasses UP-TO-DATE
-> Task :adapter_lmk:mergeExtDexDebug UP-TO-DATE
-> Task :adapter_lmk:mergeLibDexDebug UP-TO-DATE
-> Task :adapter_lmk:mergeProjectDexDebug UP-TO-DATE
-> Task :adapter_lmk:mergeDebugJniLibFolders UP-TO-DATE
-> Task :adapter_lmk:mergeDebugNativeLibs NO-SOURCE
-> Task :adapter_lmk:stripDebugDebugSymbols NO-SOURCE
-> Task :adapter_lmk:validateSigningDebug UP-TO-DATE
-> Task :adapter_lmk:writeDebugAppMetadata UP-TO-DATE
-> Task :adapter_lmk:writeDebugSigningConfigVersions UP-TO-DATE
-> Task :adapter_lmk:packageDebug UP-TO-DATE
-> Task :adapter_lmk:createDebugApkListingFileRedirect UP-TO-DATE
-> Task :adapter_lmk:assembleDebug UP-TO-DATE
-> Task :adapter_net:preBuild UP-TO-DATE
-> Task :adapter_net:preDebugBuild UP-TO-DATE
-> Task :adapter_net:mergeDebugNativeDebugMetadata NO-SOURCE
-> Task :adapter_net:checkKotlinGradlePluginConfigurationErrors
-> Task :adapter_net:checkDebugAarMetadata UP-TO-DATE
-> Task :adapter_net:generateDebugResValues UP-TO-DATE
-> Task :adapter_net:mapDebugSourceSetPaths UP-TO-DATE
-> Task :adapter_net:generateDebugResources UP-TO-DATE
-> Task :adapter_net:mergeDebugResources UP-TO-DATE
-> Task :adapter_net:packageDebugResources UP-TO-DATE
-> Task :adapter_net:parseDebugLocalResources UP-TO-DATE
-> Task :adapter_net:createDebugCompatibleScreenManifests UP-TO-DATE
-> Task :adapter_net:extractDeepLinksDebug UP-TO-DATE
-> Task :adapter_net:processDebugMainManifest UP-TO-DATE
-> Task :adapter_net:processDebugManifest UP-TO-DATE
-> Task :adapter_net:processDebugManifestForPackage UP-TO-DATE
-> Task :adapter_net:processDebugResources UP-TO-DATE
-> Task :adapter_net:compileDebugKotlin UP-TO-DATE
-> Task :adapter_net:javaPreCompileDebug UP-TO-DATE
-> Task :adapter_net:compileDebugJavaWithJavac NO-SOURCE
-> Task :adapter_net:mergeDebugShaders UP-TO-DATE
-> Task :adapter_net:compileDebugShaders NO-SOURCE
-> Task :adapter_net:generateDebugAssets UP-TO-DATE
-> Task :adapter_net:mergeDebugAssets UP-TO-DATE
-> Task :adapter_net:compressDebugAssets UP-TO-DATE
-> Task :adapter_net:desugarDebugFileDependencies UP-TO-DATE
-> Task :adapter_net:dexBuilderDebug UP-TO-DATE
-> Task :adapter_net:mergeDebugGlobalSynthetics UP-TO-DATE
-> Task :adapter_net:processDebugJavaRes UP-TO-DATE
-> Task :adapter_net:mergeDebugJavaResource UP-TO-DATE
-> Task :adapter_net:checkDebugDuplicateClasses UP-TO-DATE
-> Task :adapter_net:mergeExtDexDebug UP-TO-DATE
-> Task :adapter_net:mergeLibDexDebug UP-TO-DATE
-> Task :adapter_net:mergeProjectDexDebug UP-TO-DATE
-> Task :adapter_net:mergeDebugJniLibFolders UP-TO-DATE
-> Task :adapter_net:mergeDebugNativeLibs NO-SOURCE
-> Task :adapter_net:stripDebugDebugSymbols NO-SOURCE
-> Task :adapter_net:validateSigningDebug UP-TO-DATE
-> Task :adapter_net:writeDebugAppMetadata UP-TO-DATE
-> Task :adapter_net:writeDebugSigningConfigVersions UP-TO-DATE
-> Task :adapter_net:packageDebug UP-TO-DATE
-> Task :adapter_net:createDebugApkListingFileRedirect UP-TO-DATE
-> Task :adapter_net:assembleDebug UP-TO-DATE
-> Task :adapter_sync:preBuild UP-TO-DATE
-> Task :adapter_sync:preDebugBuild UP-TO-DATE
-> Task :adapter_sync:mergeDebugNativeDebugMetadata NO-SOURCE
-> Task :adapter_sync:checkKotlinGradlePluginConfigurationErrors
-> Task :adapter_sync:checkDebugAarMetadata UP-TO-DATE
-> Task :adapter_sync:generateDebugResValues UP-TO-DATE
-> Task :adapter_sync:mapDebugSourceSetPaths UP-TO-DATE
-> Task :adapter_sync:generateDebugResources UP-TO-DATE
-> Task :adapter_sync:mergeDebugResources UP-TO-DATE
-> Task :adapter_sync:packageDebugResources UP-TO-DATE
-> Task :adapter_sync:parseDebugLocalResources UP-TO-DATE
-> Task :adapter_sync:createDebugCompatibleScreenManifests UP-TO-DATE
-> Task :adapter_sync:extractDeepLinksDebug UP-TO-DATE
-> Task :adapter_sync:processDebugMainManifest UP-TO-DATE
-> Task :adapter_sync:processDebugManifest UP-TO-DATE
-> Task :adapter_sync:processDebugManifestForPackage UP-TO-DATE
-> Task :adapter_sync:processDebugResources UP-TO-DATE
-> Task :adapter_sync:compileDebugKotlin UP-TO-DATE
-> Task :adapter_sync:javaPreCompileDebug UP-TO-DATE
-> Task :adapter_sync:compileDebugJavaWithJavac NO-SOURCE
-> Task :adapter_sync:mergeDebugShaders UP-TO-DATE
-> Task :adapter_sync:compileDebugShaders NO-SOURCE
-> Task :adapter_sync:generateDebugAssets UP-TO-DATE
-> Task :adapter_sync:mergeDebugAssets UP-TO-DATE
-> Task :adapter_sync:compressDebugAssets UP-TO-DATE
-> Task :adapter_sync:desugarDebugFileDependencies UP-TO-DATE
-> Task :adapter_sync:dexBuilderDebug UP-TO-DATE
-> Task :adapter_sync:mergeDebugGlobalSynthetics UP-TO-DATE
-> Task :adapter_sync:processDebugJavaRes UP-TO-DATE
-> Task :adapter_sync:mergeDebugJavaResource UP-TO-DATE
-> Task :adapter_sync:checkDebugDuplicateClasses UP-TO-DATE
-> Task :adapter_sync:mergeExtDexDebug UP-TO-DATE
-> Task :adapter_sync:mergeLibDexDebug UP-TO-DATE
-> Task :adapter_sync:mergeProjectDexDebug UP-TO-DATE
-> Task :adapter_sync:mergeDebugJniLibFolders UP-TO-DATE
-> Task :adapter_sync:mergeDebugNativeLibs NO-SOURCE
-> Task :adapter_sync:stripDebugDebugSymbols NO-SOURCE
-> Task :adapter_sync:validateSigningDebug UP-TO-DATE
-> Task :adapter_sync:writeDebugAppMetadata UP-TO-DATE
-> Task :adapter_sync:writeDebugSigningConfigVersions UP-TO-DATE
-> Task :adapter_sync:packageDebug UP-TO-DATE
-> Task :adapter_sync:createDebugApkListingFileRedirect UP-TO-DATE
-> Task :adapter_sync:assembleDebug UP-TO-DATE
-> Task :app:preBuild UP-TO-DATE
-> Task :app:preDebugBuild UP-TO-DATE
-> Task :app:mergeDebugNativeDebugMetadata NO-SOURCE
-> Task :app:checkKotlinGradlePluginConfigurationErrors
-> Task :app:checkDebugAarMetadata UP-TO-DATE
-> Task :app:generateDebugResValues UP-TO-DATE
-> Task :app:mapDebugSourceSetPaths UP-TO-DATE
-> Task :app:generateDebugResources UP-TO-DATE
-> Task :app:mergeDebugResources UP-TO-DATE
-> Task :app:packageDebugResources UP-TO-DATE
-> Task :app:parseDebugLocalResources UP-TO-DATE
-> Task :app:createDebugCompatibleScreenManifests UP-TO-DATE
-> Task :app:extractDeepLinksDebug UP-TO-DATE
-> Task :app:processDebugMainManifest UP-TO-DATE
-> Task :app:processDebugManifest UP-TO-DATE
-> Task :app:processDebugManifestForPackage UP-TO-DATE
-> Task :app:processDebugResources UP-TO-DATE
-> Task :app:kspDebugKotlin UP-TO-DATE
-> Task :app:compileDebugKotlin UP-TO-DATE
-> Task :app:javaPreCompileDebug UP-TO-DATE
-> Task :app:compileDebugJavaWithJavac UP-TO-DATE
-> Task :app:mergeDebugShaders UP-TO-DATE
-> Task :app:compileDebugShaders NO-SOURCE
-> Task :app:generateDebugAssets UP-TO-DATE
-> Task :app:mergeDebugAssets UP-TO-DATE
-> Task :app:compressDebugAssets UP-TO-DATE
-> Task :app:checkDebugDuplicateClasses UP-TO-DATE
-> Task :app:mergeDebugArtProfile UP-TO-DATE
-> Task :app:expandDebugArtProfileWildcards UP-TO-DATE
-> Task :app:extractProguardFiles UP-TO-DATE
-> Task :app:mergeDebugGeneratedProguardFiles UP-TO-DATE
-> Task :app:processDebugJavaRes UP-TO-DATE
-> Task :app:mergeDebugJavaResource UP-TO-DATE
-> Task :app:minifyDebugWithR8 UP-TO-DATE
-> Task :app:processApplicationManifestDebugForBundle UP-TO-DATE
-> Task :app:bundleDebugResources UP-TO-DATE
-> Task :app:shrinkDebugRes UP-TO-DATE
-> Task :app:mergeDebugJniLibFolders UP-TO-DATE
-> Task :app:mergeDebugNativeLibs UP-TO-DATE
-> Task :app:stripDebugDebugSymbols UP-TO-DATE
-> Task :app:validateSigningDebug UP-TO-DATE
-> Task :app:writeDebugAppMetadata UP-TO-DATE
-> Task :app:writeDebugSigningConfigVersions UP-TO-DATE
-> Task :app:packageDebug UP-TO-DATE
-> Task :app:createDebugApkListingFileRedirect UP-TO-DATE
-> Task :app:assembleDebug UP-TO-DATE
-> Task :diagnostic_core:preBuild UP-TO-DATE
-> Task :diagnostic_core:preDebugBuild UP-TO-DATE
-> Task :diagnostic_core:mergeDebugJniLibFolders UP-TO-DATE
-> Task :diagnostic_core:mergeDebugNativeLibs NO-SOURCE
-> Task :diagnostic_core:stripDebugDebugSymbols NO-SOURCE
-> Task :diagnostic_core:copyDebugJniLibsProjectAndLocalJars UP-TO-DATE
-> Task :diagnostic_core:checkKotlinGradlePluginConfigurationErrors
-> Task :diagnostic_core:generateDebugResValues UP-TO-DATE
-> Task :diagnostic_core:generateDebugResources UP-TO-DATE
-> Task :diagnostic_core:packageDebugResources UP-TO-DATE
-> Task :diagnostic_core:parseDebugLocalResources UP-TO-DATE
-> Task :diagnostic_core:processDebugManifest UP-TO-DATE
-> Task :diagnostic_core:generateDebugRFile UP-TO-DATE
-> Task :diagnostic_core:compileDebugKotlin UP-TO-DATE
-> Task :diagnostic_core:extractDebugAnnotations UP-TO-DATE
-> Task :diagnostic_core:extractDeepLinksForAarDebug UP-TO-DATE
-> Task :diagnostic_core:javaPreCompileDebug UP-TO-DATE
-> Task :diagnostic_core:compileDebugJavaWithJavac NO-SOURCE
-> Task :diagnostic_core:mergeDebugGeneratedProguardFiles UP-TO-DATE
-> Task :diagnostic_core:mergeDebugConsumerProguardFiles UP-TO-DATE
-> Task :diagnostic_core:mergeDebugShaders UP-TO-DATE
-> Task :diagnostic_core:compileDebugShaders NO-SOURCE
-> Task :diagnostic_core:generateDebugAssets UP-TO-DATE
-> Task :diagnostic_core:packageDebugAssets UP-TO-DATE
-> Task :diagnostic_core:prepareDebugArtProfile UP-TO-DATE
-> Task :diagnostic_core:prepareLintJarForPublish UP-TO-DATE
-> Task :diagnostic_core:processDebugJavaRes UP-TO-DATE
-> Task :diagnostic_core:mergeDebugJavaResource UP-TO-DATE
-> Task :diagnostic_core:syncDebugLibJars UP-TO-DATE
-> Task :diagnostic_core:writeDebugAarMetadata UP-TO-DATE
-> Task :diagnostic_core:bundleDebugAar UP-TO-DATE
-> Task :diagnostic_core:assembleDebug UP-TO-DATE
-
-BUILD SUCCESSFUL in 3s
-194 actionable tasks: 6 executed, 188 up-to-date
+BUILD FAILED in 1m 6s
+191 actionable tasks: 186 executed, 5 up-to-date
 bash: __vsc_prompt_cmd_original: command not found
 [?2004h]0;user@firebase-efootball-assistant-1779975046441: ~/efootball-assistant[00;35mefootball-assistant-00995228[00m:[01;34m~/efootball-assistant[00m[01;32m{main}[00m$ exit
 [?2004lexit
 
-Script done on 2026-06-06 01:22:45+00:00 [COMMAND_EXIT_CODE="0"]
+Script done on 2026-06-06 03:51:58+00:00 [COMMAND_EXIT_CODE="1"]

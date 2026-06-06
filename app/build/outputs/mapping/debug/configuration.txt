@@ -142,7 +142,7 @@
 -keep class com.assistant.overlay.ErrorActivity { <init>(); }
 -keep class com.assistant.overlay.database.TheaterCleanupReceiver { <init>(); }
 -keep class com.assistant.overlay.dvr.DvrProjectionService { <init>(); }
--keep class com.assistant.overlay.interceptor.SmartAssistAccessibilityEngine { <init>(); }
+-keep class com.assistant.overlay.overlay.interceptor.SmartAssistAccessibilityEngine { <init>(); }
 -keep class com.google.android.datatransport.runtime.backends.TransportBackendDiscovery { <init>(); }
 -keep class com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver { <init>(); }
 -keep class com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService { <init>(); }

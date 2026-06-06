@@ -1,16 +1,16 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /home/user/efootball-assistant/diagnostic_core/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest2400741651520448609.xml:2:13-83
-INJECTED from /home/user/efootball-assistant/diagnostic_core/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest2400741651520448609.xml:2:13-83
+ADDED from /home/user/efootball-assistant/diagnostic_core/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest18339203541951261544.xml:2:13-83
+INJECTED from /home/user/efootball-assistant/diagnostic_core/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest18339203541951261544.xml:2:13-83
 	package
-		INJECTED from /home/user/efootball-assistant/diagnostic_core/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest2400741651520448609.xml
+		INJECTED from /home/user/efootball-assistant/diagnostic_core/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest18339203541951261544.xml
 	xmlns:android
-		ADDED from /home/user/efootball-assistant/diagnostic_core/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest2400741651520448609.xml:2:23-81
+		ADDED from /home/user/efootball-assistant/diagnostic_core/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest18339203541951261544.xml:2:23-81
 uses-sdk
-INJECTED from /home/user/efootball-assistant/diagnostic_core/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest2400741651520448609.xml reason: use-sdk injection requested
-INJECTED from /home/user/efootball-assistant/diagnostic_core/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest2400741651520448609.xml
-INJECTED from /home/user/efootball-assistant/diagnostic_core/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest2400741651520448609.xml
+INJECTED from /home/user/efootball-assistant/diagnostic_core/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest18339203541951261544.xml reason: use-sdk injection requested
+INJECTED from /home/user/efootball-assistant/diagnostic_core/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest18339203541951261544.xml
+INJECTED from /home/user/efootball-assistant/diagnostic_core/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest18339203541951261544.xml
 	android:targetSdkVersion
-		INJECTED from /home/user/efootball-assistant/diagnostic_core/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest2400741651520448609.xml
+		INJECTED from /home/user/efootball-assistant/diagnostic_core/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest18339203541951261544.xml
 	android:minSdkVersion
-		INJECTED from /home/user/efootball-assistant/diagnostic_core/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest2400741651520448609.xml
+		INJECTED from /home/user/efootball-assistant/diagnostic_core/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest18339203541951261544.xml

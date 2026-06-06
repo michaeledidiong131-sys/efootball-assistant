@@ -6,8 +6,8 @@ INJECTED from /home/user/efootball-assistant/app/src/main/AndroidManifest.xml:65
 		INJECTED from /home/user/efootball-assistant/app/src/main/AndroidManifest.xml
 		INJECTED from /home/user/efootball-assistant/app/src/main/AndroidManifest.xml
 manifest
-ADDED from /home/user/efootball-assistant/app/src/main/AndroidManifest.xml:3:1-99:12
-MERGED from /home/user/efootball-assistant/app/src/main/AndroidManifest.xml:3:1-99:12
+ADDED from /home/user/efootball-assistant/app/src/main/AndroidManifest.xml:3:1-109:12
+MERGED from /home/user/efootball-assistant/app/src/main/AndroidManifest.xml:3:1-109:12
 INJECTED from /home/user/efootball-assistant/app/src/debug/AndroidManifest.xml:2:1-6:12
 INJECTED from /home/user/efootball-assistant/app/src/debug/AndroidManifest.xml:2:1-6:12
 INJECTED from /home/user/efootball-assistant/app/src/debug/AndroidManifest.xml:2:1-6:12
@@ -119,9 +119,9 @@ ADDED from /home/user/efootball-assistant/app/src/main/AndroidManifest.xml:12:5-
 	android:name
 		ADDED from /home/user/efootball-assistant/app/src/main/AndroidManifest.xml:12:22-92
 application
-ADDED from /home/user/efootball-assistant/app/src/main/AndroidManifest.xml:14:5-98:19
-MERGED from /home/user/efootball-assistant/app/src/main/AndroidManifest.xml:14:5-98:19
-MERGED from /home/user/efootball-assistant/app/src/main/AndroidManifest.xml:14:5-98:19
+ADDED from /home/user/efootball-assistant/app/src/main/AndroidManifest.xml:14:5-108:19
+MERGED from /home/user/efootball-assistant/app/src/main/AndroidManifest.xml:14:5-108:19
+MERGED from /home/user/efootball-assistant/app/src/main/AndroidManifest.xml:14:5-108:19
 MERGED from [androidx.room:room-runtime:2.6.1] /home/user/.gradle/caches/transforms-3/c363904246bbe96b7f2bb0f97c333860/transformed/room-runtime-2.6.1/AndroidManifest.xml:23:5-29:19
 MERGED from [androidx.room:room-runtime:2.6.1] /home/user/.gradle/caches/transforms-3/c363904246bbe96b7f2bb0f97c333860/transformed/room-runtime-2.6.1/AndroidManifest.xml:23:5-29:19
 MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] /home/user/.gradle/caches/transforms-3/488aad099d5ebc6b5042a6b3b7d174ef/transformed/constraintlayout-2.1.4/AndroidManifest.xml:9:5-20
@@ -249,7 +249,7 @@ ADDED from /home/user/efootball-assistant/app/src/main/AndroidManifest.xml:68:5-
 		ADDED from /home/user/efootball-assistant/app/src/main/AndroidManifest.xml:68:84-108
 	android:name
 		ADDED from /home/user/efootball-assistant/app/src/main/AndroidManifest.xml:68:15-83
-service#com.assistant.overlay.interceptor.SmartAssistAccessibilityEngine
+service#com.assistant.overlay.overlay.interceptor.SmartAssistAccessibilityEngine
 ADDED from /home/user/efootball-assistant/app/src/main/AndroidManifest.xml:70:9-78:19
 	android:exported
 		ADDED from /home/user/efootball-assistant/app/src/main/AndroidManifest.xml:73:18-41
@@ -258,7 +258,7 @@ ADDED from /home/user/efootball-assistant/app/src/main/AndroidManifest.xml:70:9-
 	android:foregroundServiceType
 		ADDED from /home/user/efootball-assistant/app/src/main/AndroidManifest.xml:72:18-60
 	android:name
-		ADDED from /home/user/efootball-assistant/app/src/main/AndroidManifest.xml:70:18-76
+		ADDED from /home/user/efootball-assistant/app/src/main/AndroidManifest.xml:70:18-84
 intent-filter#action:name:android.accessibilityservice.AccessibilityService
 ADDED from /home/user/efootball-assistant/app/src/main/AndroidManifest.xml:74:13-76:29
 action#android.accessibilityservice.AccessibilityService

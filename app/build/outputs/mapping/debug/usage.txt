@@ -16082,7 +16082,6 @@ com.assistant.core.AdapterIpcBridge$lmkConnection$1
 com.assistant.core.AdapterIpcBridge$netConnection$1
 com.assistant.core.AdapterIpcBridge$syncConnection$1
 com.assistant.core.AdapterIpcBridge
-com.assistant.interceptor.SmartAssistAccessibilityEngine
 com.assistant.interceptor.SmartAssistPipeline
 com.assistant.overlay.R$id:
     public static int action_command_bar
@@ -16139,6 +16138,8 @@ com.assistant.overlay.database.TheaterDao_Impl:
     public void insertMatchData(com.assistant.overlay.database.MatchAnalyticsEntity)
 com.assistant.overlay.database.TheaterDatabase_Impl:
     public void clearAllTables()
+com.assistant.overlay.interceptor.ActiveGestureController
+com.assistant.overlay.interceptor.SmartAssistAccessibilityEngine
 com.assistant.overlay.storage.MediaStoreStorageEngine
 com.assistant.overlay.ui.AnalyticsTheaterActivity$onCreate$1
 com.assistant.overlay.ui.AnalyticsTheaterActivity$onCreate$2$1
