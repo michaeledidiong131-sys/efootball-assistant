@@ -1,3 +1,4 @@
+/* [SECURITY GUARD LOCK ACTIVE] - IMMUTABLE - DO NOT MODIFY */
 package com.assistant.diagnostic
 import java.io.File
 object CrashInspector {

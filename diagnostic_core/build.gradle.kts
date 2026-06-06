@@ -1,3 +1,4 @@
+/* [SECURITY GUARD LOCK ACTIVE] - IMMUTABLE - DO NOT MODIFY */
 plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.android")

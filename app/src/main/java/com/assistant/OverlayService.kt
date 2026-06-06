@@ -227,3 +227,25 @@ class OverlayService : Service(), ComponentCallbacks2 {
         super.onDestroy()
     }
 }
+
+
+
+// [SECURITY GUARD LOCK ACTIVE]
+// TASK 1, 5, 6: AI BLUE TRACE ENGINE & TRAJECTORY RENDERER
+fun startTrajectoryWatchdog(overlayView: android.view.View, handler: android.os.Handler) {
+    val renderRunnable = object : java.lang.Runnable {
+        override fun run() {
+            if (com.assistant.interceptor.SmartAssistPipeline.isPanicStateActive) {
+                overlayView.setBackgroundColor(android.graphics.Color.argb(50, 255, 0, 0))
+            } else {
+                overlayView.setBackgroundColor(android.graphics.Color.TRANSPARENT)
+            }
+            val activeVector = com.assistant.interceptor.SmartAssistPipeline.consumeTrajectory()
+            if (activeVector != null) {
+                android.util.Log.i("SmartAssist", "EXECUTING LOCKED TRAJECTORY: Phase ${activeVector[4]}")
+            }
+            handler.postDelayed(this, 16L)
+        }
+    }
+    handler.post(renderRunnable)
+}

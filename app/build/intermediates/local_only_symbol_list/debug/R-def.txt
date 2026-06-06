@@ -28,5 +28,7 @@ layout activity_update
 layout activity_welcome
 layout item_match_history
 layout overlay_layout
+string accessibility_service_description
+xml accessibility_service_config
 xml filepaths
 xml provider_paths
