@@ -16066,6 +16066,7 @@ androidx.viewpager.widget.ViewPager$SavedState
 androidx.viewpager.widget.ViewPager$SimpleOnPageChangeListener
 androidx.viewpager.widget.ViewPager$ViewPositionComparator
 androidx.viewpager.widget.ViewPager
+com.assistant.AppKt
 com.assistant.DiagnosticsEngine
 com.assistant.ErrorActivity
 com.assistant.GlobalCrashHandlerKt
@@ -16140,6 +16141,8 @@ com.assistant.overlay.database.TheaterDatabase_Impl:
     public void clearAllTables()
 com.assistant.overlay.interceptor.ActiveGestureController
 com.assistant.overlay.interceptor.GodTierExecutionEngine
+com.assistant.overlay.interceptor.OmnipotentGoalkeeperEngine$executeDefensiveSwipe$1
+com.assistant.overlay.interceptor.OmnipotentGoalkeeperEngine
 com.assistant.overlay.interceptor.SmartAssistAccessibilityEngine
 com.assistant.overlay.interceptor.SmartAssistAccessibilityEngineKt
 com.assistant.overlay.storage.MediaStoreStorageEngine
